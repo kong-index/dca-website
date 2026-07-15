@@ -875,41 +875,6 @@
       opacity: 1;
     }
 
-    .record-title,
-    .record-label-blank {
-      position: absolute;
-      z-index: 3;
-      pointer-events: none;
-      transition: opacity var(--transition-base);
-    }
-
-    .record-title {
-      top: 50%;
-      left: 36%;
-      width: 42%;
-      aspect-ratio: 218 / 135;
-      background: transparent url("assets/identity/dca-handwritten-title-transparent.png") center / contain no-repeat;
-      transform: translate(-50%, -50%);
-      mix-blend-mode: normal;
-    }
-
-    .record-label-blank {
-      top: 50%;
-      left: 72.2%;
-      width: 15.5%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: #F6F6F6;
-      transform: translate(-50%, -50%);
-    }
-
-    .media-swap:hover .record-title,
-    .media-swap:hover .record-label-blank,
-    .media-swap:focus-visible .record-title,
-    .media-swap:focus-visible .record-label-blank {
-      opacity: 0;
-    }
-
     .name-label-drawing {
       display: grid;
       place-items: center;
@@ -2144,9 +2109,7 @@
 
             <figure class="archive-item" data-category="projects">
               <div class="archive-item__media drawn-media media-swap" tabindex="0">
-                <img class="media-swap__drawing" src="assets/illustrations/vinyl-dca-line.png" width="1254" height="1254" alt="빈 레이블의 레코드와 인쇄물 선 드로잉" loading="lazy">
-                <span class="record-title" aria-hidden="true"></span>
-                <span class="record-label-blank" aria-hidden="true"></span>
+                <img class="media-swap__drawing" src="assets/illustrations/vinyl-dca-handwritten-higgsfield.png" width="1200" height="1200" alt="deep couch archive 손글씨가 있는 LP 커버와 빈 레이블의 레코드 선 드로잉" loading="lazy">
                 <img class="media-swap__photo" src="assets/images/hover/print-card-english.png" width="640" height="640" alt="실제 Deep Couch Archive 영문 인쇄 카드" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
