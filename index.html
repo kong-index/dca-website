@@ -995,6 +995,163 @@
       border-radius: var(--radius-md);
     }
 
+    .design-specimen-stack {
+      display: grid;
+      gap: var(--space-6);
+      margin: var(--space-10) 0 var(--space-12);
+    }
+
+    .design-specimen {
+      overflow: hidden;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+    }
+
+    .design-specimen__label {
+      margin: 0;
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid var(--border-default);
+      color: var(--text-tertiary);
+      background: var(--surface-secondary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+    }
+
+    .type-specimen__content {
+      padding: var(--space-6);
+      background: var(--guide-bg-subtle);
+    }
+
+    .type-specimen__display {
+      margin: 0 0 var(--space-4);
+      color: var(--text-primary);
+      font-size: var(--font-size-4xl);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .type-specimen__heading {
+      margin: 0 0 var(--space-3);
+      color: var(--text-primary);
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .type-specimen__body {
+      max-width: 52ch;
+      margin: 0 0 var(--space-5);
+      color: var(--text-secondary);
+      font-size: var(--font-size-base);
+      line-height: 1.7;
+    }
+
+    .type-specimen__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2) var(--space-4);
+      margin: 0;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+    }
+
+    .layout-specimen {
+      display: grid;
+      grid-template-columns: 132px minmax(0, 1fr);
+      min-height: 220px;
+      background: var(--guide-bg-subtle);
+    }
+
+    .layout-specimen__index {
+      display: grid;
+      align-content: start;
+      gap: var(--space-3);
+      padding: var(--space-5) var(--space-4);
+      border-right: 1px solid var(--border-default);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+    }
+
+    .layout-specimen__index strong {
+      color: var(--text-primary);
+      font-family: var(--font-family);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+    }
+
+    .layout-specimen__content {
+      display: grid;
+      align-content: center;
+      gap: var(--space-3);
+      padding: var(--space-5) var(--space-6);
+    }
+
+    .layout-specimen__content strong {
+      color: var(--text-primary);
+      font-size: var(--font-size-xl);
+      line-height: 1.35;
+    }
+
+    .layout-specimen__line {
+      height: 1px;
+      background: var(--border-default);
+    }
+
+    .layout-specimen__line--short {
+      width: 72%;
+    }
+
+    .color-specimen {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .color-specimen__theme {
+      display: grid;
+      align-content: space-between;
+      min-height: 208px;
+      padding: var(--space-5);
+    }
+
+    .color-specimen__theme--dark {
+      color: #F4F4F1;
+      background: #101010;
+    }
+
+    .color-specimen__theme--light {
+      border-left: 1px solid var(--border-default);
+      color: #111111;
+      background: #F4F4F1;
+    }
+
+    .color-specimen__theme p {
+      margin: 0;
+    }
+
+    .color-specimen__name {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+    }
+
+    .color-specimen__copy {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .color-specimen__token {
+      color: inherit;
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      opacity: 0.68;
+    }
+
     table {
       width: 100%;
       min-width: var(--table-min-width);
@@ -1315,6 +1472,19 @@
 
       .archive-grid {
         grid-template-columns: repeat(4, 1fr);
+      }
+
+      .layout-specimen {
+        grid-template-columns: 104px minmax(0, 1fr);
+      }
+
+      .layout-specimen__content {
+        padding: var(--space-4);
+      }
+
+      .color-specimen__theme {
+        min-height: 176px;
+        padding: var(--space-4);
       }
 
       .archive-item {
@@ -1684,6 +1854,52 @@
           <p class="overline">WEBSITE DESIGN SYSTEM</p>
           <h2>보이는 방식보다, 읽고 쓰는 방식이 먼저다.</h2>
           <p class="body-copy">DCA의 웹사이트는 폰트나 색 자체로 멋을 부리기보다, 실제 자료를 읽고 찾고 비교하기 쉬운 위계와 그리드로 성격을 만든다. 아래 규칙은 화면을 새로 만들 때마다 먼저 확인한다.</p>
+
+          <div class="design-specimen-stack" aria-label="웹 디자인 원칙 시각 샘플">
+            <figure class="design-specimen type-specimen">
+              <figcaption class="design-specimen__label">TYPE SCALE / ACTUAL SAMPLE</figcaption>
+              <div class="type-specimen__content">
+                <p class="type-specimen__display">Deep Couch Archive</p>
+                <p class="type-specimen__heading">오래 읽히는 제목과, 조용한 정보의 위계.</p>
+                <p class="type-specimen__body">큰 제목은 현재 보기를 명확히 잡고, 본문은 실제 자료를 오래 읽을 수 있게 둔다. 날짜와 파일 정보는 본문보다 한 단계 물러나지만 언제든 찾을 수 있어야 한다.</p>
+                <p class="type-specimen__meta"><span>36px / 700 / 1.15</span><span>25px / 700 / 1.25</span><span>16px / 400 / 1.70</span><span>12px / MONO</span></p>
+              </div>
+            </figure>
+
+            <figure class="design-specimen">
+              <figcaption class="design-specimen__label">GRID / READING LANE</figcaption>
+              <div class="layout-specimen">
+                <div class="layout-specimen__index">
+                  <span>INDEX</span>
+                  <strong>Studio Method</strong>
+                  <span>Material Notes</span>
+                  <span>Design Principles</span>
+                </div>
+                <div class="layout-specimen__content">
+                  <span class="overline">680PX / VIEWPORT CENTRE</span>
+                  <strong>왼쪽 목차와 분리된, 화면 중심의 읽기 폭.</strong>
+                  <span class="layout-specimen__line"></span>
+                  <span class="layout-specimen__line layout-specimen__line--short"></span>
+                </div>
+              </div>
+            </figure>
+
+            <figure class="design-specimen">
+              <figcaption class="design-specimen__label">SURFACES / DARK AND LIGHT</figcaption>
+              <div class="color-specimen">
+                <div class="color-specimen__theme color-specimen__theme--dark">
+                  <p class="color-specimen__name">DARK / DEFAULT</p>
+                  <p class="color-specimen__copy">조용하고 정확한 작업 표면.</p>
+                  <p class="color-specimen__token">#101010 / #F4F4F1</p>
+                </div>
+                <div class="color-specimen__theme color-specimen__theme--light">
+                  <p class="color-specimen__name">LIGHT / READING</p>
+                  <p class="color-specimen__copy">오래 읽기 위한 밝은 대안.</p>
+                  <p class="color-specimen__token">#F4F4F1 / #111111</p>
+                </div>
+              </div>
+            </figure>
+          </div>
 
           <h3>위계와 그리드</h3>
           <div class="table-wrap">
@@ -2106,6 +2322,11 @@
         "빌린 구조 안의 내용을 DCA 자료로 교체한다.": "Replace the borrowed structure's content with DCA material.",
         "보이는 방식보다, 읽고 쓰는 방식이 먼저다.": "How it is read and used comes before how it looks.",
         "DCA의 웹사이트는 폰트나 색 자체로 멋을 부리기보다, 실제 자료를 읽고 찾고 비교하기 쉬운 위계와 그리드로 성격을 만든다. 아래 규칙은 화면을 새로 만들 때마다 먼저 확인한다.": "Rather than relying on type or colour for style, the DCA website builds character through hierarchy and grids that make real material easy to read, find, and compare. Check these rules before building a new screen.",
+        "오래 읽히는 제목과, 조용한 정보의 위계.": "Headings built for reading, with a quiet hierarchy for information.",
+        "큰 제목은 현재 보기를 명확히 잡고, 본문은 실제 자료를 오래 읽을 수 있게 둔다. 날짜와 파일 정보는 본문보다 한 단계 물러나지만 언제든 찾을 수 있어야 한다.": "Large headings establish the current view, while body text keeps real material comfortable to read. Dates and file information step back, but remain easy to find.",
+        "왼쪽 목차와 분리된, 화면 중심의 읽기 폭.": "A viewport-centred reading lane, separated from the left index.",
+        "조용하고 정확한 작업 표면.": "A quiet, precise working surface.",
+        "오래 읽기 위한 밝은 대안.": "A lighter alternative for extended reading.",
         "위계와 그리드": "Hierarchy and grid",
         "요소": "Element",
         "규격": "Specification",
