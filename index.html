@@ -1,0 +1,2411 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deep Couch Archive - Sound Studio Field Guide</title>
+  <meta name="description" content="Deep Couch Archive의 사운드 스튜디오, 장비, 작업복, 라벨, 제작 기록을 정리한 첫 웹사이트 프로토타입.">
+  <meta name="theme-color" content="#101010">
+  <meta property="og:title" content="Deep Couch Archive">
+  <meta property="og:description" content="소리, 공간, 사람, 물성, 태도가 맞물리는 사운드 스튜디오 아카이브.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/audio-rack-equipment.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101010'/%3E%3Cpath d='M8 18h16M8 14h16M10 10h12M10 22h12' stroke='%23F4F4F1' stroke-width='2' stroke-linecap='square'/%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="assets/images/audio-rack-equipment.jpg" fetchpriority="high">
+  <style>
+    :root {
+      color-scheme: dark;
+      --surface-primary: #101010;
+      --surface-secondary: #171717;
+      --surface-elevated: #232323;
+      --text-primary: #F4F4F1;
+      --text-secondary: #B6B6AE;
+      --text-tertiary: #72726C;
+      --border-default: #353535;
+      --border-subtle: #262626;
+      --accent-primary: #5F7DFF;
+      --accent-workwear: #7FA1B8;
+      --accent-label-red: #E15A4F;
+      --material-tape: #5C5549;
+      --guide-bg: #111111;
+      --guide-bg-subtle: #1A1A1A;
+      --guide-text: #E5E5E5;
+      --guide-text-muted: #666666;
+      --guide-link: #6BB3FF;
+      --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, "SF Mono", "Monaco", "Consolas", "JetBrains Mono", monospace;
+      --font-size-xs: 0.75rem;
+      --font-size-sm: 0.875rem;
+      --font-size-base: 1rem;
+      --font-size-lg: 1.125rem;
+      --font-size-xl: 1.3125rem;
+      --font-size-2xl: 1.5625rem;
+      --font-size-3xl: 1.875rem;
+      --font-size-4xl: 2.25rem;
+      --font-size-5xl: 2.7rem;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+      --max-content: 1440px;
+      --guide-column: 680px;
+      --toc-width: 200px;
+      --wide-content: 1120px;
+      --header-height: 64px;
+      --part-index-col: 80px;
+      --part-index-col-mobile: 64px;
+      --media-ratio-square: 1 / 1;
+      --archive-caption-height: 168px;
+      --evidence-min-height: 180px;
+      --table-min-width: 640px;
+      --sequence-index-col: 88px;
+      --checklist-marker-col: 28px;
+      --checklist-box-size: 16px;
+      --section-nav-min-height: 96px;
+      --control-height: 36px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --transition-fast: 150ms ease-out;
+      --transition-base: 220ms ease-in-out;
+      --transition-slow: 520ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="light"] {
+      color-scheme: light;
+      --surface-primary: #F4F4F1;
+      --surface-secondary: #FFFFFF;
+      --surface-elevated: #E9E7E1;
+      --text-primary: #111111;
+      --text-secondary: #5D5F5C;
+      --text-tertiary: #8A8A82;
+      --border-default: #CFCBC2;
+      --border-subtle: #E0DDD5;
+      --accent-primary: #1647FF;
+      --accent-workwear: #496D86;
+      --accent-label-red: #B92318;
+      --material-tape: #DED5C4;
+      --guide-bg: #FFFFFF;
+      --guide-bg-subtle: #FAFAFA;
+      --guide-text: #1A1A1A;
+      --guide-text-muted: #999999;
+      --guide-link: #0066CC;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+      line-height: 1.7;
+      color: var(--text-primary);
+      background: var(--surface-primary);
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      background: var(--surface-secondary);
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 80;
+      height: 2px;
+      background: transparent;
+    }
+
+    .progress__bar {
+      width: 0%;
+      height: 100%;
+      background: var(--accent-primary);
+      transform-origin: left center;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 70;
+      min-height: var(--header-height);
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--surface-primary);
+    }
+
+    .site-header__inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      width: min(100%, var(--max-content));
+      min-height: var(--header-height);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+      gap: var(--space-4);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: var(--space-2);
+      width: fit-content;
+      font-weight: 600;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .brand__mark {
+      font-size: var(--font-size-base);
+      color: var(--text-primary);
+    }
+
+    .brand__legal {
+      font-size: var(--font-size-xs);
+      color: var(--text-tertiary);
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+    }
+
+    .site-nav__link {
+      appearance: none;
+      padding: var(--space-2) 0;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      color: inherit;
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+      transition: color var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .site-nav__utility {
+      color: var(--text-secondary);
+    }
+
+    .site-nav__search {
+      width: 30px;
+      min-width: 30px;
+      height: 30px;
+      margin-inline-start: calc(var(--space-2) * -1);
+    }
+
+    .site-nav__search:hover {
+      border-color: transparent;
+      background: transparent;
+    }
+
+    .site-nav__link:hover,
+    .site-nav__link[aria-current="page"] {
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: var(--space-2);
+    }
+
+    .icon-button {
+      position: relative;
+      display: inline-grid;
+      place-items: center;
+      width: var(--control-height);
+      min-width: var(--control-height);
+      height: var(--control-height);
+      padding: 0;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      background: transparent;
+      cursor: pointer;
+      transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .icon-button:hover {
+      color: var(--text-primary);
+      border-color: var(--border-default);
+      background: var(--surface-secondary);
+    }
+
+    .icon-button svg {
+      width: 17px;
+      height: 17px;
+      stroke-width: 1.6;
+    }
+
+    .language-menu {
+      position: relative;
+    }
+
+    .language-toggle {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--control-height);
+      gap: var(--space-1);
+      padding: 0 var(--space-2);
+      border: 0;
+      color: var(--text-secondary);
+      background: transparent;
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      cursor: pointer;
+      transition: color var(--transition-fast);
+    }
+
+    .language-toggle:hover,
+    .language-toggle[aria-expanded="true"] {
+      color: var(--text-primary);
+    }
+
+    .language-toggle svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 1.6;
+      transition: transform var(--transition-fast);
+    }
+
+    .language-toggle[aria-expanded="true"] svg {
+      transform: rotate(180deg);
+    }
+
+    .language-popover {
+      position: absolute;
+      top: calc(100% + var(--space-2));
+      right: 0;
+      z-index: 90;
+      display: grid;
+      min-width: 108px;
+      padding: var(--space-1);
+      border: 1px solid var(--border-default);
+      background: var(--surface-elevated);
+    }
+
+    .language-popover[hidden] {
+      display: none;
+    }
+
+    .language-popover button {
+      min-height: 32px;
+      padding: 0 var(--space-2);
+      border: 0;
+      color: var(--text-secondary);
+      background: transparent;
+      font: inherit;
+      font-size: var(--font-size-sm);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .language-popover button:hover,
+    .language-popover button[aria-current="true"] {
+      color: var(--text-primary);
+      background: var(--surface-secondary);
+    }
+
+    .icon-button::after {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      z-index: 100;
+      width: max-content;
+      max-width: 180px;
+      padding: 5px 7px;
+      border: 1px solid var(--border-default);
+      color: var(--text-primary);
+      background: var(--surface-elevated);
+      content: attr(data-tooltip);
+      font-size: var(--font-size-xs);
+      line-height: 1.35;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-2px);
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .icon-button:hover::after,
+    .icon-button:focus-visible::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .text-button {
+      min-height: var(--control-height);
+      padding: 0 var(--space-3);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      background: transparent;
+      cursor: pointer;
+      transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .text-button:hover {
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+      background: var(--surface-secondary);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .utility-dialog {
+      width: min(560px, calc(100vw - 32px));
+      max-height: min(680px, calc(100dvh - 32px));
+      margin: auto;
+      padding: 0;
+      overflow: auto;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      background: var(--surface-primary);
+    }
+
+    .utility-dialog::backdrop {
+      background: color-mix(in srgb, #000 66%, transparent);
+    }
+
+    .utility-dialog__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 56px;
+      padding: 0 var(--space-5);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .utility-dialog__body {
+      padding: var(--space-6);
+    }
+
+    .utility-dialog__body h2 {
+      margin: 0 0 var(--space-3);
+      font-size: var(--font-size-2xl);
+    }
+
+    .utility-dialog__body p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: var(--font-size-sm);
+    }
+
+    .search-input {
+      width: 100%;
+      min-height: 48px;
+      margin: var(--space-5) 0 var(--space-3);
+      padding: 0 var(--space-3);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      outline: 0;
+      color: var(--text-primary);
+      background: var(--surface-secondary);
+      font: inherit;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-primary) 22%, transparent);
+    }
+
+    .search-results {
+      display: grid;
+      margin-top: var(--space-4);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .search-result {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-3);
+      align-items: center;
+      width: 100%;
+      min-height: 64px;
+      padding: var(--space-3) 0;
+      border: 0;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .search-result:hover strong {
+      color: var(--accent-primary);
+    }
+
+    .search-result strong,
+    .search-result span {
+      display: block;
+    }
+
+    .search-result strong {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+    }
+
+    .search-result span,
+    .search-status,
+    .contact-status {
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+    }
+
+    .contact-note {
+      display: grid;
+      gap: var(--space-3);
+      margin: var(--space-5) 0;
+      padding: var(--space-4);
+      border: 1px solid var(--border-default);
+      background: var(--surface-secondary);
+    }
+
+    .contact-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .mobile-utility {
+      display: none;
+    }
+
+    .guide-shell {
+      display: grid;
+      grid-template-columns: minmax(var(--toc-width), var(--toc-width)) minmax(0, 1fr);
+      gap: var(--space-16);
+      width: min(100%, var(--max-content));
+      margin: 0 auto;
+      padding: var(--space-16) var(--space-6) var(--space-20);
+    }
+
+    .toc {
+      position: sticky;
+      top: calc(var(--header-height) + var(--space-8));
+      align-self: start;
+      max-height: calc(100dvh - var(--header-height) - var(--space-16));
+      overflow: auto;
+      color: var(--text-tertiary);
+      font-size: var(--font-size-sm);
+    }
+
+    .toc__eyebrow,
+    .overline {
+      margin: 0 0 var(--space-3);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+      color: var(--text-tertiary);
+    }
+
+    .toc__list {
+      display: grid;
+      gap: var(--space-1);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc__link {
+      display: block;
+      padding: var(--space-1) 0;
+      color: var(--text-tertiary);
+      transition: color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .toc__link:hover,
+    .toc__link.is-active {
+      color: var(--text-primary);
+      transform: translateX(4px);
+    }
+
+    .mobile-toc__primary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-2);
+      margin: var(--space-4) 0 var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .mobile-toc__primary button {
+      min-height: var(--control-height);
+      padding: 0 var(--space-3);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      background: transparent;
+      font: inherit;
+      font-size: var(--font-size-sm);
+      text-align: left;
+    }
+
+    .mobile-toc__primary button[aria-current="page"] {
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+      background: var(--surface-secondary);
+    }
+
+    .guide-main {
+      min-width: 0;
+    }
+
+    .article-column {
+      width: min(100%, var(--guide-column));
+    }
+
+    .hero {
+      padding: var(--space-8) 0 var(--space-12);
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2) var(--space-4);
+      margin-bottom: var(--space-8);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      color: var(--text-tertiary);
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    li,
+    figcaption,
+    th,
+    td {
+      margin-top: 0;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    h1 {
+      margin-bottom: var(--space-6);
+      font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-5xl));
+      line-height: 1.12;
+      letter-spacing: 0;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin-bottom: var(--space-6);
+      font-size: var(--font-size-2xl);
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: var(--space-3);
+      font-size: var(--font-size-xl);
+      line-height: 1.35;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin-bottom: var(--space-6);
+      color: var(--text-secondary);
+      font-size: var(--font-size-lg);
+      line-height: 1.75;
+    }
+
+    .body-copy {
+      margin-bottom: var(--space-5);
+      color: var(--text-secondary);
+    }
+
+    .quiet {
+      color: var(--text-tertiary);
+    }
+
+    .section {
+      padding: var(--space-16) 0;
+      border-top: 1px solid var(--border-subtle);
+      scroll-margin-top: calc(var(--header-height) + var(--space-6));
+    }
+
+    .hero-media,
+    .media-frame {
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--surface-secondary);
+    }
+
+    .hero-media {
+      margin-top: var(--space-10);
+    }
+
+    .hero-media__visual,
+    .media-frame__visual,
+    .archive-item__media {
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: var(--surface-elevated);
+      aspect-ratio: var(--media-ratio-square);
+    }
+
+    .hero-media__visual img,
+    .media-frame__visual img,
+    .archive-item__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.82) contrast(1.04);
+    }
+
+    .media-focus--rack img { object-position: 50% 46%; }
+    .media-focus--jacket-pair img { object-position: 50% 43%; }
+    .media-focus--denim-shirt img { object-position: 54% 40%; }
+    .media-focus--jacket-label img { object-position: 49% 53%; }
+    .media-focus--denim-label-01 img { object-position: 48% 54%; }
+    .media-focus--denim-label-02 img { object-position: 52% 54%; }
+    .media-focus--cap img { object-position: 50% 48%; }
+    .media-focus--print-english img { object-position: 49% 44%; }
+    .media-focus--print-korean img { object-position: 50% 42%; }
+
+    .caption {
+      display: grid;
+      gap: var(--space-1);
+      padding: var(--space-3);
+      border-top: 1px solid var(--border-subtle);
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+      background: var(--surface-secondary);
+    }
+
+    .caption code,
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.92em;
+      color: var(--text-primary);
+      background: var(--guide-bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 2px 6px;
+      word-break: break-all;
+      overflow-wrap: anywhere;
+    }
+
+    .update-note {
+      margin-top: var(--space-8);
+      padding: var(--space-5);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      background: var(--guide-bg-subtle);
+    }
+
+    .update-note p {
+      margin-bottom: 0;
+      color: var(--text-secondary);
+    }
+
+    .part-list {
+      display: grid;
+      gap: 0;
+      margin: var(--space-8) 0 0;
+      padding: 0;
+      border-top: 1px solid var(--border-default);
+      list-style: none;
+    }
+
+    .part-list a {
+      display: grid;
+      grid-template-columns: var(--part-index-col) 1fr auto;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+    }
+
+    .part-list a:hover {
+      color: var(--text-primary);
+    }
+
+    .part-list__index {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      color: var(--text-tertiary);
+    }
+
+    .part-list__title {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .part-list__meta {
+      justify-self: end;
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      color: var(--text-tertiary);
+    }
+
+    .wide-section {
+      width: min(100%, var(--wide-content));
+    }
+
+    .archive-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-6);
+      align-items: end;
+      margin-bottom: var(--space-8);
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: var(--space-2);
+    }
+
+    .filter-button {
+      min-height: var(--control-height);
+      padding: 0 var(--space-3);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      background: transparent;
+      cursor: pointer;
+      transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .filter-button:hover,
+    .filter-button.is-active {
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+      background: var(--surface-secondary);
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-4);
+    }
+
+    .archive-item {
+      grid-column: span 4;
+      display: grid;
+      grid-template-rows: auto var(--archive-caption-height);
+      overflow: hidden;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      background: var(--surface-secondary);
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity var(--transition-base), transform var(--transition-base), border-color var(--transition-fast);
+    }
+
+    .archive-item:hover {
+      border-color: var(--text-primary);
+    }
+
+    .archive-item.is-hidden {
+      display: none;
+    }
+
+    .archive-item__media {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .archive-item__body {
+      display: grid;
+      grid-template-rows: auto minmax(0, 2.8em) minmax(0, 1fr);
+      align-content: start;
+      gap: var(--space-2);
+      min-height: 0;
+      padding: var(--space-4);
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .archive-item__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      color: var(--text-tertiary);
+    }
+
+    .archive-item__title {
+      margin: 0;
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--text-primary);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+
+    .archive-item__note {
+      margin: 0;
+      font-size: var(--font-size-sm);
+      line-height: 1.55;
+      color: var(--text-secondary);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+
+    .archive-item__media--identity {
+      padding: var(--space-5);
+      background: var(--surface-elevated);
+    }
+
+    .archive-item__identity-mark {
+      display: grid;
+      align-content: space-between;
+      width: 100%;
+      height: 100%;
+      padding: var(--space-4);
+      box-sizing: border-box;
+      border: 1px solid var(--border-default);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+    }
+
+    .archive-item__identity-mark strong {
+      color: var(--text-primary);
+      font-family: var(--font-family);
+      font-size: var(--font-size-2xl);
+      font-weight: 600;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+
+    .evidence-cell {
+      min-height: var(--evidence-min-height);
+      padding: var(--space-5);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      background: var(--guide-bg-subtle);
+    }
+
+    .evidence-cell p {
+      margin-bottom: 0;
+      color: var(--text-secondary);
+      font-size: var(--font-size-sm);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: var(--space-8) 0 0;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+    }
+
+    table {
+      width: 100%;
+      min-width: var(--table-min-width);
+      border-collapse: collapse;
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+    }
+
+    th,
+    td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    th {
+      color: var(--text-primary);
+      font-weight: 600;
+      background: var(--guide-bg-subtle);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: var(--space-6);
+      align-items: start;
+      margin-top: var(--space-8);
+    }
+
+    .sequence {
+      display: grid;
+      gap: 0;
+      margin: var(--space-8) 0 0;
+      padding: 0;
+      border-top: 1px solid var(--border-default);
+      list-style: none;
+    }
+
+    .sequence li {
+      display: grid;
+      grid-template-columns: var(--sequence-index-col) 1fr;
+      gap: var(--space-4);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .sequence__step {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      color: var(--text-tertiary);
+    }
+
+    .sequence h3 {
+      margin-bottom: var(--space-1);
+      font-size: var(--font-size-base);
+    }
+
+    .sequence p {
+      margin-bottom: 0;
+      color: var(--text-secondary);
+    }
+
+    .checklist {
+      display: grid;
+      gap: var(--space-2);
+      margin: var(--space-8) 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      display: grid;
+      grid-template-columns: var(--checklist-marker-col) 1fr;
+      gap: var(--space-3);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+    }
+
+    .checklist__box {
+      width: var(--checklist-box-size);
+      height: var(--checklist-box-size);
+      margin-top: var(--space-1);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      background: var(--guide-bg-subtle);
+    }
+
+    .section-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      width: min(100%, var(--guide-column));
+      margin-top: var(--space-12);
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .section-nav a {
+      display: grid;
+      gap: var(--space-1);
+      min-height: var(--section-nav-min-height);
+      padding: var(--space-4);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      background: var(--surface-secondary);
+    }
+
+    .section-nav a:hover {
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    .section-nav span {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      color: var(--text-tertiary);
+    }
+
+    .section-nav strong {
+      color: var(--text-primary);
+      font-size: var(--font-size-base);
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: var(--space-6);
+      bottom: var(--space-6);
+      z-index: 60;
+      min-width: 44px;
+      min-height: 44px;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      background: var(--surface-secondary);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity var(--transition-base), transform var(--transition-base), border-color var(--transition-fast);
+    }
+
+    .back-to-top.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border-default);
+      padding: var(--space-8) var(--space-6);
+      color: var(--text-tertiary);
+      font-size: var(--font-size-sm);
+    }
+
+    .site-footer__inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-4);
+      width: min(100%, var(--max-content));
+      margin: 0 auto;
+    }
+
+    .mobile-toc {
+      position: fixed;
+      inset: auto 0 0;
+      z-index: 90;
+      display: none;
+      max-height: 72dvh;
+      padding: var(--space-6);
+      border-top: 1px solid var(--border-default);
+      background: var(--surface-primary);
+      transform: translateY(100%);
+      transition: transform var(--transition-base);
+    }
+
+    .mobile-toc.is-open {
+      transform: translateY(0);
+    }
+
+    .mobile-toc__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-5);
+    }
+
+    .mobile-toc__links {
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .mobile-toc__links a {
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+    }
+
+    .mobile-toc__links a.is-active {
+      color: var(--text-primary);
+    }
+
+    .scrim {
+      position: fixed;
+      inset: 0;
+      z-index: 85;
+      display: none;
+      background: color-mix(in srgb, var(--surface-primary) 84%, transparent);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+    }
+
+    .scrim.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-toc[hidden],
+    .scrim[hidden] {
+      display: none !important;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity var(--transition-slow), transform var(--transition-slow);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .guide-shell {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .toc {
+        display: none;
+      }
+
+      .article-column,
+      .wide-section,
+      .section-nav {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-header__inner {
+        grid-template-columns: 1fr auto;
+        padding: 0 var(--space-4);
+      }
+
+      .site-nav {
+        display: none;
+      }
+
+      .header-actions {
+        gap: var(--space-2);
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-utility {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-2);
+        margin: var(--space-6) 0 0;
+        padding-top: var(--space-4);
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .mobile-utility .text-button {
+        text-align: left;
+      }
+
+      .guide-shell {
+        padding: var(--space-8) var(--space-4) var(--space-16);
+      }
+
+      .hero {
+        padding-top: var(--space-6);
+      }
+
+      .section {
+        padding: var(--space-12) 0;
+      }
+
+      .part-list a {
+        grid-template-columns: var(--part-index-col-mobile) 1fr;
+      }
+
+      .part-list__meta {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .archive-head {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .filter-bar {
+        justify-content: flex-start;
+      }
+
+      .archive-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .archive-item {
+        grid-column: span 4;
+      }
+
+      .evidence-grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .section-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .mobile-toc,
+      .scrim {
+        display: block;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-actions {
+        gap: 4px;
+      }
+
+      .icon-button {
+        width: 32px;
+        min-width: 32px;
+        height: 32px;
+      }
+
+      .language-toggle {
+        min-height: 32px;
+        padding: 0 var(--space-2);
+      }
+
+      .header-actions .text-button {
+        min-height: 32px;
+        padding: 0 var(--space-2);
+      }
+
+      h1 {
+        font-size: var(--font-size-4xl);
+      }
+
+      .brand__legal {
+        display: none;
+      }
+
+      .sequence li {
+        grid-template-columns: 1fr;
+      }
+
+      .back-to-top {
+        right: var(--space-4);
+        bottom: var(--space-4);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#projects" aria-label="Deep Couch Archive 홈">
+        <span class="brand__mark">deep couch archive</span>
+        <span class="brand__legal">(주)</span>
+      </a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <button class="site-nav__link site-nav__utility" type="button" data-view-trigger="dca" aria-current="false">소개</button>
+        <button class="site-nav__link" type="button" data-view-trigger="projects" aria-current="page">Projects</button>
+        <button class="site-nav__link" type="button" data-view-trigger="studio" aria-current="false">Studio</button>
+        <button class="site-nav__link" type="button" data-view-trigger="archive" aria-current="false">Archive</button>
+        <button class="site-nav__link site-nav__utility" type="button" data-view-trigger="contact" aria-current="false">연락처</button>
+        <button class="icon-button site-nav__search" type="button" id="searchTrigger" aria-label="검색 열기" data-tooltip="검색">
+          <i data-lucide="search" aria-hidden="true"></i>
+        </button>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" type="button" id="themeToggle" aria-label="라이트 모드로 전환" data-tooltip="라이트 모드">
+          <i data-lucide="sun" aria-hidden="true"></i>
+        </button>
+        <div class="language-menu" id="languageMenu">
+          <button class="language-toggle" type="button" id="languageToggle" aria-haspopup="true" aria-expanded="false" aria-controls="languagePopover" aria-label="언어 선택: 한국어">
+            <span id="languageLabel">한국어</span><i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="language-popover" id="languagePopover" role="menu" hidden>
+            <button type="button" role="menuitem" data-language="ko" aria-current="true">한국어</button>
+            <button type="button" role="menuitem" data-language="en" aria-current="false">English</button>
+          </div>
+        </div>
+        <button class="text-button menu-toggle" type="button" id="menuToggle" aria-controls="mobileToc" aria-expanded="false">Index</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="guide-shell" id="top">
+    <aside class="toc" aria-label="페이지 목차">
+      <p class="toc__eyebrow" id="tocEyebrow">DCA / PROJECTS</p>
+      <ol class="toc__list" id="tocList">
+        <li><a class="toc__link" href="#overview">Current Work</a></li>
+        <li><a class="toc__link" href="#launch">Release Path</a></li>
+      </ol>
+    </aside>
+
+    <main class="guide-main" id="pageContent">
+      <article aria-labelledby="pageTitle">
+        <section class="hero article-column reveal" id="overview" data-section-title="Current Work" data-view="projects">
+          <div class="meta-row">
+            <span>DCA / Website Prototype</span>
+            <span>2026-07-14</span>
+            <span>Sound Studio Archive</span>
+          </div>
+          <h1 id="pageTitle">Deep Couch Archive</h1>
+          <p class="lead">소리, 공간, 사람, 물성, 태도가 맞물리는 사운드 스튜디오 아카이브. 지금은 브랜드를 설명하는 페이지보다, 실제로 작동하는 공간의 증거를 먼저 보여주는 웹사이트가 필요하다.</p>
+          <p class="body-copy">이 첫 프로토타입은 DCA의 장비 사진, 작업복, 라벨, 프린트 레퍼런스, 손글씨 원본을 하나의 필드 가이드로 묶는다. 구조는 Blake Crosley의 긴 가이드 페이지에 가깝고, 자료 배열은 Universal Everything의 아카이브식 탐색을 참고한다.</p>
+
+          <div class="update-note">
+            <p><strong>2026-07-14 업데이트.</strong> 첫 웹사이트는 과장된 랜딩페이지가 아니라 DCA가 이미 가진 자료를 검토 가능한 인덱스로 보여준다. 판단 기준은 진짜 물성, 실제 맥락, 사람의 행동이다.</p>
+          </div>
+
+          <figure class="hero-media">
+            <div class="hero-media__visual media-focus--rack">
+              <img src="assets/images/audio-rack-equipment.jpg" width="1800" height="1350" alt="Deep Couch Archive 스튜디오 장비 랙 사진" fetchpriority="high">
+            </div>
+            <figcaption class="caption">
+              <span>Studio Archive / Equipment / 2026-03-08</span>
+              <span>브랜드의 첫 증거는 로고가 아니라 실제로 놓인 장비와 방의 공기다.</span>
+            </figcaption>
+          </figure>
+
+          <ol class="part-list" aria-label="페이지 구성">
+            <li><a href="#archive"><span class="part-list__index">Part 01</span><span class="part-list__title">자료를 먼저 보여주는 아카이브 인덱스</span><span class="part-list__meta">9 records</span></a></li>
+            <li><a href="#field-guide"><span class="part-list__index">Part 02</span><span class="part-list__title">DCA답게 판단하는 필드 가이드</span><span class="part-list__meta">3 filters</span></a></li>
+            <li><a href="#material"><span class="part-list__index">Part 03</span><span class="part-list__title">작업복, 라벨, 손글씨가 만드는 물성</span><span class="part-list__meta">material notes</span></a></li>
+            <li><a href="#launch"><span class="part-list__index">Part 04</span><span class="part-list__title">웹사이트, 카탈로그, SNS로 이어지는 런칭 순서</span><span class="part-list__meta">working sequence</span></a></li>
+          </ol>
+        </section>
+
+        <section class="section wide-section reveal" id="archive" data-section-title="Archive Index" data-view="archive" hidden>
+          <div class="archive-head">
+            <div class="article-column">
+              <p class="overline">ARCHIVE INDEX</p>
+              <h2>자료가 먼저 말하게 한다.</h2>
+              <p class="body-copy">DCA의 첫 화면은 추상적인 브랜드 문구보다 실제 자료를 정렬해서 보여주는 편이 맞다. 장비, 작업복, 라벨, 프린트, 아이덴티티 원본은 모두 다른 용도지만 하나의 운영 흔적으로 읽혀야 한다.</p>
+            </div>
+            <div class="filter-bar" aria-label="아카이브 필터">
+              <button class="filter-button is-active" type="button" data-filter="all">All</button>
+              <button class="filter-button" type="button" data-filter="studio">Studio</button>
+              <button class="filter-button" type="button" data-filter="workwear">Workwear</button>
+              <button class="filter-button" type="button" data-filter="object">Object</button>
+              <button class="filter-button" type="button" data-filter="print">Print</button>
+              <button class="filter-button" type="button" data-filter="identity">Identity</button>
+            </div>
+          </div>
+
+          <div class="archive-grid" id="archiveGrid">
+            <figure class="archive-item" data-category="studio">
+              <div class="archive-item__media media-focus--rack">
+                <img src="assets/images/audio-rack-equipment.jpg" width="1800" height="1350" alt="스튜디오 장비 랙 아카이브 사진" loading="eager">
+              </div>
+              <figcaption class="archive-item__body">
+                <span class="archive-item__meta"><span>Studio</span><span>2026-03-08</span><span>Equipment</span></span>
+                <h3 class="archive-item__title">Audio rack equipment snapshot</h3>
+                <p class="archive-item__note">DCA가 사운드 스튜디오라는 사실을 가장 먼저 증명하는 첫 기록.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="archive-item" data-category="workwear">
+              <div class="archive-item__media media-focus--jacket-pair">
+                <img src="assets/images/work-jackets-chambray-pair.jpg" width="1350" height="1800" alt="두 벌의 샴브레이 작업복 사진" loading="lazy">
+              </div>
+              <figcaption class="archive-item__body">
+                <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Pair</span></span>
+                <h3 class="archive-item__title">Chambray work jackets</h3>
+                <p class="archive-item__note">홍보용 굿즈보다 실제 현장에서 입을 수 있는 물건에 가깝다.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="archive-item" data-category="workwear">
+              <div class="archive-item__media media-focus--denim-shirt">
+                <img src="assets/images/denim-work-shirt-full.jpg" width="1350" height="1800" alt="데님 작업 셔츠 전체 사진" loading="lazy">
+              </div>
+              <figcaption class="archive-item__body">
+                <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Full view</span></span>
+                <h3 class="archive-item__title">Denim work shirt</h3>
+                <p class="archive-item__note">로고를 크게 말하지 않고, 입는 사람의 행동 안에서 자연스럽게 드러나는 방향.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="archive-item" data-category="workwear">
+              <div class="archive-item__media media-focus--jacket-label">
+                <img src="assets/images/work-jacket-korean-label.jpg" width="1600" height="1200" alt="작업 재킷의 한글 이름 라벨 클로즈업" loading="lazy">
+              </div>
+              <figcaption class="archive-item__body">
+                <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Label</span></span>
+                <h3 class="archive-item__title">Korean name label</h3>
+                <p class="archive-item__note">한글 자연어와 실제 물성이 만나는 작은 접점. DCA의 말투를 담기 좋다.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="archive-item" data-category="workwear">
+              <div class="archive-item__media media-focus--denim-label-01">
+                <img src="assets/images/denim-name-label-01.jpg" width="1600" height="1200" alt="데님 셔츠 이름 라벨 클로즈업 1" loading="lazy">
+              </div>
+              <figcaption class="archive-item__body">
+                <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Label 01</span></span>
+                <h3 class="archive-item__title">Denim label close-up 01</h3>
+                <p class="archive-item__note">사진에서만 멋있는지, 실제로 손에 잡히는지 확인해야 하는 자료.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="archive-item" data-category="workwear">
+              <div class="archive-item__media media-focus--denim-label-02">
+                <img src="assets/images/denim-name-label-02.jpg" width="1600" height="1200" alt="데님 셔츠 이름 라벨 클로즈업 2" loading="lazy">
+              </div>
+              <figcaption class="archive-item__body">
+                <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Label 02</span></span>
+                <h3 class="archive-item__title">Denim label close-up 02</h3>
+                <p class="archive-item__note">라벨은 장식보다 사용 흔적을 받아낼 수 있어야 한다.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="archive-item" data-category="object">
+              <div class="archive-item__media media-focus--cap">
+                <img src="assets/images/cap-reference-washed-logo.jpg" width="1400" height="1299" alt="워시드 캡과 작은 자수 로고 레퍼런스" loading="lazy">
+              </div>
+              <figcaption class="archive-item__body">
+                <span class="archive-item__meta"><span>Object</span><span>2026-07-14</span><span>Cap reference</span></span>
+                <h3 class="archive-item__title">Washed cap reference</h3>
+                <p class="archive-item__note">팔기 위한 모자보다 자연스럽게 쓰고 남는 모자에 가까운 기준.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="archive-item" data-category="print">
+              <div class="archive-item__media media-focus--print-english">
+                <img src="assets/images/print-preview-english-card.png" width="736" height="1600" alt="영문 프린트 카드 미리보기" loading="lazy">
+              </div>
+              <figcaption class="archive-item__body">
+                <span class="archive-item__meta"><span>Print</span><span>2026-07-09</span><span>English</span></span>
+                <h3 class="archive-item__title">English print preview</h3>
+                <p class="archive-item__note">카탈로그, 카드, 웹 캡션으로 확장할 수 있는 인쇄 방향.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="archive-item" data-category="print">
+              <div class="archive-item__media media-focus--print-korean">
+                <img src="assets/images/print-preview-korean-label.png" width="736" height="1600" alt="한글 라벨 프린트 미리보기" loading="lazy">
+              </div>
+              <figcaption class="archive-item__body">
+                <span class="archive-item__meta"><span>Print</span><span>2026-07-09</span><span>Korean</span></span>
+                <h3 class="archive-item__title">Korean label preview</h3>
+                <p class="archive-item__note">DCA가 한국어 자연어로 판단하고 기록한다는 방향과 맞닿아 있다.</p>
+              </figcaption>
+            </figure>
+
+            <div class="archive-item" data-category="identity">
+              <div class="archive-item__media archive-item__media--identity" aria-hidden="true">
+                <div class="archive-item__identity-mark">
+                  <span>Archive source / 2026-07-14</span>
+                  <strong>DCA</strong>
+                  <span>Identity / Wordmark</span>
+                </div>
+              </div>
+              <div class="archive-item__body">
+                <span class="archive-item__meta"><span>Identity</span><span>2026-07-14</span><span>AI source</span></span>
+                <h3 class="archive-item__title">Handwritten wordmark source</h3>
+                <p class="archive-item__note">손글씨 원본은 로고, 라벨, 인쇄물 제작 소스로 관리한다.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section article-column reveal" id="field-guide" data-section-title="Studio Method" data-view="studio" hidden>
+          <p class="overline">FIELD GUIDE</p>
+          <h2>DCA답게 보이는가보다, 실제로 작동하는가.</h2>
+          <p class="body-copy">이 사이트의 모든 섹션은 세 가지 질문을 통과해야 한다. 사진에서만 좋은지, 실제 스튜디오 맥락에서 자연스러운지, 사람이 강요 없이 쓰고 싶어 하는지.</p>
+
+          <div class="evidence-grid">
+            <div class="evidence-cell">
+              <h3>진짜 물성</h3>
+              <p>이미지 속 질감이 실제로 만졌을 때도 설득되는가. 라벨, 작업복, 장비는 시간이 지나도 버틸 수 있어야 한다.</p>
+            </div>
+            <div class="evidence-cell">
+              <h3>실제 맥락</h3>
+              <p>DCA라는 사운드 스튜디오 안에 놓였을 때 뜨지 않는가. 브랜드 놀이가 아니라 운영의 흔적인가.</p>
+            </div>
+            <div class="evidence-cell">
+              <h3>사람의 행동</h3>
+              <p>아티스트와 엔지니어가 자연스럽게 입고, 쓰고, 열어보고, 다시 보관하고 싶어 하는가.</p>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>자연어 판단</th>
+                  <th>디자인 번역</th>
+                  <th>DCA 적용</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>브랜드 놀이 같다</td>
+                  <td>실제 운영 흔적 부족</td>
+                  <td>장비, 세션, 라벨, 제작 노트를 붙인다.</td>
+                </tr>
+                <tr>
+                  <td>사진에서는 좋은데 현장에선 뜰 것 같다</td>
+                  <td>물성 검증 실패</td>
+                  <td>실제 착용, 실제 배치, 실제 사용 흔적을 촬영한다.</td>
+                </tr>
+                <tr>
+                  <td>조용한데 비어 보인다</td>
+                  <td>정보 밀도 부족</td>
+                  <td>캡션, 날짜, 파일명, 사용 맥락을 더한다.</td>
+                </tr>
+                <tr>
+                  <td>레퍼런스에는 가까운데 우리 것은 아니다</td>
+                  <td>증거보다 구조가 앞섬</td>
+                  <td>빌린 구조 안의 내용을 DCA 자료로 교체한다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section wide-section reveal" id="material" data-section-title="Material Notes" data-view="studio" hidden>
+          <div class="article-column">
+            <p class="overline">MATERIAL NOTES</p>
+            <h2>작은 라벨과 작업복이 먼저 브랜드가 된다.</h2>
+            <p class="body-copy">DCA의 시각 언어는 새 장식을 많이 만드는 방식보다, 이미 있는 물건의 선택과 배치에서 시작하는 편이 자연스럽다. 작업복, 라벨, 캡, 카드 같은 물건은 아티스트가 실제로 쓰는가라는 기준으로 판단한다.</p>
+          </div>
+
+          <div class="split">
+            <figure class="media-frame">
+              <div class="media-frame__visual media-focus--jacket-pair">
+                <img src="assets/images/work-jackets-chambray-pair.jpg" width="1350" height="1800" alt="DCA 작업복 두 벌">
+              </div>
+              <figcaption class="caption">
+                <span>Workwear / Pair</span>
+                <span>굿즈가 아니라 현장에 남는 옷처럼 보여야 한다.</span>
+              </figcaption>
+            </figure>
+            <figure class="media-frame">
+              <div class="media-frame__visual media-focus--jacket-label">
+                <img src="assets/images/work-jacket-korean-label.jpg" width="1600" height="1200" alt="한글 이름 라벨 클로즈업">
+              </div>
+              <figcaption class="caption">
+                <span>Label / Korean</span>
+                <span>한국어 자연어가 브랜드 기준으로 쌓이는 지점.</span>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="section article-column reveal" id="launch" data-section-title="Release Path" data-view="projects">
+          <p class="overline">LAUNCH PLAN</p>
+          <h2>웹사이트, 카탈로그, 콘텐츠는 같은 촬영에서 나온다.</h2>
+          <p class="body-copy">DCA 런칭은 웹사이트를 따로 만들고, 책자를 따로 만들고, SNS를 따로 만드는 방식이 아니다. 같은 촬영과 제작 과정에서 웹, 카탈로그, 유튜브, 인스타그램이 자연스럽게 갈라져야 한다.</p>
+
+          <ol class="sequence">
+            <li>
+              <span class="sequence__step">Step 01</span>
+              <div>
+                <h3>자료 인덱스 확정</h3>
+                <p>장비, 작업복, 라벨, 손글씨 원본, 프린트 시안을 파일명과 날짜 기준으로 정리한다.</p>
+              </div>
+            </li>
+            <li>
+              <span class="sequence__step">Step 02</span>
+              <div>
+                <h3>웹사이트 1차 공개</h3>
+                <p>Blake식 가이드 구조와 Universal Everything식 아카이브 탐색을 빌려 첫 페이지를 만든다.</p>
+              </div>
+            </li>
+            <li>
+              <span class="sequence__step">Step 03</span>
+              <div>
+                <h3>카탈로그 편집</h3>
+                <p>웹에 올라간 증거 이미지를 종이의 순서와 침묵에 맞춰 다시 편집한다.</p>
+              </div>
+            </li>
+            <li>
+              <span class="sequence__step">Step 04</span>
+              <div>
+                <h3>소셜 콘텐츠 파생</h3>
+                <p>촬영 과정, 세션 조각, 라벨 디테일, 장비 기록을 유튜브와 인스타그램 콘텐츠로 나눈다.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="section article-column reveal" id="about" data-section-title="Position" data-view="dca" hidden>
+          <p class="overline">DCA / POSITION</p>
+          <h2>멋있어 보이는 공간보다, 오래 작업할 수 있는 공간.</h2>
+          <p class="body-copy">Deep Couch Archive는 소리, 공간, 사람, 물성이 실제로 맞물리는 사운드 스튜디오다. 장비의 가격보다 신뢰할 수 있는 소리, 사진의 분위기보다 세션이 잘 굴러가는 상태를 먼저 본다.</p>
+
+          <div class="evidence-grid">
+            <div class="evidence-cell">
+              <h3>Sound</h3>
+              <p>작업자가 믿고 결정할 수 있는 소리와 장비의 상태를 기록한다.</p>
+            </div>
+            <div class="evidence-cell">
+              <h3>Space</h3>
+              <p>아티스트가 긴장을 풀고 오래 머물 수 있는 공간의 공기를 만든다.</p>
+            </div>
+            <div class="evidence-cell">
+              <h3>Archive</h3>
+              <p>세션, 물건, 라벨, 파일의 흔적을 다음 작업을 위한 증거로 남긴다.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section article-column reveal" id="history" data-section-title="Working History" data-view="dca" hidden>
+          <p class="overline">WORKING HISTORY</p>
+          <h2>브랜드 연혁보다, 지금 남아 있는 기록.</h2>
+          <p class="body-copy">DCA의 역사는 완성된 서사가 아니라 실제 자료가 늘어나는 순서로 쓴다. 아래 날짜는 현재 웹사이트에 연결된 증거의 시작점이다.</p>
+
+          <ol class="sequence">
+            <li>
+              <span class="sequence__step">2026-03-08</span>
+              <div>
+                <h3>Equipment record</h3>
+                <p>오디오 랙과 실제 작업 장비를 첫 스튜디오 증거로 기록했다.</p>
+              </div>
+            </li>
+            <li>
+              <span class="sequence__step">2026-07-09</span>
+              <div>
+                <h3>Print direction</h3>
+                <p>카탈로그와 명함으로 이어질 수 있는 영문·한글 인쇄 시안을 남겼다.</p>
+              </div>
+            </li>
+            <li>
+              <span class="sequence__step">2026-07-14</span>
+              <div>
+                <h3>Field guide</h3>
+                <p>작업복, 라벨, 파일, 웹사이트를 같은 기준으로 판단하는 첫 규칙을 정리했다.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="section article-column reveal" id="checklist" data-section-title="Working Standards" data-view="dca" hidden>
+          <p class="overline">FINAL CHECKLIST</p>
+          <h2>끝내기 전에 통과해야 할 것.</h2>
+          <p class="body-copy">DCA의 웹사이트는 예쁘게 보이는 것으로 끝나면 안 된다. 실제 스튜디오의 증거와 작업 방식이 충분히 들어와야 한다.</p>
+
+          <ul class="checklist">
+            <li><span class="checklist__box" aria-hidden="true"></span><span>첫 화면에서 DCA가 실제 사운드 스튜디오라는 사실이 보이는가.</span></li>
+            <li><span class="checklist__box" aria-hidden="true"></span><span>모든 브랜드 주장에 사진, 파일, 날짜, 물건 중 하나의 증거가 붙어 있는가.</span></li>
+            <li><span class="checklist__box" aria-hidden="true"></span><span>작업복과 굿즈가 홍보물보다 실제로 쓰는 물건처럼 보이는가.</span></li>
+            <li><span class="checklist__box" aria-hidden="true"></span><span>한국어 문장이 자연스럽고, 과장된 마케팅 문구로 들리지 않는가.</span></li>
+            <li><span class="checklist__box" aria-hidden="true"></span><span>Blake와 Universal Everything의 구조를 빌렸지만, 내용은 DCA의 자료로 교체됐는가.</span></li>
+          </ul>
+
+          <nav class="section-nav" aria-label="이전 다음 섹션">
+            <a href="#history"><span>Previous</span><strong>Working History</strong></a>
+            <a href="#projects" data-view-link="projects"><span>Return</span><strong>Projects</strong></a>
+          </nav>
+        </section>
+
+        <section class="section article-column reveal" id="contact" data-section-title="Contact" data-view="contact" hidden>
+          <p class="overline">DCA / CONTACT</p>
+          <h2>프로젝트와 세션의 문의를 받는 자리.</h2>
+          <p class="body-copy">Deep Couch Archive의 공식 연락 채널은 현재 정리 중이다. 확정되지 않은 이메일이나 소셜 계정은 노출하지 않는다. 문의 내용은 아래 형식으로 먼저 준비할 수 있다.</p>
+          <div class="contact-note">
+            <span class="contact-status" id="contactStatus">CONTACT CHANNEL / PENDING</span>
+            <p>공식 문의처가 확정되면 이 페이지에 이메일과 Instagram 연결을 추가한다.</p>
+          </div>
+          <div class="contact-actions">
+            <button class="text-button" type="button" id="copyInquiry">문의 문구 복사</button>
+            <span class="contact-status" id="copyStatus" aria-live="polite"></span>
+          </div>
+        </section>
+      </article>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span>Deep Couch Archive / Sound Studio Field Guide / 2026-07-14</span>
+      <span>Designed from archive evidence</span>
+    </div>
+  </footer>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <nav class="mobile-toc" id="mobileToc" aria-label="모바일 목차" hidden>
+    <div class="mobile-toc__head">
+      <span class="overline" id="mobileTocEyebrow">DCA / PROJECTS</span>
+      <button class="text-button" type="button" id="menuClose">Close</button>
+    </div>
+    <div class="mobile-toc__primary" id="mobilePrimaryNav" aria-label="주요 메뉴"></div>
+    <div class="mobile-toc__links" id="mobileTocLinks"></div>
+  </nav>
+
+  <button class="back-to-top" type="button" id="backToTop" aria-label="페이지 상단으로 이동">Top</button>
+
+  <dialog class="utility-dialog" id="searchDialog" aria-labelledby="searchTitle">
+    <form method="dialog" class="utility-dialog__head">
+      <span class="overline">DCA / SEARCH</span>
+      <button class="icon-button" type="submit" data-dialog-close="search" aria-label="검색 닫기" data-tooltip="닫기"><i data-lucide="x" aria-hidden="true"></i></button>
+    </form>
+    <div class="utility-dialog__body">
+      <h2 id="searchTitle">아카이브 검색</h2>
+      <p id="searchDescription">섹션, 장비, 작업복, 라벨, 인쇄물의 이름과 맥락을 찾습니다.</p>
+      <input class="search-input" id="searchInput" type="search" autocomplete="off" placeholder="예: 장비, 라벨, catalogue" aria-describedby="searchStatus">
+      <p class="search-status" id="searchStatus" aria-live="polite">검색어를 입력하세요.</p>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </dialog>
+
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const progressBar = document.getElementById("progressBar");
+      const sections = Array.from(document.querySelectorAll("[data-section-title]"));
+      const viewSections = Array.from(document.querySelectorAll("[data-view]"));
+      const siteNavButtons = Array.from(document.querySelectorAll("[data-view-trigger]"));
+      const tocEyebrow = document.getElementById("tocEyebrow");
+      const tocList = document.getElementById("tocList");
+      const mobileTocEyebrow = document.getElementById("mobileTocEyebrow");
+      const mobilePrimaryNav = document.getElementById("mobilePrimaryNav");
+      const mobileTocLinks = document.getElementById("mobileTocLinks");
+      const backToTop = document.getElementById("backToTop");
+      const menuToggle = document.getElementById("menuToggle");
+      const menuClose = document.getElementById("menuClose");
+      const mobileToc = document.getElementById("mobileToc");
+      const scrim = document.getElementById("scrim");
+      const themeToggle = document.getElementById("themeToggle");
+      const languageToggle = document.getElementById("languageToggle");
+      const languageLabel = document.getElementById("languageLabel");
+      const searchTrigger = document.getElementById("searchTrigger");
+      const searchDialog = document.getElementById("searchDialog");
+      const searchInput = document.getElementById("searchInput");
+      const searchStatus = document.getElementById("searchStatus");
+      const searchResults = document.getElementById("searchResults");
+      const copyInquiry = document.getElementById("copyInquiry");
+      const copyStatus = document.getElementById("copyStatus");
+      const languageMenu = document.getElementById("languageMenu");
+      const languagePopover = document.getElementById("languagePopover");
+      const languageOptions = Array.from(languagePopover.querySelectorAll("[data-language]"));
+      const filterButtons = Array.from(document.querySelectorAll(".filter-button"));
+      const archiveItems = Array.from(document.querySelectorAll(".archive-item"));
+      const viewDefinitions = {
+        projects: {
+          eyebrow: "DCA / PROJECTS",
+          items: [
+            { id: "overview", label: { ko: "현재 작업", en: "Current Work" } },
+            { id: "launch", label: { ko: "공개 순서", en: "Release Path" } }
+          ]
+        },
+        studio: {
+          eyebrow: "DCA / STUDIO",
+          items: [
+            { id: "field-guide", label: { ko: "스튜디오 기준", en: "Studio Method" } },
+            { id: "material", label: { ko: "물성 노트", en: "Material Notes" } }
+          ]
+        },
+        archive: {
+          eyebrow: "DCA / ARCHIVE",
+          items: [
+            { id: "archive", label: { ko: "전체 기록", en: "All Records" }, filter: "all" },
+            { id: "archive", label: { ko: "스튜디오 증거", en: "Studio Evidence" }, filter: "studio" },
+            { id: "archive", label: { ko: "작업복", en: "Workwear" }, filter: "workwear" },
+            { id: "archive", label: { ko: "오브젝트 레퍼런스", en: "Object Reference" }, filter: "object" },
+            { id: "archive", label: { ko: "인쇄물", en: "Print" }, filter: "print" },
+            { id: "archive", label: { ko: "아이덴티티 소스", en: "Identity Source" }, filter: "identity" }
+          ]
+        },
+        dca: {
+          eyebrow: "DCA / FIELD NOTES",
+          items: [
+            { id: "about", label: { ko: "입장", en: "Position" } },
+            { id: "history", label: { ko: "작업 기록", en: "Working History" } },
+            { id: "checklist", label: { ko: "작업 기준", en: "Working Standards" } }
+          ]
+        },
+        contact: {
+          eyebrow: "DCA / CONTACT",
+          items: [
+            { id: "contact", label: { ko: "연락처", en: "Contact" } }
+          ]
+        }
+      };
+      const viewOrder = ["dca", "projects", "studio", "archive", "contact"];
+      let currentView = "projects";
+      let currentArchiveFilter = "all";
+      let currentLanguage = "ko";
+      let tocLinks = [];
+      let activeIndex = 0;
+
+      const savedTheme = window.localStorage.getItem("dca-theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        root.dataset.theme = savedTheme;
+      }
+
+      const savedLanguage = window.localStorage.getItem("dca-language");
+      if (savedLanguage === "ko" || savedLanguage === "en") {
+        currentLanguage = savedLanguage;
+      }
+
+      const ui = {
+        ko: {
+          navigation: { dca: "소개", projects: "프로젝트", studio: "스튜디오", archive: "아카이브", contact: "연락처" },
+          filters: { all: "전체", studio: "스튜디오", workwear: "작업복", object: "오브젝트", print: "인쇄물", identity: "아이덴티티" },
+          about: "소개", contact: "연락처", index: "Index", close: "닫기", top: "Top",
+          searchTitle: "아카이브 검색", searchDescription: "섹션, 장비, 작업복, 라벨, 인쇄물의 이름과 맥락을 찾습니다.", searchPlaceholder: "예: 장비, 라벨, catalogue", searchEmpty: "검색어를 입력하세요.", searchNone: "일치하는 기록이 없습니다.", searchResults: "개 기록", searchOpen: "검색 열기", searchClose: "검색 닫기",
+          lightMode: "라이트 모드로 전환", darkMode: "다크 모드로 전환", languageSelect: "언어 선택",
+          copyInquiry: "문의 문구 복사", copied: "복사됨", copyFailed: "복사할 수 없습니다.",
+          resultIn: "에서"
+        },
+        en: {
+          navigation: { dca: "About", projects: "Projects", studio: "Studio", archive: "Archive", contact: "Contact" },
+          filters: { all: "All", studio: "Studio", workwear: "Workwear", object: "Object", print: "Print", identity: "Identity" },
+          about: "About", contact: "Contact", index: "Index", close: "Close", top: "Top",
+          searchTitle: "Search archive", searchDescription: "Find sections, equipment, workwear, labels, and print records.", searchPlaceholder: "e.g. equipment, label, catalogue", searchEmpty: "Enter a search term.", searchNone: "No matching records.", searchResults: " records", searchOpen: "Open search", searchClose: "Close search",
+          lightMode: "Switch to light mode", darkMode: "Switch to dark mode", languageSelect: "Language selection",
+          copyInquiry: "Copy enquiry note", copied: "Copied", copyFailed: "Unable to copy.",
+          resultIn: "in"
+        }
+      };
+
+      const textTranslations = {
+        "프로젝트와 세션의 문의를 받는 자리.": "A place for project and session enquiries.",
+        "Deep Couch Archive의 공식 연락 채널은 현재 정리 중이다. 확정되지 않은 이메일이나 소셜 계정은 노출하지 않는다. 문의 내용은 아래 형식으로 먼저 준비할 수 있다.": "The official Deep Couch Archive contact channel is being prepared. Unconfirmed email addresses and social accounts are not published. You can prepare your enquiry in the format below.",
+        "공식 문의처가 확정되면 이 페이지에 이메일과 Instagram 연결을 추가한다.": "Email and Instagram links will be added to this page once the official contact channel is confirmed.",
+        "소리, 공간, 사람, 물성, 태도가 맞물리는 사운드 스튜디오 아카이브. 지금은 브랜드를 설명하는 페이지보다, 실제로 작동하는 공간의 증거를 먼저 보여주는 웹사이트가 필요하다.": "A sound-studio archive where sound, space, people, materiality, and attitude meet. Before a page that explains a brand, DCA needs a site that shows evidence of a working space.",
+        "이 첫 프로토타입은 DCA의 장비 사진, 작업복, 라벨, 프린트 레퍼런스, 손글씨 원본을 하나의 필드 가이드로 묶는다. 구조는 Blake Crosley의 긴 가이드 페이지에 가깝고, 자료 배열은 Universal Everything의 아카이브식 탐색을 참고한다.": "This first prototype gathers DCA equipment photographs, workwear, labels, print references, and handwritten sources into one field guide. Its long-form guide structure follows Blake Crosley, while its material arrangement takes cues from Universal Everything's archive browsing.",
+        "첫 웹사이트는 과장된 랜딩페이지가 아니라 DCA가 이미 가진 자료를 검토 가능한 인덱스로 보여준다. 판단 기준은 진짜 물성, 실제 맥락, 사람의 행동이다.": "The first website is not an inflated landing page. It presents the materials DCA already has as a reviewable index, judged by real materiality, actual context, and human behavior.",
+        "브랜드의 첫 증거는 로고가 아니라 실제로 놓인 장비와 방의 공기다.": "The first evidence of a brand is not a logo, but the equipment in place and the air of the room.",
+        "자료를 먼저 보여주는 아카이브 인덱스": "An archive index that shows the material first",
+        "DCA답게 판단하는 필드 가이드": "A field guide for judging what is DCA",
+        "작업복, 라벨, 손글씨가 만드는 물성": "Materiality made by workwear, labels, and handwriting",
+        "웹사이트, 카탈로그, SNS로 이어지는 런칭 순서": "A release path from website to catalogue and social",
+        "자료가 먼저 말하게 한다.": "Let the material speak first.",
+        "DCA의 첫 화면은 추상적인 브랜드 문구보다 실제 자료를 정렬해서 보여주는 편이 맞다. 장비, 작업복, 라벨, 프린트, 아이덴티티 원본은 모두 다른 용도지만 하나의 운영 흔적으로 읽혀야 한다.": "DCA's first screen should arrange real material rather than lead with abstract brand language. Equipment, workwear, labels, print, and identity sources serve different purposes, but should read as traces of one working practice.",
+        "DCA가 사운드 스튜디오라는 사실을 가장 먼저 증명하는 첫 기록.": "The first record that proves DCA is a sound studio.",
+        "홍보용 굿즈보다 실제 현장에서 입을 수 있는 물건에 가깝다.": "Closer to something that can be worn in real work than promotional merchandise.",
+        "로고를 크게 말하지 않고, 입는 사람의 행동 안에서 자연스럽게 드러나는 방향.": "A direction that does not announce the logo, but appears naturally in the wearer's behavior.",
+        "한글 자연어와 실제 물성이 만나는 작은 접점. DCA의 말투를 담기 좋다.": "A small meeting point between Korean natural language and real materiality. A good place to hold DCA's voice.",
+        "사진에서만 멋있는지, 실제로 손에 잡히는지 확인해야 하는 자료.": "Material that must be tested for whether it only looks good in photographs or holds up in the hand.",
+        "라벨은 장식보다 사용 흔적을 받아낼 수 있어야 한다.": "A label must be able to receive traces of use, rather than merely decorate.",
+        "팔기 위한 모자보다 자연스럽게 쓰고 남는 모자에 가까운 기준.": "A benchmark for a cap that gets used and stays with someone, rather than one made to sell.",
+        "카탈로그, 카드, 웹 캡션으로 확장할 수 있는 인쇄 방향.": "A print direction that can extend into a catalogue, cards, and web captions.",
+        "DCA가 한국어 자연어로 판단하고 기록한다는 방향과 맞닿아 있다.": "Connected to DCA's direction of judging and recording in Korean natural language.",
+        "손글씨 원본은 로고, 라벨, 인쇄물 제작 소스로 관리한다.": "Handwritten originals are managed as source material for logos, labels, and print production.",
+        "DCA답게 보이는가보다, 실제로 작동하는가.": "Not whether it looks like DCA, but whether it actually works.",
+        "이 사이트의 모든 섹션은 세 가지 질문을 통과해야 한다. 사진에서만 좋은지, 실제 스튜디오 맥락에서 자연스러운지, 사람이 강요 없이 쓰고 싶어 하는지.": "Every section of this site must pass three questions: Is it only good in a photograph? Does it sit naturally in a real studio context? Would people want to use it without being asked?",
+        "진짜 물성": "Real materiality",
+        "이미지 속 질감이 실제로 만졌을 때도 설득되는가. 라벨, 작업복, 장비는 시간이 지나도 버틸 수 있어야 한다.": "Is the texture in the image convincing when touched in real life? Labels, workwear, and equipment need to hold up over time.",
+        "실제 맥락": "Actual context",
+        "DCA라는 사운드 스튜디오 안에 놓였을 때 뜨지 않는가. 브랜드 놀이가 아니라 운영의 흔적인가.": "Does it feel out of place when set inside DCA as a sound studio? Is it a trace of operation rather than a branding game?",
+        "사람의 행동": "Human behavior",
+        "아티스트와 엔지니어가 자연스럽게 입고, 쓰고, 열어보고, 다시 보관하고 싶어 하는가.": "Would artists and engineers naturally want to wear it, use it, open it, and store it again?",
+        "자연어 판단": "Natural-language judgment",
+        "디자인 번역": "Design translation",
+        "DCA 적용": "DCA application",
+        "브랜드 놀이 같다": "It feels like a branding game",
+        "실제 운영 흔적 부족": "Not enough evidence of real operation",
+        "장비, 세션, 라벨, 제작 노트를 붙인다.": "Attach equipment, sessions, labels, and production notes.",
+        "사진에서는 좋은데 현장에선 뜰 것 같다": "It looks good in a photo but would feel out of place on site",
+        "물성 검증 실패": "Material validation failed",
+        "실제 착용, 실제 배치, 실제 사용 흔적을 촬영한다.": "Photograph real wear, real placement, and traces of real use.",
+        "조용한데 비어 보인다": "It is quiet, but feels empty",
+        "정보 밀도 부족": "Insufficient information density",
+        "캡션, 날짜, 파일명, 사용 맥락을 더한다.": "Add captions, dates, filenames, and use context.",
+        "레퍼런스에는 가까운데 우리 것은 아니다": "It is close to the reference, but not ours yet",
+        "증거보다 구조가 앞섬": "Structure has come before evidence",
+        "빌린 구조 안의 내용을 DCA 자료로 교체한다.": "Replace the borrowed structure's content with DCA material.",
+        "작은 라벨과 작업복이 먼저 브랜드가 된다.": "Small labels and workwear become the brand first.",
+        "DCA의 시각 언어는 새 장식을 많이 만드는 방식보다, 이미 있는 물건의 선택과 배치에서 시작하는 편이 자연스럽다. 작업복, 라벨, 캡, 카드 같은 물건은 아티스트가 실제로 쓰는가라는 기준으로 판단한다.": "DCA's visual language begins more naturally with the selection and placement of existing objects than by making many new decorations. Workwear, labels, caps, and cards are judged by whether artists would actually use them.",
+        "굿즈가 아니라 현장에 남는 옷처럼 보여야 한다.": "It should look like clothing that remains at the site, not merchandise.",
+        "한국어 자연어가 브랜드 기준으로 쌓이는 지점.": "A point where Korean natural language accumulates as a brand standard.",
+        "웹사이트, 카탈로그, 콘텐츠는 같은 촬영에서 나온다.": "Website, catalogue, and content come from the same shoot.",
+        "DCA 런칭은 웹사이트를 따로 만들고, 책자를 따로 만들고, SNS를 따로 만드는 방식이 아니다. 같은 촬영과 제작 과정에서 웹, 카탈로그, 유튜브, 인스타그램이 자연스럽게 갈라져야 한다.": "A DCA launch does not make a website, book, and social media separately. The web, catalogue, YouTube, and Instagram should naturally branch from the same shoot and production process.",
+        "자료 인덱스 확정": "Confirm the material index",
+        "장비, 작업복, 라벨, 손글씨 원본, 프린트 시안을 파일명과 날짜 기준으로 정리한다.": "Organize equipment, workwear, labels, handwritten sources, and print proofs by filename and date.",
+        "웹사이트 1차 공개": "First website release",
+        "Blake식 가이드 구조와 Universal Everything식 아카이브 탐색을 빌려 첫 페이지를 만든다.": "Build the first page with a Blake-style guide structure and Universal Everything-style archive browsing.",
+        "카탈로그 편집": "Catalogue edit",
+        "웹에 올라간 증거 이미지를 종이의 순서와 침묵에 맞춰 다시 편집한다.": "Re-edit the evidence images published on the web for the sequence and silence of paper.",
+        "소셜 콘텐츠 파생": "Social content derivation",
+        "촬영 과정, 세션 조각, 라벨 디테일, 장비 기록을 유튜브와 인스타그램 콘텐츠로 나눈다.": "Divide the shoot process, session fragments, label details, and equipment records into YouTube and Instagram content.",
+        "멋있어 보이는 공간보다, 오래 작업할 수 있는 공간.": "Not a space that looks impressive, but one where people can work for a long time.",
+        "Deep Couch Archive는 소리, 공간, 사람, 물성이 실제로 맞물리는 사운드 스튜디오다. 장비의 가격보다 신뢰할 수 있는 소리, 사진의 분위기보다 세션이 잘 굴러가는 상태를 먼저 본다.": "Deep Couch Archive is a sound studio where sound, space, people, and materiality actually meet. It values trustworthy sound over equipment price, and a session that runs well over photographic atmosphere.",
+        "작업자가 믿고 결정할 수 있는 소리와 장비의 상태를 기록한다.": "Record the sound and equipment condition that lets workers trust and decide.",
+        "아티스트가 긴장을 풀고 오래 머물 수 있는 공간의 공기를 만든다.": "Create the air of a space where artists can relax and stay for a long time.",
+        "세션, 물건, 라벨, 파일의 흔적을 다음 작업을 위한 증거로 남긴다.": "Keep traces of sessions, objects, labels, and files as evidence for the next work.",
+        "브랜드 연혁보다, 지금 남아 있는 기록.": "Not brand history, but records that remain now.",
+        "DCA의 역사는 완성된 서사가 아니라 실제 자료가 늘어나는 순서로 쓴다. 아래 날짜는 현재 웹사이트에 연결된 증거의 시작점이다.": "DCA's history is not a finished story. It is written in the order that real material accumulates. The dates below are the starting points of evidence connected to this website.",
+        "오디오 랙과 실제 작업 장비를 첫 스튜디오 증거로 기록했다.": "Recorded the audio rack and real working equipment as the first studio evidence.",
+        "카탈로그와 명함으로 이어질 수 있는 영문·한글 인쇄 시안을 남겼다.": "Recorded English and Korean print proofs that can lead into a catalogue and business card.",
+        "작업복, 라벨, 파일, 웹사이트를 같은 기준으로 판단하는 첫 규칙을 정리했다.": "Set down the first rules for judging workwear, labels, files, and the website by the same standard.",
+        "끝내기 전에 통과해야 할 것.": "What must pass before it is finished.",
+        "DCA의 웹사이트는 예쁘게 보이는 것으로 끝나면 안 된다. 실제 스튜디오의 증거와 작업 방식이 충분히 들어와야 한다.": "DCA's website cannot end at looking good. It needs enough evidence of a real studio and its working method.",
+        "첫 화면에서 DCA가 실제 사운드 스튜디오라는 사실이 보이는가.": "Does the first screen show that DCA is a real sound studio?",
+        "모든 브랜드 주장에 사진, 파일, 날짜, 물건 중 하나의 증거가 붙어 있는가.": "Does every brand claim carry evidence in a photograph, file, date, or object?",
+        "작업복과 굿즈가 홍보물보다 실제로 쓰는 물건처럼 보이는가.": "Do workwear and goods look more like things people use than promotional items?",
+        "한국어 문장이 자연스럽고, 과장된 마케팅 문구로 들리지 않는가.": "Do the Korean sentences feel natural rather than like exaggerated marketing copy?",
+        "Blake와 Universal Everything의 구조를 빌렸지만, 내용은 DCA의 자료로 교체됐는가.": "Has the borrowed Blake and Universal Everything structure been filled with DCA material?"
+      };
+      const originalTextNodes = new WeakMap();
+
+      const renderIcons = () => {
+        if (window.lucide) window.lucide.createIcons({ attrs: { "stroke-width": 1.6 } });
+      };
+
+      const translateDocumentText = () => {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+          acceptNode(node) {
+            const parent = node.parentElement;
+            if (!parent || ["SCRIPT", "STYLE", "SVG"].includes(parent.tagName) || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        });
+        let node;
+        while ((node = walker.nextNode())) {
+          if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue);
+          const original = originalTextNodes.get(node);
+          const leading = original.match(/^\s*/)[0];
+          const trailing = original.match(/\s*$/)[0];
+          const source = original.trim();
+          node.nodeValue = `${leading}${currentLanguage === "en" ? (textTranslations[source] || source) : source}${trailing}`;
+        }
+      };
+
+      const syncThemeButton = () => {
+        const isDark = root.dataset.theme !== "light";
+        const label = isDark ? ui[currentLanguage].lightMode : ui[currentLanguage].darkMode;
+        themeToggle.setAttribute("aria-label", label);
+        themeToggle.dataset.tooltip = label;
+        themeToggle.innerHTML = `<i data-lucide="${isDark ? "sun" : "moon"}" aria-hidden="true"></i>`;
+        renderIcons();
+      };
+
+      const syncLanguageChrome = () => {
+        const copy = ui[currentLanguage];
+        root.lang = currentLanguage;
+        document.title = currentLanguage === "en" ? "Deep Couch Archive - Sound Studio Field Guide" : "Deep Couch Archive - 사운드 스튜디오 필드 가이드";
+        siteNavButtons.forEach((button) => {
+          button.textContent = copy.navigation[button.dataset.viewTrigger];
+        });
+        filterButtons.forEach((button) => {
+          button.textContent = copy.filters[button.dataset.filter];
+        });
+        menuToggle.textContent = copy.index;
+        menuClose.textContent = copy.close;
+        backToTop.textContent = copy.top;
+        searchTrigger.setAttribute("aria-label", copy.searchOpen);
+        searchTrigger.dataset.tooltip = copy.searchOpen;
+        const languageName = currentLanguage === "ko" ? "한국어" : "English";
+        languageLabel.textContent = languageName;
+        languageToggle.setAttribute("aria-label", `${copy.languageSelect}: ${languageName}`);
+        languageOptions.forEach((option) => option.setAttribute("aria-current", String(option.dataset.language === currentLanguage)));
+        document.getElementById("searchTitle").textContent = copy.searchTitle;
+        document.getElementById("searchDescription").textContent = copy.searchDescription;
+        searchInput.placeholder = copy.searchPlaceholder;
+        copyInquiry.textContent = copy.copyInquiry;
+        document.querySelectorAll("[data-dialog-close]").forEach((button) => {
+          button.dataset.tooltip = copy.close;
+          button.setAttribute("aria-label", copy.searchClose);
+        });
+        syncThemeButton();
+      };
+
+      const updateProgress = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
+        progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+        backToTop.classList.toggle("is-visible", window.scrollY > 520);
+      };
+
+      const visibleSections = () => sections.filter((section) => !section.hidden);
+
+      const searchIndex = [
+        { view: "projects", section: "overview", label: { ko: "현재 작업", en: "Current Work" }, scope: { ko: "프로젝트", en: "Projects" }, keywords: "deep couch archive sound studio archive current work 장비 스튜디오 아카이브" },
+        { view: "projects", section: "launch", label: { ko: "공개 순서", en: "Release Path" }, scope: { ko: "프로젝트", en: "Projects" }, keywords: "launch release website catalogue catalog youtube instagram 공개 카탈로그 콘텐츠" },
+        { view: "studio", section: "field-guide", label: { ko: "스튜디오 기준", en: "Studio Method" }, scope: { ko: "스튜디오", en: "Studio" }, keywords: "field guide studio method materiality context behavior 물성 맥락 행동" },
+        { view: "studio", section: "material", label: { ko: "물성 노트", en: "Material Notes" }, scope: { ko: "스튜디오", en: "Studio" }, keywords: "material workwear label cap handwritten 작업복 라벨 캡 손글씨" },
+        { view: "dca", section: "about", label: { ko: "입장", en: "Position" }, scope: { ko: "DCA", en: "DCA" }, keywords: "position sound space archive 소개 스튜디오 공간 소리" },
+        { view: "dca", section: "history", label: { ko: "작업 기록", en: "Working History" }, scope: { ko: "DCA", en: "DCA" }, keywords: "history equipment print field guide 기록 연혁 장비 인쇄" },
+        { view: "dca", section: "checklist", label: { ko: "작업 기준", en: "Working Standards" }, scope: { ko: "DCA", en: "DCA" }, keywords: "checklist standards evidence materiality 기준 체크리스트 증거 물성" },
+        { view: "contact", section: "contact", label: { ko: "연락처", en: "Contact" }, scope: { ko: "DCA", en: "DCA" }, keywords: "contact inquiry session project 연락처 문의 세션 프로젝트" },
+        { view: "archive", section: "archive", filter: "studio", label: { ko: "오디오 랙 장비", en: "Audio rack equipment" }, scope: { ko: "아카이브 / 스튜디오", en: "Archive / Studio" }, keywords: "audio rack equipment studio 장비 오디오 랙" },
+        { view: "archive", section: "archive", filter: "workwear", label: { ko: "샴브레이 작업복", en: "Chambray work jackets" }, scope: { ko: "아카이브 / 작업복", en: "Archive / Workwear" }, keywords: "chambray jacket denim workwear 작업복 셔츠 재킷 데님" },
+        { view: "archive", section: "archive", filter: "workwear", label: { ko: "한글 이름 라벨", en: "Korean name label" }, scope: { ko: "아카이브 / 작업복", en: "Archive / Workwear" }, keywords: "korean name label denim 라벨 한글 이름 데님" },
+        { view: "archive", section: "archive", filter: "object", label: { ko: "워시드 캡 레퍼런스", en: "Washed cap reference" }, scope: { ko: "아카이브 / 오브젝트", en: "Archive / Object" }, keywords: "washed cap merch object reference 모자 캡 오브젝트 레퍼런스" },
+        { view: "archive", section: "archive", filter: "print", label: { ko: "영문·한글 인쇄 시안", en: "English and Korean print previews" }, scope: { ko: "아카이브 / 인쇄물", en: "Archive / Print" }, keywords: "print english korean card catalogue 인쇄 영문 한글 카드 카탈로그" },
+        { view: "archive", section: "archive", filter: "identity", label: { ko: "손글씨 워드마크 소스", en: "Handwritten wordmark source" }, scope: { ko: "아카이브 / 아이덴티티", en: "Archive / Identity" }, keywords: "identity handwritten wordmark source 손글씨 워드마크 아이덴티티" }
+      ];
+
+      const renderSearchResults = (query = "") => {
+        const normalized = query.trim().toLowerCase();
+        if (!normalized) {
+          searchResults.replaceChildren();
+          searchStatus.textContent = ui[currentLanguage].searchEmpty;
+          return;
+        }
+        const matches = searchIndex
+          .map((entry) => {
+            const title = `${entry.label.ko} ${entry.label.en}`.toLowerCase();
+            const scope = `${entry.scope.ko} ${entry.scope.en}`.toLowerCase();
+            const keywords = entry.keywords.toLowerCase();
+            const score = title.includes(normalized) ? 3 : scope.includes(normalized) ? 2 : keywords.includes(normalized) ? 1 : 0;
+            return { entry, score };
+          })
+          .filter(({ score }) => score > 0)
+          .sort((a, b) => b.score - a.score)
+          .map(({ entry }) => entry);
+        searchStatus.textContent = matches.length ? `${matches.length}${ui[currentLanguage].searchResults}` : ui[currentLanguage].searchNone;
+        searchResults.replaceChildren(...matches.map((entry) => {
+          const button = document.createElement("button");
+          button.className = "search-result";
+          button.type = "button";
+          button.dataset.searchView = entry.view;
+          button.dataset.searchSection = entry.section;
+          if (entry.filter) button.dataset.searchFilter = entry.filter;
+          button.innerHTML = `<span><strong>${entry.label[currentLanguage]}</strong><span>${entry.scope[currentLanguage]}</span></span><i data-lucide="arrow-up-right" aria-hidden="true"></i>`;
+          return button;
+        }));
+        renderIcons();
+      };
+
+      const openSearch = () => {
+        if (!searchDialog.open) searchDialog.showModal();
+        searchInput.value = "";
+        renderSearchResults();
+        window.setTimeout(() => searchInput.focus(), 0);
+      };
+
+      const createTocLink = (item) => {
+        const listItem = document.createElement("li");
+        const link = document.createElement("a");
+        link.className = "toc__link";
+        link.href = `#${item.id}`;
+        link.textContent = item.label[currentLanguage];
+        link.dataset.tocKey = item.filter || item.id;
+        if (item.filter) link.dataset.archiveFilter = item.filter;
+        listItem.append(link);
+        return listItem;
+      };
+
+      const createMobileTocLink = (item) => {
+        const link = document.createElement("a");
+        link.href = `#${item.id}`;
+        link.textContent = item.label[currentLanguage];
+        link.dataset.tocKey = item.filter || item.id;
+        if (item.filter) link.dataset.archiveFilter = item.filter;
+        return link;
+      };
+
+      const renderLocalNavigation = (view) => {
+        const definition = viewDefinitions[view];
+        tocEyebrow.textContent = definition.eyebrow;
+        mobileTocEyebrow.textContent = definition.eyebrow;
+        tocList.replaceChildren(...definition.items.map(createTocLink));
+        mobileTocLinks.replaceChildren(...definition.items.map(createMobileTocLink));
+
+        mobilePrimaryNav.replaceChildren(...viewOrder.map((key) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.dataset.viewTrigger = key;
+          button.textContent = ui[currentLanguage].navigation[key];
+          button.setAttribute("aria-current", key === view ? "page" : "false");
+          return button;
+        }));
+
+        tocLinks = Array.from(document.querySelectorAll(".toc__link, #mobileTocLinks a"));
+      };
+
+      const setLanguage = (language) => {
+        currentLanguage = language;
+        window.localStorage.setItem("dca-language", language);
+        translateDocumentText();
+        syncLanguageChrome();
+        renderLocalNavigation(currentView);
+        setActiveSection(viewDefinitions[currentView].items[0].id);
+        if (searchDialog.open) renderSearchResults(searchInput.value);
+      };
+
+      const closeLanguageMenu = () => {
+        languagePopover.hidden = true;
+        languageToggle.setAttribute("aria-expanded", "false");
+      };
+
+      const applyArchiveFilter = (filter) => {
+        currentArchiveFilter = filter;
+        filterButtons.forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.filter === filter);
+        });
+        archiveItems.forEach((item) => {
+          const shouldShow = filter === "all" || item.dataset.category === filter;
+          item.classList.toggle("is-hidden", !shouldShow);
+        });
+        if (currentView === "archive") setActiveToc(filter);
+      };
+
+      const setView = (view, { updateHistory = true, scrollToTop = true } = {}) => {
+        if (!viewDefinitions[view]) return;
+        currentView = view;
+        root.dataset.view = view;
+        viewSections.forEach((section) => {
+          section.hidden = section.dataset.view !== view;
+        });
+        siteNavButtons.forEach((button) => {
+          button.setAttribute("aria-current", button.dataset.viewTrigger === view ? "page" : "false");
+        });
+        renderLocalNavigation(view);
+        if (view === "archive") applyArchiveFilter("all");
+        setActiveSection(viewDefinitions[view].items[0].id);
+        if (updateHistory && window.location.hash !== `#${view}`) {
+          window.history.pushState({ view }, "", `#${view}`);
+        }
+        if (scrollToTop) window.scrollTo({ top: 0, behavior: "auto" });
+        updateProgress();
+      };
+
+      const setActiveToc = (key) => {
+        tocLinks.forEach((link) => {
+          const isActive = link.dataset.tocKey === key;
+          link.classList.toggle("is-active", isActive);
+        });
+      };
+
+      const setActiveSection = (id) => {
+        setActiveToc(currentView === "archive" ? currentArchiveFilter : id);
+        activeIndex = Math.max(0, visibleSections().findIndex((section) => section.id === id));
+      };
+
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !entry.target.hidden) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      }, { rootMargin: "-30% 0px -55% 0px", threshold: 0.01 });
+
+      sections.forEach((section) => sectionObserver.observe(section));
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
+
+      document.querySelectorAll(".reveal").forEach((node) => revealObserver.observe(node));
+
+      const openMenu = () => {
+        mobileToc.hidden = false;
+        scrim.hidden = false;
+        requestAnimationFrame(() => {
+          document.body.classList.add("menu-open");
+          mobileToc.classList.add("is-open");
+          scrim.classList.add("is-visible");
+          menuToggle.setAttribute("aria-expanded", "true");
+        });
+      };
+
+      const closeMenu = () => {
+        document.body.classList.remove("menu-open");
+        mobileToc.classList.remove("is-open");
+        scrim.classList.remove("is-visible");
+        menuToggle.setAttribute("aria-expanded", "false");
+        window.setTimeout(() => {
+          mobileToc.hidden = true;
+          scrim.hidden = true;
+        }, 220);
+      };
+
+      menuToggle.addEventListener("click", openMenu);
+      menuClose.addEventListener("click", closeMenu);
+      scrim.addEventListener("click", closeMenu);
+      mobileToc.addEventListener("click", (event) => {
+        const link = event.target.closest("a");
+        if (link) closeMenu();
+      });
+
+      themeToggle.addEventListener("click", () => {
+        root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
+        window.localStorage.setItem("dca-theme", root.dataset.theme);
+        syncThemeButton();
+      });
+
+      languageToggle.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const willOpen = languagePopover.hidden;
+        languagePopover.hidden = !willOpen;
+        languageToggle.setAttribute("aria-expanded", String(willOpen));
+      });
+
+      languageOptions.forEach((option) => {
+        option.addEventListener("click", () => {
+          setLanguage(option.dataset.language);
+          closeLanguageMenu();
+        });
+      });
+
+      searchTrigger.addEventListener("click", openSearch);
+      searchInput.addEventListener("input", () => renderSearchResults(searchInput.value));
+      searchResults.addEventListener("click", (event) => {
+        const result = event.target.closest("[data-search-view]");
+        if (!result) return;
+        searchDialog.close();
+        setView(result.dataset.searchView);
+        if (result.dataset.searchFilter) applyArchiveFilter(result.dataset.searchFilter);
+        window.setTimeout(() => document.getElementById(result.dataset.searchSection).scrollIntoView({ behavior: "smooth", block: "start" }), 0);
+      });
+
+      copyInquiry.addEventListener("click", async () => {
+        const enquiry = currentLanguage === "ko"
+          ? "Deep Couch Archive 프로젝트/세션 문의\n\n이름 또는 팀:\n문의 목적:\n희망 일정:\n필요한 작업:\n참고 링크 또는 파일:"
+          : "Deep Couch Archive project/session enquiry\n\nName or team:\nPurpose of enquiry:\nPreferred schedule:\nWork needed:\nReference link or file:";
+        try {
+          await navigator.clipboard.writeText(enquiry);
+          copyStatus.textContent = ui[currentLanguage].copied;
+        } catch {
+          copyStatus.textContent = ui[currentLanguage].copyFailed;
+        }
+      });
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          applyArchiveFilter(button.dataset.filter);
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!languageMenu.contains(event.target)) closeLanguageMenu();
+        const viewTrigger = event.target.closest("[data-view-trigger]");
+        if (viewTrigger) {
+          event.preventDefault();
+          setView(viewTrigger.dataset.viewTrigger);
+          if (!mobileToc.hidden) closeMenu();
+          return;
+        }
+
+        const archiveFilterLink = event.target.closest("[data-archive-filter]");
+        if (archiveFilterLink) {
+          event.preventDefault();
+          applyArchiveFilter(archiveFilterLink.dataset.archiveFilter);
+          document.getElementById("archive").scrollIntoView({ behavior: "smooth", block: "start" });
+          return;
+        }
+
+        const viewLink = event.target.closest("[data-view-link]");
+        if (viewLink) {
+          event.preventDefault();
+          setView(viewLink.dataset.viewLink);
+        }
+      });
+
+      const viewFromHash = () => {
+        const hash = window.location.hash.replace("#", "");
+        if (viewDefinitions[hash]) return hash;
+        return document.getElementById(hash)?.dataset.view || "projects";
+      };
+
+      window.addEventListener("popstate", () => {
+        setView(viewFromHash(), { updateHistory: false, scrollToTop: false });
+      });
+
+      window.addEventListener("hashchange", () => {
+        setView(viewFromHash(), { updateHistory: false, scrollToTop: false });
+      });
+
+      backToTop.addEventListener("click", () => {
+        document.getElementById("top").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      window.addEventListener("resize", updateProgress);
+      updateProgress();
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !languagePopover.hidden) {
+          closeLanguageMenu();
+          return;
+        }
+        if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey) return;
+        const tagName = document.activeElement ? document.activeElement.tagName : "";
+        if (tagName === "INPUT" || tagName === "TEXTAREA" || tagName === "SELECT") return;
+
+        if (event.key.toLowerCase() === "j") {
+          event.preventDefault();
+          const currentSections = visibleSections();
+          const next = currentSections[Math.min(currentSections.length - 1, activeIndex + 1)];
+          next.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        if (event.key.toLowerCase() === "k") {
+          event.preventDefault();
+          const currentSections = visibleSections();
+          const previous = currentSections[Math.max(0, activeIndex - 1)];
+          previous.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        if (event.key === "Escape" && !mobileToc.hidden) {
+          closeMenu();
+        }
+      });
+
+      setLanguage(currentLanguage);
+      setView(viewFromHash(), { updateHistory: false, scrollToTop: false });
+      renderIcons();
+    })();
+  </script>
+</body>
+</html>

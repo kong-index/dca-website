@@ -1,0 +1,16 @@
+# macOS and local system files
+.DS_Store
+Thumbs.db
+
+# Local visual QA captures and working folders
+qa/
+01_Content/
+02_Design/
+
+# Keep source material out of the public website repository
+assets/raw/
+assets/source/
+*.psd
+*.ai
+*.afdesign
+*.sketch
