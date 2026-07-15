@@ -6,11 +6,23 @@
   <title>Deep Couch Archive - Sound Studio Field Guide</title>
   <meta name="description" content="Deep Couch Archive의 사운드 스튜디오, 장비, 작업복, 라벨, 제작 기록을 정리한 첫 웹사이트 프로토타입.">
   <meta name="theme-color" content="#101010">
+  <link rel="canonical" href="https://kong-index.github.io/dca-website/">
   <meta property="og:title" content="Deep Couch Archive">
   <meta property="og:description" content="소리, 공간, 사람, 물성, 태도가 맞물리는 사운드 스튜디오 아카이브.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/audio-rack-equipment.jpg">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101010'/%3E%3Cpath d='M8 18h16M8 14h16M10 10h12M10 22h12' stroke='%23F4F4F1' stroke-width='2' stroke-linecap='square'/%3E%3C/svg%3E">
+  <meta property="og:url" content="https://kong-index.github.io/dca-website/">
+  <meta property="og:image" content="https://kong-index.github.io/dca-website/assets/identity/dca-og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Deep Couch Archive 손그림 아이덴티티">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Deep Couch Archive">
+  <meta name="twitter:description" content="소리, 공간, 사람, 물성, 태도가 맞물리는 사운드 스튜디오 아카이브.">
+  <meta name="twitter:image" content="https://kong-index.github.io/dca-website/assets/identity/dca-og-cover.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/identity/dca-favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/identity/dca-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/identity/dca-favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/identity/dca-apple-touch-icon.png">
   <link rel="preload" as="image" href="assets/images/audio-rack-equipment.jpg" fetchpriority="high">
   <style>
     :root {
@@ -188,7 +200,7 @@
 
     .brand {
       display: inline-flex;
-      align-items: baseline;
+      align-items: center;
       gap: var(--space-2);
       width: fit-content;
       font-weight: 600;
@@ -199,6 +211,20 @@
     .brand__mark {
       font-size: var(--font-size-base);
       color: var(--text-primary);
+    }
+
+    .brand__wordmark {
+      width: 112px;
+      height: 36px;
+      object-fit: contain;
+      filter: invert(1);
+      mix-blend-mode: screen;
+      background: transparent;
+    }
+
+    [data-theme="light"] .brand__wordmark {
+      filter: none;
+      mix-blend-mode: multiply;
     }
 
     .brand__legal {
@@ -688,6 +714,22 @@
 
     .hero-media {
       margin-top: var(--space-10);
+    }
+
+    .identity-figure {
+      margin: var(--space-10) 0 var(--space-8);
+      overflow: hidden;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      background: #F4F4F1;
+    }
+
+    .identity-figure img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
+      background: #F4F4F1;
     }
 
     .hero-media__visual,
@@ -1359,7 +1401,7 @@
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="#projects" aria-label="Deep Couch Archive 홈">
-        <span class="brand__mark">deep couch archive</span>
+        <img class="brand__wordmark" src="assets/identity/dca-wordmark-handwritten.png" width="560" height="338" alt="">
         <span class="brand__legal">(주)</span>
       </a>
       <nav class="site-nav" aria-label="주요 메뉴">
@@ -1692,6 +1734,14 @@
           <p class="overline">DCA / POSITION</p>
           <h2>멋있어 보이는 공간보다, 오래 작업할 수 있는 공간.</h2>
           <p class="body-copy">Deep Couch Archive는 소리, 공간, 사람, 물성이 실제로 맞물리는 사운드 스튜디오다. 장비의 가격보다 신뢰할 수 있는 소리, 사진의 분위기보다 세션이 잘 굴러가는 상태를 먼저 본다.</p>
+
+          <figure class="identity-figure">
+            <img src="assets/identity/dca-identity-lockup.png" width="1600" height="1165" alt="Deep Couch Archive 손그림 아이덴티티 원본">
+            <figcaption class="caption">
+              <span>Identity Source / Hand Drawing / 2026-07-14</span>
+              <span>손글씨와 드로잉은 장식이 아니라, 실제 자료를 오래 남기는 아카이브의 표식으로 쓴다.</span>
+            </figcaption>
+          </figure>
 
           <div class="evidence-grid">
             <div class="evidence-cell">

@@ -4,8 +4,6 @@ Thumbs.db
 
 # Local visual QA captures and working folders
 qa/
-01_Content/
-02_Design/
 
 # Keep source material out of the public website repository
 assets/raw/
