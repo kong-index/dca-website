@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+  <title id="title">DCA denim work shirt study</title>
+  <desc id="desc">A hand-drawn technical study of a long sleeve work shirt.</desc>
+  <rect width="800" height="800" fill="#f4f4f1"/>
+  <g fill="none" stroke="#111111" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="3" d="M219 204 315 147 400 184 486 147 582 204 674 296 611 402 572 376 565 664 235 664 229 376 190 402 126 296Z"/>
+    <path stroke-width="2" d="M315 147 335 252 400 294 486 147M335 252 329 663M400 294 402 664M486 147 465 252M486 147 400 184M329 342h72M401 342h70M254 408l77-18 2 112-80 10ZM470 390l78 18-4 103-78-9ZM271 554h257M278 581h240M180 308 252 363M621 308 549 362"/>
+    <path stroke-width="1.5" d="M316 274h168M316 287h168M246 267l49 45M555 267l-49 45M310 626h181M352 172v31M447 172v31M212 102h376M212 89v25M588 89v25M108 713h584M108 701v24M692 701v24"/>
+    <path stroke-width="1.25" d="M218 96l-12-7v14ZM582 96l12-7v14ZM114 707l-14-6v12ZM686 707l14-6v12Z"/>
+    <circle cx="400" cy="327" r="4" stroke-width="1.5"/><circle cx="400" cy="369" r="4" stroke-width="1.5"/><circle cx="400" cy="411" r="4" stroke-width="1.5"/><circle cx="400" cy="453" r="4" stroke-width="1.5"/><circle cx="400" cy="495" r="4" stroke-width="1.5"/>
+  </g>
+  <g fill="#111111" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1.2">
+    <text x="279" y="70">WORK SHIRT / 01</text><text x="115" y="744">DENIM STUDY</text><text x="568" y="744">DCA</text>
+  </g>
+</svg>

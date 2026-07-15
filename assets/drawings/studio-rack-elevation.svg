@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+  <title id="title">DCA studio rack elevation</title>
+  <desc id="desc">A hand-drawn architectural elevation of a sound studio equipment rack.</desc>
+  <rect width="800" height="800" fill="#f4f4f1"/>
+  <g fill="none" stroke="#111111" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="3" d="M220 120 559 118 570 687 210 690Z"/>
+    <path stroke-width="1.5" d="M236 142 543 140M231 211 548 209M228 286 552 283M224 365 556 362M221 453 560 449M217 539 564 535M214 619 567 614"/>
+    <path stroke-width="2" d="M257 157 525 155 526 195 257 197ZM252 226 530 224 532 269 251 272ZM248 300 535 298 537 348 246 350ZM244 379 540 377 542 433 242 435ZM239 468 545 466 547 519 238 521ZM235 552 550 550 552 599 233 601ZM231 632 554 630 556 674 229 676Z"/>
+    <path stroke-width="1.5" d="M277 168h178M277 180h150M272 238h212M271 251h188M270 313h151M270 328h182M267 394h234M266 408h174M262 483h216M260 496h175M257 566h226M256 580h136M252 646h232M252 659h177"/>
+    <circle cx="490" cy="177" r="7" stroke-width="1.5"/><circle cx="503" cy="177" r="7" stroke-width="1.5"/>
+    <circle cx="492" cy="246" r="8" stroke-width="1.5"/><circle cx="510" cy="246" r="8" stroke-width="1.5"/>
+    <circle cx="485" cy="326" r="12" stroke-width="1.5"/><circle cx="516" cy="326" r="12" stroke-width="1.5"/>
+    <circle cx="495" cy="407" r="18" stroke-width="1.5"/><circle cx="518" cy="407" r="7" stroke-width="1.5"/>
+    <path stroke-width="1.5" d="M112 118h71M112 688h71M126 118v570M114 162h24M114 643h24M576 118h102M576 688h102M662 118v570M648 162h25M648 643h25"/>
+    <path stroke-width="1.25" d="M105 110l14 8-14 8M105 680l14 8-14 8M654 110l14 8-14 8M654 680l14 8-14 8"/>
+    <path stroke-width="1.25" d="M277 716h246M277 704v24M523 704v24M387 100V67M401 100V67M387 78h14"/>
+  </g>
+  <g fill="#111111" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1.4">
+    <text x="103" y="94">ELEVATION / A</text><text x="103" y="720">H 1960 MM</text><text x="600" y="720">RACK / 01</text><text x="335" y="748">W 560 MM</text><text x="408" y="58">DCA</text>
+  </g>
+</svg>

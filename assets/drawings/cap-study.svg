@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+  <title id="title">DCA washed cap study</title>
+  <desc id="desc">A hand-drawn orthographic study of a washed cap.</desc>
+  <rect width="800" height="800" fill="#f4f4f1"/>
+  <g fill="none" stroke="#111111" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="3" d="M177 391c20-173 134-264 249-264 126 0 222 97 240 252l-63 43c-30-114-102-176-179-176-78 0-145 61-174 171Z"/>
+    <path stroke-width="2" d="M250 417c54-9 118-15 181-13 68 2 133 11 191 28-58 64-158 93-238 89-68-3-151-34-207-91 22-5 48-10 73-13ZM424 246v158M286 277c71 50 150 61 242 34M221 492c84 91 228 125 366 64"/>
+    <path stroke-width="1.5" d="M113 579h574M113 567v25M687 567v25M138 232h84M138 220v24M630 186h54M630 174v24M179 623h450M179 611v25"/>
+    <path stroke-width="1.25" d="M119 573l-13-6v12ZM681 573l13-6v12ZM144 226l-13-6v12ZM216 226l13-6v12ZM185 617l-13-6v12ZM623 617l13-6v12Z"/>
+    <path stroke-width="1.5" d="M357 334h133M357 349h133M391 309v66M423 309v66M455 309v66"/>
+  </g>
+  <g fill="#111111" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1.1">
+    <text x="137" y="202">WASHED CAP / SIDE</text><text x="562" y="153">DCA</text><text x="307" y="653">BRIM SPAN / 278 MM</text><text x="327" y="704">OBJECT STUDY / 01</text>
+  </g>
+</svg>

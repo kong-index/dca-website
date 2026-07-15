@@ -23,7 +23,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/identity/dca-favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/identity/dca-favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/identity/dca-apple-touch-icon.png">
-  <link rel="preload" as="image" href="assets/images/audio-rack-equipment.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/drawings/studio-rack-elevation.svg" fetchpriority="high">
   <style>
     :root {
       color-scheme: dark;
@@ -705,7 +705,8 @@
     }
 
     .hero-media {
-      margin-top: var(--space-10);
+      width: min(100%, 520px);
+      margin: var(--space-10) auto 0;
     }
 
     .identity-figure {
@@ -741,6 +742,21 @@
       height: 100%;
       object-fit: cover;
       filter: saturate(0.82) contrast(1.04);
+    }
+
+    .drawn-media {
+      background: #F4F4F1;
+    }
+
+    .drawn-media img {
+      box-sizing: border-box;
+      padding: 8%;
+      object-fit: contain;
+      filter: none;
+    }
+
+    .hero-media .drawn-media img {
+      padding: 6%;
     }
 
     .media-focus--rack img { object-position: 50% 46%; }
@@ -874,7 +890,7 @@
     }
 
     .archive-item {
-      grid-column: span 4;
+      grid-column: span 3;
       display: grid;
       grid-template-rows: auto var(--archive-caption-height);
       overflow: hidden;
@@ -1556,6 +1572,10 @@
       .section-nav {
         width: 100%;
       }
+
+      .archive-item {
+        grid-column: span 4;
+      }
     }
 
     @media (max-width: 768px) {
@@ -1673,6 +1693,16 @@
       }
     }
 
+    @media (min-width: 641px) and (max-width: 768px) {
+      .archive-grid {
+        grid-template-columns: repeat(8, 1fr);
+      }
+
+      .archive-item {
+        grid-column: span 4;
+      }
+    }
+
     @media (max-width: 640px) {
       .header-actions {
         gap: 4px;
@@ -1775,19 +1805,19 @@
           </div>
           <h1 id="pageTitle">Deep Couch Archive</h1>
           <p class="lead">소리, 공간, 사람, 물성, 태도가 맞물리는 사운드 스튜디오 아카이브. 지금은 브랜드를 설명하는 페이지보다, 실제로 작동하는 공간의 증거를 먼저 보여주는 웹사이트가 필요하다.</p>
-          <p class="body-copy">이 첫 프로토타입은 DCA의 장비 사진, 작업복, 라벨, 프린트 레퍼런스, 손글씨 원본을 하나의 필드 가이드로 묶는다. 구조는 Blake Crosley의 긴 가이드 페이지에 가깝고, 자료 배열은 Universal Everything의 아카이브식 탐색을 참고한다.</p>
+          <p class="body-copy">이 첫 프로토타입은 DCA의 장비 기록, 작업복, 라벨, 인쇄물, 손글씨 원본을 하나의 필드 가이드로 묶는다. 화면의 이미지는 실제 자료를 그대로 소비하지 않고, 구조와 물성을 읽는 손그림 도면으로 다시 편집한다.</p>
 
           <div class="update-note">
             <p><strong>2026-07-14 업데이트.</strong> 첫 웹사이트는 과장된 랜딩페이지가 아니라 DCA가 이미 가진 자료를 검토 가능한 인덱스로 보여준다. 판단 기준은 진짜 물성, 실제 맥락, 사람의 행동이다.</p>
           </div>
 
           <figure class="hero-media">
-            <div class="hero-media__visual media-focus--rack">
-              <img src="assets/images/audio-rack-equipment.jpg" width="1800" height="1350" alt="Deep Couch Archive 스튜디오 장비 랙 사진" fetchpriority="high">
+            <div class="hero-media__visual drawn-media">
+              <img src="assets/drawings/studio-rack-elevation.svg" width="800" height="800" alt="Deep Couch Archive 스튜디오 장비 랙 손그림 도면" fetchpriority="high">
             </div>
             <figcaption class="caption">
               <span>Studio Archive / Equipment / 2026-03-08</span>
-              <span>브랜드의 첫 증거는 로고가 아니라 실제로 놓인 장비와 방의 공기다.</span>
+              <span>브랜드의 첫 증거는 로고가 아니라 실제 장비의 구조와 방의 공기다.</span>
             </figcaption>
           </figure>
 
@@ -1818,52 +1848,52 @@
 
           <div class="archive-grid" id="archiveGrid">
             <figure class="archive-item" data-category="studio">
-              <div class="archive-item__media media-focus--rack">
-                <img src="assets/images/audio-rack-equipment.jpg" width="1800" height="1350" alt="스튜디오 장비 랙 아카이브 사진" loading="eager">
+              <div class="archive-item__media drawn-media">
+                <img src="assets/drawings/studio-rack-elevation.svg" width="800" height="800" alt="스튜디오 장비 랙 아카이브 도면" loading="eager">
               </div>
               <figcaption class="archive-item__body">
                 <span class="archive-item__meta"><span>Studio</span><span>2026-03-08</span><span>Equipment</span></span>
-                <h3 class="archive-item__title">Audio rack equipment snapshot</h3>
+                <h3 class="archive-item__title">Audio rack elevation</h3>
                 <p class="archive-item__note">DCA가 사운드 스튜디오라는 사실을 가장 먼저 증명하는 첫 기록.</p>
               </figcaption>
             </figure>
 
             <figure class="archive-item" data-category="workwear">
-              <div class="archive-item__media media-focus--jacket-pair">
-                <img src="assets/images/work-jackets-chambray-pair.jpg" width="1350" height="1800" alt="두 벌의 샴브레이 작업복 사진" loading="lazy">
+              <div class="archive-item__media drawn-media">
+                <img src="assets/drawings/workwear-pair-study.svg" width="800" height="800" alt="두 벌의 샴브레이 작업복 손그림 도면" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
                 <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Pair</span></span>
-                <h3 class="archive-item__title">Chambray work jackets</h3>
+                <h3 class="archive-item__title">Workwear pair study</h3>
                 <p class="archive-item__note">홍보용 굿즈보다 실제 현장에서 입을 수 있는 물건에 가깝다.</p>
               </figcaption>
             </figure>
 
             <figure class="archive-item" data-category="workwear">
-              <div class="archive-item__media media-focus--denim-shirt">
-                <img src="assets/images/denim-work-shirt-full.jpg" width="1350" height="1800" alt="데님 작업 셔츠 전체 사진" loading="lazy">
+              <div class="archive-item__media drawn-media">
+                <img src="assets/drawings/workshirt-study.svg" width="800" height="800" alt="데님 작업 셔츠 손그림 도면" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
                 <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Full view</span></span>
-                <h3 class="archive-item__title">Denim work shirt</h3>
+                <h3 class="archive-item__title">Work shirt study</h3>
                 <p class="archive-item__note">로고를 크게 말하지 않고, 입는 사람의 행동 안에서 자연스럽게 드러나는 방향.</p>
               </figcaption>
             </figure>
 
             <figure class="archive-item" data-category="workwear">
-              <div class="archive-item__media media-focus--jacket-label">
-                <img src="assets/images/work-jacket-korean-label.jpg" width="1600" height="1200" alt="작업 재킷의 한글 이름 라벨 클로즈업" loading="lazy">
+              <div class="archive-item__media drawn-media">
+                <img src="assets/drawings/name-label-study.svg" width="800" height="800" alt="작업 재킷의 한글 이름 라벨 손그림 도면" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
                 <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Label</span></span>
-                <h3 class="archive-item__title">Korean name label</h3>
+                <h3 class="archive-item__title">Korean name label study</h3>
                 <p class="archive-item__note">한글 자연어와 실제 물성이 만나는 작은 접점. DCA의 말투를 담기 좋다.</p>
               </figcaption>
             </figure>
 
             <figure class="archive-item" data-category="workwear">
-              <div class="archive-item__media media-focus--denim-label-01">
-                <img src="assets/images/denim-name-label-01.jpg" width="1600" height="1200" alt="데님 셔츠 이름 라벨 클로즈업 1" loading="lazy">
+              <div class="archive-item__media drawn-media">
+                <img src="assets/drawings/name-label-study.svg" width="800" height="800" alt="데님 셔츠 이름 라벨 손그림 도면 1" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
                 <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Label 01</span></span>
@@ -1873,8 +1903,8 @@
             </figure>
 
             <figure class="archive-item" data-category="workwear">
-              <div class="archive-item__media media-focus--denim-label-02">
-                <img src="assets/images/denim-name-label-02.jpg" width="1600" height="1200" alt="데님 셔츠 이름 라벨 클로즈업 2" loading="lazy">
+              <div class="archive-item__media drawn-media">
+                <img src="assets/drawings/name-label-study.svg" width="800" height="800" alt="데님 셔츠 이름 라벨 손그림 도면 2" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
                 <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Label 02</span></span>
@@ -1884,8 +1914,8 @@
             </figure>
 
             <figure class="archive-item" data-category="object">
-              <div class="archive-item__media media-focus--cap">
-                <img src="assets/images/cap-reference-washed-logo.jpg" width="1400" height="1299" alt="워시드 캡과 작은 자수 로고 레퍼런스" loading="lazy">
+              <div class="archive-item__media drawn-media">
+                <img src="assets/drawings/cap-study.svg" width="800" height="800" alt="워시드 캡 손그림 도면" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
                 <span class="archive-item__meta"><span>Object</span><span>2026-07-14</span><span>Cap reference</span></span>
@@ -1895,8 +1925,8 @@
             </figure>
 
             <figure class="archive-item" data-category="print">
-              <div class="archive-item__media media-focus--print-english">
-                <img src="assets/images/print-preview-english-card.png" width="736" height="1600" alt="영문 프린트 카드 미리보기" loading="lazy">
+              <div class="archive-item__media drawn-media">
+                <img src="assets/drawings/print-card-study.svg" width="800" height="800" alt="영문 인쇄 카드 손그림 도면" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
                 <span class="archive-item__meta"><span>Print</span><span>2026-07-09</span><span>English</span></span>
@@ -1906,8 +1936,8 @@
             </figure>
 
             <figure class="archive-item" data-category="print">
-              <div class="archive-item__media media-focus--print-korean">
-                <img src="assets/images/print-preview-korean-label.png" width="736" height="1600" alt="한글 라벨 프린트 미리보기" loading="lazy">
+              <div class="archive-item__media drawn-media">
+                <img src="assets/drawings/print-card-study.svg" width="800" height="800" alt="한글 라벨 인쇄 손그림 도면" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
                 <span class="archive-item__meta"><span>Print</span><span>2026-07-09</span><span>Korean</span></span>
@@ -1997,8 +2027,8 @@
 
           <div class="split">
             <figure class="media-frame">
-              <div class="media-frame__visual media-focus--jacket-pair">
-                <img src="assets/images/work-jackets-chambray-pair.jpg" width="1350" height="1800" alt="DCA 작업복 두 벌">
+              <div class="media-frame__visual drawn-media">
+                <img src="assets/drawings/workwear-pair-study.svg" width="800" height="800" alt="DCA 작업복 두 벌 손그림 도면">
               </div>
               <figcaption class="caption">
                 <span>Workwear / Pair</span>
@@ -2006,8 +2036,8 @@
               </figcaption>
             </figure>
             <figure class="media-frame">
-              <div class="media-frame__visual media-focus--jacket-label">
-                <img src="assets/images/work-jacket-korean-label.jpg" width="1600" height="1200" alt="한글 이름 라벨 클로즈업">
+              <div class="media-frame__visual drawn-media">
+                <img src="assets/drawings/name-label-study.svg" width="800" height="800" alt="한글 이름 라벨 손그림 도면">
               </div>
               <figcaption class="caption">
                 <span>Label / Korean</span>
@@ -2071,11 +2101,11 @@
               <figcaption class="design-specimen__label">IMAGE FRAMING / EVIDENCE FIRST</figcaption>
               <div class="evidence-specimen">
                 <div class="evidence-specimen__item">
-                  <div class="evidence-specimen__image media-focus--rack"><img src="assets/images/audio-rack-equipment.jpg" width="1800" height="1350" alt="스튜디오 장비 랙 이미지 프레임 예시"></div>
+                  <div class="evidence-specimen__image drawn-media"><img src="assets/drawings/studio-rack-elevation.svg" width="800" height="800" alt="스튜디오 장비 랙 도면 프레임 예시"></div>
                   <div class="evidence-specimen__caption"><strong>Studio evidence / 1:1</strong><span>장비는 프레임보다 먼저 읽혀야 한다.</span></div>
                 </div>
                 <div class="evidence-specimen__item">
-                  <div class="evidence-specimen__image media-focus--jacket-label"><img src="assets/images/work-jacket-korean-label.jpg" width="1600" height="1200" alt="작업복 라벨 이미지 프레임 예시"></div>
+                  <div class="evidence-specimen__image drawn-media"><img src="assets/drawings/name-label-study.svg" width="800" height="800" alt="작업복 라벨 도면 프레임 예시"></div>
                   <div class="evidence-specimen__caption"><strong>Material detail / 1:1</strong><span>라벨과 물성은 같은 정방형 규격으로 비교한다.</span></div>
                 </div>
                 <div class="evidence-specimen__item evidence-specimen__item--identity">
@@ -2194,7 +2224,7 @@
           <h3>작동 규칙</h3>
           <ul class="checklist">
             <li><span class="checklist__box" aria-hidden="true"></span><span>시스템 산세리프를 기본으로 쓰고, 손글씨는 본문 폰트가 아니라 실제 아이덴티티 자료로만 쓴다.</span></li>
-            <li><span class="checklist__box" aria-hidden="true"></span><span>사진은 1:1 정방형 프레임으로 반복하고, 손그림 아이덴티티와 외부 공유 이미지만 1200×630 가로 프레임을 쓴다.</span></li>
+            <li><span class="checklist__box" aria-hidden="true"></span><span>공개 도면은 1:1 정방형 프레임으로 반복하고, 손그림 아이덴티티와 외부 공유 이미지만 1200×630 가로 프레임을 쓴다.</span></li>
             <li><span class="checklist__box" aria-hidden="true"></span><span>장식보다 장비, 라벨, 작업복, 날짜, 캡션처럼 실제 운영을 증명하는 정보를 먼저 넣는다.</span></li>
             <li><span class="checklist__box" aria-hidden="true"></span><span>파랑과 빨강은 분위기용이 아니라 활성 상태, 포커스, 특정 물성 표시처럼 기능이 있을 때만 쓴다.</span></li>
           </ul>
@@ -2217,7 +2247,7 @@
               <span class="sequence__step">Step 02</span>
               <div>
                 <h3>웹사이트 1차 공개</h3>
-                <p>Blake식 가이드 구조와 Universal Everything식 아카이브 탐색을 빌려 첫 페이지를 만든다.</p>
+                <p>필드 가이드와 아카이브 탐색 구조를 바탕으로 첫 페이지를 만든다.</p>
               </div>
             </li>
             <li>
@@ -2306,7 +2336,7 @@
             <li><span class="checklist__box" aria-hidden="true"></span><span>모든 브랜드 주장에 사진, 파일, 날짜, 물건 중 하나의 증거가 붙어 있는가.</span></li>
             <li><span class="checklist__box" aria-hidden="true"></span><span>작업복과 굿즈가 홍보물보다 실제로 쓰는 물건처럼 보이는가.</span></li>
             <li><span class="checklist__box" aria-hidden="true"></span><span>한국어 문장이 자연스럽고, 과장된 마케팅 문구로 들리지 않는가.</span></li>
-            <li><span class="checklist__box" aria-hidden="true"></span><span>Blake와 Universal Everything의 구조를 빌렸지만, 내용은 DCA의 자료로 교체됐는가.</span></li>
+            <li><span class="checklist__box" aria-hidden="true"></span><span>외부 구조를 참고했더라도, 내용과 증거는 DCA의 자료로 채웠는가.</span></li>
           </ul>
 
           <nav class="section-nav" aria-label="이전 다음 섹션">
@@ -2483,9 +2513,9 @@
         "Deep Couch Archive의 공식 연락 채널은 현재 정리 중이다. 확정되지 않은 이메일이나 소셜 계정은 노출하지 않는다. 문의 내용은 아래 형식으로 먼저 준비할 수 있다.": "The official Deep Couch Archive contact channel is being prepared. Unconfirmed email addresses and social accounts are not published. You can prepare your enquiry in the format below.",
         "공식 문의처가 확정되면 이 페이지에 이메일과 Instagram 연결을 추가한다.": "Email and Instagram links will be added to this page once the official contact channel is confirmed.",
         "소리, 공간, 사람, 물성, 태도가 맞물리는 사운드 스튜디오 아카이브. 지금은 브랜드를 설명하는 페이지보다, 실제로 작동하는 공간의 증거를 먼저 보여주는 웹사이트가 필요하다.": "A sound-studio archive where sound, space, people, materiality, and attitude meet. Before a page that explains a brand, DCA needs a site that shows evidence of a working space.",
-        "이 첫 프로토타입은 DCA의 장비 사진, 작업복, 라벨, 프린트 레퍼런스, 손글씨 원본을 하나의 필드 가이드로 묶는다. 구조는 Blake Crosley의 긴 가이드 페이지에 가깝고, 자료 배열은 Universal Everything의 아카이브식 탐색을 참고한다.": "This first prototype gathers DCA equipment photographs, workwear, labels, print references, and handwritten sources into one field guide. Its long-form guide structure follows Blake Crosley, while its material arrangement takes cues from Universal Everything's archive browsing.",
+        "이 첫 프로토타입은 DCA의 장비 기록, 작업복, 라벨, 인쇄물, 손글씨 원본을 하나의 필드 가이드로 묶는다. 화면의 이미지는 실제 자료를 그대로 소비하지 않고, 구조와 물성을 읽는 손그림 도면으로 다시 편집한다.": "This first prototype gathers DCA equipment records, workwear, labels, print material, and handwritten sources into one field guide. Visuals are re-edited as hand-drawn studies that let structure and materiality be read, rather than consuming the source material as photographs.",
         "첫 웹사이트는 과장된 랜딩페이지가 아니라 DCA가 이미 가진 자료를 검토 가능한 인덱스로 보여준다. 판단 기준은 진짜 물성, 실제 맥락, 사람의 행동이다.": "The first website is not an inflated landing page. It presents the materials DCA already has as a reviewable index, judged by real materiality, actual context, and human behavior.",
-        "브랜드의 첫 증거는 로고가 아니라 실제로 놓인 장비와 방의 공기다.": "The first evidence of a brand is not a logo, but the equipment in place and the air of the room.",
+        "브랜드의 첫 증거는 로고가 아니라 실제 장비의 구조와 방의 공기다.": "The first evidence of a brand is not a logo, but the structure of real equipment and the air of the room.",
         "자료를 먼저 보여주는 아카이브 인덱스": "An archive index that shows the material first",
         "DCA답게 판단하는 필드 가이드": "A field guide for judging what is DCA",
         "작업복, 라벨, 손글씨가 만드는 물성": "Materiality made by workwear, labels, and handwriting",
@@ -2569,7 +2599,7 @@
         "활성 상태와 키보드 포커스": "Active states and keyboard focus",
         "작동 규칙": "Operating rules",
         "시스템 산세리프를 기본으로 쓰고, 손글씨는 본문 폰트가 아니라 실제 아이덴티티 자료로만 쓴다.": "Use the system sans-serif by default. Handwriting is an identity source, not body type.",
-        "사진은 1:1 정방형 프레임으로 반복하고, 손그림 아이덴티티와 외부 공유 이미지만 1200×630 가로 프레임을 쓴다.": "Repeat photographs in 1:1 square frames. Only the hand-drawn identity and external share image use a 1200 x 630 landscape frame.",
+        "공개 도면은 1:1 정방형 프레임으로 반복하고, 손그림 아이덴티티와 외부 공유 이미지만 1200×630 가로 프레임을 쓴다.": "Repeat public drawings in 1:1 square frames. Only the hand-drawn identity and external share image use a 1200 x 630 landscape frame.",
         "장식보다 장비, 라벨, 작업복, 날짜, 캡션처럼 실제 운영을 증명하는 정보를 먼저 넣는다.": "Put equipment, labels, workwear, dates, and captions ahead of decoration because they prove real operation.",
         "파랑과 빨강은 분위기용이 아니라 활성 상태, 포커스, 특정 물성 표시처럼 기능이 있을 때만 쓴다.": "Use blue and red only when they serve a function, such as active state, focus, or a specific material marker.",
         "작은 라벨과 작업복이 먼저 브랜드가 된다.": "Small labels and workwear become the brand first.",
@@ -2581,7 +2611,7 @@
         "자료 인덱스 확정": "Confirm the material index",
         "장비, 작업복, 라벨, 손글씨 원본, 프린트 시안을 파일명과 날짜 기준으로 정리한다.": "Organize equipment, workwear, labels, handwritten sources, and print proofs by filename and date.",
         "웹사이트 1차 공개": "First website release",
-        "Blake식 가이드 구조와 Universal Everything식 아카이브 탐색을 빌려 첫 페이지를 만든다.": "Build the first page with a Blake-style guide structure and Universal Everything-style archive browsing.",
+        "필드 가이드와 아카이브 탐색 구조를 바탕으로 첫 페이지를 만든다.": "Build the first page around a field guide and archive browsing structure.",
         "카탈로그 편집": "Catalogue edit",
         "웹에 올라간 증거 이미지를 종이의 순서와 침묵에 맞춰 다시 편집한다.": "Re-edit the evidence images published on the web for the sequence and silence of paper.",
         "소셜 콘텐츠 파생": "Social content derivation",
@@ -2602,7 +2632,7 @@
         "모든 브랜드 주장에 사진, 파일, 날짜, 물건 중 하나의 증거가 붙어 있는가.": "Does every brand claim carry evidence in a photograph, file, date, or object?",
         "작업복과 굿즈가 홍보물보다 실제로 쓰는 물건처럼 보이는가.": "Do workwear and goods look more like things people use than promotional items?",
         "한국어 문장이 자연스럽고, 과장된 마케팅 문구로 들리지 않는가.": "Do the Korean sentences feel natural rather than like exaggerated marketing copy?",
-        "Blake와 Universal Everything의 구조를 빌렸지만, 내용은 DCA의 자료로 교체됐는가.": "Has the borrowed Blake and Universal Everything structure been filled with DCA material?"
+        "빌린 구조 안의 내용을 DCA의 자료로 교체했는가.": "Has the borrowed structure been filled with DCA material?"
       };
       const originalTextNodes = new WeakMap();
 
