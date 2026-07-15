@@ -1152,6 +1152,145 @@
       opacity: 0.68;
     }
 
+    .evidence-specimen {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--border-default);
+    }
+
+    .evidence-specimen__item {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      background: var(--surface-secondary);
+    }
+
+    .evidence-specimen__image {
+      aspect-ratio: var(--media-ratio-square);
+      overflow: hidden;
+      background: var(--surface-elevated);
+    }
+
+    .evidence-specimen__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.82) contrast(1.04);
+    }
+
+    .evidence-specimen__item--identity {
+      grid-column: 1 / -1;
+    }
+
+    .evidence-specimen__item--identity .evidence-specimen__image {
+      aspect-ratio: 1200 / 630;
+      background: #F4F4F1;
+    }
+
+    .evidence-specimen__item--identity img {
+      object-fit: cover;
+      filter: none;
+    }
+
+    .evidence-specimen__caption {
+      display: grid;
+      gap: var(--space-1);
+      min-height: 76px;
+      padding: var(--space-3) var(--space-4);
+      color: var(--text-secondary);
+      font-size: var(--font-size-sm);
+      line-height: 1.5;
+    }
+
+    .evidence-specimen__caption strong {
+      color: var(--text-primary);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+    }
+
+    .spacing-specimen {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      min-height: 144px;
+      background: var(--guide-bg-subtle);
+    }
+
+    .spacing-specimen__item {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: var(--space-2);
+      padding: var(--space-4);
+      border-right: 1px solid var(--border-default);
+    }
+
+    .spacing-specimen__item:last-child {
+      border-right: 0;
+    }
+
+    .spacing-specimen__item span:first-child,
+    .spacing-specimen__item span:last-child {
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+    }
+
+    .spacing-specimen__bar-wrap {
+      display: grid;
+      align-items: end;
+      min-height: 64px;
+    }
+
+    .spacing-specimen__bar {
+      width: 100%;
+      height: var(--sample-space);
+      min-height: 4px;
+      background: var(--accent-primary);
+    }
+
+    .state-specimen {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-3);
+      padding: var(--space-5);
+      background: var(--guide-bg-subtle);
+    }
+
+    .state-specimen__item {
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .state-specimen__label {
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+    }
+
+    .state-specimen__control {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--control-height);
+      padding: 0 var(--space-3);
+      border: 1px solid var(--border-default);
+      color: var(--text-secondary);
+      font-size: var(--font-size-sm);
+    }
+
+    .state-specimen__control--active {
+      border-color: var(--accent-primary);
+      color: var(--text-primary);
+      background: var(--surface-secondary);
+    }
+
+    .state-specimen__control--focus {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 2px;
+      color: var(--text-primary);
+      background: var(--surface-secondary);
+    }
+
     table {
       width: 100%;
       min-width: var(--table-min-width);
@@ -1180,10 +1319,20 @@
 
     .split {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: var(--space-6);
-      align-items: start;
+      align-items: stretch;
       margin-top: var(--space-8);
+    }
+
+    #material .media-frame {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      height: 100%;
+    }
+
+    #material .caption {
+      min-height: 76px;
     }
 
     .sequence {
@@ -1484,6 +1633,24 @@
 
       .color-specimen__theme {
         min-height: 176px;
+        padding: var(--space-4);
+      }
+
+      .evidence-specimen__caption {
+        min-height: 84px;
+        padding: var(--space-3);
+      }
+
+      .spacing-specimen {
+        min-height: 128px;
+      }
+
+      .spacing-specimen__item {
+        padding: var(--space-3);
+      }
+
+      .state-specimen {
+        grid-template-columns: 1fr;
         padding: var(--space-4);
       }
 
@@ -1897,6 +2064,44 @@
                   <p class="color-specimen__copy">오래 읽기 위한 밝은 대안.</p>
                   <p class="color-specimen__token">#F4F4F1 / #111111</p>
                 </div>
+              </div>
+            </figure>
+
+            <figure class="design-specimen">
+              <figcaption class="design-specimen__label">IMAGE FRAMING / EVIDENCE FIRST</figcaption>
+              <div class="evidence-specimen">
+                <div class="evidence-specimen__item">
+                  <div class="evidence-specimen__image media-focus--rack"><img src="assets/images/audio-rack-equipment.jpg" width="1800" height="1350" alt="스튜디오 장비 랙 이미지 프레임 예시"></div>
+                  <div class="evidence-specimen__caption"><strong>Studio evidence / 1:1</strong><span>장비는 프레임보다 먼저 읽혀야 한다.</span></div>
+                </div>
+                <div class="evidence-specimen__item">
+                  <div class="evidence-specimen__image media-focus--jacket-label"><img src="assets/images/work-jacket-korean-label.jpg" width="1600" height="1200" alt="작업복 라벨 이미지 프레임 예시"></div>
+                  <div class="evidence-specimen__caption"><strong>Material detail / 1:1</strong><span>라벨과 물성은 같은 정방형 규격으로 비교한다.</span></div>
+                </div>
+                <div class="evidence-specimen__item evidence-specimen__item--identity">
+                  <div class="evidence-specimen__image"><img src="assets/identity/dca-og-cover.png" width="1200" height="630" alt="손그림 아이덴티티 가로 프레임 예시"></div>
+                  <div class="evidence-specimen__caption"><strong>Identity / 1200×630</strong><span>손그림과 외부 공유 이미지는 사진 규칙의 예외로, 중앙의 여백을 보존한다.</span></div>
+                </div>
+              </div>
+            </figure>
+
+            <figure class="design-specimen">
+              <figcaption class="design-specimen__label">SPACING / 4PX BASE RHYTHM</figcaption>
+              <div class="spacing-specimen">
+                <div class="spacing-specimen__item" style="--sample-space: 4px"><span>SPACE 01</span><span class="spacing-specimen__bar-wrap"><span class="spacing-specimen__bar"></span></span><span>4px</span></div>
+                <div class="spacing-specimen__item" style="--sample-space: 8px"><span>SPACE 02</span><span class="spacing-specimen__bar-wrap"><span class="spacing-specimen__bar"></span></span><span>8px</span></div>
+                <div class="spacing-specimen__item" style="--sample-space: 16px"><span>SPACE 04</span><span class="spacing-specimen__bar-wrap"><span class="spacing-specimen__bar"></span></span><span>16px</span></div>
+                <div class="spacing-specimen__item" style="--sample-space: 24px"><span>SPACE 06</span><span class="spacing-specimen__bar-wrap"><span class="spacing-specimen__bar"></span></span><span>24px</span></div>
+                <div class="spacing-specimen__item" style="--sample-space: 48px"><span>SPACE 12</span><span class="spacing-specimen__bar-wrap"><span class="spacing-specimen__bar"></span></span><span>48px</span></div>
+              </div>
+            </figure>
+
+            <figure class="design-specimen">
+              <figcaption class="design-specimen__label">INTERFACE STATES / FUNCTIONAL ACCENT</figcaption>
+              <div class="state-specimen">
+                <div class="state-specimen__item"><span class="state-specimen__label">DEFAULT</span><span class="state-specimen__control">Archive</span></div>
+                <div class="state-specimen__item"><span class="state-specimen__label">ACTIVE</span><span class="state-specimen__control state-specimen__control--active">Archive</span></div>
+                <div class="state-specimen__item"><span class="state-specimen__label">KEYBOARD FOCUS</span><span class="state-specimen__control state-specimen__control--focus">Archive</span></div>
               </div>
             </figure>
           </div>
@@ -2327,6 +2532,9 @@
         "왼쪽 목차와 분리된, 화면 중심의 읽기 폭.": "A viewport-centred reading lane, separated from the left index.",
         "조용하고 정확한 작업 표면.": "A quiet, precise working surface.",
         "오래 읽기 위한 밝은 대안.": "A lighter alternative for extended reading.",
+        "장비는 프레임보다 먼저 읽혀야 한다.": "Equipment must read before the frame.",
+        "라벨과 물성은 같은 정방형 규격으로 비교한다.": "Compare labels and materiality in the same square format.",
+        "손그림과 외부 공유 이미지는 사진 규칙의 예외로, 중앙의 여백을 보존한다.": "Hand drawings and external share images are exceptions to the photo rule, preserving centred whitespace.",
         "위계와 그리드": "Hierarchy and grid",
         "요소": "Element",
         "규격": "Specification",
