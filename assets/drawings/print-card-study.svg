@@ -1,16 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
-  <title id="title">DCA printed card study</title>
-  <desc id="desc">A hand-drawn study of a folded archive card and printed label.</desc>
+  <title id="title">DCA print card sketch</title>
+  <desc id="desc">A loose hand-drawn sketch of a folded archive card.</desc>
   <rect width="800" height="800" fill="#f4f4f1"/>
-  <g fill="none" stroke="#111111" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke-width="3" d="M189 154 523 119 623 214 610 596 275 632 176 533Z"/>
-    <path stroke-width="2" d="M189 154 286 250 623 214M286 250 275 632M523 119 517 504M176 533l99 99M517 504l93 92"/>
-    <path stroke-width="1.5" d="M323 291h190M322 320h144M319 348h181M316 399h234M314 428h205M312 457h153M314 526h171M312 554h207M541 252l46 43M546 282l40 37"/>
-    <path stroke-width="2" d="M331 376 484 359 486 487 329 504Z"/>
-    <path stroke-width="1.25" d="M116 654h526M116 642v24M642 642v24M145 100h370M145 88v24M515 88v24"/>
-    <path stroke-width="1.25" d="M122 648l-13-6v12ZM636 648l13-6v12ZM151 94l-13-6v12ZM509 94l13-6v12Z"/>
-  </g>
-  <g fill="#111111" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1.1">
-    <text x="168" y="68">ARCHIVE CARD / FOLD</text><text x="351" y="443">DCA / PRINT</text><text x="290" y="697">STOCK 01 / 300 GSM</text>
+  <g fill="none" stroke="#1a1614" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="8" d="m176 204 357-55 108 89-18 374-355 54-106-90Z"/>
+    <path stroke-width="5" d="m176 204 108 91 357-57M284 295l-16 371M533 149l-16 361M162 576l106 90M517 510l106 102"/>
+    <path stroke-width="4" d="M333 338h162M330 370h118M327 402h180M323 447h226M320 480h177M316 513h215"/>
+    <path stroke-width="6" d="m344 424 148-24 4 103-150 23Z"/>
+    <path stroke-width="4" d="M199 695c116 26 232 15 348-31M548 278l47 43M552 314l43 39"/>
   </g>
 </svg>

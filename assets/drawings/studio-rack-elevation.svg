@@ -1,21 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
-  <title id="title">DCA studio rack elevation</title>
-  <desc id="desc">A hand-drawn architectural elevation of a sound studio equipment rack.</desc>
+  <title id="title">DCA studio equipment sketch</title>
+  <desc id="desc">A loose hand-drawn sketch of a sound studio equipment rack.</desc>
   <rect width="800" height="800" fill="#f4f4f1"/>
-  <g fill="none" stroke="#111111" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke-width="3" d="M220 120 559 118 570 687 210 690Z"/>
-    <path stroke-width="1.5" d="M236 142 543 140M231 211 548 209M228 286 552 283M224 365 556 362M221 453 560 449M217 539 564 535M214 619 567 614"/>
-    <path stroke-width="2" d="M257 157 525 155 526 195 257 197ZM252 226 530 224 532 269 251 272ZM248 300 535 298 537 348 246 350ZM244 379 540 377 542 433 242 435ZM239 468 545 466 547 519 238 521ZM235 552 550 550 552 599 233 601ZM231 632 554 630 556 674 229 676Z"/>
-    <path stroke-width="1.5" d="M277 168h178M277 180h150M272 238h212M271 251h188M270 313h151M270 328h182M267 394h234M266 408h174M262 483h216M260 496h175M257 566h226M256 580h136M252 646h232M252 659h177"/>
-    <circle cx="490" cy="177" r="7" stroke-width="1.5"/><circle cx="503" cy="177" r="7" stroke-width="1.5"/>
-    <circle cx="492" cy="246" r="8" stroke-width="1.5"/><circle cx="510" cy="246" r="8" stroke-width="1.5"/>
-    <circle cx="485" cy="326" r="12" stroke-width="1.5"/><circle cx="516" cy="326" r="12" stroke-width="1.5"/>
-    <circle cx="495" cy="407" r="18" stroke-width="1.5"/><circle cx="518" cy="407" r="7" stroke-width="1.5"/>
-    <path stroke-width="1.5" d="M112 118h71M112 688h71M126 118v570M114 162h24M114 643h24M576 118h102M576 688h102M662 118v570M648 162h25M648 643h25"/>
-    <path stroke-width="1.25" d="M105 110l14 8-14 8M105 680l14 8-14 8M654 110l14 8-14 8M654 680l14 8-14 8"/>
-    <path stroke-width="1.25" d="M277 716h246M277 704v24M523 704v24M387 100V67M401 100V67M387 78h14"/>
-  </g>
-  <g fill="#111111" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1.4">
-    <text x="103" y="94">ELEVATION / A</text><text x="103" y="720">H 1960 MM</text><text x="600" y="720">RACK / 01</text><text x="335" y="748">W 560 MM</text><text x="408" y="58">DCA</text>
+  <g fill="none" stroke="#1a1614" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="8" d="M253 163c83-13 174-10 266 2l12 470c-92 13-184 12-277-2Z"/>
+    <path stroke-width="5" d="M276 198c77-7 155-6 233 2l2 58c-78 8-156 7-234-1ZM273 285c80-8 159-6 239 2l1 63c-77 7-158 7-240-2ZM270 379c78-8 161-8 246 1l1 64c-81 8-163 8-246-1ZM267 474c85-8 168-7 251 2l2 65c-84 8-169 7-253-1ZM264 569c87-8 172-7 258 1l2 43c-89 8-173 8-259-1Z"/>
+    <path stroke-width="3" d="M296 220h126M296 236h164M293 307h155M291 326h117M290 403h164M288 424h126M285 499h145M284 520h177M282 591h164"/>
+    <circle cx="469" cy="232" r="13" stroke-width="4"/><circle cx="493" cy="232" r="11" stroke-width="4"/>
+    <circle cx="481" cy="317" r="15" stroke-width="4"/><circle cx="501" cy="317" r="9" stroke-width="4"/>
+    <circle cx="483" cy="414" r="20" stroke-width="4"/><circle cx="505" cy="414" r="11" stroke-width="4"/>
+    <path stroke-width="4" d="M335 652c-5 37-12 63-29 90M456 651c9 36 17 62 33 89M232 739c35 12 67 14 96 7M491 746c31 5 59 2 85-10"/>
   </g>
 </svg>

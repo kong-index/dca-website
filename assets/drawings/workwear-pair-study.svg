@@ -1,17 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
-  <title id="title">DCA workwear pair study</title>
-  <desc id="desc">Two hand-drawn work jackets in a technical garment study.</desc>
+  <title id="title">DCA workwear pair sketch</title>
+  <desc id="desc">A loose hand-drawn sketch of two work jackets.</desc>
   <rect width="800" height="800" fill="#f4f4f1"/>
-  <g fill="none" stroke="#111111" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke-width="3" d="M129 262 208 204 286 219 330 187 393 226 456 268 421 392 410 642 148 642 144 400Z"/>
-    <path stroke-width="2" d="M208 204 237 282 330 330 393 226M237 282 234 641M330 330 333 641M148 400 227 429M421 392 340 426M256 348h70M256 367h70M173 468l52-13 2 84-54 7ZM347 456l53 13-2 87-54-7ZM277 324v67"/>
-    <path stroke-width="1.5" d="M177 286 223 324M416 286 371 323M153 578h79M337 578h76M192 223 213 250M445 249 411 221"/>
-    <path stroke-width="3" d="M435 233 510 186 579 205 628 175 696 218 744 265 711 385 697 638 449 638 442 395Z"/>
-    <path stroke-width="2" d="M510 186 542 260 628 311 696 218M542 260 536 637M628 311 630 637M449 395 532 421M711 385 637 418M555 334h71M555 353h71M470 459l57-14 2 85-58 8ZM644 454l48 17-2 85-53-9ZM579 307v73"/>
-    <path stroke-width="1.5" d="M459 276 521 320M710 270 652 312M465 576h69M634 576h62M222 122h340M222 109v25M562 109v25M96 684h603M96 672v24M699 672v24"/>
-    <path stroke-width="1.25" d="M101 690l14-6v12ZM687 690l-14-6v12ZM226 116l12-7v14ZM558 116l-12-7v14Z"/>
-  </g>
-  <g fill="#111111" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1.2">
-    <text x="244" y="89">PAIR / FRONT ELEVATION</text><text x="105" y="718">BODIES / 02</text><text x="610" y="718">DCA / 01</text><text x="352" y="742">GARMENT WIDTH</text>
+  <g fill="none" stroke="#1a1614" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="8" d="M107 329 202 243l79 19 57-43 77 46 65 77-40 95-14 225-249-1-13-225Z"/>
+    <path stroke-width="5" d="m202 243 48 98 86 52 79-128M250 341l-5 319M336 393l2 268M178 457l66 24M439 457l-98 24M200 499l53-16 4 83-56 11ZM347 485l58 16-2 89-62-11ZM278 401h61M278 420h62"/>
+    <path stroke-width="8" d="m401 316 84-78 71 13 52-36 79 57 51 79-41 87-8 222-228 3-17-219-42-92Z"/>
+    <path stroke-width="5" d="m485 238 45 88 78 47 79-101M530 326l-3 334M608 373l1 289M464 454l63 21M696 453l-84 22M480 496l51-15 4 82-53 8ZM620 480l54 15-4 89-54-8ZM553 384h55M552 402h58"/>
+    <path stroke-width="4" d="M153 687c112 21 220 18 323-5M420 696c98 14 181 5 250-28"/>
   </g>
 </svg>

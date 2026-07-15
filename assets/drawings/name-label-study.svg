@@ -1,17 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
-  <title id="title">DCA name label material study</title>
-  <desc id="desc">A hand-drawn close study of a stitched Korean name label on workwear.</desc>
+  <title id="title">DCA label sketch</title>
+  <desc id="desc">A loose hand-drawn sketch of a stitched name label on workwear.</desc>
   <rect width="800" height="800" fill="#f4f4f1"/>
-  <g fill="none" stroke="#111111" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke-width="2" d="M96 186c99-46 204-58 313-22 98 32 190 28 296-19v473c-103 46-205 52-298 19-101-36-205-22-311 22Z"/>
-    <path stroke-width="1.25" d="M113 214c95-39 194-49 289-18 99 32 199 28 285-14M111 246c96-39 194-49 289-18 99 32 199 28 285-14M109 581c95-39 194-48 289-18 99 32 199 28 285-14M108 612c96-39 194-48 289-18 99 32 199 28 285-14"/>
-    <path stroke-width="3" d="M207 342 598 286 614 470 224 526Z"/>
-    <path stroke-width="1.5" stroke-dasharray="6 7" d="M223 357 582 305M230 510 606 457M223 357l7 153M582 305l24 152"/>
-    <path stroke-width="1.4" d="M252 388h73M252 417h94M252 446h58M375 367v100M410 360v100M445 356v99M480 350v98M515 344v97M550 338v94"/>
-    <path stroke-width="1.5" d="M161 321l48 30M627 278l47-31M166 550l53-25M621 477l52 25M166 149h135M166 137v25M625 638h-126M625 626v25"/>
-    <path stroke-width="1.25" d="M172 155l-13-6v12ZM296 155l13-6v12ZM618 632l13-6v12ZM507 632l-13-6v12Z"/>
-  </g>
-  <g fill="#111111" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1.1">
-    <text x="184" y="119">CLOTH / DETAIL</text><text x="504" y="612">STITCH / 04</text><text x="281" y="492">DCA NAME LABEL</text><text x="255" y="736">HAND / MATERIAL / KOREAN</text>
+  <g fill="none" stroke="#1a1614" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="6" d="M94 225c132-68 244-58 359-16 100 36 194 29 254-12v386c-87 48-185 63-282 28-118-42-220-34-331 14Z"/>
+    <path stroke-width="3" d="M115 258c124-55 226-47 333-8 101 37 190 30 238-6M111 570c115-45 220-53 320-17 96 34 184 24 258-14"/>
+    <path stroke-width="8" d="m190 376 423-62 17 160-419 63Z"/>
+    <path stroke-width="3" stroke-dasharray="5 11" d="m207 392 389-56M212 520l400-60M207 392l5 128M596 336l16 124"/>
+    <path stroke-width="4" d="M255 434h77M255 461h48M372 409l1 78M408 403l2 79M445 398l1 78M482 393l2 77M520 387l1 76"/>
+    <path stroke-width="4" d="M130 650c90 33 190 37 288 10M436 665c80 7 153-5 222-40"/>
   </g>
 </svg>
