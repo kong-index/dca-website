@@ -200,7 +200,7 @@
 
     .brand {
       display: inline-flex;
-      align-items: center;
+      align-items: baseline;
       gap: var(--space-2);
       width: fit-content;
       font-weight: 600;
@@ -211,25 +211,6 @@
     .brand__mark {
       font-size: var(--font-size-base);
       color: var(--text-primary);
-    }
-
-    .brand__wordmark {
-      width: 112px;
-      height: 36px;
-      object-fit: contain;
-      filter: invert(1);
-      mix-blend-mode: screen;
-      background: transparent;
-    }
-
-    [data-theme="light"] .brand__wordmark {
-      filter: none;
-      mix-blend-mode: multiply;
-    }
-
-    .brand__legal {
-      font-size: var(--font-size-xs);
-      color: var(--text-tertiary);
     }
 
     .site-nav {
@@ -1369,10 +1350,6 @@
         font-size: var(--font-size-4xl);
       }
 
-      .brand__legal {
-        display: none;
-      }
-
       .sequence li {
         grid-template-columns: 1fr;
       }
@@ -1401,8 +1378,7 @@
   <header class="site-header">
     <div class="site-header__inner">
       <a class="brand" href="#projects" aria-label="Deep Couch Archive 홈">
-        <img class="brand__wordmark" src="assets/identity/dca-wordmark-handwritten.png" width="560" height="338" alt="">
-        <span class="brand__legal">(주)</span>
+        <span class="brand__mark">deep couch archive</span>
       </a>
       <nav class="site-nav" aria-label="주요 메뉴">
         <button class="site-nav__link site-nav__utility" type="button" data-view-trigger="dca" aria-current="false">소개</button>
