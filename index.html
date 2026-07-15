@@ -889,25 +889,46 @@
     }
 
     .media-swap__inscription--cap {
-      top: 45.5%;
-      left: 50%;
+      top: 47.5%;
+      left: 56%;
       width: 46%;
-      padding: 2px 1px;
+      transform: translate(-50%, -50%) perspective(120px) rotateX(9deg) rotate(-4deg) scaleX(0.92);
+    }
+
+    .record-title,
+    .record-label-blank {
+      position: absolute;
+      z-index: 3;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+    }
+
+    .record-title {
+      top: 50%;
+      left: 36%;
+      width: 42%;
+      aspect-ratio: 218 / 135;
+      background: transparent url("assets/identity/dca-handwritten-title-transparent.png") center / contain no-repeat;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: normal;
+    }
+
+    .record-label-blank {
+      top: 50%;
+      left: 72.2%;
+      width: 15.5%;
+      aspect-ratio: 1;
+      border-radius: 50%;
       background: #F6F6F6;
       transform: translate(-50%, -50%);
     }
 
-    .media-swap__inscription--record {
-      top: 50%;
-      left: 37%;
-      transform: translate(-50%, -50%);
-      font-size: clamp(7px, 0.9vw, 12px);
-      font-weight: 500;
-      line-height: 1.05;
-    }
-
     .media-swap:hover .media-swap__inscription,
-    .media-swap:focus-visible .media-swap__inscription {
+    .media-swap:focus-visible .media-swap__inscription,
+    .media-swap:hover .record-title,
+    .media-swap:hover .record-label-blank,
+    .media-swap:focus-visible .record-title,
+    .media-swap:focus-visible .record-label-blank {
       opacity: 0;
     }
 
@@ -917,6 +938,17 @@
       overflow: hidden;
       padding: 0 !important;
       background: #F6F6F6;
+      mix-blend-mode: normal !important;
+    }
+
+    .media-swap--korean-label {
+      background: var(--surface-elevated) !important;
+    }
+
+    .media-swap--korean-label .name-label-drawing {
+      inset: 8%;
+      width: auto;
+      height: auto;
     }
 
     .name-label-drawing__tag {
@@ -1381,6 +1413,10 @@
       aspect-ratio: var(--media-ratio-square);
       overflow: hidden;
       background: var(--surface-elevated);
+    }
+
+    .evidence-specimen__image.drawn-media {
+      background: var(--surface-media);
     }
 
     .evidence-specimen__image img {
@@ -2060,83 +2096,84 @@
             <div class="filter-bar" aria-label="아카이브 필터">
               <button class="filter-button is-active" type="button" data-filter="all">All</button>
               <button class="filter-button" type="button" data-filter="studio">Studio</button>
-              <button class="filter-button" type="button" data-filter="workwear">Workwear</button>
-              <button class="filter-button" type="button" data-filter="object">Object</button>
-              <button class="filter-button" type="button" data-filter="print">Print</button>
+              <button class="filter-button" type="button" data-filter="equipment">Equipment</button>
               <button class="filter-button" type="button" data-filter="identity">Identity</button>
+              <button class="filter-button" type="button" data-filter="projects">Projects</button>
+              <button class="filter-button" type="button" data-filter="misc">Misc</button>
             </div>
           </div>
 
           <div class="archive-grid" id="archiveGrid">
-            <figure class="archive-item" data-category="studio">
+            <figure class="archive-item" data-category="equipment">
               <div class="archive-item__media drawn-media media-swap" tabindex="0" style="--photo-position: 50% 46%;">
                 <img class="media-swap__drawing" src="assets/illustrations/studio-rack-line.png" width="1250" height="1250" alt="스튜디오 장비 랙 아카이브 선 드로잉" loading="eager">
                 <img class="media-swap__photo" src="assets/images/square/audio-rack-equipment.jpg" width="1600" height="1600" alt="실제 오디오 랙 장비 사진" loading="eager">
               </div>
               <figcaption class="archive-item__body">
-                <span class="archive-item__meta"><span>Studio</span><span>2026-03-08</span><span>Equipment</span></span>
+                <span class="archive-item__meta"><span>Equipment</span><span>2026-03-08</span><span>Audio rack</span></span>
                 <h3 class="archive-item__title">Audio rack sketch</h3>
                 <p class="archive-item__note">DCA가 사운드 스튜디오라는 사실을 가장 먼저 증명하는 첫 기록.</p>
               </figcaption>
             </figure>
 
-            <figure class="archive-item" data-category="workwear">
+            <figure class="archive-item" data-category="studio">
               <div class="archive-item__media drawn-media media-swap" tabindex="0" style="--photo-position: 50% 43%;">
                 <img class="media-swap__drawing" src="assets/illustrations/workwear-pair-line.png" width="1250" height="1250" alt="두 벌의 작업복 선 드로잉" loading="lazy">
                 <img class="media-swap__photo" src="assets/images/square/work-jackets-chambray-pair.jpg" width="1600" height="1600" alt="실제 샴브레이 작업복 사진" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
-                <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Pair</span></span>
+                <span class="archive-item__meta"><span>Studio</span><span>2026-07-14</span><span>Workwear pair</span></span>
                 <h3 class="archive-item__title">Workwear pair</h3>
                 <p class="archive-item__note">홍보용 굿즈보다 실제 현장에서 입을 수 있는 물건에 가깝다.</p>
               </figcaption>
             </figure>
 
-            <figure class="archive-item" data-category="workwear">
+            <figure class="archive-item" data-category="studio">
               <div class="archive-item__media drawn-media media-swap" tabindex="0" style="--photo-position: 54% 40%;">
                 <img class="media-swap__drawing" src="assets/illustrations/workshirt-chair-line.png" width="1250" height="1250" alt="의자 위 작업 셔츠 선 드로잉" loading="lazy">
                 <img class="media-swap__photo" src="assets/images/square/denim-work-shirt-full.jpg" width="1600" height="1600" alt="실제 데님 작업 셔츠 사진" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
-                <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Full view</span></span>
+                <span class="archive-item__meta"><span>Studio</span><span>2026-07-14</span><span>Work shirt</span></span>
                 <h3 class="archive-item__title">Work shirt</h3>
                 <p class="archive-item__note">로고를 크게 말하지 않고, 입는 사람의 행동 안에서 자연스럽게 드러나는 방향.</p>
               </figcaption>
             </figure>
 
-            <figure class="archive-item" data-category="workwear">
+            <figure class="archive-item" data-category="studio">
               <div class="archive-item__media drawn-media media-swap media-swap--korean-label" tabindex="0" style="--photo-position: 49% 53%;">
                 <div class="media-swap__drawing name-label-drawing" aria-hidden="true"><span class="name-label-drawing__tag"><span>딥카우치아카이브(주)</span><span>사장 권 동 현</span></span></div>
                 <img class="media-swap__photo" src="assets/images/square/work-jacket-korean-label.jpg" width="1600" height="1600" alt="딥카우치아카이브(주) 한글 이름 라벨 실사" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
-                <span class="archive-item__meta"><span>Workwear</span><span>2026-07-14</span><span>Label</span></span>
+                <span class="archive-item__meta"><span>Studio</span><span>2026-07-14</span><span>Name label</span></span>
                 <h3 class="archive-item__title">Korean name label</h3>
                 <p class="archive-item__note">한글 자연어와 실제 물성이 만나는 작은 접점. DCA의 말투를 담기 좋다.</p>
               </figcaption>
             </figure>
 
-            <figure class="archive-item" data-category="object">
+            <figure class="archive-item" data-category="misc">
               <div class="archive-item__media drawn-media media-swap" tabindex="0" style="--photo-position: 50% 48%;">
-                <img class="media-swap__drawing" src="assets/illustrations/washed-cap-dca-line.png" width="1254" height="1254" alt="딥카우치아카이브(주) 워시드 캡 선 드로잉" loading="lazy">
+                <img class="media-swap__drawing" src="assets/illustrations/washed-cap-dimensional-line.png" width="1254" height="1254" alt="딥카우치아카이브(주) 워시드 캡 선 드로잉" loading="lazy">
                 <span class="media-swap__inscription media-swap__inscription--cap" aria-hidden="true">딥카우치아카이브(주)</span>
                 <img class="media-swap__photo" src="assets/images/hover/cap-korean-embroidery.png" width="364" height="364" alt="딥카우치아카이브(주) 자수가 보이는 워시드 캡 실사" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
-                <span class="archive-item__meta"><span>Object</span><span>2026-07-14</span><span>Cap reference</span></span>
+                <span class="archive-item__meta"><span>Misc</span><span>2026-07-14</span><span>Cap reference</span></span>
                 <h3 class="archive-item__title">Washed cap sketch</h3>
                 <p class="archive-item__note">팔기 위한 모자보다 자연스럽게 쓰고 남는 모자에 가까운 기준.</p>
               </figcaption>
             </figure>
 
-            <figure class="archive-item" data-category="print">
+            <figure class="archive-item" data-category="projects">
               <div class="archive-item__media drawn-media media-swap" tabindex="0">
-                <img class="media-swap__drawing" src="assets/illustrations/vinyl-dca-line.png" width="1254" height="1254" alt="deep couch archive 레이블이 있는 레코드와 인쇄물 선 드로잉" loading="lazy">
-                <span class="media-swap__inscription media-swap__inscription--record" aria-hidden="true">deep couch<br>archive</span>
+                <img class="media-swap__drawing" src="assets/illustrations/vinyl-dca-line.png" width="1254" height="1254" alt="빈 레이블의 레코드와 인쇄물 선 드로잉" loading="lazy">
+                <span class="record-title" aria-hidden="true"></span>
+                <span class="record-label-blank" aria-hidden="true"></span>
                 <img class="media-swap__photo" src="assets/images/hover/print-card-english.png" width="640" height="640" alt="실제 Deep Couch Archive 영문 인쇄 카드" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
-                <span class="archive-item__meta"><span>Print</span><span>2026-07-09</span><span>English</span></span>
+                <span class="archive-item__meta"><span>Projects</span><span>2026-07-09</span><span>Print direction</span></span>
                 <h3 class="archive-item__title">Record and print</h3>
                 <p class="archive-item__note">카탈로그, 카드, 웹 캡션으로 확장할 수 있는 인쇄 방향.</p>
               </figcaption>
@@ -2583,15 +2620,10 @@
             <div class="contact-form__footer">
               <div class="contact-actions">
                 <button class="text-button" type="submit" id="sendInquiry">문의 보내기</button>
-                <button class="text-button" type="button" id="copyInquiry">문의 형식 복사</button>
+                <span class="contact-status" id="formStatus" aria-live="polite"></span>
               </div>
-              <span class="contact-status" id="copyStatus" aria-live="polite"></span>
             </div>
           </form>
-          <div class="contact-note">
-            <span class="contact-status">DELIVERY / MAIL CLIENT</span>
-            <p>공식 수신 주소가 확정되기 전에는 입력 내용을 기기의 기본 메일 앱으로 넘긴다.</p>
-          </div>
         </section>
       </article>
     </main>
@@ -2658,8 +2690,7 @@
       const searchResults = document.getElementById("searchResults");
       const contactForm = document.getElementById("contactForm");
       const sendInquiry = document.getElementById("sendInquiry");
-      const copyInquiry = document.getElementById("copyInquiry");
-      const copyStatus = document.getElementById("copyStatus");
+      const formStatus = document.getElementById("formStatus");
       const languageMenu = document.getElementById("languageMenu");
       const languagePopover = document.getElementById("languagePopover");
       const languageOptions = Array.from(languagePopover.querySelectorAll("[data-language]"));
@@ -2685,11 +2716,11 @@
           eyebrow: "DCA / ARCHIVE",
           items: [
             { id: "archive", label: { ko: "전체 기록", en: "All Records" }, filter: "all" },
-            { id: "archive", label: { ko: "스튜디오 증거", en: "Studio Evidence" }, filter: "studio" },
-            { id: "archive", label: { ko: "작업복", en: "Workwear" }, filter: "workwear" },
-            { id: "archive", label: { ko: "오브젝트 레퍼런스", en: "Object Reference" }, filter: "object" },
-            { id: "archive", label: { ko: "인쇄물", en: "Print" }, filter: "print" },
-            { id: "archive", label: { ko: "아이덴티티 소스", en: "Identity Source" }, filter: "identity" }
+            { id: "archive", label: { ko: "스튜디오", en: "Studio" }, filter: "studio" },
+            { id: "archive", label: { ko: "장비", en: "Equipment" }, filter: "equipment" },
+            { id: "archive", label: { ko: "아이덴티티", en: "Identity" }, filter: "identity" },
+            { id: "archive", label: { ko: "프로젝트", en: "Projects" }, filter: "projects" },
+            { id: "archive", label: { ko: "기타", en: "Misc" }, filter: "misc" }
           ]
         },
         dca: {
@@ -2727,20 +2758,20 @@
       const ui = {
         ko: {
           navigation: { dca: "소개", projects: "프로젝트", studio: "스튜디오", archive: "아카이브", contact: "연락처" },
-          filters: { all: "전체", studio: "스튜디오", workwear: "작업복", object: "오브젝트", print: "인쇄물", identity: "아이덴티티" },
+          filters: { all: "전체", studio: "스튜디오", equipment: "장비", identity: "아이덴티티", projects: "프로젝트", misc: "기타" },
           about: "소개", contact: "연락처", index: "Index", close: "닫기", top: "Top",
           searchTitle: "아카이브 검색", searchDescription: "섹션, 장비, 작업복, 라벨, 인쇄물의 이름과 맥락을 찾습니다.", searchPlaceholder: "예: 장비, 라벨, catalogue", searchEmpty: "검색어를 입력하세요.", searchNone: "일치하는 기록이 없습니다.", searchResults: "개 기록", searchOpen: "검색 열기", searchClose: "검색 닫기",
           lightMode: "라이트 모드로 전환", darkMode: "다크 모드로 전환", languageSelect: "언어 선택",
-          sendInquiry: "문의 보내기", copyInquiry: "문의 형식 복사", copied: "복사됨", copyFailed: "복사할 수 없습니다.", formOpening: "기본 메일 앱을 엽니다.",
+          sendInquiry: "문의 보내기", formOpening: "기본 메일 앱을 엽니다.",
           resultIn: "에서"
         },
         en: {
           navigation: { dca: "About", projects: "Projects", studio: "Studio", archive: "Archive", contact: "Contact" },
-          filters: { all: "All", studio: "Studio", workwear: "Workwear", object: "Object", print: "Print", identity: "Identity" },
+          filters: { all: "All", studio: "Studio", equipment: "Equipment", identity: "Identity", projects: "Projects", misc: "Misc" },
           about: "About", contact: "Contact", index: "Index", close: "Close", top: "Top",
           searchTitle: "Search archive", searchDescription: "Find sections, equipment, workwear, labels, and print records.", searchPlaceholder: "e.g. equipment, label, catalogue", searchEmpty: "Enter a search term.", searchNone: "No matching records.", searchResults: " records", searchOpen: "Open search", searchClose: "Close search",
           lightMode: "Switch to light mode", darkMode: "Switch to dark mode", languageSelect: "Language selection",
-          sendInquiry: "Send enquiry", copyInquiry: "Copy enquiry format", copied: "Copied", copyFailed: "Unable to copy.", formOpening: "Opening your default mail app.",
+          sendInquiry: "Send enquiry", formOpening: "Opening your default mail app.",
           resultIn: "in"
         }
       };
@@ -2938,7 +2969,6 @@
         document.getElementById("searchDescription").textContent = copy.searchDescription;
         searchInput.placeholder = copy.searchPlaceholder;
         sendInquiry.textContent = copy.sendInquiry;
-        copyInquiry.textContent = copy.copyInquiry;
         document.querySelectorAll("[data-placeholder-ko]").forEach((field) => {
           field.placeholder = field.dataset[`placeholder${currentLanguage === "ko" ? "Ko" : "En"}`];
         });
@@ -2968,11 +2998,11 @@
         { view: "dca", section: "history", label: { ko: "작업 기록", en: "Working History" }, scope: { ko: "DCA", en: "DCA" }, keywords: "history equipment print field guide 기록 연혁 장비 인쇄" },
         { view: "dca", section: "checklist", label: { ko: "작업 기준", en: "Working Standards" }, scope: { ko: "DCA", en: "DCA" }, keywords: "checklist standards evidence materiality 기준 체크리스트 증거 물성" },
         { view: "contact", section: "contact", label: { ko: "연락처", en: "Contact" }, scope: { ko: "DCA", en: "DCA" }, keywords: "contact inquiry session project 연락처 문의 세션 프로젝트" },
-        { view: "archive", section: "archive", filter: "studio", label: { ko: "오디오 랙 장비", en: "Audio rack equipment" }, scope: { ko: "아카이브 / 스튜디오", en: "Archive / Studio" }, keywords: "audio rack equipment studio 장비 오디오 랙" },
-        { view: "archive", section: "archive", filter: "workwear", label: { ko: "샴브레이 작업복", en: "Chambray work jackets" }, scope: { ko: "아카이브 / 작업복", en: "Archive / Workwear" }, keywords: "chambray jacket denim workwear 작업복 셔츠 재킷 데님" },
-        { view: "archive", section: "archive", filter: "workwear", label: { ko: "한글 이름 라벨", en: "Korean name label" }, scope: { ko: "아카이브 / 작업복", en: "Archive / Workwear" }, keywords: "korean name label denim 라벨 한글 이름 데님" },
-        { view: "archive", section: "archive", filter: "object", label: { ko: "워시드 캡 레퍼런스", en: "Washed cap reference" }, scope: { ko: "아카이브 / 오브젝트", en: "Archive / Object" }, keywords: "washed cap merch object reference 모자 캡 오브젝트 레퍼런스" },
-        { view: "archive", section: "archive", filter: "print", label: { ko: "영문·한글 인쇄 시안", en: "English and Korean print previews" }, scope: { ko: "아카이브 / 인쇄물", en: "Archive / Print" }, keywords: "print english korean card catalogue 인쇄 영문 한글 카드 카탈로그" },
+        { view: "archive", section: "archive", filter: "equipment", label: { ko: "오디오 랙 장비", en: "Audio rack equipment" }, scope: { ko: "아카이브 / 장비", en: "Archive / Equipment" }, keywords: "audio rack equipment studio 장비 오디오 랙" },
+        { view: "archive", section: "archive", filter: "studio", label: { ko: "샴브레이 작업복", en: "Chambray work jackets" }, scope: { ko: "아카이브 / 스튜디오", en: "Archive / Studio" }, keywords: "chambray jacket denim workwear 작업복 셔츠 재킷 데님" },
+        { view: "archive", section: "archive", filter: "studio", label: { ko: "한글 이름 라벨", en: "Korean name label" }, scope: { ko: "아카이브 / 스튜디오", en: "Archive / Studio" }, keywords: "korean name label work jacket 라벨 한글 이름 작업복" },
+        { view: "archive", section: "archive", filter: "misc", label: { ko: "워시드 캡 레퍼런스", en: "Washed cap reference" }, scope: { ko: "아카이브 / 기타", en: "Archive / Misc" }, keywords: "washed cap merch object reference 모자 캡 오브젝트 레퍼런스 기타" },
+        { view: "archive", section: "archive", filter: "projects", label: { ko: "영문·한글 인쇄 시안", en: "English and Korean print previews" }, scope: { ko: "아카이브 / 프로젝트", en: "Archive / Projects" }, keywords: "print english korean card catalogue 인쇄 영문 한글 카드 카탈로그 프로젝트" },
         { view: "archive", section: "archive", filter: "identity", label: { ko: "손글씨 워드마크 소스", en: "Handwritten wordmark source" }, scope: { ko: "아카이브 / 아이덴티티", en: "Archive / Identity" }, keywords: "identity handwritten wordmark source 손글씨 워드마크 아이덴티티" }
       ];
 
@@ -3196,18 +3226,6 @@
         window.setTimeout(() => document.getElementById(result.dataset.searchSection).scrollIntoView({ behavior: "smooth", block: "start" }), 0);
       });
 
-      copyInquiry.addEventListener("click", async () => {
-        const enquiry = currentLanguage === "ko"
-          ? "Deep Couch Archive 프로젝트/세션 문의\n\n이름 또는 팀:\n문의 목적:\n희망 일정:\n필요한 작업:\n참고 링크 또는 파일:"
-          : "Deep Couch Archive project/session enquiry\n\nName or team:\nPurpose of enquiry:\nPreferred schedule:\nWork needed:\nReference link or file:";
-        try {
-          await navigator.clipboard.writeText(enquiry);
-          copyStatus.textContent = ui[currentLanguage].copied;
-        } catch {
-          copyStatus.textContent = ui[currentLanguage].copyFailed;
-        }
-      });
-
       contactForm.addEventListener("submit", (event) => {
         event.preventDefault();
         if (!contactForm.reportValidity()) return;
@@ -3239,7 +3257,7 @@
               values.get("message")
             ].join("\n");
 
-        copyStatus.textContent = ui[currentLanguage].formOpening;
+        formStatus.textContent = ui[currentLanguage].formOpening;
         window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       });
 
