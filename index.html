@@ -875,26 +875,6 @@
       opacity: 1;
     }
 
-    .media-swap__inscription {
-      position: absolute;
-      z-index: 3;
-      color: #111111;
-      font-size: clamp(5px, 0.68vw, 9px);
-      font-weight: 600;
-      line-height: 1.2;
-      letter-spacing: 0;
-      pointer-events: none;
-      text-align: center;
-      transition: opacity var(--transition-base);
-    }
-
-    .media-swap__inscription--cap {
-      top: 47.5%;
-      left: 56%;
-      width: 46%;
-      transform: translate(-50%, -50%) perspective(120px) rotateX(9deg) rotate(-4deg) scaleX(0.92);
-    }
-
     .record-title,
     .record-label-blank {
       position: absolute;
@@ -923,8 +903,6 @@
       transform: translate(-50%, -50%);
     }
 
-    .media-swap:hover .media-swap__inscription,
-    .media-swap:focus-visible .media-swap__inscription,
     .media-swap:hover .record-title,
     .media-swap:hover .record-label-blank,
     .media-swap:focus-visible .record-title,
@@ -2154,8 +2132,7 @@
 
             <figure class="archive-item" data-category="misc">
               <div class="archive-item__media drawn-media media-swap" tabindex="0" style="--photo-position: 50% 48%;">
-                <img class="media-swap__drawing" src="assets/illustrations/washed-cap-dimensional-line.png" width="1254" height="1254" alt="딥카우치아카이브(주) 워시드 캡 선 드로잉" loading="lazy">
-                <span class="media-swap__inscription media-swap__inscription--cap" aria-hidden="true">딥카우치아카이브(주)</span>
+                <img class="media-swap__drawing" src="assets/illustrations/washed-cap-korean-embroidery-line.png" width="1254" height="1254" alt="딥카우치아카이브(주) 자수가 들어간 워시드 캡 선 드로잉" loading="lazy">
                 <img class="media-swap__photo" src="assets/images/hover/cap-korean-embroidery.png" width="364" height="364" alt="딥카우치아카이브(주) 자수가 보이는 워시드 캡 실사" loading="lazy">
               </div>
               <figcaption class="archive-item__body">
