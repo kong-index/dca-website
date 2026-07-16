@@ -97,7 +97,7 @@
       --surface-primary: #F4F4F1;
       --surface-secondary: #FFFFFF;
       --surface-elevated: #E9E7E1;
-      --surface-media: #F6F6F6;
+      --surface-media: var(--surface-primary);
       --media-matte: #111111;
       --text-primary: #111111;
       --text-secondary: #5D5F5C;
@@ -113,6 +113,12 @@
       --guide-text: #1A1A1A;
       --guide-text-muted: #999999;
       --guide-link: #0066CC;
+    }
+
+    [data-theme="light"] .media-swap__drawing,
+    [data-theme="light"] .identity-figure img {
+      filter: brightness(0.992) sepia(0.02) !important;
+      mix-blend-mode: normal !important;
     }
 
     *,
