@@ -34,7 +34,7 @@
       --media-matte: #101010;
       --text-primary: #F4F4F1;
       --text-secondary: #B6B6AE;
-      --text-tertiary: #72726C;
+      --text-tertiary: #85857F;
       --border-default: #353535;
       --border-subtle: #262626;
       --accent-primary: #5F7DFF;
@@ -44,19 +44,19 @@
       --guide-bg: #111111;
       --guide-bg-subtle: #1A1A1A;
       --guide-text: #E5E5E5;
-      --guide-text-muted: #666666;
+      --guide-text-muted: #85857F;
       --guide-link: #6BB3FF;
-      --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-      --font-mono: ui-monospace, "SF Mono", "Monaco", "Consolas", "JetBrains Mono", monospace;
+      --font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Consolas, monospace;
       --font-size-xs: 0.75rem;
       --font-size-sm: 0.875rem;
       --font-size-base: 1rem;
       --font-size-lg: 1.125rem;
-      --font-size-xl: 1.3125rem;
-      --font-size-2xl: 1.5625rem;
-      --font-size-3xl: 1.875rem;
-      --font-size-4xl: 2.25rem;
-      --font-size-5xl: 2.7rem;
+      --font-size-xl: 1.25rem;
+      --font-size-2xl: 1.5rem;
+      --font-size-3xl: 2rem;
+      --font-size-4xl: 2.5rem;
+      --font-size-5xl: 2.75rem;
       --space-1: 4px;
       --space-2: 8px;
       --space-3: 12px;
@@ -94,16 +94,16 @@
 
     [data-theme="light"] {
       color-scheme: light;
-      --surface-primary: #F4F4F1;
+      --surface-primary: #FFFFFF;
       --surface-secondary: #FFFFFF;
-      --surface-elevated: #E9E7E1;
+      --surface-elevated: #FAFAFA;
       --surface-media: #FAFAFA;
       --media-matte: #111111;
-      --text-primary: #111111;
-      --text-secondary: #5D5F5C;
-      --text-tertiary: #8A8A82;
-      --border-default: #CFCBC2;
-      --border-subtle: #E0DDD5;
+      --text-primary: #1A1A1A;
+      --text-secondary: #666666;
+      --text-tertiary: #767676;
+      --border-default: #E5E5E5;
+      --border-subtle: #F0F0F0;
       --accent-primary: #1647FF;
       --accent-workwear: #496D86;
       --accent-label-red: #B92318;
@@ -111,7 +111,7 @@
       --guide-bg: #FFFFFF;
       --guide-bg-subtle: #FAFAFA;
       --guide-text: #1A1A1A;
-      --guide-text-muted: #999999;
+      --guide-text-muted: #767676;
       --guide-link: #0066CC;
     }
 
@@ -340,7 +340,7 @@
       min-width: 108px;
       padding: var(--space-1);
       border: 1px solid var(--border-default);
-      background: var(--surface-elevated);
+      background: var(--surface-secondary);
     }
 
     .language-popover[hidden] {
@@ -838,6 +838,11 @@
       cursor: zoom-in;
     }
 
+    [data-theme="light"] .media-swap,
+    [data-theme="light"] .media-swap--korean-label {
+      background: var(--surface-secondary) !important;
+    }
+
     .media-swap::before {
       position: absolute;
       inset: 8%;
@@ -1144,7 +1149,7 @@
 
     .archive-item__media--identity {
       padding: var(--space-5);
-      background: var(--surface-elevated);
+      background: var(--surface-secondary);
     }
 
     .archive-item__identity-mark {
@@ -1369,7 +1374,7 @@
     .evidence-specimen__image {
       aspect-ratio: var(--media-ratio-square);
       overflow: hidden;
-      background: var(--surface-elevated);
+      background: var(--surface-secondary);
     }
 
     .evidence-specimen__image.drawn-media {
@@ -2165,7 +2170,7 @@
         <section class="section article-column reveal" id="field-guide" data-section-title="Studio Method" data-view="studio" hidden>
           <p class="overline">FIELD GUIDE</p>
           <h2>DCA답게 보이는가보다, 실제로 작동하는가.</h2>
-          <p class="body-copy">이 사이트의 모든 섹션은 세 가지 질문을 통과해야 한다. 사진에서만 좋은지, 실제 스튜디오 맥락에서 자연스러운지, 사람이 강요 없이 쓰고 싶어 하는지.</p>
+          <p class="body-copy">이 사이트의 모든 섹션은 세 가지 질문을 통과해야&nbsp;한다. 사진에서만 좋은지, 실제 스튜디오 맥락에서 자연스러운지, 사람이 강요 없이 쓰고 싶어 하는지.</p>
 
           <div class="evidence-grid">
             <div class="evidence-cell">
@@ -2777,7 +2782,7 @@
         "DCA가 한국어 자연어로 판단하고 기록한다는 방향과 맞닿아 있다.": "Connected to DCA's direction of judging and recording in Korean natural language.",
         "손글씨 원본은 로고, 라벨, 인쇄물 제작 소스로 관리한다.": "Handwritten originals are managed as source material for logos, labels, and print production.",
         "DCA답게 보이는가보다, 실제로 작동하는가.": "Not whether it looks like DCA, but whether it actually works.",
-        "이 사이트의 모든 섹션은 세 가지 질문을 통과해야 한다. 사진에서만 좋은지, 실제 스튜디오 맥락에서 자연스러운지, 사람이 강요 없이 쓰고 싶어 하는지.": "Every section of this site must pass three questions: Is it only good in a photograph? Does it sit naturally in a real studio context? Would people want to use it without being asked?",
+        "이 사이트의 모든 섹션은 세 가지 질문을 통과해야\u00A0한다. 사진에서만 좋은지, 실제 스튜디오 맥락에서 자연스러운지, 사람이 강요 없이 쓰고 싶어 하는지.": "Every section of this site must pass three questions: Is it only good in a photograph? Does it sit naturally in a real studio context? Would people want to use it without being asked?",
         "진짜 물성": "Real materiality",
         "이미지 속 질감이 실제로 만졌을 때도 설득되는가. 라벨, 작업복, 장비는 시간이 지나도 버틸 수 있어야 한다.": "Is the texture in the image convincing when touched in real life? Labels, workwear, and equipment need to hold up over time.",
         "실제 맥락": "Actual context",
