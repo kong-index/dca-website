@@ -865,12 +865,12 @@
       mix-blend-mode: multiply !important;
     }
 
-    .media-swap__photo {
+    .media-swap .media-swap__photo {
       z-index: 2;
       box-sizing: border-box;
       inset: 8%;
-      width: auto;
-      height: auto;
+      width: 84%;
+      height: 84%;
       padding: 0 !important;
       opacity: 0;
       object-fit: cover !important;
@@ -1539,10 +1539,15 @@
     }
 
     #material .split {
-      width: min(100%, 760px);
+      width: 100%;
+      max-width: var(--guide-column);
       margin-right: auto;
       margin-left: auto;
       gap: var(--space-4);
+    }
+
+    #material .media-frame {
+      max-width: 100%;
     }
 
     #material .media-frame__visual {
