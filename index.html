@@ -37,7 +37,7 @@
       --text-tertiary: #85857F;
       --border-default: #353535;
       --border-subtle: #262626;
-      --accent-primary: #5F7DFF;
+      --accent-primary: #7FA1B8;
       --accent-workwear: #7FA1B8;
       --accent-label-red: #E15A4F;
       --material-tape: #5C5549;
@@ -46,6 +46,14 @@
       --guide-text: #E5E5E5;
       --guide-text-muted: #85857F;
       --guide-link: #6BB3FF;
+      --sample-dark-surface: #101010;
+      --sample-dark-primary: #F4F4F1;
+      --sample-dark-secondary: #B6B6AE;
+      --sample-dark-accent: #7FA1B8;
+      --sample-light-surface: #FFFFFF;
+      --sample-light-primary: #1A1A1A;
+      --sample-light-secondary: #666666;
+      --sample-light-accent: #496D86;
       --font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Consolas, monospace;
       --font-size-xs: 0.75rem;
@@ -104,7 +112,7 @@
       --text-tertiary: #767676;
       --border-default: #E5E5E5;
       --border-subtle: #F0F0F0;
-      --accent-primary: #1647FF;
+      --accent-primary: #496D86;
       --accent-workwear: #496D86;
       --accent-label-red: #B92318;
       --material-tape: #DED5C4;
@@ -1087,9 +1095,7 @@
       border: 1px solid var(--border-default);
       border-radius: var(--radius-md);
       background: var(--surface-secondary);
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity var(--transition-base), transform var(--transition-base), border-color var(--transition-fast);
+      transition: border-color var(--transition-fast);
     }
 
     .archive-item:hover {
@@ -1201,10 +1207,197 @@
       border-radius: var(--radius-md);
     }
 
+    .table-wrap:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+    }
+
+    .design-philosophy {
+      display: grid;
+      gap: var(--space-8);
+      margin: var(--space-10) 0 var(--space-12);
+      padding: var(--space-8) 0;
+      border-top: 1px solid var(--border-default);
+      border-bottom: 1px solid var(--border-default);
+    }
+
+    .design-philosophy__intro {
+      max-width: 58ch;
+    }
+
+    .design-philosophy__intro h3,
+    .philosophy-proof h3 {
+      margin: 0 0 var(--space-3);
+      color: var(--text-primary);
+      font-size: var(--font-size-xl);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .design-philosophy__intro p:last-child,
+    .philosophy-proof p:last-child {
+      margin-bottom: 0;
+    }
+
+    .design-philosophy__intro .body-copy,
+    .philosophy-principle p,
+    .philosophy-proof > p:not(.philosophy-proof__label):not(.font-stack) {
+      text-wrap: pretty;
+    }
+
+    .philosophy-principles {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--border-default);
+    }
+
+    .philosophy-principle {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: var(--space-3);
+      min-height: 132px;
+      padding: var(--space-5) var(--space-4);
+      border-bottom: 1px solid var(--border-default);
+    }
+
+    .philosophy-principle:nth-child(odd) {
+      border-right: 1px solid var(--border-default);
+    }
+
+    .philosophy-principle:last-child {
+      grid-column: 1 / -1;
+      min-height: auto;
+    }
+
+    .philosophy-principle__number,
+    .philosophy-proof__label,
+    .font-stack {
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.45;
+    }
+
+    .philosophy-principle h4 {
+      margin: 0 0 var(--space-2);
+      color: var(--text-primary);
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .philosophy-principle p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: var(--font-size-sm);
+      line-height: 1.6;
+    }
+
+    .philosophy-proofs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .philosophy-proof {
+      min-width: 0;
+      padding: var(--space-6);
+      background: var(--surface-secondary);
+    }
+
+    .philosophy-proof + .philosophy-proof {
+      border-left: 1px solid var(--border-default);
+    }
+
+    .philosophy-proof__label {
+      margin: 0 0 var(--space-5);
+    }
+
+    .font-sample {
+      display: grid;
+      gap: var(--space-2);
+      margin: var(--space-5) 0;
+      color: var(--text-primary);
+      font-size: var(--font-size-2xl);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .font-sample span:last-child {
+      color: var(--text-secondary);
+      font-size: var(--font-size-base);
+      font-weight: 400;
+    }
+
+    .font-stack {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .evidence-order {
+      display: grid;
+      gap: 0;
+      margin: var(--space-5) 0;
+      border-top: 1px solid var(--border-default);
+    }
+
+    .evidence-order__item {
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      gap: var(--space-2);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--border-default);
+    }
+
+    .evidence-order__item span:first-child {
+      color: var(--accent-primary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+    }
+
+    .evidence-order__item span:last-child {
+      color: var(--text-secondary);
+      font-size: var(--font-size-sm);
+      line-height: 1.5;
+    }
+
     .design-specimen-stack {
       display: grid;
       gap: var(--space-6);
-      margin: var(--space-10) 0 var(--space-12);
+      margin: var(--space-10) 0 0;
+    }
+
+    .design-system-section {
+      display: grid;
+      gap: var(--space-5);
+      margin-top: var(--space-16);
+      padding-top: var(--space-12);
+      border-top: 1px solid var(--border-default);
+    }
+
+    .design-system-section__intro {
+      max-width: 60ch;
+    }
+
+    .design-system-section__intro .overline {
+      margin-bottom: var(--space-3);
+    }
+
+    .design-system-section__intro h3 {
+      margin-bottom: var(--space-3);
+    }
+
+    .design-system-section__intro .body-copy {
+      margin-bottom: 0;
+    }
+
+    .design-system-section .table-wrap {
+      margin: 0;
     }
 
     .design-specimen {
@@ -1264,9 +1457,65 @@
       line-height: 1.4;
     }
 
+    .type-specimen__roles {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: var(--space-6);
+      background: var(--border-default);
+    }
+
+    .type-role {
+      display: grid;
+      align-content: start;
+      gap: var(--space-2);
+      min-height: 164px;
+      padding: var(--space-4);
+      background: var(--surface-secondary);
+    }
+
+    .type-role__label,
+    .type-role__spec {
+      margin: 0;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+    }
+
+    .type-role__sample {
+      margin: 0;
+      color: var(--text-primary);
+    }
+
+    .type-role--title .type-role__sample {
+      font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-5xl));
+      font-weight: 700;
+      line-height: 1.12;
+    }
+
+    .type-role--section .type-role__sample {
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .type-role--body .type-role__sample {
+      color: var(--text-secondary);
+      font-size: var(--font-size-base);
+      line-height: 1.7;
+    }
+
+    .type-role--meta .type-role__sample {
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+    }
+
     .layout-specimen {
       display: grid;
-      grid-template-columns: 132px minmax(0, 1fr);
+      grid-template-columns: minmax(136px, var(--toc-width)) minmax(0, 1fr);
       min-height: 220px;
       background: var(--guide-bg-subtle);
     }
@@ -1325,14 +1574,14 @@
     }
 
     .color-specimen__theme--dark {
-      color: #F4F4F1;
-      background: #101010;
+      color: var(--sample-dark-primary);
+      background: var(--sample-dark-surface);
     }
 
     .color-specimen__theme--light {
       border-left: 1px solid var(--border-default);
-      color: #111111;
-      background: #F4F4F1;
+      color: var(--sample-light-primary);
+      background: var(--sample-light-surface);
     }
 
     .color-specimen__theme p {
@@ -1419,6 +1668,11 @@
       font-weight: 600;
     }
 
+    .evidence-specimen__caption span {
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
     .spacing-specimen {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -1461,7 +1715,7 @@
 
     .state-specimen {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: var(--space-3);
       padding: var(--space-5);
       background: var(--guide-bg-subtle);
@@ -1482,11 +1736,16 @@
     .state-specimen__control {
       display: inline-flex;
       align-items: center;
+      justify-content: flex-start;
+      width: 100%;
       min-height: var(--control-height);
       padding: 0 var(--space-3);
       border: 1px solid var(--border-default);
       color: var(--text-secondary);
+      background: var(--surface-primary);
       font-size: var(--font-size-sm);
+      line-height: 1.4;
+      text-align: left;
     }
 
     .state-specimen__control--active {
@@ -1495,12 +1754,66 @@
       background: var(--surface-secondary);
     }
 
-    .state-specimen__control--focus {
-      outline: 2px solid var(--accent-primary);
-      outline-offset: 2px;
-      color: var(--text-primary);
-      background: var(--surface-secondary);
+    .state-specimen__choices {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-2);
     }
+
+    .state-specimen__choice {
+      justify-content: center;
+      cursor: pointer;
+      text-align: center;
+      transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .state-specimen__control:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+      color: var(--text-primary);
+    }
+
+    .state-specimen__description {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: var(--font-size-sm);
+      line-height: 1.55;
+    }
+
+    .state-specimen__location {
+      margin: 0;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+    }
+
+    .color-token {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      white-space: nowrap;
+    }
+
+    .color-token__swatch {
+      width: 12px;
+      height: 12px;
+      flex: 0 0 12px;
+      border: 1px solid var(--border-default);
+      border-radius: 2px;
+    }
+
+    .color-token__swatch--dark-surface { background: var(--sample-dark-surface); }
+    .color-token__swatch--dark-primary { background: var(--sample-dark-primary); }
+    .color-token__swatch--dark-secondary { background: var(--sample-dark-secondary); }
+    .color-token__swatch--dark-accent { background: var(--sample-dark-accent); }
+    .color-token__swatch--light-surface { background: var(--sample-light-surface); }
+    .color-token__swatch--light-primary { background: var(--sample-light-primary); }
+    .color-token__swatch--light-secondary { background: var(--sample-light-secondary); }
+    .color-token__swatch--light-accent { background: var(--sample-light-accent); }
 
     table {
       width: 100%;
@@ -1868,6 +2181,27 @@
         grid-template-columns: 104px minmax(0, 1fr);
       }
 
+      .philosophy-principles,
+      .philosophy-proofs {
+        grid-template-columns: 1fr;
+      }
+
+      .philosophy-principle,
+      .philosophy-principle:last-child {
+        grid-column: auto;
+        min-height: auto;
+      }
+
+      .philosophy-principle:nth-child(odd),
+      .philosophy-proof + .philosophy-proof {
+        border-right: 0;
+      }
+
+      .philosophy-proof + .philosophy-proof {
+        border-top: 1px solid var(--border-default);
+        border-left: 0;
+      }
+
       .layout-specimen__content {
         padding: var(--space-4);
       }
@@ -1893,6 +2227,10 @@
       .state-specimen {
         grid-template-columns: 1fr;
         padding: var(--space-4);
+      }
+
+      .type-specimen__roles {
+        grid-template-columns: 1fr;
       }
 
       .archive-item {
@@ -1934,6 +2272,23 @@
     }
 
     @media (max-width: 640px) {
+      .site-header__inner {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 4px;
+        padding: 0 var(--space-3);
+      }
+
+      .brand {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .brand__mark {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
       .header-actions {
         gap: 4px;
       }
@@ -1952,6 +2307,14 @@
       .header-actions .text-button {
         min-height: 32px;
         padding: 0 var(--space-2);
+      }
+
+      .evidence-specimen {
+        grid-template-columns: 1fr;
+      }
+
+      .evidence-specimen__item--identity {
+        grid-column: auto;
       }
 
       h1 {
@@ -2067,13 +2430,13 @@
               <h2>자료가 먼저 말하게 한다.</h2>
               <p class="body-copy">DCA의 첫 화면은 추상적인 브랜드 문구보다 실제 자료를 정렬해서 보여주는 편이 맞다. 장비, 작업복, 라벨, 프린트, 아이덴티티 원본은 모두 다른 용도지만 하나의 운영 흔적으로 읽혀야 한다.</p>
             </div>
-            <div class="filter-bar" aria-label="아카이브 필터">
-              <button class="filter-button is-active" type="button" data-filter="all">All</button>
-              <button class="filter-button" type="button" data-filter="studio">Studio</button>
-              <button class="filter-button" type="button" data-filter="equipment">Equipment</button>
-              <button class="filter-button" type="button" data-filter="identity">Identity</button>
-              <button class="filter-button" type="button" data-filter="projects">Projects</button>
-              <button class="filter-button" type="button" data-filter="misc">Misc</button>
+            <div class="filter-bar" aria-label="아카이브 필터" data-i18n-label-ko="아카이브 필터" data-i18n-label-en="Archive filters">
+              <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+              <button class="filter-button" type="button" data-filter="studio" aria-pressed="false">Studio</button>
+              <button class="filter-button" type="button" data-filter="equipment" aria-pressed="false">Equipment</button>
+              <button class="filter-button" type="button" data-filter="identity" aria-pressed="false">Identity</button>
+              <button class="filter-button" type="button" data-filter="projects" aria-pressed="false">Projects</button>
+              <button class="filter-button" type="button" data-filter="misc" aria-pressed="false">Misc</button>
             </div>
           </div>
 
@@ -2255,25 +2618,127 @@
 
         <section class="section article-column reveal" id="design-system" data-section-title="Web Design Principles" data-view="studio" hidden>
           <p class="overline">WEBSITE DESIGN SYSTEM</p>
-          <h2>보이는 방식보다, 읽고 쓰는 방식이 먼저다.</h2>
+          <h2>읽고 쓰기 위한 화면.</h2>
           <p class="body-copy">DCA의 웹사이트는 폰트나 색 자체로 멋을 부리기보다, 실제 자료를 읽고 찾고 비교하기 쉬운 위계와 그리드로 성격을 만든다. 아래 규칙은 화면을 새로 만들 때마다 먼저 확인한다.</p>
 
-          <div class="design-specimen-stack" aria-label="웹 디자인 원칙 시각 샘플">
+          <div class="design-philosophy" data-design-philosophy aria-label="DCA 디자인 철학" data-i18n-label-ko="DCA 디자인 철학" data-i18n-label-en="DCA design philosophy">
+            <div class="design-philosophy__intro">
+              <p class="overline">DCA / PUBLIC DESIGN PHILOSOPHY / 01—07</p>
+              <h3>보이기 전에, 작동하게 만든다.</h3>
+              <p class="body-copy">DCA는 예쁜 화면보다, 읽히고 움직이는 이유를 보여주려 한다. 웹사이트, 카탈로그, 촬영 기록은 아래 기준으로 만든다.</p>
+            </div>
+
+            <ol class="philosophy-principles">
+              <li class="philosophy-principle">
+                <span class="philosophy-principle__number">01</span>
+                <div>
+                  <h4>실제 자료에서 시작한다.</h4>
+                  <p>사진, 장비, 라벨, 세션의 흔적이 디자인의 출발점이다. 장식은 자료가 이미 말하고 있는 것을 더 잘 보이게 할 때만 쓴다.</p>
+                </div>
+              </li>
+              <li class="philosophy-principle">
+                <span class="philosophy-principle__number">02</span>
+                <div>
+                  <h4>표면은 읽기 위해 만든다.</h4>
+                  <p>본문과 이미지 프레임은 흰색으로 두고, 손그림과 조용한 규칙 표면만 아주 옅은 회색 판으로 구분한다.</p>
+                </div>
+              </li>
+              <li class="philosophy-principle">
+                <span class="philosophy-principle__number">03</span>
+                <div>
+                  <h4>기기에 이미 있는 글꼴을 쓴다.</h4>
+                  <p>화면이 먼저 읽히도록 시스템 UI 글꼴을 쓴다. 한국어는 사용자의 운영체제에서 가장 익숙한 방식으로 렌더링된다.</p>
+                </div>
+              </li>
+              <li class="philosophy-principle">
+                <span class="philosophy-principle__number">04</span>
+                <div>
+                  <h4>폭과 여백은 비교를 돕는다.</h4>
+                  <p>긴 글은 정해진 읽기 폭에 두고, 비교할 자료만 넓은 그리드에 둔다. 여백은 비워 보이기 위한 장식이 아니라 판단 단위를 나누는 도구다.</p>
+                </div>
+              </li>
+              <li class="philosophy-principle">
+                <span class="philosophy-principle__number">05</span>
+                <div>
+                  <h4>이미지는 증거를 남긴다.</h4>
+                  <p>공개 이미지는 같은 정방형 프레임에서 반복한다. 핵심이 보이도록 크롭하고, 손그림과 실사는 같은 물건을 담는다.</p>
+                </div>
+              </li>
+              <li class="philosophy-principle">
+                <span class="philosophy-principle__number">06</span>
+                <div>
+                  <h4>조작한 뒤의 상태가 보인다.</h4>
+                  <p>선택됨, 포커스, 검색 결과 뒤에는 분명한 변화가 남아야 한다. 색은 기분 대신 상태를 알린다.</p>
+                </div>
+              </li>
+              <li class="philosophy-principle">
+                <span class="philosophy-principle__number">07</span>
+                <div>
+                  <h4>움직임은 변화를 설명한다.</h4>
+                  <p>모션은 읽기 진행률과 손그림에서 실사로 바뀌는 증거 전환처럼, 실제 변화의 위치와 내용을 짧게 설명할 때만 쓴다.</p>
+                </div>
+              </li>
+            </ol>
+
+            <div class="philosophy-proofs">
+              <section class="philosophy-proof" aria-labelledby="font-proof-title">
+                <p class="philosophy-proof__label">TYPE / SYSTEM UI / NO FONT DOWNLOAD</p>
+                <h3 id="font-proof-title">글자가 기다리게 하지 않는다.</h3>
+                <p>기기에 있는 UI 글꼴을 써서 별도 웹폰트 요청을 줄인다. 모든 성능을 결정하진 않지만, 첫 문장은 기다리지 않고 익숙한 한글 조판을 그대로 쓴다.</p>
+                <p class="font-sample"><span>딥카우치아카이브</span><span>Deep Couch Archive</span></p>
+                <p class="font-stack">system-ui → SF / Apple SD Gothic Neo → Segoe UI → Roboto → sans-serif</p>
+              </section>
+
+              <section class="philosophy-proof" aria-labelledby="reason-proof-title">
+                <p class="philosophy-proof__label">DESIGN / REASON BEFORE DECORATION</p>
+                <h3 id="reason-proof-title">장식보다, 읽을 근거.</h3>
+                <p>무언가를 더하는 이유는 예뻐 보이기 때문이 아니라, 자료의 우선순위와 현재 상태를 더 정확하게 전달하기 위해서다.</p>
+                <div class="evidence-order" aria-label="디자인에서 먼저 보이는 순서" data-i18n-label-ko="디자인에서 먼저 보이는 순서" data-i18n-label-en="The order in which design should be read">
+                  <div class="evidence-order__item"><span>01</span><span>자료: 실제 장비, 공간, 사람, 라벨</span></div>
+                  <div class="evidence-order__item"><span>02</span><span>맥락: 날짜, 캡션, 사용 장면</span></div>
+                  <div class="evidence-order__item"><span>03</span><span>상태: 선택됨, 포커스, 현재 위치</span></div>
+                  <div class="evidence-order__item"><span>04</span><span>여백: 읽는 단위를 나누는 공간</span></div>
+                </div>
+                <p>그래서 DCA는 큰 문구나 효과보다 순서, 대비, 여백부터 확인한다.</p>
+              </section>
+            </div>
+
+          </div>
+
+          <section class="design-system-section" aria-labelledby="type-system-title">
+            <div class="design-system-section__intro">
+              <p class="overline">01 / TYPE / SYSTEM UI</p>
+              <h3 id="type-system-title">글꼴은 성격이 아니라 역할로 나눈다.</h3>
+              <p class="body-copy">제목과 본문은 기기에 이미 있는 시스템 UI 글꼴로 읽고, 날짜·파일·상태만 모노 글꼴로 분리한다. 별도 웹폰트를 내려받지 않아 첫 문장을 바로 읽기 시작할 수 있다.</p>
+            </div>
             <figure class="design-specimen type-specimen">
-              <figcaption class="design-specimen__label">TYPE SCALE / ACTUAL SAMPLE</figcaption>
+              <figcaption class="design-specimen__label">TYPE / WHAT YOU ARE READING NOW</figcaption>
               <div class="type-specimen__content">
                 <p class="type-specimen__display">Deep Couch Archive</p>
-                <p class="type-specimen__heading">오래 읽히는 제목과, 조용한 정보의 위계.</p>
-                <p class="type-specimen__body">큰 제목은 현재 보기를 명확히 잡고, 본문은 실제 자료를 오래 읽을 수 있게 둔다. 날짜와 파일 정보는 본문보다 한 단계 물러나지만 언제든 찾을 수 있어야 한다.</p>
-                <p class="type-specimen__meta"><span>36px / 700 / 1.15</span><span>25px / 700 / 1.25</span><span>16px / 400 / 1.70</span><span>12px / MONO</span></p>
+                <p class="type-specimen__heading">큰 제목은 현재 위치를, 본문은 오래 읽을 내용을 맡는다.</p>
+                <p class="type-specimen__body">사용자는 macOS, Windows, Android처럼 자기 기기에 이미 있는 글꼴로 이 문장을 읽는다. DCA는 폰트의 분위기보다 한글 문장의 안정적인 읽기 흐름을 먼저 둔다.</p>
+                <div class="type-specimen__roles" aria-label="글꼴 역할 표본" data-i18n-label-ko="글꼴 역할 표본" data-i18n-label-en="Type role samples">
+                  <div class="type-role type-role--title"><p class="type-role__label">PAGE / SYSTEM UI</p><p class="type-role__sample">현재 보는 곳</p><p class="type-role__spec">40–44px / 700 / 1.12</p></div>
+                  <div class="type-role type-role--section"><p class="type-role__label">SECTION / SYSTEM UI</p><p class="type-role__sample">새 판단 단위</p><p class="type-role__spec">24px / 700 / 1.25</p></div>
+                  <div class="type-role type-role--body"><p class="type-role__label">BODY / SYSTEM UI</p><p class="type-role__sample">자료의 맥락을 오래 읽는 문장입니다.</p><p class="type-role__spec">16px / 400 / 1.70</p></div>
+                  <div class="type-role type-role--meta"><p class="type-role__label">RECORD / MONO</p><p class="type-role__sample">2026-07-17 / ARCHIVE / DCA</p><p class="type-role__spec">12px / mono / 1.40</p></div>
+                </div>
+                <p class="type-specimen__meta"><span>system-ui</span><span>SF / Apple SD Gothic Neo</span><span>Segoe UI / Roboto</span><span>sans-serif</span></p>
               </div>
             </figure>
+          </section>
 
+          <section class="design-system-section" aria-labelledby="hierarchy-grid-title">
+            <div class="design-system-section__intro">
+              <p class="overline">02 / HIERARCHY / GRID</p>
+              <h3 id="hierarchy-grid-title">위계와 그리드는 읽는 자리를 먼저 정한다.</h3>
+              <p class="body-copy">긴 내용은 화면 가운데의 일정한 폭에서 읽고, 비교가 필요한 자료만 넓은 아카이브 그리드에 놓는다. 아래 표본은 왼쪽 목차와 본문이 서로 다른 일을 하는 방식을 보여준다.</p>
+            </div>
             <figure class="design-specimen">
               <figcaption class="design-specimen__label">GRID / READING LANE</figcaption>
               <div class="layout-specimen">
                 <div class="layout-specimen__index">
-                  <span>INDEX</span>
+                  <span>200PX / INDEX</span>
                   <strong>Studio Method</strong>
                   <span>Material Notes</span>
                   <span>Design Principles</span>
@@ -2286,7 +2751,57 @@
                 </div>
               </div>
             </figure>
+            <div class="table-wrap" tabindex="0" aria-label="위계와 그리드 표. Tab 키로 이동한 뒤 좌우 화살표로 나머지 열을 볼 수 있습니다." data-i18n-label-ko="위계와 그리드 표. Tab 키로 이동한 뒤 좌우 화살표로 나머지 열을 볼 수 있습니다." data-i18n-label-en="Hierarchy and grid table. Move here with Tab, then use Left and Right Arrow to view the remaining columns.">
+              <table>
+                <thead>
+                  <tr>
+                    <th>요소</th>
+                    <th>규격</th>
+                    <th>역할</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>페이지 제목</td>
+                    <td>40–44px / 700 / 1.12</td>
+                    <td>현재 보기의 성격을 한 줄로 정리한다.</td>
+                  </tr>
+                  <tr>
+                    <td>섹션 제목</td>
+                    <td>24px / 700 / 1.25</td>
+                    <td>긴 내용 안의 판단 단위를 나눈다.</td>
+                  </tr>
+                  <tr>
+                    <td>본문</td>
+                    <td>16px / 400 / 1.7</td>
+                    <td>한국어와 영어를 오래 읽을 수 있게 둔다.</td>
+                  </tr>
+                  <tr>
+                    <td>메타데이터</td>
+                    <td>12px / mono / 1.4</td>
+                    <td>날짜, 파일, 태그, 제작 상태를 조용히 표시한다.</td>
+                  </tr>
+                  <tr>
+                    <td>본문 컬럼</td>
+                    <td>680px / 화면 중심</td>
+                    <td>Projects, Studio, About, Contact의 읽기 폭을 고정한다.</td>
+                  </tr>
+                  <tr>
+                    <td>Archive 인덱스</td>
+                    <td>1120px / 목차 오른쪽</td>
+                    <td>비교와 필터링이 필요한 자료만 넓게 쓴다.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
+          <section class="design-system-section" aria-labelledby="surface-system-title">
+            <div class="design-system-section__intro">
+              <p class="overline">03 / SURFACE / COLOUR</p>
+              <h3 id="surface-system-title">색은 표면과 상태를 구분할 때만 쓴다.</h3>
+              <p class="body-copy">흰색은 오래 읽는 기본 표면이고, 아주 옅은 회색은 손그림과 규칙을 조용히 구분한다. 파란색은 꾸밈이 아니라 현재 위치와 키보드 조작처럼 확인이 필요한 곳에만 쓴다.</p>
+            </div>
             <figure class="design-specimen">
               <figcaption class="design-specimen__label">SURFACES / DARK AND LIGHT</figcaption>
               <div class="color-specimen">
@@ -2298,30 +2813,98 @@
                 <div class="color-specimen__theme color-specimen__theme--light">
                   <p class="color-specimen__name">LIGHT / READING</p>
                   <p class="color-specimen__copy">오래 읽기 위한 밝은 대안.</p>
-                  <p class="color-specimen__token">#F4F4F1 / #111111</p>
+                  <p class="color-specimen__token">#FFFFFF / #1A1A1A</p>
                 </div>
               </div>
             </figure>
+            <div class="table-wrap" tabindex="0" aria-label="색과 표면 표. Tab 키로 이동한 뒤 좌우 화살표로 나머지 열을 볼 수 있습니다." data-i18n-label-ko="색과 표면 표. Tab 키로 이동한 뒤 좌우 화살표로 나머지 열을 볼 수 있습니다." data-i18n-label-en="Colour and surfaces table. Move here with Tab, then use Left and Right Arrow to view the remaining columns.">
+              <table>
+                <thead>
+                  <tr>
+                    <th>역할</th>
+                    <th>다크</th>
+                    <th>라이트</th>
+                    <th>사용</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>기본 표면</td>
+                    <td><span class="color-token"><span class="color-token__swatch color-token__swatch--dark-surface" aria-hidden="true"></span>#101010</span></td>
+                    <td><span class="color-token"><span class="color-token__swatch color-token__swatch--light-surface" aria-hidden="true"></span>#FFFFFF</span></td>
+                    <td>페이지 전체의 조용한 바탕</td>
+                  </tr>
+                  <tr>
+                    <td>기본 글자</td>
+                    <td><span class="color-token"><span class="color-token__swatch color-token__swatch--dark-primary" aria-hidden="true"></span>#F4F4F1</span></td>
+                    <td><span class="color-token"><span class="color-token__swatch color-token__swatch--light-primary" aria-hidden="true"></span>#1A1A1A</span></td>
+                    <td>제목과 본문</td>
+                  </tr>
+                  <tr>
+                    <td>보조 글자</td>
+                    <td><span class="color-token"><span class="color-token__swatch color-token__swatch--dark-secondary" aria-hidden="true"></span>#B6B6AE</span></td>
+                    <td><span class="color-token"><span class="color-token__swatch color-token__swatch--light-secondary" aria-hidden="true"></span>#666666</span></td>
+                    <td>캡션과 설명</td>
+                  </tr>
+                  <tr>
+                    <td>기능 강조</td>
+                    <td><span class="color-token"><span class="color-token__swatch color-token__swatch--dark-accent" aria-hidden="true"></span>#7FA1B8</span></td>
+                    <td><span class="color-token"><span class="color-token__swatch color-token__swatch--light-accent" aria-hidden="true"></span>#496D86</span></td>
+                    <td>진행률, 현재 선택, 키보드 포커스</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
+          <section class="design-system-section" aria-labelledby="state-system-title">
+            <div class="design-system-section__intro">
+              <p class="overline">04 / STATE / ACCESS</p>
+              <h3 id="state-system-title">선택됨과 키보드 위치는 다르다.</h3>
+              <p class="body-copy">선택됨은 메뉴나 필터를 고른 뒤에도 남아 있는 현재 위치다. 키보드 포커스는 Tab 키로 버튼·검색·이미지에 이동하는 순간에만 보이며, 아직 선택을 바꾸지 않는다.</p>
+            </div>
             <figure class="design-specimen">
-              <figcaption class="design-specimen__label">IMAGE FRAMING / EVIDENCE FIRST</figcaption>
+              <figcaption class="design-specimen__label">INTERFACE STATES / WHERE THE ACCENT IS USED</figcaption>
+              <div class="state-specimen">
+                <div class="state-specimen__item">
+                  <span class="state-specimen__label">ACTIVE / PERSISTS AFTER SELECTION</span>
+                  <div class="state-specimen__choices" role="group" aria-label="현재 선택 예시" data-i18n-label-ko="현재 선택 예시" data-i18n-label-en="Current selection example">
+                    <button class="state-specimen__control state-specimen__choice state-specimen__control--active" type="button" data-state-active-demo aria-pressed="true">Archive</button>
+                    <button class="state-specimen__control state-specimen__choice" type="button" data-state-active-demo aria-pressed="false">Studio</button>
+                  </div>
+                  <p class="state-specimen__description">현재 열려 있는 상단 메뉴와 Archive의 선택된 필터에 쓰인다. 다른 곳을 보더라도 현재 위치는 계속 남는다.</p>
+                  <p class="state-specimen__location">USED IN / HEADER NAVIGATION, ARCHIVE FILTER</p>
+                </div>
+                <div class="state-specimen__item">
+                  <span class="state-specimen__label">KEYBOARD FOCUS / TEMPORARY LOCATION</span>
+                  <button class="state-specimen__control" type="button" data-state-focus-demo aria-controls="stateFocusStatus">Tab 키로 이 버튼에 이동</button>
+                  <p class="state-specimen__description" id="stateFocusStatus" role="status">Tab 키로 이동하면 2px 외곽선이 잠깐 나타난다. Enter나 Space를 누르기 전까지는 메뉴나 필터의 선택이 바뀌지 않는다.</p>
+                  <p class="state-specimen__location">USED IN / BUTTONS, SEARCH, IMAGE EVIDENCE</p>
+                </div>
+              </div>
+            </figure>
+          </section>
+
+          <div class="design-specimen-stack" aria-label="웹 디자인 원칙 시각 샘플" data-i18n-label-ko="웹 디자인 원칙 시각 샘플" data-i18n-label-en="Web design principles visual samples">
+            <figure class="design-specimen">
+              <figcaption class="design-specimen__label">LIVE STATE / DRAWING TO PHOTOGRAPH</figcaption>
               <div class="evidence-specimen">
                 <div class="evidence-specimen__item">
                   <div class="evidence-specimen__image drawn-media media-swap" tabindex="0" style="--photo-position: 54% 40%;">
-                    <img class="media-swap__drawing" src="assets/illustrations/workshirt-chair-line.png" width="1250" height="1250" alt="작업 셔츠 선 드로잉">
-                    <img class="media-swap__photo" src="assets/images/square/denim-work-shirt-full.jpg" width="1600" height="1600" alt="실제 데님 작업 셔츠 사진">
+                    <img class="media-swap__drawing" src="assets/illustrations/workshirt-chair-line.png" width="1250" height="1250" alt="작업 셔츠 선 드로잉" data-i18n-alt-ko="작업 셔츠 선 드로잉" data-i18n-alt-en="Work shirt line drawing">
+                    <img class="media-swap__photo" src="assets/images/square/denim-work-shirt-full.jpg" width="1600" height="1600" alt="실제 데님 작업 셔츠 사진" data-i18n-alt-ko="실제 데님 작업 셔츠 사진" data-i18n-alt-en="Photograph of a real denim work shirt">
                   </div>
-                  <div class="evidence-specimen__caption"><strong>Studio evidence / 1:1</strong><span>장비는 프레임보다 먼저 읽혀야 한다.</span></div>
+                  <div class="evidence-specimen__caption"><strong>Live evidence / 1:1</strong><span>마우스를 올리거나 키보드로 포커스하면 같은 물건의 실사 증거로 전환된다.</span></div>
                 </div>
                 <div class="evidence-specimen__item">
                   <div class="evidence-specimen__image drawn-media media-swap" tabindex="0" style="--photo-position: 50% 46%;">
-                    <img class="media-swap__drawing" src="assets/illustrations/studio-rack-line.png" width="1250" height="1250" alt="스튜디오 장비 랙 선 드로잉">
-                    <img class="media-swap__photo" src="assets/images/square/audio-rack-equipment.jpg" width="1600" height="1600" alt="실제 스튜디오 장비 사진">
+                    <img class="media-swap__drawing" src="assets/illustrations/studio-rack-line.png" width="1250" height="1250" alt="스튜디오 장비 랙 선 드로잉" data-i18n-alt-ko="스튜디오 장비 랙 선 드로잉" data-i18n-alt-en="Studio equipment rack line drawing">
+                    <img class="media-swap__photo" src="assets/images/square/audio-rack-equipment.jpg" width="1600" height="1600" alt="실제 스튜디오 장비 사진" data-i18n-alt-ko="실제 스튜디오 장비 사진" data-i18n-alt-en="Photograph of real studio equipment">
                   </div>
-                  <div class="evidence-specimen__caption"><strong>Material detail / 1:1</strong><span>라벨과 물성은 같은 정방형 규격으로 비교한다.</span></div>
+                  <div class="evidence-specimen__caption"><strong>Same subject / 1:1</strong><span>전환 전후에도 1:1 프레임과 판단 대상은 그대로 유지한다.</span></div>
                 </div>
                 <div class="evidence-specimen__item evidence-specimen__item--identity">
-                  <div class="evidence-specimen__image"><img src="assets/identity/dca-og-cover.png?v=4" width="1200" height="630" alt="손그림 아이덴티티 가로 프레임 예시"></div>
+                  <div class="evidence-specimen__image"><img src="assets/identity/dca-og-cover.png?v=4" width="1200" height="630" alt="손그림 아이덴티티 가로 프레임 예시" data-i18n-alt-ko="손그림 아이덴티티 가로 프레임 예시" data-i18n-alt-en="Hand-drawn identity landscape frame example"></div>
                   <div class="evidence-specimen__caption"><strong>Identity / 1200×630</strong><span>손그림과 외부 공유 이미지는 사진 규칙의 예외로, 중앙의 여백을 보존한다.</span></div>
                 </div>
               </div>
@@ -2337,109 +2920,20 @@
                 <div class="spacing-specimen__item" style="--sample-space: 48px"><span>SPACE 12</span><span class="spacing-specimen__bar-wrap"><span class="spacing-specimen__bar"></span></span><span>48px</span></div>
               </div>
             </figure>
-
-            <figure class="design-specimen">
-              <figcaption class="design-specimen__label">INTERFACE STATES / FUNCTIONAL ACCENT</figcaption>
-              <div class="state-specimen">
-                <div class="state-specimen__item"><span class="state-specimen__label">DEFAULT</span><span class="state-specimen__control">Archive</span></div>
-                <div class="state-specimen__item"><span class="state-specimen__label">ACTIVE</span><span class="state-specimen__control state-specimen__control--active">Archive</span></div>
-                <div class="state-specimen__item"><span class="state-specimen__label">KEYBOARD FOCUS</span><span class="state-specimen__control state-specimen__control--focus">Archive</span></div>
-              </div>
-            </figure>
           </div>
 
-          <h3>위계와 그리드</h3>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>요소</th>
-                  <th>규격</th>
-                  <th>역할</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>페이지 제목</td>
-                  <td>36px / 700 / 1.15</td>
-                  <td>현재 보기의 성격을 한 줄로 정리한다.</td>
-                </tr>
-                <tr>
-                  <td>섹션 제목</td>
-                  <td>25px / 700 / 1.25</td>
-                  <td>긴 내용 안의 판단 단위를 나눈다.</td>
-                </tr>
-                <tr>
-                  <td>본문</td>
-                  <td>16px / 400 / 1.7</td>
-                  <td>한국어와 영어를 오래 읽을 수 있게 둔다.</td>
-                </tr>
-                <tr>
-                  <td>메타데이터</td>
-                  <td>12px / mono / 1.4</td>
-                  <td>날짜, 파일, 태그, 제작 상태를 조용히 표시한다.</td>
-                </tr>
-                <tr>
-                  <td>본문 컬럼</td>
-                  <td>680px / 화면 중심</td>
-                  <td>Projects, Studio, About, Contact의 읽기 폭을 고정한다.</td>
-                </tr>
-                <tr>
-                  <td>Archive 인덱스</td>
-                  <td>1120px / 목차 오른쪽</td>
-                  <td>비교와 필터링이 필요한 자료만 넓게 쓴다.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h3>색과 표면</h3>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>역할</th>
-                  <th>다크</th>
-                  <th>라이트</th>
-                  <th>사용</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>기본 표면</td>
-                  <td>#101010</td>
-                  <td>#F4F4F1</td>
-                  <td>페이지 전체의 조용한 바탕</td>
-                </tr>
-                <tr>
-                  <td>기본 글자</td>
-                  <td>#F4F4F1</td>
-                  <td>#111111</td>
-                  <td>제목과 본문</td>
-                </tr>
-                <tr>
-                  <td>보조 글자</td>
-                  <td>#B6B6AE</td>
-                  <td>#5D5F5C</td>
-                  <td>캡션과 설명</td>
-                </tr>
-                <tr>
-                  <td>강조</td>
-                  <td>#5F7DFF</td>
-                  <td>#1647FF</td>
-                  <td>활성 상태와 키보드 포커스</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h3>작동 규칙</h3>
-          <ul class="checklist">
-            <li><span class="checklist__box" aria-hidden="true"></span><span>시스템 산세리프를 기본으로 쓰고, 손글씨는 본문 폰트가 아니라 실제 아이덴티티 자료로만 쓴다.</span></li>
-            <li><span class="checklist__box" aria-hidden="true"></span><span>공개 도면은 1:1 정방형 프레임으로 반복하고, 손그림 아이덴티티와 외부 공유 이미지만 1200×630 가로 프레임을 쓴다.</span></li>
-            <li><span class="checklist__box" aria-hidden="true"></span><span>장식보다 장비, 라벨, 작업복, 날짜, 캡션처럼 실제 운영을 증명하는 정보를 먼저 넣는다.</span></li>
-            <li><span class="checklist__box" aria-hidden="true"></span><span>파랑과 빨강은 분위기용이 아니라 활성 상태, 포커스, 특정 물성 표시처럼 기능이 있을 때만 쓴다.</span></li>
-          </ul>
+          <section class="design-system-section" aria-labelledby="system-check-title">
+            <div class="design-system-section__intro">
+              <p class="overline">05 / CHECK / BEFORE PUBLISHING</p>
+              <h3 id="system-check-title">이 기준이 화면에서 실제로 작동하는지 확인한다.</h3>
+            </div>
+            <ul class="checklist">
+              <li><span class="checklist__box" aria-hidden="true"></span><span>시스템 산세리프를 기본으로 쓰고, 손글씨는 본문 폰트가 아니라 실제 아이덴티티 자료로만 쓴다.</span></li>
+              <li><span class="checklist__box" aria-hidden="true"></span><span>공개 도면은 1:1 정방형 프레임으로 반복하고, 손그림 아이덴티티와 외부 공유 이미지만 1200×630 가로 프레임을 쓴다.</span></li>
+              <li><span class="checklist__box" aria-hidden="true"></span><span>장식보다 장비, 라벨, 작업복, 날짜, 캡션처럼 실제 운영을 증명하는 정보를 먼저 넣는다.</span></li>
+              <li><span class="checklist__box" aria-hidden="true"></span><span>파랑과 빨강은 분위기용이 아니라 활성 상태, 포커스, 특정 물성 표시처럼 기능이 있을 때만 쓴다.</span></li>
+            </ul>
+          </section>
         </section>
 
         <section class="section article-column reveal" id="launch" data-section-title="Release Path" data-view="projects">
@@ -2667,6 +3161,9 @@
       const languageOptions = Array.from(languagePopover.querySelectorAll("[data-language]"));
       const filterButtons = Array.from(document.querySelectorAll(".filter-button"));
       const archiveItems = Array.from(document.querySelectorAll(".archive-item"));
+      const stateDemoButtons = Array.from(document.querySelectorAll("[data-state-active-demo]"));
+      const stateFocusDemo = document.querySelector("[data-state-focus-demo]");
+      const stateFocusStatus = document.getElementById("stateFocusStatus");
       const viewDefinitions = {
         projects: {
           eyebrow: "DCA / PROJECTS",
@@ -2804,15 +3301,59 @@
         "레퍼런스에는 가까운데 우리 것은 아니다": "It is close to the reference, but not ours yet",
         "증거보다 구조가 앞섬": "Structure has come before evidence",
         "빌린 구조 안의 내용을 DCA 자료로 교체한다.": "Replace the borrowed structure's content with DCA material.",
-        "보이는 방식보다, 읽고 쓰는 방식이 먼저다.": "How it is read and used comes before how it looks.",
+        "읽고 쓰기 위한 화면.": "A screen made for reading and working.",
         "DCA의 웹사이트는 폰트나 색 자체로 멋을 부리기보다, 실제 자료를 읽고 찾고 비교하기 쉬운 위계와 그리드로 성격을 만든다. 아래 규칙은 화면을 새로 만들 때마다 먼저 확인한다.": "Rather than relying on type or colour for style, the DCA website builds character through hierarchy and grids that make real material easy to read, find, and compare. Check these rules before building a new screen.",
+        "보이기 전에, 작동하게 만든다.": "Make it work before making it visible.",
+        "DCA는 예쁜 화면보다, 읽히고 움직이는 이유를 보여주려 한다. 웹사이트, 카탈로그, 촬영 기록은 아래 기준으로 만든다.": "Rather than explaining a pretty screen, DCA shows why it reads and moves. The website, catalogue, and production records are made using the principles below.",
+        "실제 자료에서 시작한다.": "Start with real material.",
+        "사진, 장비, 라벨, 세션의 흔적이 디자인의 출발점이다. 장식은 자료가 이미 말하고 있는 것을 더 잘 보이게 할 때만 쓴다.": "Photographs, equipment, labels, and traces of sessions are the starting point. Decoration is used only when it helps material already present to be read more clearly.",
+        "표면은 읽기 위해 만든다.": "Make surfaces for reading.",
+        "본문과 이미지 프레임은 흰색으로 두고, 손그림과 조용한 규칙 표면만 아주 옅은 회색 판으로 구분한다.": "Body content and image frames remain white; only hand drawings and quiet rule surfaces use a very pale grey plate.",
+        "기기에 이미 있는 글꼴을 쓴다.": "Use type already on the device.",
+        "화면이 먼저 읽히도록 시스템 UI 글꼴을 쓴다. 한국어는 사용자의 운영체제에서 가장 익숙한 방식으로 렌더링된다.": "System UI type lets the screen be read first. Korean renders in the way most familiar to the user's operating system.",
+        "폭과 여백은 비교를 돕는다.": "Use width and whitespace to compare.",
+        "긴 글은 정해진 읽기 폭에 두고, 비교할 자료만 넓은 그리드에 둔다. 여백은 비워 보이기 위한 장식이 아니라 판단 단위를 나누는 도구다.": "Long reading stays in a defined lane, while only comparable material enters a wider grid. Whitespace is not empty decoration; it separates units of judgment.",
+        "이미지는 증거를 남긴다.": "Images preserve evidence.",
+        "공개 이미지는 같은 정방형 프레임에서 반복한다. 핵심이 보이도록 크롭하고, 손그림과 실사는 같은 물건을 담는다.": "Public images repeat in the same square frame. Crops make the subject clear, and drawings and photographs hold the same object.",
+        "조작한 뒤의 상태가 보인다.": "Show the state after an action.",
+        "선택됨, 포커스, 검색 결과 뒤에는 분명한 변화가 남아야 한다. 색은 기분 대신 상태를 알린다.": "A clear change must remain after selection, focus, or search. Colour communicates state rather than mood.",
+        "움직임은 변화를 설명한다.": "Movement explains a change.",
+        "모션은 읽기 진행률과 손그림에서 실사로 바뀌는 증거 전환처럼, 실제 변화의 위치와 내용을 짧게 설명할 때만 쓴다.": "Motion is used only to briefly explain the position and content of a real change, such as reading progress or the drawing-to-photograph evidence swap.",
+        "글자가 기다리게 하지 않는다.": "Do not make text wait.",
+        "기기에 있는 UI 글꼴을 써서 별도 웹폰트 요청을 줄인다. 모든 성능을 결정하진 않지만, 첫 문장은 기다리지 않고 익숙한 한글 조판을 그대로 쓴다.": "DCA uses UI type already on the device to reduce a separate webfont request. It does not determine all performance, but the first sentence does not wait and familiar Korean typesetting remains intact.",
+        "장식보다, 읽을 근거.": "Evidence to read, before decoration.",
+        "무언가를 더하는 이유는 예뻐 보이기 때문이 아니라, 자료의 우선순위와 현재 상태를 더 정확하게 전달하기 위해서다.": "The reason to add something is not that it looks attractive, but that it communicates material priority and current state more accurately.",
+        "자료: 실제 장비, 공간, 사람, 라벨": "Material: real equipment, space, people, labels",
+        "맥락: 날짜, 캡션, 사용 장면": "Context: date, caption, use scene",
+        "상태: 선택됨, 포커스, 현재 위치": "State: selection, focus, current location",
+        "여백: 읽는 단위를 나누는 공간": "Whitespace: space separating units of reading",
+        "그래서 DCA는 큰 문구나 효과보다 순서, 대비, 여백부터 확인한다.": "For this reason, DCA checks sequence, contrast, and whitespace before large statements or effects.",
         "오래 읽히는 제목과, 조용한 정보의 위계.": "Headings built for reading, with a quiet hierarchy for information.",
         "큰 제목은 현재 보기를 명확히 잡고, 본문은 실제 자료를 오래 읽을 수 있게 둔다. 날짜와 파일 정보는 본문보다 한 단계 물러나지만 언제든 찾을 수 있어야 한다.": "Large headings establish the current view, while body text keeps real material comfortable to read. Dates and file information step back, but remain easy to find.",
+        "글꼴은 성격이 아니라 역할로 나눈다.": "Type is separated by role, not personality.",
+        "제목과 본문은 기기에 이미 있는 시스템 UI 글꼴로 읽고, 날짜·파일·상태만 모노 글꼴로 분리한다. 별도 웹폰트를 내려받지 않아 첫 문장을 바로 읽기 시작할 수 있다.": "Headings and body text use the system UI type already on the device, while dates, files, and states use mono. Without a separate webfont download, the first sentence can be read right away.",
+        "큰 제목은 현재 위치를, 본문은 오래 읽을 내용을 맡는다.": "Large titles carry the current location; body copy carries the long read.",
+        "사용자는 macOS, Windows, Android처럼 자기 기기에 이미 있는 글꼴로 이 문장을 읽는다. DCA는 폰트의 분위기보다 한글 문장의 안정적인 읽기 흐름을 먼저 둔다.": "Visitors read this sentence in type already on their macOS, Windows, or Android device. DCA puts the reliable reading flow of Korean sentences before the mood of a font.",
+        "현재 보는 곳": "The current view",
+        "새 판단 단위": "A new unit of judgment",
+        "자료의 맥락을 오래 읽는 문장입니다.": "A sentence for reading the material context over time.",
+        "위계와 그리드는 읽는 자리를 먼저 정한다.": "Hierarchy and grid define the place to read first.",
+        "긴 내용은 화면 가운데의 일정한 폭에서 읽고, 비교가 필요한 자료만 넓은 아카이브 그리드에 놓는다. 아래 표본은 왼쪽 목차와 본문이 서로 다른 일을 하는 방식을 보여준다.": "Long content stays in a consistent lane at the centre of the screen, while only material needing comparison enters the wider archive grid. This sample shows the different jobs of the left index and the main text.",
         "왼쪽 목차와 분리된, 화면 중심의 읽기 폭.": "A viewport-centred reading lane, separated from the left index.",
+        "색은 표면과 상태를 구분할 때만 쓴다.": "Colour is used only to distinguish surfaces and states.",
+        "흰색은 오래 읽는 기본 표면이고, 아주 옅은 회색은 손그림과 규칙을 조용히 구분한다. 파란색은 꾸밈이 아니라 현재 위치와 키보드 조작처럼 확인이 필요한 곳에만 쓴다.": "White is the primary surface for extended reading, while a very pale grey quietly separates drawings and rules. Blue is not decoration; it appears only where confirmation is needed, such as the current location and keyboard operation.",
         "조용하고 정확한 작업 표면.": "A quiet, precise working surface.",
         "오래 읽기 위한 밝은 대안.": "A lighter alternative for extended reading.",
-        "장비는 프레임보다 먼저 읽혀야 한다.": "Equipment must read before the frame.",
-        "라벨과 물성은 같은 정방형 규격으로 비교한다.": "Compare labels and materiality in the same square format.",
+        "기능 강조": "Functional accent",
+        "진행률, 현재 선택, 키보드 포커스": "Reading progress, current selection, keyboard focus",
+        "선택됨과 키보드 위치는 다르다.": "Selection and keyboard location are different.",
+        "선택됨은 메뉴나 필터를 고른 뒤에도 남아 있는 현재 위치다. 키보드 포커스는 Tab 키로 버튼·검색·이미지에 이동하는 순간에만 보이며, 아직 선택을 바꾸지 않는다.": "Selection is the current location that remains after choosing a menu or filter. Keyboard focus appears only while Tab moves to a button, search field, or image, and does not change the selection yet.",
+        "현재 열려 있는 상단 메뉴와 Archive의 선택된 필터에 쓰인다. 다른 곳을 보더라도 현재 위치는 계속 남는다.": "It is used for the open top menu and selected Archive filter. The current location remains even while viewing something else.",
+        "Tab 키로 이 버튼에 이동": "Move to this button with Tab",
+        "Tab 키로 이동하면 2px 외곽선이 잠깐 나타난다. Enter나 Space를 누르기 전까지는 메뉴나 필터의 선택이 바뀌지 않는다.": "When moving with Tab, a 2px outline appears temporarily. The menu or filter selection does not change until Enter or Space is pressed.",
+        "이 기준이 화면에서 실제로 작동하는지 확인한다.": "Confirm that these rules actually work on screen.",
+        "마우스를 올리거나 키보드로 포커스하면 같은 물건의 실사 증거로 전환된다.": "Hovering or using keyboard focus reveals photographic evidence of the same object.",
+        "전환 전후에도 1:1 프레임과 판단 대상은 그대로 유지한다.": "The 1:1 frame and subject remain unchanged before and after the transition.",
         "손그림과 외부 공유 이미지는 사진 규칙의 예외로, 중앙의 여백을 보존한다.": "Hand drawings and external share images are exceptions to the photo rule, preserving centred whitespace.",
         "위계와 그리드": "Hierarchy and grid",
         "요소": "Element",
@@ -2906,6 +3447,16 @@
           const source = original.trim();
           node.nodeValue = `${leading}${currentLanguage === "en" ? (textTranslations[source] || source) : source}${trailing}`;
         }
+      };
+
+      const translateDocumentAttributes = () => {
+        const suffix = currentLanguage === "ko" ? "Ko" : "En";
+        document.querySelectorAll("[data-i18n-alt-ko]").forEach((element) => {
+          element.alt = element.dataset[`i18nAlt${suffix}`];
+        });
+        document.querySelectorAll("[data-i18n-label-ko]").forEach((element) => {
+          element.setAttribute("aria-label", element.dataset[`i18nLabel${suffix}`]);
+        });
       };
 
       const syncThemeButton = () => {
@@ -3060,6 +3611,7 @@
         currentLanguage = language;
         window.localStorage.setItem("dca-language", language);
         translateDocumentText();
+        translateDocumentAttributes();
         syncLanguageChrome();
         renderLocalNavigation(currentView);
         setActiveSection(viewDefinitions[currentView].items[0].id);
@@ -3074,7 +3626,9 @@
       const applyArchiveFilter = (filter) => {
         currentArchiveFilter = filter;
         filterButtons.forEach((button) => {
-          button.classList.toggle("is-active", button.dataset.filter === filter);
+          const isSelected = button.dataset.filter === filter;
+          button.classList.toggle("is-active", isSelected);
+          button.setAttribute("aria-pressed", String(isSelected));
         });
         archiveItems.forEach((item) => {
           const shouldShow = filter === "all" || item.dataset.category === filter;
@@ -3184,6 +3738,22 @@
           setLanguage(option.dataset.language);
           closeLanguageMenu();
         });
+      });
+
+      stateDemoButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          stateDemoButtons.forEach((choice) => {
+            const isSelected = choice === button;
+            choice.classList.toggle("state-specimen__control--active", isSelected);
+            choice.setAttribute("aria-pressed", String(isSelected));
+          });
+        });
+      });
+
+      stateFocusDemo.addEventListener("click", () => {
+        stateFocusStatus.textContent = currentLanguage === "ko"
+          ? "키보드 조작을 확인했습니다. 현재 메뉴나 필터의 선택은 바뀌지 않았습니다."
+          : "Keyboard activation confirmed. The current menu or filter selection has not changed.";
       });
 
       searchTrigger.addEventListener("click", openSearch);
