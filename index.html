@@ -102,24 +102,24 @@
 
     [data-theme="light"] {
       color-scheme: light;
-      --surface-primary: #FFFFFF;
+      --surface-primary: #FAF9F7;
       --surface-secondary: #FFFFFF;
-      --surface-elevated: #FAFAFA;
+      --surface-elevated: #F3F1ED;
       --surface-media: #FAFAFA;
       --media-matte: #111111;
-      --text-primary: #1A1A1A;
-      --text-secondary: #666666;
-      --text-tertiary: #767676;
-      --border-default: #E5E5E5;
-      --border-subtle: #F0F0F0;
+      --text-primary: #1B1B19;
+      --text-secondary: #62615C;
+      --text-tertiary: #77756E;
+      --border-default: #DDD9D1;
+      --border-subtle: #EBE8E2;
       --accent-primary: #496D86;
       --accent-workwear: #496D86;
       --accent-label-red: #B92318;
       --material-tape: #DED5C4;
-      --guide-bg: #FFFFFF;
-      --guide-bg-subtle: #FAFAFA;
-      --guide-text: #1A1A1A;
-      --guide-text-muted: #767676;
+      --guide-bg: #FAF9F7;
+      --guide-bg-subtle: #FFFFFF;
+      --guide-text: #1B1B19;
+      --guide-text-muted: #77756E;
       --guide-link: #0066CC;
     }
 
@@ -949,11 +949,43 @@
       gap: var(--space-5);
     }
 
+    .editor-unlock-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      min-height: 44px;
+      padding: 0 var(--space-4);
+      border: 1px solid var(--text-primary);
+      border-radius: var(--radius-sm);
+      color: var(--surface-primary);
+      background: var(--text-primary);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .editor-unlock-button:hover {
+      border-color: var(--accent-primary);
+      background: var(--accent-primary);
+      transform: translateY(-1px);
+    }
+
+    .editor-unlock-button svg {
+      width: 16px;
+      height: 16px;
+    }
+
     .editor-gate__row,
     .editor-form__grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: var(--space-4);
+    }
+
+    .editor-gate__row {
+      align-items: start;
     }
 
     .editor-field {
@@ -1117,6 +1149,69 @@
       font-size: var(--font-size-sm);
     }
 
+    .editor-image-dropzone {
+      display: grid;
+      justify-items: center;
+      gap: var(--space-1);
+      min-height: 142px;
+      padding: var(--space-4);
+      border: 1px dashed var(--border-default);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      background: var(--surface-secondary);
+      cursor: pointer;
+      text-align: center;
+      transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .editor-image-dropzone:hover,
+    .editor-image-dropzone:focus-visible,
+    .editor-image-dropzone.is-dragging {
+      border-color: var(--accent-primary);
+      color: var(--text-primary);
+      background: var(--surface-elevated);
+      outline: 0;
+    }
+
+    .editor-image-dropzone svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .editor-image-dropzone strong,
+    .editor-image-dropzone span {
+      display: block;
+    }
+
+    .editor-image-dropzone strong {
+      font-size: var(--font-size-sm);
+    }
+
+    .editor-image-dropzone span {
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.45;
+    }
+
+    .editor-image-preview {
+      width: 100%;
+      max-height: 168px;
+      border: 1px solid var(--border-default);
+      object-fit: contain;
+      background: var(--surface-elevated);
+    }
+
+    .editor-image-file {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
     .editor-insert-group input,
     .editor-insert-group select,
     .editor-insert-group textarea {
@@ -1163,6 +1258,8 @@
     .editor-actions {
       display: flex;
       flex-wrap: wrap;
+      align-items: flex-start;
+      align-content: flex-start;
       gap: var(--space-2);
     }
 
@@ -3701,7 +3798,7 @@
               <label class="editor-field" for="editorAccessCode"><span id="editorAccessLabel"></span><input id="editorAccessCode" type="password" autocomplete="current-password" required></label>
               <div class="editor-gate__row">
                 <p class="body-copy" id="editorGateNote"></p>
-                <div class="editor-actions"><button class="text-button" type="submit" id="editorUnlock"></button><span class="editor-status" id="editorGateStatus" aria-live="polite"></span></div>
+                <div class="editor-actions"><button class="editor-unlock-button" type="submit"><i data-lucide="pen-line" aria-hidden="true"></i><span id="editorUnlock"></span></button><span class="editor-status" id="editorGateStatus" aria-live="polite"></span></div>
               </div>
             </form>
           </div>
@@ -3738,7 +3835,13 @@
                   <legend id="editorInsertLabel"></legend>
                   <div class="editor-insert-group">
                     <h3 id="editorImageTitle"></h3>
-                    <input id="editorImageUrl" type="url" inputmode="url" placeholder="https://">
+                    <input class="editor-image-file" id="editorImageFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif" tabindex="-1" aria-hidden="true">
+                    <div class="editor-image-dropzone" id="editorImageDropzone" role="button" tabindex="0" aria-controls="editorImageFile">
+                      <i data-lucide="image-plus" aria-hidden="true"></i>
+                      <strong id="editorImageDropTitle"></strong>
+                      <span id="editorImageDropNote"></span>
+                    </div>
+                    <img class="editor-image-preview" id="editorImagePreview" alt="" hidden>
                     <input id="editorImageAlt" type="text">
                     <input id="editorImageCaption" type="text">
                     <button class="text-button" type="button" id="editorInsertImage"></button>
@@ -3922,7 +4025,9 @@
       const editorToolbar = document.getElementById("editorToolbar");
       const editorBlockFormat = document.getElementById("editorBlockFormat");
       const editorTextSize = document.getElementById("editorTextSize");
-      const editorImageUrl = document.getElementById("editorImageUrl");
+      const editorImageFile = document.getElementById("editorImageFile");
+      const editorImageDropzone = document.getElementById("editorImageDropzone");
+      const editorImagePreview = document.getElementById("editorImagePreview");
       const editorImageAlt = document.getElementById("editorImageAlt");
       const editorImageCaption = document.getElementById("editorImageCaption");
       const editorLinkUrl = document.getElementById("editorLinkUrl");
@@ -4031,14 +4136,14 @@
           all: "전체", back: "글 목록으로", empty: "이 분류에는 아직 공개된 글이 없습니다.", previous: "이전 글", next: "다음 글", minutes: "분 읽기",
           editorTitle: "운영자 작성", editorIntro: "공개 글을 준비하는 로컬 작성 도구입니다.", access: "운영자 액세스 코드", unlock: "작성 도구 열기", gateNote: "이 정적 프로토타입은 이 브라우저에만 저장됩니다. 실제 운영자 권한과 공개 발행은 서버 인증을 연결한 뒤 사용합니다.", incorrect: "코드를 확인하세요.",
           titleLabel: "제목", categoryLabel: "분류", dateLabel: "날짜", summaryLabel: "요약", bodyLabel: "본문", tagsLabel: "태그", reset: "새 글", saveDraft: "초안 저장", publish: "공개 저장", posts: "최근 글", drafts: "초안", published: "공개", edit: "편집", remove: "삭제", savedDraft: "초안으로 저장했습니다.", savedPublished: "공개 글로 저장했습니다.", local: "이 브라우저의 로컬 기록",
-          paragraph: "본문", headingTwo: "제목 2", headingThree: "제목 3", bold: "굵게", italic: "기울임", bulletList: "글머리 목록", numberList: "번호 목록", quote: "인용", normalSize: "기본 크기", smallSize: "작게", largeSize: "크게", richPlaceholder: "본문을 입력하세요. 선택한 글에 서식을 적용하거나 아래에서 이미지, 링크, 코드를 삽입할 수 있습니다.", insertLabel: "미디어와 자료 삽입", imageTitle: "이미지", imageUrl: "이미지 URL", imageAlt: "대체 텍스트", imageCaption: "캡션 (선택)", insertImage: "이미지 넣기", linkTitle: "링크", linkUrl: "링크 URL", linkLabel: "표시 문구", insertLink: "링크 넣기", codeTitle: "코드", codeLanguage: "코드 언어", codeContent: "코드 내용", insertCode: "코드 넣기", invalidUrl: "http(s) URL을 확인하세요.", bodyRequired: "본문을 입력하세요.", selectText: "크기를 바꿀 텍스트를 먼저 선택하세요."
+          paragraph: "본문", headingTwo: "제목 2", headingThree: "제목 3", bold: "굵게", italic: "기울임", bulletList: "글머리 목록", numberList: "번호 목록", quote: "인용", normalSize: "기본 크기", smallSize: "작게", largeSize: "크게", richPlaceholder: "본문을 입력하세요. 선택한 글에 서식을 적용하거나 아래에서 이미지, 링크, 코드를 삽입할 수 있습니다.", insertLabel: "미디어와 자료 삽입", imageTitle: "이미지", imageDropTitle: "이미지를 끌어놓거나 클릭해 선택", imageDropNote: "PNG, JPG, WebP, GIF · 최대 2MB", imageAlt: "대체 텍스트", imageCaption: "캡션 (선택)", insertImage: "이미지 넣기", imageRequired: "먼저 이미지를 선택하세요.", imageTooLarge: "이미지는 2MB 이하만 넣을 수 있습니다.", imageType: "PNG, JPG, WebP, GIF 이미지만 넣을 수 있습니다.", linkTitle: "링크", linkUrl: "링크 URL", linkLabel: "표시 문구", insertLink: "링크 넣기", codeTitle: "코드", codeLanguage: "코드 언어", codeContent: "코드 내용", insertCode: "코드 넣기", invalidUrl: "http(s) URL을 확인하세요.", bodyRequired: "본문을 입력하세요.", selectText: "크기를 바꿀 텍스트를 먼저 선택하세요."
         },
         en: {
           home: "DCA", current: "Writing", title: "Writing", intro: "Notes and decisions made while building the studio, its material language, identity, and projects.",
           all: "All", back: "Back to writing", empty: "There are no published posts in this category yet.", previous: "Previous", next: "Next", minutes: "min read",
           editorTitle: "Operator editor", editorIntro: "A local writing tool for preparing public posts.", access: "Operator access code", unlock: "Open editor", gateNote: "This static prototype saves only in this browser. Use server-side authentication before treating it as a real operator-only publishing system.", incorrect: "Check the access code.",
           titleLabel: "Title", categoryLabel: "Category", dateLabel: "Date", summaryLabel: "Summary", bodyLabel: "Body", tagsLabel: "Tags", reset: "New post", saveDraft: "Save draft", publish: "Save public post", posts: "Recent posts", drafts: "Draft", published: "Published", edit: "Edit", remove: "Remove", savedDraft: "Saved as a draft.", savedPublished: "Saved as a public post.", local: "Local records in this browser",
-          paragraph: "Paragraph", headingTwo: "Heading 2", headingThree: "Heading 3", bold: "Bold", italic: "Italic", bulletList: "Bulleted list", numberList: "Numbered list", quote: "Quote", normalSize: "Normal size", smallSize: "Small", largeSize: "Large", richPlaceholder: "Write the body. Select text to apply formatting, or add an image, link, or code sample below.", insertLabel: "Insert media and source", imageTitle: "Image", imageUrl: "Image URL", imageAlt: "Alt text", imageCaption: "Caption (optional)", insertImage: "Insert image", linkTitle: "Link", linkUrl: "Link URL", linkLabel: "Visible label", insertLink: "Insert link", codeTitle: "Code", codeLanguage: "Code language", codeContent: "Code content", insertCode: "Insert code", invalidUrl: "Check the http(s) URL.", bodyRequired: "Write the body first.", selectText: "Select the text whose size you want to change."
+          paragraph: "Paragraph", headingTwo: "Heading 2", headingThree: "Heading 3", bold: "Bold", italic: "Italic", bulletList: "Bulleted list", numberList: "Numbered list", quote: "Quote", normalSize: "Normal size", smallSize: "Small", largeSize: "Large", richPlaceholder: "Write the body. Select text to apply formatting, or add an image, link, or code sample below.", insertLabel: "Insert media and source", imageTitle: "Image", imageDropTitle: "Drop an image here or click to choose", imageDropNote: "PNG, JPG, WebP, GIF · 2 MB maximum", imageAlt: "Alt text", imageCaption: "Caption (optional)", insertImage: "Insert image", imageRequired: "Choose an image first.", imageTooLarge: "Images must be 2 MB or smaller.", imageType: "Use a PNG, JPG, WebP, or GIF image.", linkTitle: "Link", linkUrl: "Link URL", linkLabel: "Visible label", insertLink: "Insert link", codeTitle: "Code", codeLanguage: "Code language", codeContent: "Code content", insertCode: "Insert code", invalidUrl: "Check the http(s) URL.", bodyRequired: "Write the body first.", selectText: "Select the text whose size you want to change."
         }
       };
 
@@ -4100,6 +4205,8 @@
       const editorAllowedTags = new Set(["p", "h2", "h3", "strong", "em", "ul", "ol", "li", "blockquote", "figure", "img", "figcaption", "a", "pre", "code", "span", "br"]);
       const editorDangerousTags = new Set(["script", "style", "iframe", "object", "embed", "svg", "math", "template"]);
       let editorLastRange = null;
+      let editorImageAttachment = "";
+      const MAX_EDITOR_IMAGE_BYTES = 2 * 1024 * 1024;
 
       const safeMediaUrl = (value = "") => {
         const raw = String(value).trim();
@@ -4111,6 +4218,12 @@
         } catch {
           return "";
         }
+      };
+
+      const safeImageSource = (value = "") => {
+        const raw = String(value).trim();
+        if (/^data:image\/(?:png|jpeg|webp|gif);base64,[a-z0-9+/=\s]+$/i.test(raw)) return raw;
+        return safeMediaUrl(raw);
       };
 
       const safeLanguage = (value = "") => /^[a-z0-9+#-]{1,20}$/i.test(String(value)) ? String(value).toLowerCase() : "text";
@@ -4132,7 +4245,7 @@
             return;
           }
           if (tag === "img") {
-            const src = safeMediaUrl(node.getAttribute("src"));
+            const src = safeImageSource(node.getAttribute("src"));
             if (!src) return;
             const image = document.createElement("img");
             image.src = src;
@@ -4264,6 +4377,10 @@
         editorPostCategory.value = "studio";
         editorPostBody.innerHTML = "";
         editorLastRange = null;
+        editorImageAttachment = "";
+        editorImageFile.value = "";
+        editorImagePreview.removeAttribute("src");
+        editorImagePreview.hidden = true;
         editorSaveStatus.textContent = "";
       };
 
@@ -4282,6 +4399,9 @@
         document.getElementById("editorTagsLabel").textContent = copy.tagsLabel;
         document.getElementById("editorInsertLabel").textContent = copy.insertLabel;
         document.getElementById("editorImageTitle").textContent = copy.imageTitle;
+        document.getElementById("editorImageDropTitle").textContent = copy.imageDropTitle;
+        document.getElementById("editorImageDropNote").textContent = copy.imageDropNote;
+        editorImageDropzone.setAttribute("aria-label", copy.imageDropTitle);
         document.getElementById("editorLinkTitle").textContent = copy.linkTitle;
         document.getElementById("editorCodeTitle").textContent = copy.codeTitle;
         editorPostBody.dataset.placeholder = copy.richPlaceholder;
@@ -4303,7 +4423,6 @@
         document.querySelector('[data-editor-command="insertOrderedList"]').dataset.tooltip = copy.numberList;
         document.querySelector('[data-editor-command="blockquote"]').setAttribute("aria-label", copy.quote);
         document.querySelector('[data-editor-command="blockquote"]').dataset.tooltip = copy.quote;
-        editorImageUrl.placeholder = copy.imageUrl;
         editorImageAlt.placeholder = copy.imageAlt;
         editorImageCaption.placeholder = copy.imageCaption;
         editorLinkUrl.placeholder = copy.linkUrl;
@@ -5010,11 +5129,48 @@
         editorTextSize.value = "normal";
       });
 
+      const loadEditorImageAttachment = (file) => {
+        if (!file) return;
+        if (!/^(image\/(png|jpeg|webp|gif))$/i.test(file.type)) {
+          editorSaveStatus.textContent = writingCopy[currentLanguage].imageType;
+          return;
+        }
+        if (file.size > MAX_EDITOR_IMAGE_BYTES) {
+          editorSaveStatus.textContent = writingCopy[currentLanguage].imageTooLarge;
+          return;
+        }
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+          editorImageAttachment = String(reader.result || "");
+          editorImagePreview.src = editorImageAttachment;
+          editorImagePreview.hidden = false;
+          editorSaveStatus.textContent = "";
+        });
+        reader.readAsDataURL(file);
+      };
+
+      editorImageFile.addEventListener("change", () => loadEditorImageAttachment(editorImageFile.files?.[0]));
+      editorImageDropzone.addEventListener("click", () => editorImageFile.click());
+      editorImageDropzone.addEventListener("keydown", (event) => {
+        if (!["Enter", " "].includes(event.key)) return;
+        event.preventDefault();
+        editorImageFile.click();
+      });
+      ["dragenter", "dragover"].forEach((eventName) => editorImageDropzone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        editorImageDropzone.classList.add("is-dragging");
+      }));
+      ["dragleave", "drop"].forEach((eventName) => editorImageDropzone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        editorImageDropzone.classList.remove("is-dragging");
+      }));
+      editorImageDropzone.addEventListener("drop", (event) => loadEditorImageAttachment(event.dataTransfer?.files?.[0]));
+
       document.getElementById("editorInsertImage").addEventListener("click", () => {
-        const src = safeMediaUrl(editorImageUrl.value);
+        const src = safeImageSource(editorImageAttachment);
         if (!src) {
-          editorSaveStatus.textContent = writingCopy[currentLanguage].invalidUrl;
-          editorImageUrl.focus();
+          editorSaveStatus.textContent = writingCopy[currentLanguage].imageRequired;
+          editorImageDropzone.focus();
           return;
         }
         const figure = document.createElement("figure");
@@ -5029,7 +5185,10 @@
           figure.append(caption);
         }
         insertEditorNode(figure);
-        editorImageUrl.value = "";
+        editorImageAttachment = "";
+        editorImageFile.value = "";
+        editorImagePreview.removeAttribute("src");
+        editorImagePreview.hidden = true;
         editorImageAlt.value = "";
         editorImageCaption.value = "";
         editorSaveStatus.textContent = "";

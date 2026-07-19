@@ -40,6 +40,6 @@ The `qa/` folder is intentionally local-only and excluded from Git. Source artwo
 
 The current editor is a static prototype. Its access gate uses the demo code `dca-operator`, and drafted or published posts are stored only in the current browser's `localStorage`. It is useful for reviewing the writing flow, but it is not a secure administrator system and does not publish a post for other visitors.
 
-The editor supports heading levels, bold, italic, lists, quotes, small/normal/large body text, image URL with alt text and caption, external link URL with a visible label, and code blocks with a language label. It accepts only safe `http(s)` media and links (plus DCA's local `assets/` paths used in seeded examples), then sanitizes the saved body to a limited set of semantic HTML elements. It does not upload image files or host media.
+The editor supports heading levels, bold, italic, lists, quotes, small/normal/large body text, image attachment or drag and drop with alt text and caption, external link URL with a visible label, and code blocks with a language label. Attached images are limited to 2 MB and stored as local browser data, so they do not upload, host, or publish anywhere. The editor accepts safe `http(s)` links and DCA's local `assets/` paths used in seeded examples, then sanitizes the saved body to a limited set of semantic HTML elements.
 
 Before public operation, connect server-side authentication and a shared content store such as Supabase, Firebase, or a CMS. Do not treat a client-side code or an unlinked route as access control.
