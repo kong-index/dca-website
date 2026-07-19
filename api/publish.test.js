@@ -78,3 +78,63 @@ test("publish rejects an incorrect operator password before calling GitHub", { c
     }
   });
 });
+
+test("publish rejects more than eight embedded images", { concurrency: false }, async () => {
+  await withPublishingEnvironment(async () => {
+    const previousFetch = global.fetch;
+    global.fetch = async () => { throw new Error("GitHub should not be called"); };
+    try {
+      const response = makeResponse();
+      const images = Array.from({ length: 9 }, () => "<img src=\"data:image/png;base64,AA==\">").join("");
+      await handler({
+        method: "POST",
+        body: {
+          password: "private-access",
+          post: {
+            id: "image-limit-note",
+            date: "2026-07-19",
+            category: "studio",
+            title: "이미지 제한 확인",
+            summary: "글당 이미지 수 제한을 확인합니다.",
+            bodyHtml: `<p>본문입니다.</p>${images}`,
+            tags: ["studio"]
+          }
+        }
+      }, response);
+      assert.equal(response.result.statusCode, 400);
+      assert.match(response.result.body.error, /최대 8장/);
+    } finally {
+      global.fetch = previousFetch;
+    }
+  });
+});
+
+test("publish rejects embedded images above the 3 MB total", { concurrency: false }, async () => {
+  await withPublishingEnvironment(async () => {
+    const previousFetch = global.fetch;
+    global.fetch = async () => { throw new Error("GitHub should not be called"); };
+    try {
+      const response = makeResponse();
+      const image = Buffer.alloc(1600 * 1024).toString("base64");
+      await handler({
+        method: "POST",
+        body: {
+          password: "private-access",
+          post: {
+            id: "image-total-note",
+            date: "2026-07-19",
+            category: "studio",
+            title: "이미지 합계 확인",
+            summary: "글당 이미지 합계 제한을 확인합니다.",
+            bodyHtml: `<img src=\"data:image/png;base64,${image}\"><img src=\"data:image/png;base64,${image}\">`,
+            tags: ["studio"]
+          }
+        }
+      }, response);
+      assert.equal(response.result.statusCode, 400);
+      assert.match(response.result.body.error, /합계는 글당 3MB/);
+    } finally {
+      global.fetch = previousFetch;
+    }
+  });
+});

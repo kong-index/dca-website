@@ -38,7 +38,7 @@ The `qa/` folder is intentionally local-only and excluded from Git. Source artwo
 - Public post route: `#writing/<post-id>`
 - Local operator editor: `#editor`
 
-The editor supports heading levels, bold, italic, lists, quotes, small/normal/large body text, image attachment from the toolbar or direct drag and drop into the body, and selected-text links. Paste or type a standalone `http(s)` URL and it is converted into a link when the editor loses focus. Images are limited to 1 MB each. Drafts remain only in the current browser. Public saves are authenticated by Vercel, stored in GitHub, and included in Vercel's next deployment.
+The editor supports heading levels, bold, italic, lists, quotes, small/normal/large body text, image attachment from the toolbar or direct drag and drop into the body, and selected-text links. Paste or type a standalone `http(s)` URL and it is converted into a link when the editor loses focus. A post can include up to 8 images, each up to 2 MB, with a combined image size of 3 MB. Drafts remain only in the current browser. Public saves are authenticated by Vercel, stored in GitHub, and included in Vercel's next deployment.
 
 ## 운영자 글 공개 설정
 

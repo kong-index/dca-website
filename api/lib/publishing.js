@@ -7,8 +7,9 @@ const IMAGE_TYPES = new Map([
   ["webp", "webp"],
   ["gif", "gif"]
 ]);
-const MAX_IMAGE_BYTES = 1024 * 1024;
-const MAX_IMAGES_PER_POST = 4;
+const MAX_IMAGE_BYTES = 2 * 1024 * 1024;
+const MAX_IMAGES_PER_POST = 8;
+const MAX_EMBEDDED_IMAGE_BYTES = 3 * 1024 * 1024;
 
 const sendJson = (response, statusCode, body) => {
   response.status(statusCode).json(body);
@@ -107,12 +108,14 @@ const uploadEmbeddedImages = async (config, post) => {
   const pattern = /data:image\/(png|jpeg|webp|gif);base64,([a-z0-9+/=\s]+)/gi;
   const matches = [...post.bodyHtml.matchAll(pattern)];
   if (matches.length > MAX_IMAGES_PER_POST) throw new Error(`한 번에 최대 ${MAX_IMAGES_PER_POST}장까지 공개할 수 있습니다.`);
+  const totalImageBytes = matches.reduce((total, match) => total + Buffer.from(match[2].replace(/\s/g, ""), "base64").length, 0);
+  if (totalImageBytes > MAX_EMBEDDED_IMAGE_BYTES) throw new Error("공개 이미지의 합계는 글당 3MB 이하만 사용할 수 있습니다.");
   let bodyHtml = post.bodyHtml;
   for (const [index, match] of matches.entries()) {
     const source = match[0];
     const type = match[1].toLowerCase();
     const binary = Buffer.from(match[2].replace(/\s/g, ""), "base64");
-    if (!binary.length || binary.length > MAX_IMAGE_BYTES) throw new Error("공개 이미지는 한 장당 1MB 이하만 사용할 수 있습니다.");
+    if (!binary.length || binary.length > MAX_IMAGE_BYTES) throw new Error("공개 이미지는 한 장당 2MB 이하만 사용할 수 있습니다.");
     const extension = IMAGE_TYPES.get(type);
     const path = `assets/uploads/writing/${post.id}-${Date.now()}-${index + 1}.${extension}`;
     await writeFile(config, path, binary, `publish: add image for ${post.id}`);
