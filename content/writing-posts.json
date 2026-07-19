@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "id": "post-1784446137191",
+    "title": "test vercel1",
+    "summary": "test vercel1",
+    "bodyHtml": "test vercel1",
+    "date": "2026-07-19",
+    "category": "studio",
+    "status": "published",
+    "tags": [
+      "test1"
+    ],
+    "updatedAt": "2026-07-19T07:28:57.443Z"
+  }
+]
