@@ -2588,6 +2588,79 @@
       background: var(--guide-bg-subtle);
     }
 
+    .development-steps {
+      display: grid;
+      gap: 0;
+      margin: var(--space-8) 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .development-steps li {
+      display: grid;
+      grid-template-columns: minmax(140px, 0.8fr) minmax(0, 2.2fr);
+      gap: var(--space-5);
+      padding: var(--space-5) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .development-steps strong {
+      color: var(--text-primary);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .development-steps span {
+      color: var(--text-secondary);
+    }
+
+    .development-evidence {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+
+    .development-evidence figure {
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      background: var(--guide-bg-subtle);
+    }
+
+    .development-evidence__visual {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #171717;
+    }
+
+    .development-evidence img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .development-evidence figcaption {
+      padding: var(--space-4);
+      color: var(--text-secondary);
+      font-size: var(--font-size-sm);
+      line-height: 1.55;
+    }
+
+    .development-evidence figcaption strong {
+      display: block;
+      margin-bottom: var(--space-1);
+      color: var(--text-primary);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+    }
+
     .section-nav {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -2886,6 +2959,10 @@
         grid-template-columns: 1fr;
       }
 
+      .development-evidence {
+        grid-template-columns: 1fr;
+      }
+
       .contact-form {
         grid-template-columns: 1fr;
       }
@@ -2978,6 +3055,11 @@
 
       .sequence li {
         grid-template-columns: 1fr;
+      }
+
+      .development-steps li {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
       }
 
       .token-table,
@@ -3851,7 +3933,7 @@
           <form class="contact-form" id="contactForm">
             <label class="contact-field">
               <span>이름 또는 팀</span>
-              <input name="name" type="text" required autocomplete="name" data-placeholder-ko="예: 공지수 / 스튜디오명" data-placeholder-en="e.g. Jisu Kong / Studio name">
+              <input name="name" type="text" required autocomplete="name" data-placeholder-ko="예: 스튜디오명 / 팀 이름" data-placeholder-en="e.g. Studio / Team name">
             </label>
             <label class="contact-field">
               <span>이메일</span>
@@ -3894,8 +3976,8 @@
         <section class="section article-column reveal" id="development-flow" data-section-title="Publishing Flow" data-view="development" hidden>
           <p class="overline">01 / PUBLISHING FLOW</p>
           <h2>수정은 로컬에서 시작하고, 공개는 Vercel에서 끝난다.</h2>
-          <ol class="checklist">
-            <li><strong>Local / dca-website</strong><span>공지수와 Codex가 HTML, 이미지, 글 구조를 수정하는 실제 작업 폴더다.</span></li>
+          <ol class="development-steps">
+            <li><strong>Local / dca-website</strong><span>HTML, 이미지, 글 구조를 수정하는 실제 작업 폴더다.</span></li>
             <li><strong>GitHub / Repository</strong><span>변경된 파일과 버전을 보관하는 원격 기록이다. Commit은 한 단위의 기록, Push는 그 기록을 GitHub로 보내는 일이다.</span></li>
             <li><strong>Vercel / Production</strong><span>main 브랜치에 Push가 들어오면 Vercel이 자동으로 새 버전을 배포한다. 별도의 수동 업로드는 필요하지 않다.</span></li>
             <li><strong>deepcoucharchive.kr</strong><span>Gabia DNS가 Vercel을 가리킨다. 방문자는 최종적으로 이 주소에서 HTTPS로 사이트를 본다.</span></li>
@@ -3906,13 +3988,23 @@
             <tr><td data-label="행동">Pull</td><td data-label="뜻">GitHub의 최신 변경을 로컬로 받아옴</td><td data-label="DCA에서의 결과">다른 기기 또는 Editor에서 발행한 글을 작업 폴더에 반영한다.</td></tr>
             <tr><td data-label="행동">Deploy</td><td data-label="뜻">코드를 방문자가 볼 수 있는 서버 버전으로 만듦</td><td data-label="DCA에서의 결과">새 배포가 준비되면 .kr 도메인에 바로 적용된다.</td></tr>
           </tbody></table>
+          <div class="development-evidence" aria-label="도메인 연결 설정 화면">
+            <figure>
+              <div class="development-evidence__visual"><img src="assets/development/gabia-domain-records.png" alt="Gabia에서 도메인 레코드를 설정한 화면"></div>
+              <figcaption><strong>Gabia / DNS Records</strong>대표 주소와 보조 주소가 어느 서버를 향하는지 설정하는 단계.</figcaption>
+            </figure>
+            <figure>
+              <div class="development-evidence__visual"><img src="assets/development/vercel-domain-routing.png" alt="Vercel에서 도메인 이동 상태를 확인한 화면"></div>
+              <figcaption><strong>Vercel / Domain Routing</strong><code>.com</code>과 <code>www</code> 주소를 대표 <code>.kr</code> 주소로 정리한 배포 상태.</figcaption>
+            </figure>
+          </div>
         </section>
 
         <section class="section article-column reveal" id="development-editor" data-section-title="Editor" data-view="development" hidden>
           <p class="overline">02 / EDITOR</p>
           <h2>글은 브라우저에서 작성하고, 공개 저장은 GitHub를 거쳐 배포된다.</h2>
           <p class="body-copy">운영자 도구는 공개 메뉴에 넣지 않은 <code>#editor</code> 경로다. 운영자 비밀번호를 통과하면 제목, 분류, 날짜, 요약, 본문, 링크, 이미지를 넣고 공개 저장할 수 있다. 공개 저장은 GitHub의 글 데이터와 이미지 파일을 업데이트하고, Vercel이 이를 다시 배포한다.</p>
-          <ol class="checklist">
+          <ol class="development-steps">
             <li><strong>1. #editor 열기</strong><span>운영자만 알고 있는 경로로 접속하고 액세스 코드를 입력한다.</span></li>
             <li><strong>2. 글 작성</strong><span>제목, 분류, 날짜, 요약을 먼저 적고 본문에서 굵게·목록·링크·이미지를 필요한 만큼 넣는다.</span></li>
             <li><strong>3. 공개 저장</strong><span>공개 상태로 저장하면 GitHub에 기록되고 Vercel이 자동 배포한다. 배포가 끝나면 Writing 목록에서 확인한다.</span></li>
@@ -3937,7 +4029,7 @@
         <section class="section article-column reveal" id="development-log" data-section-title="Development Log" data-view="development" hidden>
           <p class="overline">04 / 2026-07-19</p>
           <h2>이번 배포에서 바뀐 것.</h2>
-          <ol class="checklist">
+          <ol class="development-steps">
             <li><strong>GitHub Pages에서 Vercel로 전환</strong><span>정적 페이지 공개뿐 아니라 운영자 글 발행과 서버 환경변수를 안전하게 다루기 위해 Vercel을 연결했다.</span></li>
             <li><strong>운영자 Editor 연결</strong><span>브라우저에서 작성한 글과 이미지를 GitHub 저장소에 기록하고, Vercel이 이어서 배포하도록 구성했다.</span></li>
             <li><strong>.kr을 대표 주소로 확정</strong><span>deepcoucharchive.kr은 실제 사이트, www·.com 주소는 308 이동으로 대표 주소에 정리했다.</span></li>
