@@ -31,3 +31,15 @@ Then open `http://127.0.0.1:4173/`.
 5. Confirm the published preview before sharing it with a client.
 
 The `qa/` folder is intentionally local-only and excluded from Git. Source artwork and raw material are also excluded from this public repository.
+
+## Writing Prototype
+
+- Public writing index: `#writing`
+- Public post route: `#writing/<post-id>`
+- Local operator editor: `#editor`
+
+The current editor is a static prototype. Its access gate uses the demo code `dca-operator`, and drafted or published posts are stored only in the current browser's `localStorage`. It is useful for reviewing the writing flow, but it is not a secure administrator system and does not publish a post for other visitors.
+
+The editor supports heading levels, bold, italic, lists, quotes, small/normal/large body text, image URL with alt text and caption, external link URL with a visible label, and code blocks with a language label. It accepts only safe `http(s)` media and links (plus DCA's local `assets/` paths used in seeded examples), then sanitizes the saved body to a limited set of semantic HTML elements. It does not upload image files or host media.
+
+Before public operation, connect server-side authentication and a shared content store such as Supabase, Firebase, or a CMS. Do not treat a client-side code or an unlinked route as access control.

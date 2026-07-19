@@ -603,6 +603,606 @@
       border-top: 1px solid var(--border-default);
     }
 
+    .writing-view,
+    .editor-view {
+      min-width: 0;
+    }
+
+    .writing-index__head,
+    .writing-article__head,
+    .editor-view__head {
+      padding: var(--space-8) 0 var(--space-10);
+    }
+
+    .writing-breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin: 0 0 var(--space-6);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+    }
+
+    .writing-breadcrumb span + span::before {
+      margin-right: var(--space-2);
+      content: "/";
+    }
+
+    .writing-intro {
+      max-width: 58ch;
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: var(--font-size-lg);
+      line-height: 1.7;
+    }
+
+    .writing-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin: 0 0 var(--space-12);
+    }
+
+    .writing-filter {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 38px;
+      padding: 0 16px;
+      border: 1px solid var(--border-default);
+      border-radius: 999px;
+      color: var(--text-secondary);
+      background: transparent;
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      cursor: pointer;
+      transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .writing-filter:hover,
+    .writing-filter[aria-pressed="true"] {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+      background: var(--surface-secondary);
+    }
+
+    .writing-filter__count {
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      font-weight: 400;
+    }
+
+    .writing-list {
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .writing-entry {
+      display: block;
+      min-width: 0;
+      padding: var(--space-8) 0;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: transform var(--transition-fast);
+    }
+
+    .writing-entry:hover,
+    .writing-entry:focus-visible {
+      transform: translateX(4px);
+    }
+
+    .writing-entry__meta,
+    .writing-article__meta,
+    .editor-post__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2) var(--space-3);
+      margin: 0 0 var(--space-3);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.5;
+    }
+
+    .writing-entry__meta span + span::before,
+    .writing-article__meta span + span::before,
+    .editor-post__meta span + span::before {
+      margin-right: var(--space-3);
+      color: var(--border-default);
+      content: "/";
+    }
+
+    .writing-entry__title {
+      margin: 0 0 var(--space-2);
+      color: var(--text-primary);
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .writing-entry__summary {
+      margin: 0 0 var(--space-4);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .writing-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+    }
+
+    .writing-empty {
+      margin: 0;
+      padding: var(--space-10) 0;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+    }
+
+    .writing-article__back {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      min-height: var(--control-height);
+      margin-bottom: var(--space-8);
+      padding: 0;
+      border: 0;
+      color: var(--text-secondary);
+      background: transparent;
+      font: inherit;
+      font-size: var(--font-size-sm);
+      cursor: pointer;
+      transition: color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .writing-article__back:hover {
+      color: var(--text-primary);
+      transform: translateX(-2px);
+    }
+
+    .writing-article__back svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .writing-article__title {
+      margin: 0 0 var(--space-5);
+      font-size: clamp(2rem, 4vw, 2.25rem);
+      line-height: 1.15;
+      text-wrap: balance;
+    }
+
+    .writing-article__summary {
+      margin: 0 0 var(--space-10);
+      color: var(--text-secondary);
+      font-size: var(--font-size-lg);
+      line-height: 1.7;
+    }
+
+    .writing-article__body {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .writing-article__body p {
+      margin-bottom: var(--space-6);
+    }
+
+    .writing-article__body h2,
+    .writing-article__body h3 {
+      margin: var(--space-16) 0 var(--space-5);
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    .writing-article__body h2 {
+      font-size: 25px;
+      line-height: 1.45;
+    }
+
+    .writing-article__body h3 {
+      font-size: var(--font-size-lg);
+      line-height: 1.5;
+    }
+
+    .writing-article__body ul,
+    .writing-article__body ol {
+      display: grid;
+      gap: var(--space-2);
+      margin: 0 0 var(--space-6);
+      padding-left: 1.35em;
+    }
+
+    .writing-article__body blockquote {
+      margin: 0 0 var(--space-6);
+      padding-left: var(--space-4);
+      border-left: 2px solid var(--border-strong);
+      color: var(--text-primary);
+    }
+
+    .writing-article__body a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: var(--text-tertiary);
+      text-underline-offset: 3px;
+    }
+
+    .writing-article__body figure {
+      margin: var(--space-8) 0;
+    }
+
+    .writing-article__body figure img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid var(--border-default);
+      background: var(--surface-elevated);
+    }
+
+    .writing-article__body figcaption {
+      margin-top: var(--space-3);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.5;
+    }
+
+    .writing-article__body pre {
+      position: relative;
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      overflow: auto;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      color: #d9dce8;
+      background: #1a1b26;
+      font-family: var(--font-mono);
+      font-size: var(--font-size-base);
+      line-height: 1.7;
+    }
+
+    .writing-article__body pre[data-language]::before {
+      display: block;
+      margin-bottom: var(--space-3);
+      color: #9ca0b2;
+      content: attr(data-language);
+      font-size: var(--font-size-xs);
+      text-transform: uppercase;
+    }
+
+    .writing-article__body pre code {
+      font: inherit;
+    }
+
+    .writing-article__body [data-size="small"] {
+      font-size: var(--font-size-sm);
+    }
+
+    .writing-article__body [data-size="large"] {
+      font-size: var(--font-size-lg);
+    }
+
+    .writing-article__footer {
+      display: grid;
+      gap: var(--space-8);
+      margin-top: var(--space-12);
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .writing-article__neighbors {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+
+    .writing-neighbor {
+      min-width: 0;
+      padding: var(--space-4) 0;
+      border-top: 1px solid var(--border-default);
+      color: var(--text-secondary);
+      transition: color var(--transition-fast);
+    }
+
+    .writing-neighbor:last-child {
+      text-align: right;
+    }
+
+    .writing-neighbor:hover {
+      color: var(--text-primary);
+    }
+
+    .writing-neighbor span,
+    .writing-neighbor strong {
+      display: block;
+    }
+
+    .writing-neighbor span {
+      margin-bottom: var(--space-1);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      font-weight: 400;
+    }
+
+    .writing-neighbor strong {
+      overflow: hidden;
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .editor-gate,
+    .editor-workbench {
+      margin-top: var(--space-8);
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--border-default);
+    }
+
+    .editor-gate__form,
+    .editor-form {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    .editor-gate__row,
+    .editor-form__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+
+    .editor-field {
+      display: grid;
+      gap: var(--space-2);
+      min-width: 0;
+      color: var(--text-primary);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+    }
+
+    .editor-field--full {
+      grid-column: 1 / -1;
+    }
+
+    .editor-field input,
+    .editor-field select,
+    .editor-field textarea {
+      width: 100%;
+      min-height: 46px;
+      padding: 0 var(--space-3);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      outline: 0;
+      color: var(--text-primary);
+      background: var(--surface-secondary);
+      font: inherit;
+      font-weight: 400;
+    }
+
+    .editor-field textarea {
+      min-height: 176px;
+      padding: var(--space-3);
+      line-height: 1.6;
+      resize: vertical;
+    }
+
+    .editor-field input:focus,
+    .editor-field select:focus,
+    .editor-field textarea:focus {
+      border-color: var(--accent-primary);
+      background: var(--surface-elevated);
+    }
+
+    .editor-rich-field {
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .editor-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2);
+      border: 1px solid var(--border-default);
+      border-bottom: 0;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      background: var(--surface-secondary);
+    }
+
+    .editor-toolbar select {
+      min-height: 34px;
+      max-width: 142px;
+      padding: 0 var(--space-2);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      background: var(--surface-elevated);
+      font: inherit;
+      font-size: var(--font-size-xs);
+    }
+
+    .editor-toolbar__button {
+      width: 34px;
+      min-width: 34px;
+      height: 34px;
+      min-height: 34px;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      background: var(--surface-elevated);
+    }
+
+    .editor-toolbar__button:hover,
+    .editor-toolbar__button:focus-visible {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+      background: var(--surface-primary);
+    }
+
+    .rich-editor {
+      min-height: 280px;
+      padding: var(--space-4);
+      border: 1px solid var(--border-default);
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      outline: 0;
+      color: var(--text-primary);
+      background: var(--surface-secondary);
+      font-size: var(--font-size-base);
+      font-weight: 400;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+    }
+
+    .rich-editor:focus {
+      border-color: var(--accent-primary);
+      background: var(--surface-elevated);
+    }
+
+    .rich-editor:empty::before {
+      color: var(--text-tertiary);
+      content: attr(data-placeholder);
+      pointer-events: none;
+    }
+
+    .rich-editor h2,
+    .rich-editor h3,
+    .rich-editor p,
+    .rich-editor ul,
+    .rich-editor ol,
+    .rich-editor blockquote,
+    .rich-editor figure,
+    .rich-editor pre {
+      margin: 0 0 var(--space-4);
+    }
+
+    .rich-editor h2 { font-size: var(--font-size-xl); }
+    .rich-editor h3 { font-size: var(--font-size-lg); }
+    .rich-editor blockquote { padding-left: var(--space-3); border-left: 2px solid var(--border-strong); }
+    .rich-editor figure img { display: block; width: 100%; max-width: 100%; border: 1px solid var(--border-default); }
+    .rich-editor figcaption { color: var(--text-tertiary); font-size: var(--font-size-xs); }
+    .rich-editor pre { padding: var(--space-3); overflow: auto; color: #d9dce8; background: #1a1b26; font-family: var(--font-mono); font-size: var(--font-size-sm); }
+
+    .editor-insert-panel {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-4);
+      margin: var(--space-2) 0 0;
+      padding: var(--space-4) 0 0;
+      border: 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .editor-insert-panel legend {
+      padding: 0;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+    }
+
+    .editor-insert-group {
+      display: grid;
+      align-content: start;
+      gap: var(--space-2);
+      min-width: 0;
+    }
+
+    .editor-insert-group h3 {
+      margin: 0;
+      font-size: var(--font-size-sm);
+    }
+
+    .editor-insert-group input,
+    .editor-insert-group select,
+    .editor-insert-group textarea {
+      width: 100%;
+      min-height: 38px;
+      padding: 0 var(--space-2);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      outline: 0;
+      color: var(--text-primary);
+      background: var(--surface-secondary);
+      font: inherit;
+      font-size: var(--font-size-sm);
+    }
+
+    .editor-insert-group textarea {
+      min-height: 94px;
+      padding: var(--space-2);
+      resize: vertical;
+    }
+
+    .editor-insert-group input:focus,
+    .editor-insert-group select:focus,
+    .editor-insert-group textarea:focus {
+      border-color: var(--accent-primary);
+      background: var(--surface-elevated);
+    }
+
+    .editor-form__footer,
+    .editor-posts__head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+
+    .editor-status {
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+    }
+
+    .editor-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .editor-posts {
+      margin-top: var(--space-12);
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .editor-post-list {
+      margin: var(--space-4) 0 0;
+      padding: 0;
+      border-top: 1px solid var(--border-subtle);
+      list-style: none;
+    }
+
+    .editor-post {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .editor-post__title {
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+      font-size: var(--font-size-sm);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .editor-post__actions {
+      display: flex;
+      flex: 0 0 auto;
+      gap: var(--space-2);
+    }
+
     .mobile-utility {
       display: none;
     }
@@ -2246,6 +2846,17 @@
         grid-template-columns: 1fr;
       }
 
+      .editor-gate__row,
+      .editor-form__grid,
+      .writing-article__neighbors,
+      .editor-insert-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .writing-neighbor:last-child {
+        text-align: left;
+      }
+
       .contact-field--full,
       .contact-form__footer {
         grid-column: auto;
@@ -2355,6 +2966,7 @@
         <button class="site-nav__link site-nav__utility" type="button" data-view-trigger="dca" aria-current="false">소개</button>
         <button class="site-nav__link" type="button" data-view-trigger="projects" aria-current="page">Projects</button>
         <button class="site-nav__link" type="button" data-view-trigger="studio" aria-current="false">Studio</button>
+        <button class="site-nav__link" type="button" data-view-trigger="writing" aria-current="false">Writing</button>
         <button class="site-nav__link" type="button" data-view-trigger="archive" aria-current="false">Archive</button>
         <button class="site-nav__link site-nav__utility" type="button" data-view-trigger="contact" aria-current="false">연락처</button>
         <button class="icon-button site-nav__search" type="button" id="searchTrigger" aria-label="검색 열기" data-tooltip="검색">
@@ -3051,6 +3663,120 @@
           </nav>
         </section>
 
+        <section class="section article-column reveal writing-view" id="writing" data-section-title="Writing" data-view="writing" hidden>
+          <div class="writing-index" id="writingIndex">
+            <div class="writing-index__head">
+              <nav class="writing-breadcrumb" aria-label="글쓰기 경로"><span id="writingBreadcrumbHome"></span><span id="writingBreadcrumbCurrent"></span></nav>
+              <h1 id="writingTitle"></h1>
+              <p class="writing-intro" id="writingIntro"></p>
+            </div>
+            <div class="writing-filter-bar" id="writingFilters" role="group" aria-label="글 분류 필터"></div>
+            <div class="writing-list" id="writingList"></div>
+            <p class="writing-empty" id="writingEmpty" hidden></p>
+          </div>
+
+          <div class="writing-article" id="writingArticle" hidden>
+            <div class="writing-article__head">
+              <button class="writing-article__back" type="button" id="writingBack"><i data-lucide="arrow-left" aria-hidden="true"></i><span id="writingBackLabel"></span></button>
+              <p class="writing-article__meta" id="writingArticleMeta"></p>
+              <h1 class="writing-article__title" id="writingArticleTitle"></h1>
+              <p class="writing-article__summary" id="writingArticleSummary"></p>
+              <div class="writing-article__body" id="writingArticleBody"></div>
+              <footer class="writing-article__footer">
+                <div class="writing-tags" id="writingArticleTags"></div>
+                <nav class="writing-article__neighbors" id="writingArticleNeighbors" aria-label="글 이동"></nav>
+              </footer>
+            </div>
+          </div>
+        </section>
+
+        <section class="section article-column reveal editor-view" id="editor" data-section-title="Editor" data-view="editor" hidden>
+          <div class="editor-view__head">
+            <p class="overline">DCA / WRITING / EDITOR</p>
+            <h1 id="editorTitle"></h1>
+            <p class="writing-intro" id="editorIntro"></p>
+          </div>
+          <div class="editor-gate" id="editorGate">
+            <form class="editor-gate__form" id="editorGateForm">
+              <label class="editor-field" for="editorAccessCode"><span id="editorAccessLabel"></span><input id="editorAccessCode" type="password" autocomplete="current-password" required></label>
+              <div class="editor-gate__row">
+                <p class="body-copy" id="editorGateNote"></p>
+                <div class="editor-actions"><button class="text-button" type="submit" id="editorUnlock"></button><span class="editor-status" id="editorGateStatus" aria-live="polite"></span></div>
+              </div>
+            </form>
+          </div>
+          <div class="editor-workbench" id="editorWorkbench" hidden>
+            <form class="editor-form" id="writingEditorForm">
+              <input id="editorPostId" type="hidden">
+              <div class="editor-form__grid">
+                <label class="editor-field editor-field--full" for="editorPostTitle"><span id="editorTitleLabel"></span><input id="editorPostTitle" type="text" required></label>
+                <label class="editor-field" for="editorPostCategory"><span id="editorCategoryLabel"></span><select id="editorPostCategory" required></select></label>
+                <label class="editor-field" for="editorPostDate"><span id="editorDateLabel"></span><input id="editorPostDate" type="date" required></label>
+                <label class="editor-field editor-field--full" for="editorPostSummary"><span id="editorSummaryLabel"></span><textarea id="editorPostSummary" required></textarea></label>
+                <div class="editor-field editor-field--full editor-rich-field">
+                  <span id="editorBodyLabel"></span>
+                  <div class="editor-toolbar" id="editorToolbar" role="toolbar" aria-label="본문 서식">
+                    <select id="editorBlockFormat" aria-label="문단 종류">
+                      <option value="p">본문</option>
+                      <option value="h2">제목 2</option>
+                      <option value="h3">제목 3</option>
+                    </select>
+                    <button class="editor-toolbar__button icon-button" type="button" data-editor-command="bold" aria-label="굵게" data-tooltip="굵게"><i data-lucide="bold" aria-hidden="true"></i></button>
+                    <button class="editor-toolbar__button icon-button" type="button" data-editor-command="italic" aria-label="기울임" data-tooltip="기울임"><i data-lucide="italic" aria-hidden="true"></i></button>
+                    <button class="editor-toolbar__button icon-button" type="button" data-editor-command="insertUnorderedList" aria-label="글머리 목록" data-tooltip="글머리 목록"><i data-lucide="list" aria-hidden="true"></i></button>
+                    <button class="editor-toolbar__button icon-button" type="button" data-editor-command="insertOrderedList" aria-label="번호 목록" data-tooltip="번호 목록"><i data-lucide="list-ordered" aria-hidden="true"></i></button>
+                    <button class="editor-toolbar__button icon-button" type="button" data-editor-command="blockquote" aria-label="인용" data-tooltip="인용"><i data-lucide="quote" aria-hidden="true"></i></button>
+                    <select id="editorTextSize" aria-label="본문 크기">
+                      <option value="normal">기본 크기</option>
+                      <option value="small">작게</option>
+                      <option value="large">크게</option>
+                    </select>
+                  </div>
+                  <div class="rich-editor" id="editorPostBody" contenteditable="true" role="textbox" aria-multiline="true" aria-required="true" data-placeholder="본문을 입력하세요."></div>
+                </div>
+                <fieldset class="editor-insert-panel editor-field--full">
+                  <legend id="editorInsertLabel"></legend>
+                  <div class="editor-insert-group">
+                    <h3 id="editorImageTitle"></h3>
+                    <input id="editorImageUrl" type="url" inputmode="url" placeholder="https://">
+                    <input id="editorImageAlt" type="text">
+                    <input id="editorImageCaption" type="text">
+                    <button class="text-button" type="button" id="editorInsertImage"></button>
+                  </div>
+                  <div class="editor-insert-group">
+                    <h3 id="editorLinkTitle"></h3>
+                    <input id="editorLinkUrl" type="url" inputmode="url" placeholder="https://">
+                    <input id="editorLinkLabel" type="text">
+                    <button class="text-button" type="button" id="editorInsertLink"></button>
+                  </div>
+                  <div class="editor-insert-group">
+                    <h3 id="editorCodeTitle"></h3>
+                    <select id="editorCodeLanguage">
+                      <option value="text">Plain text</option>
+                      <option value="javascript">JavaScript</option>
+                      <option value="json">JSON</option>
+                      <option value="html">HTML</option>
+                      <option value="css">CSS</option>
+                      <option value="bash">Bash</option>
+                    </select>
+                    <textarea id="editorCodeContent" spellcheck="false"></textarea>
+                    <button class="text-button" type="button" id="editorInsertCode"></button>
+                  </div>
+                </fieldset>
+                <label class="editor-field editor-field--full" for="editorPostTags"><span id="editorTagsLabel"></span><input id="editorPostTags" type="text"></label>
+              </div>
+              <div class="editor-form__footer">
+                <span class="editor-status" id="editorSaveStatus" aria-live="polite"></span>
+                <div class="editor-actions"><button class="text-button" type="button" id="editorReset"></button><button class="text-button" type="submit" value="draft" name="intent" id="editorSaveDraft"></button><button class="text-button" type="submit" value="published" name="intent" id="editorPublish"></button></div>
+              </div>
+            </form>
+            <div class="editor-posts">
+              <div class="editor-posts__head"><h2 id="editorPostsTitle"></h2><span class="editor-status" id="editorPostsStatus"></span></div>
+              <ul class="editor-post-list" id="editorPostList"></ul>
+            </div>
+          </div>
+        </section>
+
         <section class="section article-column reveal" id="contact" data-section-title="Contact" data-view="contact" hidden>
           <p class="overline">DCA / CONTACT</p>
           <h2>프로젝트와 세션의 문의를 받는 자리.</h2>
@@ -3164,6 +3890,48 @@
       const stateDemoButtons = Array.from(document.querySelectorAll("[data-state-active-demo]"));
       const stateFocusDemo = document.querySelector("[data-state-focus-demo]");
       const stateFocusStatus = document.getElementById("stateFocusStatus");
+      const writingIndexPanel = document.getElementById("writingIndex");
+      const writingArticlePanel = document.getElementById("writingArticle");
+      const writingBreadcrumbHome = document.getElementById("writingBreadcrumbHome");
+      const writingBreadcrumbCurrent = document.getElementById("writingBreadcrumbCurrent");
+      const writingTitle = document.getElementById("writingTitle");
+      const writingIntro = document.getElementById("writingIntro");
+      const writingFilters = document.getElementById("writingFilters");
+      const writingList = document.getElementById("writingList");
+      const writingEmpty = document.getElementById("writingEmpty");
+      const writingBack = document.getElementById("writingBack");
+      const writingBackLabel = document.getElementById("writingBackLabel");
+      const writingArticleMeta = document.getElementById("writingArticleMeta");
+      const writingArticleTitle = document.getElementById("writingArticleTitle");
+      const writingArticleSummary = document.getElementById("writingArticleSummary");
+      const writingArticleBody = document.getElementById("writingArticleBody");
+      const writingArticleTags = document.getElementById("writingArticleTags");
+      const writingArticleNeighbors = document.getElementById("writingArticleNeighbors");
+      const editorGate = document.getElementById("editorGate");
+      const editorWorkbench = document.getElementById("editorWorkbench");
+      const editorGateForm = document.getElementById("editorGateForm");
+      const editorAccessCode = document.getElementById("editorAccessCode");
+      const editorGateStatus = document.getElementById("editorGateStatus");
+      const writingEditorForm = document.getElementById("writingEditorForm");
+      const editorPostId = document.getElementById("editorPostId");
+      const editorPostTitle = document.getElementById("editorPostTitle");
+      const editorPostCategory = document.getElementById("editorPostCategory");
+      const editorPostDate = document.getElementById("editorPostDate");
+      const editorPostSummary = document.getElementById("editorPostSummary");
+      const editorPostBody = document.getElementById("editorPostBody");
+      const editorToolbar = document.getElementById("editorToolbar");
+      const editorBlockFormat = document.getElementById("editorBlockFormat");
+      const editorTextSize = document.getElementById("editorTextSize");
+      const editorImageUrl = document.getElementById("editorImageUrl");
+      const editorImageAlt = document.getElementById("editorImageAlt");
+      const editorImageCaption = document.getElementById("editorImageCaption");
+      const editorLinkUrl = document.getElementById("editorLinkUrl");
+      const editorLinkLabel = document.getElementById("editorLinkLabel");
+      const editorCodeLanguage = document.getElementById("editorCodeLanguage");
+      const editorCodeContent = document.getElementById("editorCodeContent");
+      const editorPostTags = document.getElementById("editorPostTags");
+      const editorSaveStatus = document.getElementById("editorSaveStatus");
+      const editorPostList = document.getElementById("editorPostList");
       const viewDefinitions = {
         projects: {
           eyebrow: "DCA / PROJECTS",
@@ -3178,6 +3946,12 @@
             { id: "field-guide", label: { ko: "스튜디오 기준", en: "Studio Method" } },
             { id: "material", label: { ko: "물성 노트", en: "Material Notes" } },
             { id: "design-system", label: { ko: "웹 디자인 원칙", en: "Web Design Principles" } }
+          ]
+        },
+        writing: {
+          eyebrow: "DCA / WRITING",
+          items: [
+            { id: "writing", label: { ko: "글 목록", en: "All Writing" } }
           ]
         },
         archive: {
@@ -3204,11 +3978,18 @@
           items: [
             { id: "contact", label: { ko: "연락처", en: "Contact" } }
           ]
+        },
+        editor: {
+          eyebrow: "DCA / WRITING / EDITOR",
+          items: [
+            { id: "editor", label: { ko: "작성", en: "Editor" } }
+          ]
         }
       };
-      const viewOrder = ["dca", "projects", "studio", "archive", "contact"];
+      const viewOrder = ["dca", "projects", "studio", "writing", "archive", "contact"];
       let currentView = "projects";
       let currentArchiveFilter = "all";
+      let currentWritingFilter = "all";
       let currentLanguage = "ko";
       let tocLinks = [];
       let activeIndex = 0;
@@ -3225,7 +4006,7 @@
 
       const ui = {
         ko: {
-          navigation: { dca: "소개", projects: "프로젝트", studio: "스튜디오", archive: "아카이브", contact: "연락처" },
+          navigation: { dca: "소개", projects: "프로젝트", studio: "스튜디오", writing: "글", archive: "아카이브", contact: "연락처" },
           filters: { all: "전체", studio: "스튜디오", equipment: "장비", identity: "아이덴티티", projects: "프로젝트", misc: "기타" },
           about: "소개", contact: "연락처", index: "Index", close: "닫기", top: "Top",
           searchTitle: "아카이브 검색", searchDescription: "섹션, 장비, 작업복, 라벨, 인쇄물의 이름과 맥락을 찾습니다.", searchPlaceholder: "예: 장비, 라벨, catalogue", searchEmpty: "검색어를 입력하세요.", searchNone: "일치하는 기록이 없습니다.", searchResults: "개 기록", searchOpen: "검색 열기", searchClose: "검색 닫기",
@@ -3234,13 +4015,326 @@
           resultIn: "에서"
         },
         en: {
-          navigation: { dca: "About", projects: "Projects", studio: "Studio", archive: "Archive", contact: "Contact" },
+          navigation: { dca: "About", projects: "Projects", studio: "Studio", writing: "Writing", archive: "Archive", contact: "Contact" },
           filters: { all: "All", studio: "Studio", equipment: "Equipment", identity: "Identity", projects: "Projects", misc: "Misc" },
           about: "About", contact: "Contact", index: "Index", close: "Close", top: "Top",
           searchTitle: "Search archive", searchDescription: "Find sections, equipment, workwear, labels, and print records.", searchPlaceholder: "e.g. equipment, label, catalogue", searchEmpty: "Enter a search term.", searchNone: "No matching records.", searchResults: " records", searchOpen: "Open search", searchClose: "Close search",
           lightMode: "Switch to light mode", darkMode: "Switch to dark mode", languageSelect: "Language selection",
           sendInquiry: "Send enquiry", formOpening: "Opening your default mail app.",
           resultIn: "in"
+        }
+      };
+
+      const writingCopy = {
+        ko: {
+          home: "DCA", current: "글", title: "글쓰기", intro: "스튜디오 운영, 물성, 아이덴티티, 프로젝트를 만들며 남기는 판단과 기록.",
+          all: "전체", back: "글 목록으로", empty: "이 분류에는 아직 공개된 글이 없습니다.", previous: "이전 글", next: "다음 글", minutes: "분 읽기",
+          editorTitle: "운영자 작성", editorIntro: "공개 글을 준비하는 로컬 작성 도구입니다.", access: "운영자 액세스 코드", unlock: "작성 도구 열기", gateNote: "이 정적 프로토타입은 이 브라우저에만 저장됩니다. 실제 운영자 권한과 공개 발행은 서버 인증을 연결한 뒤 사용합니다.", incorrect: "코드를 확인하세요.",
+          titleLabel: "제목", categoryLabel: "분류", dateLabel: "날짜", summaryLabel: "요약", bodyLabel: "본문", tagsLabel: "태그", reset: "새 글", saveDraft: "초안 저장", publish: "공개 저장", posts: "최근 글", drafts: "초안", published: "공개", edit: "편집", remove: "삭제", savedDraft: "초안으로 저장했습니다.", savedPublished: "공개 글로 저장했습니다.", local: "이 브라우저의 로컬 기록",
+          paragraph: "본문", headingTwo: "제목 2", headingThree: "제목 3", bold: "굵게", italic: "기울임", bulletList: "글머리 목록", numberList: "번호 목록", quote: "인용", normalSize: "기본 크기", smallSize: "작게", largeSize: "크게", richPlaceholder: "본문을 입력하세요. 선택한 글에 서식을 적용하거나 아래에서 이미지, 링크, 코드를 삽입할 수 있습니다.", insertLabel: "미디어와 자료 삽입", imageTitle: "이미지", imageUrl: "이미지 URL", imageAlt: "대체 텍스트", imageCaption: "캡션 (선택)", insertImage: "이미지 넣기", linkTitle: "링크", linkUrl: "링크 URL", linkLabel: "표시 문구", insertLink: "링크 넣기", codeTitle: "코드", codeLanguage: "코드 언어", codeContent: "코드 내용", insertCode: "코드 넣기", invalidUrl: "http(s) URL을 확인하세요.", bodyRequired: "본문을 입력하세요.", selectText: "크기를 바꿀 텍스트를 먼저 선택하세요."
+        },
+        en: {
+          home: "DCA", current: "Writing", title: "Writing", intro: "Notes and decisions made while building the studio, its material language, identity, and projects.",
+          all: "All", back: "Back to writing", empty: "There are no published posts in this category yet.", previous: "Previous", next: "Next", minutes: "min read",
+          editorTitle: "Operator editor", editorIntro: "A local writing tool for preparing public posts.", access: "Operator access code", unlock: "Open editor", gateNote: "This static prototype saves only in this browser. Use server-side authentication before treating it as a real operator-only publishing system.", incorrect: "Check the access code.",
+          titleLabel: "Title", categoryLabel: "Category", dateLabel: "Date", summaryLabel: "Summary", bodyLabel: "Body", tagsLabel: "Tags", reset: "New post", saveDraft: "Save draft", publish: "Save public post", posts: "Recent posts", drafts: "Draft", published: "Published", edit: "Edit", remove: "Remove", savedDraft: "Saved as a draft.", savedPublished: "Saved as a public post.", local: "Local records in this browser",
+          paragraph: "Paragraph", headingTwo: "Heading 2", headingThree: "Heading 3", bold: "Bold", italic: "Italic", bulletList: "Bulleted list", numberList: "Numbered list", quote: "Quote", normalSize: "Normal size", smallSize: "Small", largeSize: "Large", richPlaceholder: "Write the body. Select text to apply formatting, or add an image, link, or code sample below.", insertLabel: "Insert media and source", imageTitle: "Image", imageUrl: "Image URL", imageAlt: "Alt text", imageCaption: "Caption (optional)", insertImage: "Insert image", linkTitle: "Link", linkUrl: "Link URL", linkLabel: "Visible label", insertLink: "Insert link", codeTitle: "Code", codeLanguage: "Code language", codeContent: "Code content", insertCode: "Insert code", invalidUrl: "Check the http(s) URL.", bodyRequired: "Write the body first.", selectText: "Select the text whose size you want to change."
+        }
+      };
+
+      const writingCategories = [
+        { id: "studio", label: { ko: "스튜디오 노트", en: "Studio Notes" } },
+        { id: "material", label: { ko: "물성 노트", en: "Material Notes" } },
+        { id: "identity", label: { ko: "아이덴티티 노트", en: "Identity Notes" } },
+        { id: "project", label: { ko: "프로젝트 노트", en: "Project Notes" } }
+      ];
+
+      const seedWritingPosts = [
+        {
+          id: "workwear-is-a-session-tool",
+          date: "2026-07-19",
+          category: "material",
+          status: "published",
+          minutes: 4,
+          title: { ko: "작업복은 굿즈가 아니라 세션의 도구여야 한다.", en: "Workwear should be a session tool, not merchandise." },
+          summary: { ko: "작업복이 브랜드를 설명하기 시작하면 금방 홍보물이 된다. DCA에서는 누군가 오래 입고, 주머니에 케이블과 메모를 넣고, 자연스럽게 남기는 물건이어야 한다.", en: "The moment workwear starts explaining the brand, it turns into merchandise. At DCA it should be something someone wears for a long time, fills with cables and notes, and leaves behind naturally." },
+          body: { ko: ["작업복의 기준은 로고가 아니라 행동이다. 세션이 길어졌을 때도 불편하지 않은지, 주머니가 실제로 필요한 물건을 받아주는지, 사진을 찍지 않는 날에도 입게 되는지를 먼저 본다.", "그래서 DCA의 작업복은 판매를 위한 티셔츠처럼 보이면 안 된다. 공간 안에 남아 있다가 누군가 자연스럽게 걸치고, 다음 세션에서도 다시 찾는 옷에 가까워야 한다.", "라벨과 이름표도 같은 이유로 작고 구체적이어야 한다. 설명을 크게 붙이는 대신 실제 사용자가 남긴 위치와 시간이 보이면, 그 자체로 브랜드의 증거가 된다."], en: ["The first measure of workwear is behaviour, not the logo. We ask whether it stays comfortable through a long session, whether its pockets carry useful things, and whether someone would wear it on a day without a camera.", "That is why DCA workwear should not read like a T-shirt made to sell. It should feel closer to clothing that remains in the space, gets picked up naturally, and is reached for again at the next session.", "Labels and name tags follow the same rule: small and specific. Instead of writing a large explanation, the placement and time left by a real user become the evidence of the brand."] },
+          bodyHtml: { ko: "<p>작업복의 기준은 로고가 아니라 행동이다. 세션이 길어졌을 때도 불편하지 않은지, 주머니가 실제로 필요한 물건을 받아주는지, 사진을 찍지 않는 날에도 입게 되는지를 먼저 본다.</p><h2>먼저 남아 있어야 한다.</h2><p>그래서 DCA의 작업복은 판매를 위한 티셔츠처럼 보이면 안 된다. 공간 안에 남아 있다가 누군가 자연스럽게 걸치고, 다음 세션에서도 다시 찾는 옷에 가까워야 한다.</p><blockquote><p>작업복은 브랜드를 설명하는 물건이 아니라, 작업이 계속된다는 신호다.</p></blockquote><figure><img src=\"assets/illustrations/workwear-rail-line.png\" alt=\"행거에 걸린 DCA 작업복 선 드로잉\"><figcaption>작업복은 판매용 이미지보다 현장에 남는 물건으로 판단한다.</figcaption></figure><p>라벨과 이름표도 같은 이유로 작고 구체적이어야 한다. 설명을 크게 붙이는 대신 실제 사용자가 남긴 위치와 시간이 보이면, 그 자체로 브랜드의 증거가 된다.</p>", en: "<p>The first measure of workwear is behaviour, not the logo. We ask whether it stays comfortable through a long session, whether its pockets carry useful things, and whether someone would wear it on a day without a camera.</p><h2>It needs to remain first.</h2><p>DCA workwear should not read like a T-shirt made to sell. It should feel closer to clothing that remains in the space, gets picked up naturally, and is reached for again at the next session.</p><blockquote><p>Workwear is not an object that explains the brand. It is a sign that the work continues.</p></blockquote><figure><img src=\"assets/illustrations/workwear-rail-line.png\" alt=\"Line drawing of DCA workwear on a garment rail\"><figcaption>Workwear is judged as an object that remains at the site, not a sales image.</figcaption></figure><p>Labels and name tags follow the same rule: small and specific. The placement and time left by a real user become evidence of the brand.</p>" },
+          tags: ["workwear", "session", "material"]
+        },
+        {
+          id: "equipment-is-not-a-price-list",
+          date: "2026-07-12",
+          category: "studio",
+          status: "published",
+          minutes: 5,
+          title: { ko: "장비를 기록하는 건 가격을 기록하는 일이 아니다.", en: "Recording equipment is not recording its price." },
+          summary: { ko: "장비 목록은 비싼 물건을 보여주는 방식이 되기 쉽다. DCA의 기록은 무엇이 있는가보다 어떤 상태에서 누구의 판단을 도왔는지를 남긴다.", en: "An equipment list easily becomes a way to display expensive objects. DCA records not only what is there, but the condition in which it helped someone make a decision." },
+          body: { ko: ["스튜디오 장비는 가격표나 스펙 목록만으로 신뢰를 만들지 않는다. 작업자가 연결했을 때 노이즈가 어떻게 들렸는지, 노브가 어느 정도의 저항으로 움직이는지, 지금도 바로 사용할 수 있는지가 더 오래 남는다.", "그래서 장비 기록에는 가능한 한 날짜와 상태, 실제 사용 맥락을 붙인다. 완벽한 장비 사진보다, 세션이 굴러가고 있다는 징후가 더 중요하다.", "아카이브는 장비를 수집품으로 만들지 않는다. 다음 작업자가 빠르게 믿고 결정할 수 있게 하는 작동 기록이어야 한다."], en: ["Studio equipment does not earn trust through a price tag or a spec list alone. What remains longer is how noise sounded when it was connected, how much resistance the knob had, and whether it could be used immediately.", "That is why equipment records carry a date, condition, and a real use context whenever possible. A sign that a session is running matters more than a perfect equipment photograph.", "The archive does not turn equipment into a collection. It should be an operating record that lets the next worker trust and decide quickly."] },
+          bodyHtml: { ko: "<p>스튜디오 장비는 가격표나 스펙 목록만으로 신뢰를 만들지 않는다. 작업자가 연결했을 때 노이즈가 어떻게 들렸는지, 노브가 어느 정도의 저항으로 움직이는지, 지금도 바로 사용할 수 있는지가 더 오래 남는다.</p><h2>기록은 다음 판단을 돕는다.</h2><figure><img src=\"assets/illustrations/studio-console-line.png\" alt=\"스피커와 오디오 랙, 케이블로 구성된 DCA 장비 선 드로잉\"><figcaption>장비는 가격 대신 날짜, 상태, 실제 사용 맥락으로 기록한다.</figcaption></figure><p>세션 메모는 완전한 장비 명세보다 짧아도 된다. 필요한 것은 누군가 다음 연결을 시작할 수 있는 최소한의 근거다.</p><pre data-language=\"text\"><code>2026-07-12\nsource: session playback\nstatus: immediate use\nnote: noise floor checked before work</code></pre><p>아카이브는 장비를 수집품으로 만들지 않는다. 다음 작업자가 빠르게 믿고 결정할 수 있게 하는 작동 기록이어야 한다.</p>", en: "<p>Studio equipment does not earn trust through a price tag or a spec list alone. What remains longer is how noise sounded when it was connected, how much resistance the knob had, and whether it could be used immediately.</p><h2>A record helps the next decision.</h2><figure><img src=\"assets/illustrations/studio-console-line.png\" alt=\"Line drawing of DCA speakers, audio rack, and cable\"><figcaption>Record equipment through date, condition, and real use context instead of price.</figcaption></figure><p>A session note can be shorter than a complete equipment specification. It needs only enough evidence for someone to begin the next connection.</p><pre data-language=\"text\"><code>2026-07-12\nsource: session playback\nstatus: immediate use\nnote: noise floor checked before work</code></pre><p>The archive does not turn equipment into a collection. It should be an operating record that lets the next worker trust and decide quickly.</p>" },
+          tags: ["equipment", "signal", "studio"]
+        },
+        {
+          id: "labels-stay-close-to-the-site",
+          date: "2026-07-05",
+          category: "identity",
+          status: "published",
+          minutes: 3,
+          title: { ko: "라벨은 작을수록 현장에 가까워진다.", en: "The smaller a label is, the closer it stays to the site." },
+          summary: { ko: "라벨은 브랜드를 크게 알리는 장치가 아니라, 물건의 소유와 사용의 시간을 기록하는 작은 표면이다. DCA의 한글 이름표는 그 작은 표면에서 시작한다.", en: "A label is not a device for announcing a brand loudly. It is a small surface that records an object's ownership and time of use. DCA's Korean name label begins there." },
+          body: { ko: ["작은 라벨은 보는 사람에게 설명을 강요하지 않는다. 가까이 다가갔을 때만 읽히고, 그렇기 때문에 물건의 일부처럼 남는다.", "딥카우치아카이브(주)와 사장 권 동 현이라는 표기는 로고보다 먼저 실제 맥락을 만든다. 누가 쓰는 물건인지, 어디에 남아 있는지, 왜 이 공간의 것인지가 한 번에 보인다.", "아이덴티티는 큰 선언보다 반복되는 작은 표기에서 오래 살아남는다. DCA는 그 표기가 물건의 사용감과 충돌하지 않는지 계속 확인한다."], en: ["A small label does not force an explanation onto the viewer. It becomes legible only at close range, which lets it remain part of the object.", "The Korean name label establishes a real context before it establishes a logo: who uses the object, where it remains, and why it belongs to this space.", "Identity lasts longer in small, repeated markings than in a large declaration. DCA keeps checking whether those marks remain compatible with the object's use."], },
+          bodyHtml: { ko: "<p>작은 라벨은 보는 사람에게 설명을 강요하지 않는다. 가까이 다가갔을 때만 읽히고, 그렇기 때문에 물건의 일부처럼 남는다.</p><h2>이름보다 사용 맥락이 먼저다.</h2><p><strong>딥카우치아카이브(주)</strong>와 <strong>사장 권 동 현</strong>이라는 표기는 로고보다 먼저 실제 맥락을 만든다. 누가 쓰는 물건인지, 어디에 남아 있는지, 왜 이 공간의 것인지가 한 번에 보인다.</p><p>관련 물성은 <a href=\"https://kong-index.github.io/dca-website/#archive\">아카이브 인덱스</a>에서도 함께 확인할 수 있다.</p><figure><img src=\"assets/illustrations/name-label-line.png\" alt=\"딥카우치아카이브 주식회사와 사장 권동현 표기가 있는 이름표 선 드로잉\"><figcaption>라벨은 크게 선언하지 않고 가까이에서 읽히는 표면이다.</figcaption></figure><p>아이덴티티는 큰 선언보다 반복되는 작은 표기에서 오래 살아남는다. DCA는 그 표기가 물건의 사용감과 충돌하지 않는지 계속 확인한다.</p>", en: "<p>A small label does not force an explanation onto the viewer. It becomes legible only at close range, which lets it remain part of the object.</p><h2>Use context comes before a name.</h2><p>The Korean name label establishes a real context before it establishes a logo: who uses the object, where it remains, and why it belongs to this space.</p><p>Related materials can also be checked in the <a href=\"https://kong-index.github.io/dca-website/#archive\">archive index</a>.</p><figure><img src=\"assets/illustrations/name-label-line.png\" alt=\"Line drawing of a Korean DCA name label\"><figcaption>A label is a surface read at close range, not a large declaration.</figcaption></figure><p>Identity lasts longer in small, repeated markings than in a large declaration. DCA keeps checking whether those marks remain compatible with the object's use.</p>" },
+          tags: ["label", "identity", "Korean"]
+        }
+      ];
+
+      const WRITING_STORAGE_KEY = "dca-writing-posts";
+      const ADMIN_SESSION_KEY = "dca-writing-editor-unlocked";
+      const ADMIN_ACCESS_CODE = "dca-operator";
+      let localWritingPosts = [];
+
+      const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
+      const localized = (value) => typeof value === "string" ? value : value?.[currentLanguage] || value?.ko || value?.en || "";
+      const categoryLabel = (category) => localized(writingCategories.find((item) => item.id === category)?.label) || category;
+      const isEditorUnlocked = () => window.sessionStorage.getItem(ADMIN_SESSION_KEY) === "true";
+      const editorAllowedTags = new Set(["p", "h2", "h3", "strong", "em", "ul", "ol", "li", "blockquote", "figure", "img", "figcaption", "a", "pre", "code", "span", "br"]);
+      const editorDangerousTags = new Set(["script", "style", "iframe", "object", "embed", "svg", "math", "template"]);
+      let editorLastRange = null;
+
+      const safeMediaUrl = (value = "") => {
+        const raw = String(value).trim();
+        if (!raw) return "";
+        if (/^(?:assets\/|\/assets\/)/.test(raw)) return raw;
+        try {
+          const url = new URL(raw);
+          return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+        } catch {
+          return "";
+        }
+      };
+
+      const safeLanguage = (value = "") => /^[a-z0-9+#-]{1,20}$/i.test(String(value)) ? String(value).toLowerCase() : "text";
+
+      const sanitizePostHtml = (html = "") => {
+        const source = new DOMParser().parseFromString(String(html), "text/html");
+        const output = document.createElement("div");
+        const appendCleanNode = (node, parent) => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            parent.append(document.createTextNode(node.textContent || ""));
+            return;
+          }
+          if (node.nodeType !== Node.ELEMENT_NODE) return;
+          const originalTag = node.tagName.toLowerCase();
+          if (editorDangerousTags.has(originalTag)) return;
+          const tag = originalTag === "b" ? "strong" : originalTag === "i" ? "em" : originalTag === "div" ? "p" : originalTag;
+          if (!editorAllowedTags.has(tag)) {
+            Array.from(node.childNodes).forEach((child) => appendCleanNode(child, parent));
+            return;
+          }
+          if (tag === "img") {
+            const src = safeMediaUrl(node.getAttribute("src"));
+            if (!src) return;
+            const image = document.createElement("img");
+            image.src = src;
+            image.alt = node.getAttribute("alt") || "";
+            image.loading = "lazy";
+            parent.append(image);
+            return;
+          }
+          if (tag === "a") {
+            const href = safeMediaUrl(node.getAttribute("href"));
+            if (!href) {
+              Array.from(node.childNodes).forEach((child) => appendCleanNode(child, parent));
+              return;
+            }
+            const link = document.createElement("a");
+            link.href = href;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            Array.from(node.childNodes).forEach((child) => appendCleanNode(child, link));
+            parent.append(link);
+            return;
+          }
+          const clean = document.createElement(tag);
+          if (tag === "span" && ["small", "large"].includes(node.dataset.size)) clean.dataset.size = node.dataset.size;
+          if (tag === "pre" && node.dataset.language) clean.dataset.language = safeLanguage(node.dataset.language);
+          Array.from(node.childNodes).forEach((child) => appendCleanNode(child, clean));
+          parent.append(clean);
+        };
+        Array.from(source.body.childNodes).forEach((node) => appendCleanNode(node, output));
+        return output.innerHTML.trim();
+      };
+
+      const legacyBodyHtml = (body) => {
+        const paragraphs = Array.isArray(body) ? body : String(body || "").split(/\n\s*\n/).filter(Boolean);
+        return paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("");
+      };
+
+      const postBodyHtml = (post) => {
+        const richBody = localized(post.bodyHtml);
+        return richBody ? sanitizePostHtml(richBody) : legacyBodyHtml(localized(post.body));
+      };
+
+      const postBodyText = (post) => {
+        const container = document.createElement("div");
+        container.innerHTML = postBodyHtml(post);
+        return container.textContent || "";
+      };
+
+      const loadLocalWritingPosts = () => {
+        try {
+          const saved = JSON.parse(window.localStorage.getItem(WRITING_STORAGE_KEY) || "[]");
+          localWritingPosts = Array.isArray(saved) ? saved : [];
+        } catch {
+          localWritingPosts = [];
+        }
+      };
+
+      const saveLocalWritingPosts = () => window.localStorage.setItem(WRITING_STORAGE_KEY, JSON.stringify(localWritingPosts));
+
+      const allWritingPosts = () => {
+        const merged = new Map(seedWritingPosts.map((post) => [post.id, post]));
+        localWritingPosts.forEach((post) => merged.set(post.id, post));
+        return [...merged.values()].sort((a, b) => b.date.localeCompare(a.date));
+      };
+
+      const publicWritingPosts = () => allWritingPosts().filter((post) => post.status === "published");
+      const getWritingSlug = () => window.location.hash.startsWith("#writing/") ? window.location.hash.replace(/^#writing\//, "") : "";
+      const getWritingPost = (id, includeDrafts = false) => (includeDrafts ? allWritingPosts() : publicWritingPosts()).find((post) => post.id === id);
+      const readingMinutes = (post) => {
+        if (post.minutes) return post.minutes;
+        return Math.max(1, Math.ceil(postBodyText(post).length / 260));
+      };
+      const postMeta = (post) => `<span>${escapeHtml(post.date)}</span><span>${escapeHtml(categoryLabel(post.category))}</span><span>${readingMinutes(post)} ${writingCopy[currentLanguage].minutes}</span>`;
+
+      const renderWritingFilters = (posts) => {
+        const categories = [{ id: "all", label: writingCopy[currentLanguage].all }, ...writingCategories.map((category) => ({ id: category.id, label: localized(category.label) }))];
+        writingFilters.innerHTML = categories.map((category) => {
+          const count = category.id === "all" ? posts.length : posts.filter((post) => post.category === category.id).length;
+          const selected = currentWritingFilter === category.id;
+          return `<button class="writing-filter" type="button" data-writing-filter="${category.id}" aria-pressed="${selected}"><span>${escapeHtml(category.label)}</span><span class="writing-filter__count">${count}</span></button>`;
+        }).join("");
+      };
+
+      const renderWritingIndex = () => {
+        const posts = publicWritingPosts();
+        const filtered = currentWritingFilter === "all" ? posts : posts.filter((post) => post.category === currentWritingFilter);
+        writingBreadcrumbHome.textContent = writingCopy[currentLanguage].home;
+        writingBreadcrumbCurrent.textContent = writingCopy[currentLanguage].current;
+        writingTitle.textContent = writingCopy[currentLanguage].title;
+        writingIntro.textContent = writingCopy[currentLanguage].intro;
+        writingFilters.setAttribute("aria-label", currentLanguage === "ko" ? "글 분류 필터" : "Writing category filter");
+        writingArticleNeighbors.setAttribute("aria-label", currentLanguage === "ko" ? "글 이동" : "Writing navigation");
+        renderWritingFilters(posts);
+        writingEmpty.textContent = writingCopy[currentLanguage].empty;
+        writingEmpty.hidden = filtered.length > 0;
+        writingList.innerHTML = filtered.map((post) => `<a class="writing-entry" href="#writing/${post.id}"><p class="writing-entry__meta">${postMeta(post)}</p><h2 class="writing-entry__title">${escapeHtml(localized(post.title))}</h2><p class="writing-entry__summary">${escapeHtml(localized(post.summary))}</p><div class="writing-tags">${(post.tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div></a>`).join("");
+      };
+
+      const renderWritingArticle = (post) => {
+        const posts = publicWritingPosts();
+        const index = posts.findIndex((item) => item.id === post.id);
+        const previous = posts[index + 1];
+        const next = posts[index - 1];
+        writingBackLabel.textContent = writingCopy[currentLanguage].back;
+        writingArticleMeta.innerHTML = postMeta(post);
+        writingArticleTitle.textContent = localized(post.title);
+        writingArticleSummary.textContent = localized(post.summary);
+        writingArticleBody.innerHTML = postBodyHtml(post);
+        writingArticleTags.innerHTML = (post.tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
+        writingArticleNeighbors.innerHTML = [
+          previous ? `<a class="writing-neighbor" href="#writing/${previous.id}"><span>${writingCopy[currentLanguage].previous}</span><strong>${escapeHtml(localized(previous.title))}</strong></a>` : "<span></span>",
+          next ? `<a class="writing-neighbor" href="#writing/${next.id}"><span>${writingCopy[currentLanguage].next}</span><strong>${escapeHtml(localized(next.title))}</strong></a>` : "<span></span>"
+        ].join("");
+      };
+
+      const renderWriting = ({ slug = "" } = {}) => {
+        const post = slug ? getWritingPost(slug) : null;
+        writingIndexPanel.hidden = Boolean(post);
+        writingArticlePanel.hidden = !post;
+        if (post) renderWritingArticle(post);
+        else renderWritingIndex();
+        renderIcons();
+      };
+
+      const resetEditorForm = () => {
+        writingEditorForm.reset();
+        editorPostId.value = "";
+        editorPostDate.value = new Date().toISOString().slice(0, 10);
+        editorPostCategory.value = "studio";
+        editorPostBody.innerHTML = "";
+        editorLastRange = null;
+        editorSaveStatus.textContent = "";
+      };
+
+      const renderEditorChrome = () => {
+        const copy = writingCopy[currentLanguage];
+        document.getElementById("editorTitle").textContent = copy.editorTitle;
+        document.getElementById("editorIntro").textContent = copy.editorIntro;
+        document.getElementById("editorAccessLabel").textContent = copy.access;
+        document.getElementById("editorUnlock").textContent = copy.unlock;
+        document.getElementById("editorGateNote").textContent = copy.gateNote;
+        document.getElementById("editorTitleLabel").textContent = copy.titleLabel;
+        document.getElementById("editorCategoryLabel").textContent = copy.categoryLabel;
+        document.getElementById("editorDateLabel").textContent = copy.dateLabel;
+        document.getElementById("editorSummaryLabel").textContent = copy.summaryLabel;
+        document.getElementById("editorBodyLabel").textContent = copy.bodyLabel;
+        document.getElementById("editorTagsLabel").textContent = copy.tagsLabel;
+        document.getElementById("editorInsertLabel").textContent = copy.insertLabel;
+        document.getElementById("editorImageTitle").textContent = copy.imageTitle;
+        document.getElementById("editorLinkTitle").textContent = copy.linkTitle;
+        document.getElementById("editorCodeTitle").textContent = copy.codeTitle;
+        editorPostBody.dataset.placeholder = copy.richPlaceholder;
+        editorPostBody.setAttribute("aria-label", copy.bodyLabel);
+        editorToolbar.setAttribute("aria-label", copy.bodyLabel);
+        editorBlockFormat.options[0].textContent = copy.paragraph;
+        editorBlockFormat.options[1].textContent = copy.headingTwo;
+        editorBlockFormat.options[2].textContent = copy.headingThree;
+        editorTextSize.options[0].textContent = copy.normalSize;
+        editorTextSize.options[1].textContent = copy.smallSize;
+        editorTextSize.options[2].textContent = copy.largeSize;
+        document.querySelector('[data-editor-command="bold"]').setAttribute("aria-label", copy.bold);
+        document.querySelector('[data-editor-command="bold"]').dataset.tooltip = copy.bold;
+        document.querySelector('[data-editor-command="italic"]').setAttribute("aria-label", copy.italic);
+        document.querySelector('[data-editor-command="italic"]').dataset.tooltip = copy.italic;
+        document.querySelector('[data-editor-command="insertUnorderedList"]').setAttribute("aria-label", copy.bulletList);
+        document.querySelector('[data-editor-command="insertUnorderedList"]').dataset.tooltip = copy.bulletList;
+        document.querySelector('[data-editor-command="insertOrderedList"]').setAttribute("aria-label", copy.numberList);
+        document.querySelector('[data-editor-command="insertOrderedList"]').dataset.tooltip = copy.numberList;
+        document.querySelector('[data-editor-command="blockquote"]').setAttribute("aria-label", copy.quote);
+        document.querySelector('[data-editor-command="blockquote"]').dataset.tooltip = copy.quote;
+        editorImageUrl.placeholder = copy.imageUrl;
+        editorImageAlt.placeholder = copy.imageAlt;
+        editorImageCaption.placeholder = copy.imageCaption;
+        editorLinkUrl.placeholder = copy.linkUrl;
+        editorLinkLabel.placeholder = copy.linkLabel;
+        editorCodeContent.placeholder = copy.codeContent;
+        editorCodeLanguage.setAttribute("aria-label", copy.codeLanguage);
+        document.getElementById("editorInsertImage").textContent = copy.insertImage;
+        document.getElementById("editorInsertLink").textContent = copy.insertLink;
+        document.getElementById("editorInsertCode").textContent = copy.insertCode;
+        document.getElementById("editorReset").textContent = copy.reset;
+        document.getElementById("editorSaveDraft").textContent = copy.saveDraft;
+        document.getElementById("editorPublish").textContent = copy.publish;
+        document.getElementById("editorPostsTitle").textContent = copy.posts;
+        editorPostCategory.innerHTML = writingCategories.map((category) => `<option value="${category.id}">${escapeHtml(localized(category.label))}</option>`).join("");
+      };
+
+      const renderEditorPostList = () => {
+        const copy = writingCopy[currentLanguage];
+        const posts = allWritingPosts();
+        document.getElementById("editorPostsStatus").textContent = `${posts.length} ${copy.local}`;
+        editorPostList.innerHTML = posts.map((post) => `<li class="editor-post"><div><p class="editor-post__meta"><span>${escapeHtml(post.date)}</span><span>${escapeHtml(categoryLabel(post.category))}</span><span>${post.status === "published" ? copy.published : copy.drafts}</span></p><p class="editor-post__title">${escapeHtml(localized(post.title))}</p></div><div class="editor-post__actions"><button class="text-button" type="button" data-editor-edit="${post.id}">${copy.edit}</button>${localWritingPosts.some((item) => item.id === post.id) ? `<button class="text-button" type="button" data-editor-delete="${post.id}">${copy.remove}</button>` : ""}</div></li>`).join("");
+      };
+
+      const renderEditor = () => {
+        renderEditorChrome();
+        const unlocked = isEditorUnlocked();
+        editorGate.hidden = unlocked;
+        editorWorkbench.hidden = !unlocked;
+        if (unlocked) {
+          renderEditorPostList();
+          if (!editorPostDate.value) resetEditorForm();
         }
       };
 
@@ -3519,6 +4613,9 @@
         { view: "dca", section: "about", label: { ko: "입장", en: "Position" }, scope: { ko: "DCA", en: "DCA" }, keywords: "position sound space archive 소개 스튜디오 공간 소리" },
         { view: "dca", section: "history", label: { ko: "작업 기록", en: "Working History" }, scope: { ko: "DCA", en: "DCA" }, keywords: "history equipment print field guide 기록 연혁 장비 인쇄" },
         { view: "dca", section: "checklist", label: { ko: "작업 기준", en: "Working Standards" }, scope: { ko: "DCA", en: "DCA" }, keywords: "checklist standards evidence materiality 기준 체크리스트 증거 물성" },
+        { view: "writing", section: "writing", writingSlug: "workwear-is-a-session-tool", label: { ko: "작업복은 굿즈가 아니라 세션의 도구여야 한다.", en: "Workwear should be a session tool, not merchandise." }, scope: { ko: "글 / 물성 노트", en: "Writing / Material Notes" }, keywords: "workwear session material 작업복 세션 굿즈 물성" },
+        { view: "writing", section: "writing", writingSlug: "equipment-is-not-a-price-list", label: { ko: "장비를 기록하는 건 가격을 기록하는 일이 아니다.", en: "Recording equipment is not recording its price." }, scope: { ko: "글 / 스튜디오 노트", en: "Writing / Studio Notes" }, keywords: "equipment signal studio 장비 신호 스튜디오 기록" },
+        { view: "writing", section: "writing", writingSlug: "labels-stay-close-to-the-site", label: { ko: "라벨은 작을수록 현장에 가까워진다.", en: "The smaller a label is, the closer it stays to the site." }, scope: { ko: "글 / 아이덴티티 노트", en: "Writing / Identity Notes" }, keywords: "label identity Korean name tag 라벨 아이덴티티 한글 이름표" },
         { view: "contact", section: "contact", label: { ko: "연락처", en: "Contact" }, scope: { ko: "DCA", en: "DCA" }, keywords: "contact inquiry session project 연락처 문의 세션 프로젝트" },
         { view: "archive", section: "archive", filter: "equipment", label: { ko: "오디오 랙 장비", en: "Audio rack equipment" }, scope: { ko: "아카이브 / 장비", en: "Archive / Equipment" }, keywords: "audio rack equipment studio 장비 오디오 랙" },
         { view: "archive", section: "archive", filter: "studio", label: { ko: "샴브레이 작업복", en: "Chambray work jackets" }, scope: { ko: "아카이브 / 스튜디오", en: "Archive / Studio" }, keywords: "chambray jacket denim workwear 작업복 셔츠 재킷 데님" },
@@ -3554,6 +4651,7 @@
           button.dataset.searchView = entry.view;
           button.dataset.searchSection = entry.section;
           if (entry.filter) button.dataset.searchFilter = entry.filter;
+          if (entry.writingSlug) button.dataset.searchWritingSlug = entry.writingSlug;
           button.innerHTML = `<span><strong>${entry.label[currentLanguage]}</strong><span>${entry.scope[currentLanguage]}</span></span><i data-lucide="arrow-up-right" aria-hidden="true"></i>`;
           return button;
         }));
@@ -3613,6 +4711,8 @@
         translateDocumentText();
         translateDocumentAttributes();
         syncLanguageChrome();
+        renderWriting({ slug: currentView === "writing" ? getWritingSlug() : "" });
+        renderEditor();
         renderLocalNavigation(currentView);
         setActiveSection(viewDefinitions[currentView].items[0].id);
         if (searchDialog.open) renderSearchResults(searchInput.value);
@@ -3649,6 +4749,8 @@
         });
         renderLocalNavigation(view);
         if (view === "archive") applyArchiveFilter("all");
+        if (view === "writing") renderWriting({ slug: updateHistory ? "" : getWritingSlug() });
+        if (view === "editor") renderEditor();
         setActiveSection(viewDefinitions[view].items[0].id);
         if (updateHistory && window.location.hash !== `#${view}`) {
           window.history.pushState({ view }, "", `#${view}`);
@@ -3762,6 +4864,10 @@
         const result = event.target.closest("[data-search-view]");
         if (!result) return;
         searchDialog.close();
+        if (result.dataset.searchWritingSlug) {
+          window.location.hash = `#writing/${result.dataset.searchWritingSlug}`;
+          return;
+        }
         setView(result.dataset.searchView);
         if (result.dataset.searchFilter) applyArchiveFilter(result.dataset.searchFilter);
         window.setTimeout(() => document.getElementById(result.dataset.searchSection).scrollIntoView({ behavior: "smooth", block: "start" }), 0);
@@ -3802,6 +4908,230 @@
         window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       });
 
+      writingFilters.addEventListener("click", (event) => {
+        const filter = event.target.closest("[data-writing-filter]");
+        if (!filter) return;
+        currentWritingFilter = filter.dataset.writingFilter;
+        renderWritingIndex();
+      });
+
+      writingBack.addEventListener("click", () => {
+        window.location.hash = "#writing";
+      });
+
+      editorGateForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!editorGateForm.reportValidity()) return;
+        if (editorAccessCode.value !== ADMIN_ACCESS_CODE) {
+          editorGateStatus.textContent = writingCopy[currentLanguage].incorrect;
+          return;
+        }
+        window.sessionStorage.setItem(ADMIN_SESSION_KEY, "true");
+        editorAccessCode.value = "";
+        editorGateStatus.textContent = "";
+        renderEditor();
+      });
+
+      const rememberEditorSelection = () => {
+        const selection = window.getSelection();
+        if (!selection?.rangeCount) return;
+        const range = selection.getRangeAt(0);
+        if (editorPostBody.contains(range.commonAncestorContainer)) editorLastRange = range.cloneRange();
+      };
+
+      const restoreEditorSelection = () => {
+        const selection = window.getSelection();
+        const range = editorLastRange && editorPostBody.contains(editorLastRange.commonAncestorContainer) ? editorLastRange : null;
+        editorPostBody.focus();
+        if (!range || !selection) return;
+        selection.removeAllRanges();
+        selection.addRange(range);
+      };
+
+      const insertEditorNode = (node) => {
+        restoreEditorSelection();
+        const selection = window.getSelection();
+        const range = selection?.rangeCount ? selection.getRangeAt(0) : null;
+        if (!range || !editorPostBody.contains(range.commonAncestorContainer)) {
+          editorPostBody.append(node);
+          editorPostBody.append(document.createElement("p"));
+          return;
+        }
+        range.deleteContents();
+        range.insertNode(node);
+        range.setStartAfter(node);
+        range.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        editorLastRange = range.cloneRange();
+      };
+
+      const applyTextSize = (size) => {
+        restoreEditorSelection();
+        const selection = window.getSelection();
+        if (!selection?.rangeCount || selection.isCollapsed) {
+          editorSaveStatus.textContent = writingCopy[currentLanguage].selectText;
+          return;
+        }
+        const range = selection.getRangeAt(0);
+        if (!editorPostBody.contains(range.commonAncestorContainer)) return;
+        const fragment = range.extractContents();
+        const span = document.createElement("span");
+        if (size !== "normal") span.dataset.size = size;
+        span.append(fragment);
+        range.insertNode(span);
+        range.selectNodeContents(span);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        editorLastRange = range.cloneRange();
+      };
+
+      editorPostBody.addEventListener("keyup", rememberEditorSelection);
+      editorPostBody.addEventListener("mouseup", rememberEditorSelection);
+      editorPostBody.addEventListener("focus", rememberEditorSelection);
+
+      editorToolbar.addEventListener("mousedown", (event) => event.preventDefault());
+      editorToolbar.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-editor-command]");
+        if (!button) return;
+        restoreEditorSelection();
+        const command = button.dataset.editorCommand;
+        if (command === "blockquote") document.execCommand("formatBlock", false, "blockquote");
+        else document.execCommand(command, false);
+        rememberEditorSelection();
+      });
+      editorBlockFormat.addEventListener("change", () => {
+        restoreEditorSelection();
+        document.execCommand("formatBlock", false, editorBlockFormat.value);
+        rememberEditorSelection();
+      });
+      editorTextSize.addEventListener("change", () => {
+        applyTextSize(editorTextSize.value);
+        editorTextSize.value = "normal";
+      });
+
+      document.getElementById("editorInsertImage").addEventListener("click", () => {
+        const src = safeMediaUrl(editorImageUrl.value);
+        if (!src) {
+          editorSaveStatus.textContent = writingCopy[currentLanguage].invalidUrl;
+          editorImageUrl.focus();
+          return;
+        }
+        const figure = document.createElement("figure");
+        const image = document.createElement("img");
+        image.src = src;
+        image.alt = editorImageAlt.value.trim();
+        image.loading = "lazy";
+        figure.append(image);
+        if (editorImageCaption.value.trim()) {
+          const caption = document.createElement("figcaption");
+          caption.textContent = editorImageCaption.value.trim();
+          figure.append(caption);
+        }
+        insertEditorNode(figure);
+        editorImageUrl.value = "";
+        editorImageAlt.value = "";
+        editorImageCaption.value = "";
+        editorSaveStatus.textContent = "";
+      });
+
+      document.getElementById("editorInsertLink").addEventListener("click", () => {
+        const href = safeMediaUrl(editorLinkUrl.value);
+        if (!href) {
+          editorSaveStatus.textContent = writingCopy[currentLanguage].invalidUrl;
+          editorLinkUrl.focus();
+          return;
+        }
+        const link = document.createElement("a");
+        link.href = href;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = editorLinkLabel.value.trim() || href;
+        insertEditorNode(link);
+        editorLinkUrl.value = "";
+        editorLinkLabel.value = "";
+        editorSaveStatus.textContent = "";
+      });
+
+      document.getElementById("editorInsertCode").addEventListener("click", () => {
+        const content = editorCodeContent.value;
+        if (!content.trim()) {
+          editorCodeContent.focus();
+          return;
+        }
+        const pre = document.createElement("pre");
+        pre.dataset.language = safeLanguage(editorCodeLanguage.value);
+        const code = document.createElement("code");
+        code.textContent = content;
+        pre.append(code);
+        insertEditorNode(pre);
+        editorCodeContent.value = "";
+        editorSaveStatus.textContent = "";
+      });
+
+      writingEditorForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!writingEditorForm.reportValidity()) return;
+        const bodyHtml = sanitizePostHtml(editorPostBody.innerHTML);
+        const bodyPreview = document.createElement("div");
+        bodyPreview.innerHTML = bodyHtml;
+        if (!bodyPreview.textContent.trim() && !bodyPreview.querySelector("img")) {
+          editorSaveStatus.textContent = writingCopy[currentLanguage].bodyRequired;
+          editorPostBody.focus();
+          return;
+        }
+        const intent = event.submitter?.value === "published" ? "published" : "draft";
+        const existing = getWritingPost(editorPostId.value, true);
+        const post = {
+          id: editorPostId.value || `post-${Date.now()}`,
+          date: editorPostDate.value,
+          category: editorPostCategory.value,
+          status: intent,
+          title: editorPostTitle.value.trim(),
+          summary: editorPostSummary.value.trim(),
+          bodyHtml,
+          tags: editorPostTags.value.split(",").map((tag) => tag.trim()).filter(Boolean),
+          updatedAt: new Date().toISOString(),
+          minutes: existing?.minutes
+        };
+        const localIndex = localWritingPosts.findIndex((item) => item.id === post.id);
+        if (localIndex === -1) localWritingPosts.push(post);
+        else localWritingPosts[localIndex] = post;
+        saveLocalWritingPosts();
+        renderWritingIndex();
+        renderEditorPostList();
+        resetEditorForm();
+        editorSaveStatus.textContent = intent === "published" ? writingCopy[currentLanguage].savedPublished : writingCopy[currentLanguage].savedDraft;
+      });
+
+      document.getElementById("editorReset").addEventListener("click", resetEditorForm);
+
+      editorPostList.addEventListener("click", (event) => {
+        const editButton = event.target.closest("[data-editor-edit]");
+        const deleteButton = event.target.closest("[data-editor-delete]");
+        if (editButton) {
+          const post = getWritingPost(editButton.dataset.editorEdit, true);
+          if (!post) return;
+          editorPostId.value = post.id;
+          editorPostTitle.value = localized(post.title);
+          editorPostCategory.value = post.category;
+          editorPostDate.value = post.date;
+          editorPostSummary.value = localized(post.summary);
+          editorPostBody.innerHTML = postBodyHtml(post);
+          editorPostTags.value = (post.tags || []).join(", ");
+          editorSaveStatus.textContent = "";
+          editorPostTitle.focus();
+          return;
+        }
+        if (deleteButton) {
+          localWritingPosts = localWritingPosts.filter((post) => post.id !== deleteButton.dataset.editorDelete);
+          saveLocalWritingPosts();
+          resetEditorForm();
+          renderWritingIndex();
+          renderEditorPostList();
+        }
+      });
+
       filterButtons.forEach((button) => {
         button.addEventListener("click", () => {
           applyArchiveFilter(button.dataset.filter);
@@ -3835,6 +5165,7 @@
 
       const viewFromHash = () => {
         const hash = window.location.hash.replace("#", "");
+        if (hash.startsWith("writing/")) return "writing";
         if (viewDefinitions[hash]) return hash;
         return document.getElementById(hash)?.dataset.view || "projects";
       };
@@ -3883,6 +5214,7 @@
         }
       });
 
+      loadLocalWritingPosts();
       setLanguage(currentLanguage);
       setView(viewFromHash(), { updateHistory: false, scrollToTop: false });
       renderIcons();
