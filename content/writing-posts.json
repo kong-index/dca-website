@@ -11,5 +11,18 @@
       "test1"
     ],
     "updatedAt": "2026-07-19T07:28:57.443Z"
+  },
+  {
+    "id": "post-1784464956278",
+    "title": "test by dhkwon",
+    "summary": "Did I stay true to my principles today?\nIF I DID,\nI can accept whatever comes next.",
+    "bodyHtml": "<strong><em>.. and they all lived happily ever after.</em></strong>",
+    "date": "2026-07-19",
+    "category": "studio",
+    "status": "published",
+    "tags": [
+      "test"
+    ],
+    "updatedAt": "2026-07-19T12:42:36.866Z"
   }
 ]
