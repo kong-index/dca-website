@@ -1286,10 +1286,43 @@
       transition: color var(--transition-fast), transform var(--transition-fast);
     }
 
+    .toc__link--numbered {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      column-gap: var(--space-2);
+      align-items: baseline;
+    }
+
+    .toc__index {
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+    }
+
+    .toc__link--numbered:hover .toc__index,
+    .toc__link--numbered.is-active .toc__index {
+      color: currentColor;
+    }
+
+    .toc__link--numbered .toc__label {
+      transition: transform var(--transition-fast);
+    }
+
+    .toc__link--numbered:hover .toc__label,
+    .toc__link--numbered.is-active .toc__label {
+      transform: translateX(4px);
+    }
+
     .toc__link:hover,
     .toc__link.is-active {
       color: var(--text-primary);
       transform: translateX(4px);
+    }
+
+    .toc__link.toc__link--numbered:hover,
+    .toc__link.toc__link--numbered.is-active {
+      transform: none;
     }
 
     .mobile-toc__primary {
@@ -3259,7 +3292,7 @@
 
   <div class="guide-shell" id="top">
     <aside class="toc" aria-label="페이지 목차">
-      <p class="toc__eyebrow" id="tocEyebrow">DCA / PROJECTS</p>
+      <p class="toc__eyebrow" id="tocEyebrow">Home / Projects</p>
       <ol class="toc__list" id="tocList">
         <li><a class="toc__link" href="#overview">Current Work</a></li>
         <li><a class="toc__link" href="#launch">Release Path</a></li>
@@ -3270,7 +3303,7 @@
       <article aria-labelledby="pageTitle">
         <section class="hero article-column reveal" id="overview" data-section-title="Current Work" data-view="projects">
           <div class="meta-row">
-            <span>DCA / Website Prototype</span>
+            <span data-view-breadcrumb="projects">Home / Projects</span>
             <span>2026-07-14</span>
             <span>Sound Studio Archive</span>
           </div>
@@ -3304,7 +3337,7 @@
         <section class="section wide-section reveal" id="archive" data-section-title="Archive Index" data-view="archive" hidden>
           <div class="archive-head">
             <div class="article-column">
-              <p class="overline">ARCHIVE INDEX</p>
+              <p class="overline" data-view-breadcrumb="archive">Home / Archive</p>
               <h2>자료가 먼저 말하게 한다.</h2>
               <p class="body-copy">DCA의 첫 화면은 추상적인 브랜드 문구보다 실제 자료를 정렬해서 보여주는 편이 맞다. 장비, 작업복, 라벨, 프린트, 아이덴티티 원본은 모두 다른 용도지만 하나의 운영 흔적으로 읽혀야 한다.</p>
             </div>
@@ -3409,7 +3442,7 @@
         </section>
 
         <section class="section article-column reveal" id="field-guide" data-section-title="Studio Method" data-view="studio" hidden>
-          <p class="overline">FIELD GUIDE</p>
+          <p class="overline" data-view-breadcrumb="studio">Home / Studio</p>
           <h2>DCA답게 보이는가보다, 실제로 작동하는가.</h2>
           <p class="body-copy">이 사이트의 모든 섹션은 세 가지 질문을 통과해야&nbsp;한다. 사진에서만 좋은지, 실제 스튜디오 맥락에서 자연스러운지, 사람이 강요 없이 쓰고 싶어 하는지.</p>
 
@@ -3852,7 +3885,7 @@
         </section>
 
         <section class="section article-column reveal" id="about" data-section-title="Position" data-view="dca" hidden>
-          <p class="overline">DCA / POSITION</p>
+          <p class="overline" data-view-breadcrumb="dca">Home / About</p>
           <h2>멋있어 보이는 공간보다, 오래 작업할 수 있는 공간.</h2>
           <p class="body-copy">Deep Couch Archive는 소리, 공간, 사람, 물성이 실제로 맞물리는 사운드 스튜디오다. 장비의 가격보다 신뢰할 수 있는 소리, 사진의 분위기보다 세션이 잘 굴러가는 상태를 먼저 본다.</p>
 
@@ -3958,7 +3991,7 @@
 
         <section class="section article-column reveal editor-view" id="editor" data-section-title="Editor" data-view="editor" hidden>
           <div class="editor-view__head">
-            <p class="overline">DCA / WRITING / EDITOR</p>
+            <p class="overline" data-view-breadcrumb="editor">Home / Writing / Editor</p>
             <h1 id="editorTitle"></h1>
             <p class="writing-intro" id="editorIntro"></p>
           </div>
@@ -4023,7 +4056,7 @@
         </section>
 
         <section class="section article-column reveal" id="contact" data-section-title="Contact" data-view="contact" hidden>
-          <p class="overline">DCA / CONTACT</p>
+          <p class="overline" data-view-breadcrumb="contact">Home / Contact</p>
           <h2>프로젝트와 세션의 문의를 받는 자리.</h2>
           <p class="body-copy">확정되지 않은 이메일이나 소셜 계정은 노출하지 않는다. 아래 내용을 채우면 기본 메일 앱에서 문의를 준비할 수 있다.</p>
           <form class="contact-form" id="contactForm">
@@ -4063,7 +4096,7 @@
         </section>
 
         <section class="section article-column reveal" id="development" data-section-title="Development Log" data-view="development" hidden>
-          <p class="overline">DCA / DEVELOPMENT</p>
+          <p class="overline" data-view-breadcrumb="development">Home / Development</p>
           <h2>웹사이트는 파일 하나가 아니라, 기록과 배포가 이어지는 운영 구조다.</h2>
           <p class="lead">DCA 웹사이트는 로컬 작업 폴더, GitHub의 변경 기록, Vercel의 배포, 도메인의 DNS 연결, 운영자 글 작성 도구가 연결된 상태로 운영된다. 이 페이지는 그 구조와 실제 설정 과정을 클라이언트가 확인할 수 있도록 남긴 개발일지다.</p>
           <div class="development-chain" aria-label="DCA 웹사이트 운영 흐름" data-i18n-label-ko="DCA 웹사이트 운영 흐름" data-i18n-label-en="DCA website operating flow">
@@ -4231,7 +4264,7 @@
   <div class="scrim" id="scrim" hidden></div>
   <nav class="mobile-toc" id="mobileToc" aria-label="모바일 목차" hidden>
     <div class="mobile-toc__head">
-      <span class="overline" id="mobileTocEyebrow">DCA / PROJECTS</span>
+      <span class="overline" id="mobileTocEyebrow">Home / Projects</span>
       <button class="text-button" type="button" id="menuClose">Close</button>
     </div>
     <div class="mobile-toc__primary" id="mobilePrimaryNav" aria-label="주요 메뉴"></div>
@@ -4331,14 +4364,14 @@
       const editorPostList = document.getElementById("editorPostList");
       const viewDefinitions = {
         projects: {
-          eyebrow: "DCA / PROJECTS",
+          eyebrow: "Home / Projects",
           items: [
             { id: "overview", label: { ko: "현재 작업", en: "Current Work" } },
             { id: "launch", label: { ko: "공개 순서", en: "Release Path" } }
           ]
         },
         studio: {
-          eyebrow: "DCA / STUDIO",
+          eyebrow: "Home / Studio",
           items: [
             { id: "field-guide", label: { ko: "스튜디오 기준", en: "Studio Method" } },
             { id: "material", label: { ko: "물성 노트", en: "Material Notes" } },
@@ -4346,13 +4379,13 @@
           ]
         },
         writing: {
-          eyebrow: "DCA / WRITING",
+          eyebrow: "Home / Writing",
           items: [
             { id: "writing", label: { ko: "글 목록", en: "All Writing" } }
           ]
         },
         archive: {
-          eyebrow: "DCA / ARCHIVE",
+          eyebrow: "Home / Archive",
           items: [
             { id: "archive", label: { ko: "전체 기록", en: "All Records" }, filter: "all" },
             { id: "archive", label: { ko: "스튜디오", en: "Studio" }, filter: "studio" },
@@ -4363,19 +4396,19 @@
           ]
         },
         development: {
-          eyebrow: "DCA / DEVELOPMENT",
+          eyebrow: "Home / Development",
           items: [
-            { id: "development", label: { ko: "개요", en: "Overview" } },
-            { id: "development-flow", label: { ko: "배포 흐름", en: "Publishing Flow" } },
-            { id: "development-operations", label: { ko: "작업 경로", en: "Operating Routes" } },
-            { id: "development-editor", label: { ko: "Editor 사용", en: "Using Editor" } },
-            { id: "development-domain", label: { ko: "도메인과 DNS", en: "Domain and DNS" } },
-            { id: "development-security", label: { ko: "보안과 복구", en: "Security and Recovery" } },
-            { id: "development-log", label: { ko: "개발일지", en: "Development Log" } }
+            { id: "development", number: "01", label: { ko: "개요", en: "Overview" } },
+            { id: "development-flow", number: "02", label: { ko: "배포 흐름", en: "Publishing Flow" } },
+            { id: "development-operations", number: "03", label: { ko: "작업 경로", en: "Operating Routes" } },
+            { id: "development-editor", number: "04", label: { ko: "Editor 사용", en: "Using Editor" } },
+            { id: "development-domain", number: "05", label: { ko: "도메인과 DNS", en: "Domain and DNS" } },
+            { id: "development-security", number: "06", label: { ko: "보안과 복구", en: "Security and Recovery" } },
+            { id: "development-log", number: "07", label: { ko: "개발일지", en: "Development Log" } }
           ]
         },
         dca: {
-          eyebrow: "DCA / ABOUT",
+          eyebrow: "Home / About",
           items: [
             { id: "about", label: { ko: "입장", en: "Position" } },
             { id: "history", label: { ko: "작업 기록", en: "Working History" } },
@@ -4383,13 +4416,13 @@
           ]
         },
         contact: {
-          eyebrow: "DCA / CONTACT",
+          eyebrow: "Home / Contact",
           items: [
             { id: "contact", label: { ko: "연락처", en: "Contact" } }
           ]
         },
         editor: {
-          eyebrow: "DCA / WRITING / EDITOR",
+          eyebrow: "Home / Writing / Editor",
           items: [
             { id: "editor", label: { ko: "작성", en: "Editor" } }
           ]
@@ -4402,6 +4435,8 @@
       let currentLanguage = "ko";
       let tocLinks = [];
       let activeIndex = 0;
+      let pinnedTocKey = "";
+      let pinnedTocScrollY = 0;
 
       const savedTheme = window.localStorage.getItem("dca-theme");
       if (savedTheme === "light" || savedTheme === "dark") {
@@ -4436,14 +4471,14 @@
 
       const writingCopy = {
         ko: {
-          home: "DCA", current: "글", title: "글쓰기", intro: "스튜디오 운영, 물성, 아이덴티티, 프로젝트를 만들며 남기는 판단과 기록.",
+          title: "글쓰기", intro: "스튜디오 운영, 물성, 아이덴티티, 프로젝트를 만들며 남기는 판단과 기록.",
           all: "전체", back: "글 목록으로", empty: "이 분류에는 아직 공개된 글이 없습니다.", previous: "이전 글", next: "다음 글", minutes: "분 읽기",
           editorTitle: "운영자 작성", editorIntro: "초안을 정리하고, 확인된 글만 DCA 공개 기록으로 저장합니다.", access: "운영자 액세스 코드", unlock: "작성 도구 열기", gateNote: "운영자 코드는 Vercel 서버에서만 확인합니다. 초안은 이 브라우저에만 저장되고, 공개 저장은 GitHub 기록과 Vercel 배포에 반영됩니다.", incorrect: "운영자 코드를 확인하세요.", checkingAccess: "권한을 확인하는 중입니다.", unavailable: "게시 서버가 아직 준비되지 않았습니다.", publishing: "공개 기록을 저장하는 중입니다.", publishFailed: "공개 저장에 실패했습니다. 잠시 후 다시 시도하세요.",
           titleLabel: "제목", categoryLabel: "분류", dateLabel: "날짜", summaryLabel: "요약", bodyLabel: "본문", tagsLabel: "태그", reset: "새 글", saveDraft: "초안 저장", publish: "공개 저장", posts: "최근 글", drafts: "초안", published: "공개", edit: "편집", remove: "삭제", savedDraft: "초안으로 저장했습니다.", savedPublished: "공개 기록에 저장했습니다. 새 배포가 완료되면 모든 방문자에게 보입니다.", local: "이 브라우저의 초안",
           paragraph: "본문", headingTwo: "제목 2", headingThree: "제목 3", bold: "굵게", italic: "기울임", bulletList: "글머리 목록", numberList: "번호 목록", quote: "인용", link: "링크 삽입", image: "이미지 첨부", applyLink: "링크 적용", cancelLink: "링크 취소", normalSize: "기본 크기", smallSize: "작게", largeSize: "크게", richPlaceholder: "본문을 입력하세요. 글을 드래그해 링크를 걸거나, 커서 위치에 이미지를 첨부할 수 있습니다.", imageRequired: "먼저 이미지를 선택하세요.", imageTooLarge: "이미지는 한 장당 2MB 이하만 넣을 수 있습니다.", imageCount: "글당 이미지는 최대 8장까지 넣을 수 있습니다.", imageTotalTooLarge: "글 안의 이미지 합계는 3MB 이하만 넣을 수 있습니다.", imageType: "PNG, JPG, WebP, GIF 이미지만 넣을 수 있습니다.", linkUrl: "링크 URL", invalidUrl: "http(s) URL을 확인하세요.", bodyRequired: "본문을 입력하세요.", selectText: "서식을 적용할 글을 먼저 선택하세요.", linkSelection: "링크를 걸 글을 먼저 선택하세요."
         },
         en: {
-          home: "DCA", current: "Writing", title: "Writing", intro: "Notes and decisions made while building the studio, its material language, identity, and projects.",
+          title: "Writing", intro: "Notes and decisions made while building the studio, its material language, identity, and projects.",
           all: "All", back: "Back to writing", empty: "There are no published posts in this category yet.", previous: "Previous", next: "Next", minutes: "min read",
           editorTitle: "Operator editor", editorIntro: "Prepare drafts locally, then save confirmed work to the public DCA record.", access: "Operator access code", unlock: "Open editor", gateNote: "The operator code is checked only by the Vercel server. Drafts stay in this browser; public saves are recorded in GitHub and deployed by Vercel.", incorrect: "Check the operator access code.", checkingAccess: "Checking access.", unavailable: "The publishing server is not configured yet.", publishing: "Saving the public record.", publishFailed: "Public save failed. Try again shortly.",
           titleLabel: "Title", categoryLabel: "Category", dateLabel: "Date", summaryLabel: "Summary", bodyLabel: "Body", tagsLabel: "Tags", reset: "New post", saveDraft: "Save draft", publish: "Save public post", posts: "Recent posts", drafts: "Draft", published: "Published", edit: "Edit", remove: "Remove", savedDraft: "Saved as a draft.", savedPublished: "Saved to the public record. It will be visible to visitors after the next deployment.", local: "Drafts in this browser",
@@ -4650,8 +4685,9 @@
       const renderWritingIndex = () => {
         const posts = publicWritingPosts();
         const filtered = currentWritingFilter === "all" ? posts : posts.filter((post) => post.category === currentWritingFilter);
-        writingBreadcrumbHome.textContent = writingCopy[currentLanguage].home;
-        writingBreadcrumbCurrent.textContent = writingCopy[currentLanguage].current;
+        const [writingHome, writingCurrent] = viewDefinitions.writing.eyebrow.split(" / ");
+        writingBreadcrumbHome.textContent = writingHome;
+        writingBreadcrumbCurrent.textContent = writingCurrent;
         writingTitle.textContent = writingCopy[currentLanguage].title;
         writingIntro.textContent = writingCopy[currentLanguage].intro;
         writingFilters.setAttribute("aria-label", currentLanguage === "ko" ? "글 분류 필터" : "Writing category filter");
@@ -5292,7 +5328,17 @@
         const link = document.createElement("a");
         link.className = "toc__link";
         link.href = `#${item.id}`;
-        link.textContent = item.label[currentLanguage];
+        if (item.number) {
+          link.classList.add("toc__link--numbered");
+          const index = document.createElement("span");
+          index.className = "toc__index";
+          index.textContent = item.number;
+          link.append(index);
+        }
+        const label = document.createElement("span");
+        label.className = "toc__label";
+        label.textContent = item.label[currentLanguage];
+        link.append(label);
         link.dataset.tocKey = item.filter || item.id;
         if (item.filter) link.dataset.archiveFilter = item.filter;
         listItem.append(link);
@@ -5302,7 +5348,7 @@
       const createMobileTocLink = (item) => {
         const link = document.createElement("a");
         link.href = `#${item.id}`;
-        link.textContent = item.label[currentLanguage];
+        link.textContent = item.number ? `${item.number} / ${item.label[currentLanguage]}` : item.label[currentLanguage];
         link.dataset.tocKey = item.filter || item.id;
         if (item.filter) link.dataset.archiveFilter = item.filter;
         return link;
@@ -5312,6 +5358,9 @@
         const definition = viewDefinitions[view];
         tocEyebrow.textContent = definition.eyebrow;
         mobileTocEyebrow.textContent = definition.eyebrow;
+        document.querySelectorAll(`[data-view-breadcrumb="${view}"]`).forEach((node) => {
+          node.textContent = definition.eyebrow;
+        });
         tocList.replaceChildren(...definition.items.map(createTocLink));
         mobileTocLinks.replaceChildren(...definition.items.map(createMobileTocLink));
 
@@ -5328,6 +5377,13 @@
       };
 
       const setLanguage = (language) => {
+        const hashSection = window.location.hash.replace("#", "");
+        const retainsHashSection = document.getElementById(hashSection)?.dataset.view === currentView;
+        const activeSection = retainsHashSection
+          ? hashSection
+          : viewDefinitions[currentView].items[0].id;
+        pinnedTocKey = retainsHashSection ? activeSection : "";
+        pinnedTocScrollY = window.scrollY;
         currentLanguage = language;
         window.localStorage.setItem("dca-language", language);
         translateDocumentText();
@@ -5336,7 +5392,7 @@
         renderWriting({ slug: currentView === "writing" ? getWritingSlug() : "" });
         renderEditor();
         renderLocalNavigation(currentView);
-        setActiveSection(viewDefinitions[currentView].items[0].id);
+        setActiveSection(activeSection);
         if (searchDialog.open) renderSearchResults(searchInput.value);
       };
 
@@ -5361,6 +5417,7 @@
 
       const setView = (view, { updateHistory = true, scrollToTop = true } = {}) => {
         if (!viewDefinitions[view]) return;
+        pinnedTocKey = "";
         currentView = view;
         root.dataset.view = view;
         viewSections.forEach((section) => {
@@ -5394,6 +5451,7 @@
       };
 
       const sectionObserver = new IntersectionObserver((entries) => {
+        if (pinnedTocKey) return;
         entries.forEach((entry) => {
           if (entry.isIntersecting && !entry.target.hidden) {
             setActiveSection(entry.target.id);
@@ -5946,7 +6004,10 @@
         document.getElementById("top").scrollIntoView({ behavior: "smooth", block: "start" });
       });
 
-      window.addEventListener("scroll", updateProgress, { passive: true });
+      window.addEventListener("scroll", () => {
+        if (pinnedTocKey && Math.abs(window.scrollY - pinnedTocScrollY) > 2) pinnedTocKey = "";
+        updateProgress();
+      }, { passive: true });
       window.addEventListener("resize", updateProgress);
       updateProgress();
 
