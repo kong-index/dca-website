@@ -1108,8 +1108,7 @@
     .rich-editor ul,
     .rich-editor ol,
     .rich-editor blockquote,
-    .rich-editor figure,
-    .rich-editor pre {
+    .rich-editor figure {
       margin: 0 0 var(--space-4);
     }
 
@@ -1117,88 +1116,8 @@
     .rich-editor h3 { font-size: var(--font-size-lg); }
     .rich-editor blockquote { padding-left: var(--space-3); border-left: 2px solid var(--border-strong); }
     .rich-editor figure img { display: block; width: 100%; max-width: 100%; border: 1px solid var(--border-default); }
-    .rich-editor figcaption { color: var(--text-tertiary); font-size: var(--font-size-xs); }
-    .rich-editor pre { padding: var(--space-3); overflow: auto; color: #d9dce8; background: #1a1b26; font-family: var(--font-mono); font-size: var(--font-size-sm); }
-
-    .editor-insert-panel {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-4);
-      margin: var(--space-2) 0 0;
-      padding: var(--space-4) 0 0;
-      border: 0;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .editor-insert-panel legend {
-      padding: 0;
-      color: var(--text-tertiary);
-      font-family: var(--font-mono);
-      font-size: var(--font-size-xs);
-    }
-
-    .editor-insert-group {
-      display: grid;
-      align-content: start;
-      gap: var(--space-2);
-      min-width: 0;
-    }
-
-    .editor-insert-group h3 {
-      margin: 0;
-      font-size: var(--font-size-sm);
-    }
-
-    .editor-image-dropzone {
-      display: grid;
-      justify-items: center;
-      gap: var(--space-1);
-      min-height: 142px;
-      padding: var(--space-4);
-      border: 1px dashed var(--border-default);
-      border-radius: var(--radius-sm);
-      color: var(--text-secondary);
-      background: var(--surface-secondary);
-      cursor: pointer;
-      text-align: center;
-      transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
-    }
-
-    .editor-image-dropzone:hover,
-    .editor-image-dropzone:focus-visible,
-    .editor-image-dropzone.is-dragging {
+    .rich-editor.is-dragging {
       border-color: var(--accent-primary);
-      color: var(--text-primary);
-      background: var(--surface-elevated);
-      outline: 0;
-    }
-
-    .editor-image-dropzone svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .editor-image-dropzone strong,
-    .editor-image-dropzone span {
-      display: block;
-    }
-
-    .editor-image-dropzone strong {
-      font-size: var(--font-size-sm);
-    }
-
-    .editor-image-dropzone span {
-      color: var(--text-tertiary);
-      font-family: var(--font-mono);
-      font-size: var(--font-size-xs);
-      line-height: 1.45;
-    }
-
-    .editor-image-preview {
-      width: 100%;
-      max-height: 168px;
-      border: 1px solid var(--border-default);
-      object-fit: contain;
       background: var(--surface-elevated);
     }
 
@@ -1212,11 +1131,24 @@
       white-space: nowrap;
     }
 
-    .editor-insert-group input,
-    .editor-insert-group select,
-    .editor-insert-group textarea {
-      width: 100%;
-      min-height: 38px;
+    .editor-link-bar {
+      display: flex;
+      gap: var(--space-2);
+      align-items: center;
+      padding: var(--space-2);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      background: var(--surface-elevated);
+    }
+
+    .editor-link-bar[hidden] {
+      display: none;
+    }
+
+    .editor-link-bar input {
+      min-width: 0;
+      flex: 1;
+      min-height: 34px;
       padding: 0 var(--space-2);
       border: 1px solid var(--border-default);
       border-radius: var(--radius-sm);
@@ -1227,17 +1159,25 @@
       font-size: var(--font-size-sm);
     }
 
-    .editor-insert-group textarea {
-      min-height: 94px;
-      padding: var(--space-2);
-      resize: vertical;
+    .editor-link-bar input:focus {
+      border-color: var(--accent-primary);
     }
 
-    .editor-insert-group input:focus,
-    .editor-insert-group select:focus,
-    .editor-insert-group textarea:focus {
-      border-color: var(--accent-primary);
-      background: var(--surface-elevated);
+    .editor-link-bar .icon-button {
+      width: 34px;
+      min-width: 34px;
+      height: 34px;
+      min-height: 34px;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      background: var(--surface-secondary);
+    }
+
+    .editor-link-bar .icon-button:hover,
+    .editor-link-bar .icon-button:focus-visible {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
     }
 
     .editor-form__footer,
@@ -3823,49 +3763,22 @@
                     <button class="editor-toolbar__button icon-button" type="button" data-editor-command="insertUnorderedList" aria-label="글머리 목록" data-tooltip="글머리 목록"><i data-lucide="list" aria-hidden="true"></i></button>
                     <button class="editor-toolbar__button icon-button" type="button" data-editor-command="insertOrderedList" aria-label="번호 목록" data-tooltip="번호 목록"><i data-lucide="list-ordered" aria-hidden="true"></i></button>
                     <button class="editor-toolbar__button icon-button" type="button" data-editor-command="blockquote" aria-label="인용" data-tooltip="인용"><i data-lucide="quote" aria-hidden="true"></i></button>
+                    <button class="editor-toolbar__button icon-button" type="button" data-editor-action="link" aria-label="링크 삽입" data-tooltip="링크 삽입"><i data-lucide="link" aria-hidden="true"></i></button>
+                    <button class="editor-toolbar__button icon-button" type="button" data-editor-action="image" aria-label="이미지 첨부" data-tooltip="이미지 첨부"><i data-lucide="image-plus" aria-hidden="true"></i></button>
                     <select id="editorTextSize" aria-label="본문 크기">
                       <option value="normal">기본 크기</option>
                       <option value="small">작게</option>
                       <option value="large">크게</option>
                     </select>
                   </div>
+                  <div class="editor-link-bar" id="editorLinkBar" hidden>
+                    <input id="editorLinkUrl" type="url" inputmode="url" placeholder="https://">
+                    <button class="icon-button" type="button" id="editorApplyLink" aria-label="링크 적용" data-tooltip="링크 적용"><i data-lucide="check" aria-hidden="true"></i></button>
+                    <button class="icon-button" type="button" id="editorCancelLink" aria-label="링크 취소" data-tooltip="링크 취소"><i data-lucide="x" aria-hidden="true"></i></button>
+                  </div>
+                  <input class="editor-image-file" id="editorImageFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif" tabindex="-1" aria-hidden="true">
                   <div class="rich-editor" id="editorPostBody" contenteditable="true" role="textbox" aria-multiline="true" aria-required="true" data-placeholder="본문을 입력하세요."></div>
                 </div>
-                <fieldset class="editor-insert-panel editor-field--full">
-                  <legend id="editorInsertLabel"></legend>
-                  <div class="editor-insert-group">
-                    <h3 id="editorImageTitle"></h3>
-                    <input class="editor-image-file" id="editorImageFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif" tabindex="-1" aria-hidden="true">
-                    <div class="editor-image-dropzone" id="editorImageDropzone" role="button" tabindex="0" aria-controls="editorImageFile">
-                      <i data-lucide="image-plus" aria-hidden="true"></i>
-                      <strong id="editorImageDropTitle"></strong>
-                      <span id="editorImageDropNote"></span>
-                    </div>
-                    <img class="editor-image-preview" id="editorImagePreview" alt="" hidden>
-                    <input id="editorImageAlt" type="text">
-                    <input id="editorImageCaption" type="text">
-                    <button class="text-button" type="button" id="editorInsertImage"></button>
-                  </div>
-                  <div class="editor-insert-group">
-                    <h3 id="editorLinkTitle"></h3>
-                    <input id="editorLinkUrl" type="url" inputmode="url" placeholder="https://">
-                    <input id="editorLinkLabel" type="text">
-                    <button class="text-button" type="button" id="editorInsertLink"></button>
-                  </div>
-                  <div class="editor-insert-group">
-                    <h3 id="editorCodeTitle"></h3>
-                    <select id="editorCodeLanguage">
-                      <option value="text">Plain text</option>
-                      <option value="javascript">JavaScript</option>
-                      <option value="json">JSON</option>
-                      <option value="html">HTML</option>
-                      <option value="css">CSS</option>
-                      <option value="bash">Bash</option>
-                    </select>
-                    <textarea id="editorCodeContent" spellcheck="false"></textarea>
-                    <button class="text-button" type="button" id="editorInsertCode"></button>
-                  </div>
-                </fieldset>
                 <label class="editor-field editor-field--full" for="editorPostTags"><span id="editorTagsLabel"></span><input id="editorPostTags" type="text"></label>
               </div>
               <div class="editor-form__footer">
@@ -4026,14 +3939,8 @@
       const editorBlockFormat = document.getElementById("editorBlockFormat");
       const editorTextSize = document.getElementById("editorTextSize");
       const editorImageFile = document.getElementById("editorImageFile");
-      const editorImageDropzone = document.getElementById("editorImageDropzone");
-      const editorImagePreview = document.getElementById("editorImagePreview");
-      const editorImageAlt = document.getElementById("editorImageAlt");
-      const editorImageCaption = document.getElementById("editorImageCaption");
+      const editorLinkBar = document.getElementById("editorLinkBar");
       const editorLinkUrl = document.getElementById("editorLinkUrl");
-      const editorLinkLabel = document.getElementById("editorLinkLabel");
-      const editorCodeLanguage = document.getElementById("editorCodeLanguage");
-      const editorCodeContent = document.getElementById("editorCodeContent");
       const editorPostTags = document.getElementById("editorPostTags");
       const editorSaveStatus = document.getElementById("editorSaveStatus");
       const editorPostList = document.getElementById("editorPostList");
@@ -4136,14 +4043,14 @@
           all: "전체", back: "글 목록으로", empty: "이 분류에는 아직 공개된 글이 없습니다.", previous: "이전 글", next: "다음 글", minutes: "분 읽기",
           editorTitle: "운영자 작성", editorIntro: "공개 글을 준비하는 로컬 작성 도구입니다.", access: "운영자 액세스 코드", unlock: "작성 도구 열기", gateNote: "이 정적 프로토타입은 이 브라우저에만 저장됩니다. 실제 운영자 권한과 공개 발행은 서버 인증을 연결한 뒤 사용합니다.", incorrect: "코드를 확인하세요.",
           titleLabel: "제목", categoryLabel: "분류", dateLabel: "날짜", summaryLabel: "요약", bodyLabel: "본문", tagsLabel: "태그", reset: "새 글", saveDraft: "초안 저장", publish: "공개 저장", posts: "최근 글", drafts: "초안", published: "공개", edit: "편집", remove: "삭제", savedDraft: "초안으로 저장했습니다.", savedPublished: "공개 글로 저장했습니다.", local: "이 브라우저의 로컬 기록",
-          paragraph: "본문", headingTwo: "제목 2", headingThree: "제목 3", bold: "굵게", italic: "기울임", bulletList: "글머리 목록", numberList: "번호 목록", quote: "인용", normalSize: "기본 크기", smallSize: "작게", largeSize: "크게", richPlaceholder: "본문을 입력하세요. 선택한 글에 서식을 적용하거나 아래에서 이미지, 링크, 코드를 삽입할 수 있습니다.", insertLabel: "미디어와 자료 삽입", imageTitle: "이미지", imageDropTitle: "이미지를 끌어놓거나 클릭해 선택", imageDropNote: "PNG, JPG, WebP, GIF · 최대 2MB", imageAlt: "대체 텍스트", imageCaption: "캡션 (선택)", insertImage: "이미지 넣기", imageRequired: "먼저 이미지를 선택하세요.", imageTooLarge: "이미지는 2MB 이하만 넣을 수 있습니다.", imageType: "PNG, JPG, WebP, GIF 이미지만 넣을 수 있습니다.", linkTitle: "링크", linkUrl: "링크 URL", linkLabel: "표시 문구", insertLink: "링크 넣기", codeTitle: "코드", codeLanguage: "코드 언어", codeContent: "코드 내용", insertCode: "코드 넣기", invalidUrl: "http(s) URL을 확인하세요.", bodyRequired: "본문을 입력하세요.", selectText: "크기를 바꿀 텍스트를 먼저 선택하세요."
+          paragraph: "본문", headingTwo: "제목 2", headingThree: "제목 3", bold: "굵게", italic: "기울임", bulletList: "글머리 목록", numberList: "번호 목록", quote: "인용", link: "링크 삽입", image: "이미지 첨부", applyLink: "링크 적용", cancelLink: "링크 취소", normalSize: "기본 크기", smallSize: "작게", largeSize: "크게", richPlaceholder: "본문을 입력하세요. 글을 드래그해 링크를 걸거나, 커서 위치에 이미지를 첨부할 수 있습니다.", imageRequired: "먼저 이미지를 선택하세요.", imageTooLarge: "이미지는 2MB 이하만 넣을 수 있습니다.", imageType: "PNG, JPG, WebP, GIF 이미지만 넣을 수 있습니다.", linkUrl: "링크 URL", invalidUrl: "http(s) URL을 확인하세요.", bodyRequired: "본문을 입력하세요.", selectText: "서식을 적용할 글을 먼저 선택하세요.", linkSelection: "링크를 걸 글을 먼저 선택하세요."
         },
         en: {
           home: "DCA", current: "Writing", title: "Writing", intro: "Notes and decisions made while building the studio, its material language, identity, and projects.",
           all: "All", back: "Back to writing", empty: "There are no published posts in this category yet.", previous: "Previous", next: "Next", minutes: "min read",
           editorTitle: "Operator editor", editorIntro: "A local writing tool for preparing public posts.", access: "Operator access code", unlock: "Open editor", gateNote: "This static prototype saves only in this browser. Use server-side authentication before treating it as a real operator-only publishing system.", incorrect: "Check the access code.",
           titleLabel: "Title", categoryLabel: "Category", dateLabel: "Date", summaryLabel: "Summary", bodyLabel: "Body", tagsLabel: "Tags", reset: "New post", saveDraft: "Save draft", publish: "Save public post", posts: "Recent posts", drafts: "Draft", published: "Published", edit: "Edit", remove: "Remove", savedDraft: "Saved as a draft.", savedPublished: "Saved as a public post.", local: "Local records in this browser",
-          paragraph: "Paragraph", headingTwo: "Heading 2", headingThree: "Heading 3", bold: "Bold", italic: "Italic", bulletList: "Bulleted list", numberList: "Numbered list", quote: "Quote", normalSize: "Normal size", smallSize: "Small", largeSize: "Large", richPlaceholder: "Write the body. Select text to apply formatting, or add an image, link, or code sample below.", insertLabel: "Insert media and source", imageTitle: "Image", imageDropTitle: "Drop an image here or click to choose", imageDropNote: "PNG, JPG, WebP, GIF · 2 MB maximum", imageAlt: "Alt text", imageCaption: "Caption (optional)", insertImage: "Insert image", imageRequired: "Choose an image first.", imageTooLarge: "Images must be 2 MB or smaller.", imageType: "Use a PNG, JPG, WebP, or GIF image.", linkTitle: "Link", linkUrl: "Link URL", linkLabel: "Visible label", insertLink: "Insert link", codeTitle: "Code", codeLanguage: "Code language", codeContent: "Code content", insertCode: "Insert code", invalidUrl: "Check the http(s) URL.", bodyRequired: "Write the body first.", selectText: "Select the text whose size you want to change."
+          paragraph: "Paragraph", headingTwo: "Heading 2", headingThree: "Heading 3", bold: "Bold", italic: "Italic", bulletList: "Bulleted list", numberList: "Numbered list", quote: "Quote", link: "Insert link", image: "Attach image", applyLink: "Apply link", cancelLink: "Cancel link", normalSize: "Normal size", smallSize: "Small", largeSize: "Large", richPlaceholder: "Write the body. Select text to link it, or attach an image at the cursor.", imageRequired: "Choose an image first.", imageTooLarge: "Images must be 2 MB or smaller.", imageType: "Use a PNG, JPG, WebP, or GIF image.", linkUrl: "Link URL", invalidUrl: "Check the http(s) URL.", bodyRequired: "Write the body first.", selectText: "Select the text you want to format first.", linkSelection: "Select the text you want to link first."
         }
       };
 
@@ -4156,40 +4063,40 @@
 
       const seedWritingPosts = [
         {
-          id: "workwear-is-a-session-tool",
+          id: "session-notes-start-before-recording",
           date: "2026-07-19",
+          category: "studio",
+          status: "published",
+          minutes: 4,
+          title: { ko: "세션 노트는 녹음이 시작되기 전에 쓴다.", en: "Session notes begin before recording." },
+          summary: { ko: "좋은 기록은 끝난 뒤의 해설이 아니라, 시작 전의 상태를 남기는 일에 가깝다. DCA는 그날 방의 공기와 연결 상태를 짧게 적는 것부터 시작한다.", en: "A useful record is less an explanation after the fact than a trace of the state before work begins. DCA starts by noting the room and its connections in a few lines." },
+          body: { ko: ["세션이 끝난 뒤에는 결과가 너무 크게 보인다. 그래서 DCA의 노트는 녹음 전, 아직 판단이 열려 있을 때 시작한다. 방이 어떤 소리를 내는지, 오늘 먼저 확인할 장비가 무엇인지, 작업자에게 필요한 시간이 얼마나 되는지를 짧게 적는다.", "이 기록은 완벽한 보고서가 아니다. 다음 날 다시 열었을 때 작업을 이어갈 수 있는 최소한의 손잡이다.", "기록의 목적은 세션을 멋있게 설명하는 것이 아니라, 다음 사람이 같은 방에서 더 빨리 듣고 결정하게 하는 데 있다."], en: ["After a session, the result can become too large in memory. DCA begins its notes before recording, while decisions are still open: how the room sounds, what equipment needs to be checked first, and how much time the work needs.", "This is not a complete report. It is the smallest handle needed to reopen the work the next day.", "The purpose is not to explain a session beautifully. It is to help the next person listen and decide faster in the same room."] },
+          bodyHtml: { ko: "<p>세션이 끝난 뒤에는 결과가 너무 크게 보인다. 그래서 DCA의 노트는 녹음 전, 아직 판단이 열려 있을 때 시작한다. 방이 어떤 소리를 내는지, 오늘 먼저 확인할 장비가 무엇인지, 작업자에게 필요한 시간이 얼마나 되는지를 짧게 적는다.</p><h2>짧은 기록이 다음 연결을 만든다.</h2><p>이 기록은 완벽한 보고서가 아니다. 다음 날 다시 열었을 때 작업을 이어갈 수 있는 최소한의 손잡이다.</p><blockquote><p>좋은 세션 노트는 기억을 대신하지 않는다. 다음 판단이 시작될 자리를 남긴다.</p></blockquote><p>기록의 목적은 세션을 멋있게 설명하는 것이 아니라, 다음 사람이 같은 방에서 더 빨리 듣고 결정하게 하는 데 있다.</p>", en: "<p>After a session, the result can become too large in memory. DCA begins its notes before recording, while decisions are still open: how the room sounds, what equipment needs to be checked first, and how much time the work needs.</p><h2>A short record begins the next connection.</h2><p>This is not a complete report. It is the smallest handle needed to reopen the work the next day.</p><blockquote><p>A useful session note does not replace memory. It leaves a place for the next decision to begin.</p></blockquote><p>The purpose is not to explain a session beautifully. It is to help the next person listen and decide faster in the same room.</p>" },
+          tags: ["session", "record", "studio"]
+        },
+        {
+          id: "an-image-is-a-recording-decision",
+          date: "2026-07-17",
           category: "material",
           status: "published",
           minutes: 4,
-          title: { ko: "작업복은 굿즈가 아니라 세션의 도구여야 한다.", en: "Workwear should be a session tool, not merchandise." },
-          summary: { ko: "작업복이 브랜드를 설명하기 시작하면 금방 홍보물이 된다. DCA에서는 누군가 오래 입고, 주머니에 케이블과 메모를 넣고, 자연스럽게 남기는 물건이어야 한다.", en: "The moment workwear starts explaining the brand, it turns into merchandise. At DCA it should be something someone wears for a long time, fills with cables and notes, and leaves behind naturally." },
-          body: { ko: ["작업복의 기준은 로고가 아니라 행동이다. 세션이 길어졌을 때도 불편하지 않은지, 주머니가 실제로 필요한 물건을 받아주는지, 사진을 찍지 않는 날에도 입게 되는지를 먼저 본다.", "그래서 DCA의 작업복은 판매를 위한 티셔츠처럼 보이면 안 된다. 공간 안에 남아 있다가 누군가 자연스럽게 걸치고, 다음 세션에서도 다시 찾는 옷에 가까워야 한다.", "라벨과 이름표도 같은 이유로 작고 구체적이어야 한다. 설명을 크게 붙이는 대신 실제 사용자가 남긴 위치와 시간이 보이면, 그 자체로 브랜드의 증거가 된다."], en: ["The first measure of workwear is behaviour, not the logo. We ask whether it stays comfortable through a long session, whether its pockets carry useful things, and whether someone would wear it on a day without a camera.", "That is why DCA workwear should not read like a T-shirt made to sell. It should feel closer to clothing that remains in the space, gets picked up naturally, and is reached for again at the next session.", "Labels and name tags follow the same rule: small and specific. Instead of writing a large explanation, the placement and time left by a real user become the evidence of the brand."] },
-          bodyHtml: { ko: "<p>작업복의 기준은 로고가 아니라 행동이다. 세션이 길어졌을 때도 불편하지 않은지, 주머니가 실제로 필요한 물건을 받아주는지, 사진을 찍지 않는 날에도 입게 되는지를 먼저 본다.</p><h2>먼저 남아 있어야 한다.</h2><p>그래서 DCA의 작업복은 판매를 위한 티셔츠처럼 보이면 안 된다. 공간 안에 남아 있다가 누군가 자연스럽게 걸치고, 다음 세션에서도 다시 찾는 옷에 가까워야 한다.</p><blockquote><p>작업복은 브랜드를 설명하는 물건이 아니라, 작업이 계속된다는 신호다.</p></blockquote><figure><img src=\"assets/illustrations/workwear-rail-line.png\" alt=\"행거에 걸린 DCA 작업복 선 드로잉\"><figcaption>작업복은 판매용 이미지보다 현장에 남는 물건으로 판단한다.</figcaption></figure><p>라벨과 이름표도 같은 이유로 작고 구체적이어야 한다. 설명을 크게 붙이는 대신 실제 사용자가 남긴 위치와 시간이 보이면, 그 자체로 브랜드의 증거가 된다.</p>", en: "<p>The first measure of workwear is behaviour, not the logo. We ask whether it stays comfortable through a long session, whether its pockets carry useful things, and whether someone would wear it on a day without a camera.</p><h2>It needs to remain first.</h2><p>DCA workwear should not read like a T-shirt made to sell. It should feel closer to clothing that remains in the space, gets picked up naturally, and is reached for again at the next session.</p><blockquote><p>Workwear is not an object that explains the brand. It is a sign that the work continues.</p></blockquote><figure><img src=\"assets/illustrations/workwear-rail-line.png\" alt=\"Line drawing of DCA workwear on a garment rail\"><figcaption>Workwear is judged as an object that remains at the site, not a sales image.</figcaption></figure><p>Labels and name tags follow the same rule: small and specific. The placement and time left by a real user become evidence of the brand.</p>" },
-          tags: ["workwear", "session", "material"]
+          title: { ko: "이미지는 기록의 결과가 아니라, 기록 방식의 선택이다.", en: "An image is a choice of how to record." },
+          summary: { ko: "무엇을 찍을지보다 무엇을 남길지 먼저 정한다. DCA의 이미지는 장비와 물건을 멋있게 보여주기보다, 다음 판단에 필요한 구조와 사용 흔적을 남긴다.", en: "Before deciding what to photograph, decide what needs to remain. DCA images do not make objects look impressive; they retain the structure and traces needed for the next decision." },
+          body: { ko: ["같은 장비를 찍어도 사진은 전혀 다른 일을 할 수 있다. 가격과 브랜드를 강조하면 목록이 되고, 연결 방식과 사용 흔적을 남기면 작업 기록이 된다.", "DCA는 이미지를 정사각형 프레임에 맞추지만, 프레임 자체가 목적은 아니다. 라벨, 손, 케이블, 닳은 표면처럼 실제 사용을 증명하는 단서가 남아야 한다.", "그래서 이미지는 게시물을 장식하는 자료가 아니라, 글의 판단을 확인하는 근거로 들어간다."], en: ["The same piece of equipment can make photographs do very different jobs. Emphasise price and brand, and it becomes a list. Keep the connection and signs of use, and it becomes a working record.", "DCA uses a square frame, but the frame is not the point. Evidence of real use must remain: a label, a hand, a cable, or a worn surface.", "An image is therefore not decoration for a post. It is evidence that lets the writing be checked."] },
+          bodyHtml: { ko: "<p>같은 장비를 찍어도 사진은 전혀 다른 일을 할 수 있다. 가격과 브랜드를 강조하면 목록이 되고, 연결 방식과 사용 흔적을 남기면 작업 기록이 된다.</p><h2>프레임보다 판단 근거가 먼저다.</h2><p>DCA는 이미지를 정사각형 프레임에 맞추지만, 프레임 자체가 목적은 아니다. 라벨, 손, 케이블, 닳은 표면처럼 실제 사용을 증명하는 단서가 남아야 한다.</p><p>그래서 이미지는 게시물을 장식하는 자료가 아니라, 글의 판단을 확인하는 근거로 들어간다. 관련 기록은 <a href=\"https://kong-index.github.io/dca-website/#archive\">아카이브 인덱스</a>에서 이어서 볼 수 있다.</p>", en: "<p>The same piece of equipment can make photographs do very different jobs. Emphasise price and brand, and it becomes a list. Keep the connection and signs of use, and it becomes a working record.</p><h2>Evidence comes before the frame.</h2><p>DCA uses a square frame, but the frame is not the point. Evidence of real use must remain: a label, a hand, a cable, or a worn surface.</p><p>An image is therefore not decoration for a post. It is evidence that lets the writing be checked. Continue with related material in the <a href=\"https://kong-index.github.io/dca-website/#archive\">archive index</a>.</p>" },
+          tags: ["image", "evidence", "archive"]
         },
         {
-          id: "equipment-is-not-a-price-list",
-          date: "2026-07-12",
-          category: "studio",
-          status: "published",
-          minutes: 5,
-          title: { ko: "장비를 기록하는 건 가격을 기록하는 일이 아니다.", en: "Recording equipment is not recording its price." },
-          summary: { ko: "장비 목록은 비싼 물건을 보여주는 방식이 되기 쉽다. DCA의 기록은 무엇이 있는가보다 어떤 상태에서 누구의 판단을 도왔는지를 남긴다.", en: "An equipment list easily becomes a way to display expensive objects. DCA records not only what is there, but the condition in which it helped someone make a decision." },
-          body: { ko: ["스튜디오 장비는 가격표나 스펙 목록만으로 신뢰를 만들지 않는다. 작업자가 연결했을 때 노이즈가 어떻게 들렸는지, 노브가 어느 정도의 저항으로 움직이는지, 지금도 바로 사용할 수 있는지가 더 오래 남는다.", "그래서 장비 기록에는 가능한 한 날짜와 상태, 실제 사용 맥락을 붙인다. 완벽한 장비 사진보다, 세션이 굴러가고 있다는 징후가 더 중요하다.", "아카이브는 장비를 수집품으로 만들지 않는다. 다음 작업자가 빠르게 믿고 결정할 수 있게 하는 작동 기록이어야 한다."], en: ["Studio equipment does not earn trust through a price tag or a spec list alone. What remains longer is how noise sounded when it was connected, how much resistance the knob had, and whether it could be used immediately.", "That is why equipment records carry a date, condition, and a real use context whenever possible. A sign that a session is running matters more than a perfect equipment photograph.", "The archive does not turn equipment into a collection. It should be an operating record that lets the next worker trust and decide quickly."] },
-          bodyHtml: { ko: "<p>스튜디오 장비는 가격표나 스펙 목록만으로 신뢰를 만들지 않는다. 작업자가 연결했을 때 노이즈가 어떻게 들렸는지, 노브가 어느 정도의 저항으로 움직이는지, 지금도 바로 사용할 수 있는지가 더 오래 남는다.</p><h2>기록은 다음 판단을 돕는다.</h2><figure><img src=\"assets/illustrations/studio-console-line.png\" alt=\"스피커와 오디오 랙, 케이블로 구성된 DCA 장비 선 드로잉\"><figcaption>장비는 가격 대신 날짜, 상태, 실제 사용 맥락으로 기록한다.</figcaption></figure><p>세션 메모는 완전한 장비 명세보다 짧아도 된다. 필요한 것은 누군가 다음 연결을 시작할 수 있는 최소한의 근거다.</p><pre data-language=\"text\"><code>2026-07-12\nsource: session playback\nstatus: immediate use\nnote: noise floor checked before work</code></pre><p>아카이브는 장비를 수집품으로 만들지 않는다. 다음 작업자가 빠르게 믿고 결정할 수 있게 하는 작동 기록이어야 한다.</p>", en: "<p>Studio equipment does not earn trust through a price tag or a spec list alone. What remains longer is how noise sounded when it was connected, how much resistance the knob had, and whether it could be used immediately.</p><h2>A record helps the next decision.</h2><figure><img src=\"assets/illustrations/studio-console-line.png\" alt=\"Line drawing of DCA speakers, audio rack, and cable\"><figcaption>Record equipment through date, condition, and real use context instead of price.</figcaption></figure><p>A session note can be shorter than a complete equipment specification. It needs only enough evidence for someone to begin the next connection.</p><pre data-language=\"text\"><code>2026-07-12\nsource: session playback\nstatus: immediate use\nnote: noise floor checked before work</code></pre><p>The archive does not turn equipment into a collection. It should be an operating record that lets the next worker trust and decide quickly.</p>" },
-          tags: ["equipment", "signal", "studio"]
-        },
-        {
-          id: "labels-stay-close-to-the-site",
-          date: "2026-07-05",
+          id: "small-words-make-a-place-real",
+          date: "2026-07-15",
           category: "identity",
           status: "published",
           minutes: 3,
-          title: { ko: "라벨은 작을수록 현장에 가까워진다.", en: "The smaller a label is, the closer it stays to the site." },
-          summary: { ko: "라벨은 브랜드를 크게 알리는 장치가 아니라, 물건의 소유와 사용의 시간을 기록하는 작은 표면이다. DCA의 한글 이름표는 그 작은 표면에서 시작한다.", en: "A label is not a device for announcing a brand loudly. It is a small surface that records an object's ownership and time of use. DCA's Korean name label begins there." },
-          body: { ko: ["작은 라벨은 보는 사람에게 설명을 강요하지 않는다. 가까이 다가갔을 때만 읽히고, 그렇기 때문에 물건의 일부처럼 남는다.", "딥카우치아카이브(주)와 사장 권 동 현이라는 표기는 로고보다 먼저 실제 맥락을 만든다. 누가 쓰는 물건인지, 어디에 남아 있는지, 왜 이 공간의 것인지가 한 번에 보인다.", "아이덴티티는 큰 선언보다 반복되는 작은 표기에서 오래 살아남는다. DCA는 그 표기가 물건의 사용감과 충돌하지 않는지 계속 확인한다."], en: ["A small label does not force an explanation onto the viewer. It becomes legible only at close range, which lets it remain part of the object.", "The Korean name label establishes a real context before it establishes a logo: who uses the object, where it remains, and why it belongs to this space.", "Identity lasts longer in small, repeated markings than in a large declaration. DCA keeps checking whether those marks remain compatible with the object's use."], },
-          bodyHtml: { ko: "<p>작은 라벨은 보는 사람에게 설명을 강요하지 않는다. 가까이 다가갔을 때만 읽히고, 그렇기 때문에 물건의 일부처럼 남는다.</p><h2>이름보다 사용 맥락이 먼저다.</h2><p><strong>딥카우치아카이브(주)</strong>와 <strong>사장 권 동 현</strong>이라는 표기는 로고보다 먼저 실제 맥락을 만든다. 누가 쓰는 물건인지, 어디에 남아 있는지, 왜 이 공간의 것인지가 한 번에 보인다.</p><p>관련 물성은 <a href=\"https://kong-index.github.io/dca-website/#archive\">아카이브 인덱스</a>에서도 함께 확인할 수 있다.</p><figure><img src=\"assets/illustrations/name-label-line.png\" alt=\"딥카우치아카이브 주식회사와 사장 권동현 표기가 있는 이름표 선 드로잉\"><figcaption>라벨은 크게 선언하지 않고 가까이에서 읽히는 표면이다.</figcaption></figure><p>아이덴티티는 큰 선언보다 반복되는 작은 표기에서 오래 살아남는다. DCA는 그 표기가 물건의 사용감과 충돌하지 않는지 계속 확인한다.</p>", en: "<p>A small label does not force an explanation onto the viewer. It becomes legible only at close range, which lets it remain part of the object.</p><h2>Use context comes before a name.</h2><p>The Korean name label establishes a real context before it establishes a logo: who uses the object, where it remains, and why it belongs to this space.</p><p>Related materials can also be checked in the <a href=\"https://kong-index.github.io/dca-website/#archive\">archive index</a>.</p><figure><img src=\"assets/illustrations/name-label-line.png\" alt=\"Line drawing of a Korean DCA name label\"><figcaption>A label is a surface read at close range, not a large declaration.</figcaption></figure><p>Identity lasts longer in small, repeated markings than in a large declaration. DCA keeps checking whether those marks remain compatible with the object's use.</p>" },
-          tags: ["label", "identity", "Korean"]
+          title: { ko: "작은 표기는 공간을 실제로 만든다.", en: "Small words make a place real." },
+          summary: { ko: "이름을 크게 말하는 것보다, 실제 물건에 작은 표기가 오래 남는 편이 더 정확하다. DCA의 라벨과 이름표는 브랜드를 선언하기보다 사용 맥락을 붙이는 장치다.", en: "Rather than announcing a name loudly, small markings that remain on real objects are more precise. DCA labels and name tags attach use context instead of declaring a brand." },
+          body: { ko: ["공간의 이름은 간판에서만 나오지 않는다. 작업복 안쪽의 이름표, 장비 옆의 작은 메모, 파일의 날짜처럼 가까이에서만 읽히는 표기가 공간의 태도를 만든다.", "이런 표기는 말보다 먼저 운영의 흔적을 보여준다. 누가 이 물건을 쓰는지, 어떤 자리에 놓이는지, 다음에 무엇을 확인해야 하는지가 자연스럽게 드러난다.", "DCA의 아이덴티티는 한 번의 큰 이미지보다 이런 작은 표기가 반복될 때 더 오래 남는다."], en: ["A place does not get its name only from a sign. A name tag inside workwear, a small note beside equipment, and a date on a file create the attitude of a place through details read up close.", "These markings show traces of operation before they explain anything: who uses the object, where it belongs, and what needs to be checked next.", "DCA identity lasts longer when these small markings repeat than when it appears once as a large image."] },
+          bodyHtml: { ko: "<p>공간의 이름은 간판에서만 나오지 않는다. 작업복 안쪽의 이름표, 장비 옆의 작은 메모, 파일의 날짜처럼 가까이에서만 읽히는 표기가 공간의 태도를 만든다.</p><h2>이름은 사용 맥락 안에 놓인다.</h2><p>이런 표기는 말보다 먼저 운영의 흔적을 보여준다. 누가 이 물건을 쓰는지, 어떤 자리에 놓이는지, 다음에 무엇을 확인해야 하는지가 자연스럽게 드러난다.</p><p>DCA의 아이덴티티는 한 번의 큰 이미지보다 이런 작은 표기가 반복될 때 더 오래 남는다.</p>", en: "<p>A place does not get its name only from a sign. A name tag inside workwear, a small note beside equipment, and a date on a file create the attitude of a place through details read up close.</p><h2>A name sits inside use context.</h2><p>These markings show traces of operation before they explain anything: who uses the object, where it belongs, and what needs to be checked next.</p><p>DCA identity lasts longer when these small markings repeat than when it appears once as a large image.</p>" },
+          tags: ["identity", "label", "context"]
         }
       ];
 
@@ -4202,10 +4109,9 @@
       const localized = (value) => typeof value === "string" ? value : value?.[currentLanguage] || value?.ko || value?.en || "";
       const categoryLabel = (category) => localized(writingCategories.find((item) => item.id === category)?.label) || category;
       const isEditorUnlocked = () => window.sessionStorage.getItem(ADMIN_SESSION_KEY) === "true";
-      const editorAllowedTags = new Set(["p", "h2", "h3", "strong", "em", "ul", "ol", "li", "blockquote", "figure", "img", "figcaption", "a", "pre", "code", "span", "br"]);
+      const editorAllowedTags = new Set(["p", "h2", "h3", "strong", "em", "ul", "ol", "li", "blockquote", "figure", "img", "a", "span", "br"]);
       const editorDangerousTags = new Set(["script", "style", "iframe", "object", "embed", "svg", "math", "template"]);
       let editorLastRange = null;
-      let editorImageAttachment = "";
       const MAX_EDITOR_IMAGE_BYTES = 2 * 1024 * 1024;
 
       const safeMediaUrl = (value = "") => {
@@ -4225,8 +4131,6 @@
         if (/^data:image\/(?:png|jpeg|webp|gif);base64,[a-z0-9+/=\s]+$/i.test(raw)) return raw;
         return safeMediaUrl(raw);
       };
-
-      const safeLanguage = (value = "") => /^[a-z0-9+#-]{1,20}$/i.test(String(value)) ? String(value).toLowerCase() : "text";
 
       const sanitizePostHtml = (html = "") => {
         const source = new DOMParser().parseFromString(String(html), "text/html");
@@ -4270,7 +4174,6 @@
           }
           const clean = document.createElement(tag);
           if (tag === "span" && ["small", "large"].includes(node.dataset.size)) clean.dataset.size = node.dataset.size;
-          if (tag === "pre" && node.dataset.language) clean.dataset.language = safeLanguage(node.dataset.language);
           Array.from(node.childNodes).forEach((child) => appendCleanNode(child, clean));
           parent.append(clean);
         };
@@ -4377,10 +4280,9 @@
         editorPostCategory.value = "studio";
         editorPostBody.innerHTML = "";
         editorLastRange = null;
-        editorImageAttachment = "";
         editorImageFile.value = "";
-        editorImagePreview.removeAttribute("src");
-        editorImagePreview.hidden = true;
+        editorLinkUrl.value = "";
+        editorLinkBar.hidden = true;
         editorSaveStatus.textContent = "";
       };
 
@@ -4397,13 +4299,6 @@
         document.getElementById("editorSummaryLabel").textContent = copy.summaryLabel;
         document.getElementById("editorBodyLabel").textContent = copy.bodyLabel;
         document.getElementById("editorTagsLabel").textContent = copy.tagsLabel;
-        document.getElementById("editorInsertLabel").textContent = copy.insertLabel;
-        document.getElementById("editorImageTitle").textContent = copy.imageTitle;
-        document.getElementById("editorImageDropTitle").textContent = copy.imageDropTitle;
-        document.getElementById("editorImageDropNote").textContent = copy.imageDropNote;
-        editorImageDropzone.setAttribute("aria-label", copy.imageDropTitle);
-        document.getElementById("editorLinkTitle").textContent = copy.linkTitle;
-        document.getElementById("editorCodeTitle").textContent = copy.codeTitle;
         editorPostBody.dataset.placeholder = copy.richPlaceholder;
         editorPostBody.setAttribute("aria-label", copy.bodyLabel);
         editorToolbar.setAttribute("aria-label", copy.bodyLabel);
@@ -4423,15 +4318,15 @@
         document.querySelector('[data-editor-command="insertOrderedList"]').dataset.tooltip = copy.numberList;
         document.querySelector('[data-editor-command="blockquote"]').setAttribute("aria-label", copy.quote);
         document.querySelector('[data-editor-command="blockquote"]').dataset.tooltip = copy.quote;
-        editorImageAlt.placeholder = copy.imageAlt;
-        editorImageCaption.placeholder = copy.imageCaption;
+        document.querySelector('[data-editor-action="link"]').setAttribute("aria-label", copy.link);
+        document.querySelector('[data-editor-action="link"]').dataset.tooltip = copy.link;
+        document.querySelector('[data-editor-action="image"]').setAttribute("aria-label", copy.image);
+        document.querySelector('[data-editor-action="image"]').dataset.tooltip = copy.image;
         editorLinkUrl.placeholder = copy.linkUrl;
-        editorLinkLabel.placeholder = copy.linkLabel;
-        editorCodeContent.placeholder = copy.codeContent;
-        editorCodeLanguage.setAttribute("aria-label", copy.codeLanguage);
-        document.getElementById("editorInsertImage").textContent = copy.insertImage;
-        document.getElementById("editorInsertLink").textContent = copy.insertLink;
-        document.getElementById("editorInsertCode").textContent = copy.insertCode;
+        document.getElementById("editorApplyLink").setAttribute("aria-label", copy.applyLink);
+        document.getElementById("editorApplyLink").dataset.tooltip = copy.applyLink;
+        document.getElementById("editorCancelLink").setAttribute("aria-label", copy.cancelLink);
+        document.getElementById("editorCancelLink").dataset.tooltip = copy.cancelLink;
         document.getElementById("editorReset").textContent = copy.reset;
         document.getElementById("editorSaveDraft").textContent = copy.saveDraft;
         document.getElementById("editorPublish").textContent = copy.publish;
@@ -4732,9 +4627,9 @@
         { view: "dca", section: "about", label: { ko: "입장", en: "Position" }, scope: { ko: "DCA", en: "DCA" }, keywords: "position sound space archive 소개 스튜디오 공간 소리" },
         { view: "dca", section: "history", label: { ko: "작업 기록", en: "Working History" }, scope: { ko: "DCA", en: "DCA" }, keywords: "history equipment print field guide 기록 연혁 장비 인쇄" },
         { view: "dca", section: "checklist", label: { ko: "작업 기준", en: "Working Standards" }, scope: { ko: "DCA", en: "DCA" }, keywords: "checklist standards evidence materiality 기준 체크리스트 증거 물성" },
-        { view: "writing", section: "writing", writingSlug: "workwear-is-a-session-tool", label: { ko: "작업복은 굿즈가 아니라 세션의 도구여야 한다.", en: "Workwear should be a session tool, not merchandise." }, scope: { ko: "글 / 물성 노트", en: "Writing / Material Notes" }, keywords: "workwear session material 작업복 세션 굿즈 물성" },
-        { view: "writing", section: "writing", writingSlug: "equipment-is-not-a-price-list", label: { ko: "장비를 기록하는 건 가격을 기록하는 일이 아니다.", en: "Recording equipment is not recording its price." }, scope: { ko: "글 / 스튜디오 노트", en: "Writing / Studio Notes" }, keywords: "equipment signal studio 장비 신호 스튜디오 기록" },
-        { view: "writing", section: "writing", writingSlug: "labels-stay-close-to-the-site", label: { ko: "라벨은 작을수록 현장에 가까워진다.", en: "The smaller a label is, the closer it stays to the site." }, scope: { ko: "글 / 아이덴티티 노트", en: "Writing / Identity Notes" }, keywords: "label identity Korean name tag 라벨 아이덴티티 한글 이름표" },
+        { view: "writing", section: "writing", writingSlug: "session-notes-start-before-recording", label: { ko: "세션 노트는 녹음이 시작되기 전에 쓴다.", en: "Session notes begin before recording." }, scope: { ko: "글 / 스튜디오 노트", en: "Writing / Studio Notes" }, keywords: "session record studio 세션 기록 스튜디오" },
+        { view: "writing", section: "writing", writingSlug: "an-image-is-a-recording-decision", label: { ko: "이미지는 기록의 결과가 아니라, 기록 방식의 선택이다.", en: "An image is a choice of how to record." }, scope: { ko: "글 / 물성 노트", en: "Writing / Material Notes" }, keywords: "image evidence archive 이미지 증거 아카이브" },
+        { view: "writing", section: "writing", writingSlug: "small-words-make-a-place-real", label: { ko: "작은 표기는 공간을 실제로 만든다.", en: "Small words make a place real." }, scope: { ko: "글 / 아이덴티티 노트", en: "Writing / Identity Notes" }, keywords: "identity label context 아이덴티티 라벨 맥락" },
         { view: "contact", section: "contact", label: { ko: "연락처", en: "Contact" }, scope: { ko: "DCA", en: "DCA" }, keywords: "contact inquiry session project 연락처 문의 세션 프로젝트" },
         { view: "archive", section: "archive", filter: "equipment", label: { ko: "오디오 랙 장비", en: "Audio rack equipment" }, scope: { ko: "아카이브 / 장비", en: "Archive / Equipment" }, keywords: "audio rack equipment studio 장비 오디오 랙" },
         { view: "archive", section: "archive", filter: "studio", label: { ko: "샴브레이 작업복", en: "Chambray work jackets" }, scope: { ko: "아카이브 / 스튜디오", en: "Archive / Studio" }, keywords: "chambray jacket denim workwear 작업복 셔츠 재킷 데님" },
@@ -5108,16 +5003,68 @@
       editorPostBody.addEventListener("keyup", rememberEditorSelection);
       editorPostBody.addEventListener("mouseup", rememberEditorSelection);
       editorPostBody.addEventListener("focus", rememberEditorSelection);
+      editorPostBody.addEventListener("blur", () => {
+        window.setTimeout(autoLinkEditorUrls, 0);
+      });
+
+      const autoLinkEditorUrls = () => {
+        const urlPattern = /(https?:\/\/[^\s<]+)/g;
+        const walker = document.createTreeWalker(editorPostBody, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        let node;
+        while ((node = walker.nextNode())) {
+          if (!node.nodeValue?.match(urlPattern) || node.parentElement?.closest("a, pre, code")) continue;
+          nodes.push(node);
+        }
+        nodes.forEach((textNode) => {
+          const source = textNode.nodeValue;
+          const matches = [...source.matchAll(urlPattern)];
+          if (!matches.length) return;
+          const fragment = document.createDocumentFragment();
+          let cursor = 0;
+          matches.forEach((match) => {
+            const [url] = match;
+            const offset = match.index;
+            fragment.append(document.createTextNode(source.slice(cursor, offset)));
+            const link = document.createElement("a");
+            link.href = url;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = url;
+            fragment.append(link);
+            cursor = offset + url.length;
+          });
+          fragment.append(document.createTextNode(source.slice(cursor)));
+          textNode.replaceWith(fragment);
+        });
+      };
 
       editorToolbar.addEventListener("mousedown", (event) => event.preventDefault());
       editorToolbar.addEventListener("click", (event) => {
         const button = event.target.closest("[data-editor-command]");
-        if (!button) return;
-        restoreEditorSelection();
-        const command = button.dataset.editorCommand;
-        if (command === "blockquote") document.execCommand("formatBlock", false, "blockquote");
-        else document.execCommand(command, false);
-        rememberEditorSelection();
+        if (button) {
+          restoreEditorSelection();
+          const command = button.dataset.editorCommand;
+          if (command === "blockquote") document.execCommand("formatBlock", false, "blockquote");
+          else document.execCommand(command, false);
+          rememberEditorSelection();
+          return;
+        }
+        const action = event.target.closest("[data-editor-action]")?.dataset.editorAction;
+        if (action === "image") {
+          editorImageFile.click();
+          return;
+        }
+        if (action === "link") {
+          restoreEditorSelection();
+          const selection = window.getSelection();
+          if (!selection?.rangeCount || selection.isCollapsed) {
+            editorSaveStatus.textContent = writingCopy[currentLanguage].linkSelection;
+            return;
+          }
+          editorLinkBar.hidden = false;
+          editorLinkUrl.focus();
+        }
       });
       editorBlockFormat.addEventListener("change", () => {
         restoreEditorSelection();
@@ -5128,6 +5075,18 @@
         applyTextSize(editorTextSize.value);
         editorTextSize.value = "normal";
       });
+
+      const insertEditorImage = (src) => {
+        const imageSource = safeImageSource(src);
+        if (!imageSource) return;
+        const figure = document.createElement("figure");
+        const image = document.createElement("img");
+        image.src = imageSource;
+        image.alt = "";
+        image.loading = "lazy";
+        figure.append(image);
+        insertEditorNode(figure);
+      };
 
       const loadEditorImageAttachment = (file) => {
         if (!file) return;
@@ -5141,96 +5100,75 @@
         }
         const reader = new FileReader();
         reader.addEventListener("load", () => {
-          editorImageAttachment = String(reader.result || "");
-          editorImagePreview.src = editorImageAttachment;
-          editorImagePreview.hidden = false;
+          insertEditorImage(String(reader.result || ""));
+          editorImageFile.value = "";
           editorSaveStatus.textContent = "";
         });
         reader.readAsDataURL(file);
       };
 
       editorImageFile.addEventListener("change", () => loadEditorImageAttachment(editorImageFile.files?.[0]));
-      editorImageDropzone.addEventListener("click", () => editorImageFile.click());
-      editorImageDropzone.addEventListener("keydown", (event) => {
-        if (!["Enter", " "].includes(event.key)) return;
+      ["dragenter", "dragover"].forEach((eventName) => editorPostBody.addEventListener(eventName, (event) => {
         event.preventDefault();
-        editorImageFile.click();
-      });
-      ["dragenter", "dragover"].forEach((eventName) => editorImageDropzone.addEventListener(eventName, (event) => {
-        event.preventDefault();
-        editorImageDropzone.classList.add("is-dragging");
+        editorPostBody.classList.add("is-dragging");
       }));
-      ["dragleave", "drop"].forEach((eventName) => editorImageDropzone.addEventListener(eventName, (event) => {
+      ["dragleave", "drop"].forEach((eventName) => editorPostBody.addEventListener(eventName, (event) => {
         event.preventDefault();
-        editorImageDropzone.classList.remove("is-dragging");
+        editorPostBody.classList.remove("is-dragging");
       }));
-      editorImageDropzone.addEventListener("drop", (event) => loadEditorImageAttachment(event.dataTransfer?.files?.[0]));
-
-      document.getElementById("editorInsertImage").addEventListener("click", () => {
-        const src = safeImageSource(editorImageAttachment);
-        if (!src) {
-          editorSaveStatus.textContent = writingCopy[currentLanguage].imageRequired;
-          editorImageDropzone.focus();
-          return;
-        }
-        const figure = document.createElement("figure");
-        const image = document.createElement("img");
-        image.src = src;
-        image.alt = editorImageAlt.value.trim();
-        image.loading = "lazy";
-        figure.append(image);
-        if (editorImageCaption.value.trim()) {
-          const caption = document.createElement("figcaption");
-          caption.textContent = editorImageCaption.value.trim();
-          figure.append(caption);
-        }
-        insertEditorNode(figure);
-        editorImageAttachment = "";
-        editorImageFile.value = "";
-        editorImagePreview.removeAttribute("src");
-        editorImagePreview.hidden = true;
-        editorImageAlt.value = "";
-        editorImageCaption.value = "";
-        editorSaveStatus.textContent = "";
+      editorPostBody.addEventListener("drop", (event) => {
+        const dropRange = document.caretRangeFromPoint?.(event.clientX, event.clientY);
+        if (dropRange && editorPostBody.contains(dropRange.commonAncestorContainer)) editorLastRange = dropRange.cloneRange();
+        loadEditorImageAttachment(event.dataTransfer?.files?.[0]);
       });
 
-      document.getElementById("editorInsertLink").addEventListener("click", () => {
+      const closeEditorLinkBar = () => {
+        editorLinkUrl.value = "";
+        editorLinkBar.hidden = true;
+      };
+
+      const applyEditorLink = () => {
         const href = safeMediaUrl(editorLinkUrl.value);
         if (!href) {
           editorSaveStatus.textContent = writingCopy[currentLanguage].invalidUrl;
           editorLinkUrl.focus();
           return;
         }
-        const link = document.createElement("a");
-        link.href = href;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.textContent = editorLinkLabel.value.trim() || href;
-        insertEditorNode(link);
-        editorLinkUrl.value = "";
-        editorLinkLabel.value = "";
-        editorSaveStatus.textContent = "";
-      });
-
-      document.getElementById("editorInsertCode").addEventListener("click", () => {
-        const content = editorCodeContent.value;
-        if (!content.trim()) {
-          editorCodeContent.focus();
+        restoreEditorSelection();
+        const selection = window.getSelection();
+        if (!selection?.rangeCount || selection.isCollapsed) {
+          editorSaveStatus.textContent = writingCopy[currentLanguage].linkSelection;
           return;
         }
-        const pre = document.createElement("pre");
-        pre.dataset.language = safeLanguage(editorCodeLanguage.value);
-        const code = document.createElement("code");
-        code.textContent = content;
-        pre.append(code);
-        insertEditorNode(pre);
-        editorCodeContent.value = "";
+        document.execCommand("createLink", false, href);
+        editorPostBody.querySelectorAll(`a[href="${CSS.escape(href)}"]`).forEach((link) => {
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        });
+        closeEditorLinkBar();
+        rememberEditorSelection();
         editorSaveStatus.textContent = "";
+      };
+
+      document.getElementById("editorApplyLink").addEventListener("click", applyEditorLink);
+      document.getElementById("editorCancelLink").addEventListener("click", closeEditorLinkBar);
+      editorLinkUrl.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          applyEditorLink();
+        }
+        if (event.key === "Escape") closeEditorLinkBar();
+      });
+      editorPostBody.addEventListener("keydown", (event) => {
+        if (!(event.metaKey || event.ctrlKey) || event.key.toLowerCase() !== "k") return;
+        event.preventDefault();
+        editorToolbar.querySelector('[data-editor-action="link"]').click();
       });
 
       writingEditorForm.addEventListener("submit", (event) => {
         event.preventDefault();
         if (!writingEditorForm.reportValidity()) return;
+        autoLinkEditorUrls();
         const bodyHtml = sanitizePostHtml(editorPostBody.innerHTML);
         const bodyPreview = document.createElement("div");
         bodyPreview.innerHTML = bodyHtml;
