@@ -2478,6 +2478,13 @@
       border-bottom: 0;
     }
 
+    .token-table {
+      margin-top: var(--space-8);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
     .split {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2973,6 +2980,49 @@
         grid-template-columns: 1fr;
       }
 
+      .token-table,
+      .token-table tbody,
+      .token-table tr,
+      .token-table td {
+        display: block;
+      }
+
+      .token-table {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .token-table thead {
+        display: none;
+      }
+
+      .token-table tr {
+        padding: var(--space-4);
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .token-table tr:last-child {
+        border-bottom: 0;
+      }
+
+      .token-table td {
+        padding: 0;
+        border: 0;
+      }
+
+      .token-table td + td {
+        margin-top: var(--space-2);
+      }
+
+      .token-table td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 2px;
+        color: var(--text-tertiary);
+        font-family: var(--font-mono);
+        font-size: var(--font-size-xs);
+      }
+
       .back-to-top {
         right: var(--space-4);
         bottom: var(--space-4);
@@ -3005,6 +3055,7 @@
         <button class="site-nav__link" type="button" data-view-trigger="studio" aria-current="false">Studio</button>
         <button class="site-nav__link" type="button" data-view-trigger="writing" aria-current="false">Writing</button>
         <button class="site-nav__link" type="button" data-view-trigger="archive" aria-current="false">Archive</button>
+        <button class="site-nav__link" type="button" data-view-trigger="development" aria-current="false">Development</button>
         <button class="site-nav__link site-nav__utility" type="button" data-view-trigger="contact" aria-current="false">연락처</button>
         <button class="icon-button site-nav__search" type="button" id="searchTrigger" aria-label="검색 열기" data-tooltip="검색">
           <i data-lucide="search" aria-hidden="true"></i>
@@ -3832,6 +3883,67 @@
             </div>
           </form>
         </section>
+
+        <section class="section article-column reveal" id="development" data-section-title="Development Log" data-view="development" hidden>
+          <p class="overline">DCA / DEVELOPMENT</p>
+          <h2>웹사이트는 파일 하나가 아니라, 기록과 배포가 이어지는 운영 구조다.</h2>
+          <p class="lead">DCA 웹사이트는 로컬 작업 폴더, GitHub의 변경 기록, Vercel의 배포, 도메인의 DNS 연결, 운영자 글 작성 도구가 연결된 상태로 운영된다. 이 페이지는 그 구조와 실제 설정 과정을 클라이언트가 확인할 수 있도록 남긴 개발일지다.</p>
+          <div class="update-note"><p><strong>보안 원칙.</strong> 비밀번호, GitHub 토큰, 환경변수의 실제 값은 이 페이지와 저장소에 기록하지 않는다. 화면 예시는 구조만 설명하며 값은 항상 가린다.</p></div>
+        </section>
+
+        <section class="section article-column reveal" id="development-flow" data-section-title="Publishing Flow" data-view="development" hidden>
+          <p class="overline">01 / PUBLISHING FLOW</p>
+          <h2>수정은 로컬에서 시작하고, 공개는 Vercel에서 끝난다.</h2>
+          <ol class="checklist">
+            <li><strong>Local / dca-website</strong><span>공지수와 Codex가 HTML, 이미지, 글 구조를 수정하는 실제 작업 폴더다.</span></li>
+            <li><strong>GitHub / Repository</strong><span>변경된 파일과 버전을 보관하는 원격 기록이다. Commit은 한 단위의 기록, Push는 그 기록을 GitHub로 보내는 일이다.</span></li>
+            <li><strong>Vercel / Production</strong><span>main 브랜치에 Push가 들어오면 Vercel이 자동으로 새 버전을 배포한다. 별도의 수동 업로드는 필요하지 않다.</span></li>
+            <li><strong>deepcoucharchive.kr</strong><span>Gabia DNS가 Vercel을 가리킨다. 방문자는 최종적으로 이 주소에서 HTTPS로 사이트를 본다.</span></li>
+          </ol>
+          <table class="token-table"><thead><tr><th>행동</th><th>뜻</th><th>DCA에서의 결과</th></tr></thead><tbody>
+            <tr><td data-label="행동">Commit</td><td data-label="뜻">현재 변경을 설명과 함께 로컬 이력으로 확정</td><td data-label="DCA에서의 결과">무엇을 왜 바꿨는지 되돌아볼 수 있다.</td></tr>
+            <tr><td data-label="행동">Push</td><td data-label="뜻">로컬 Commit을 GitHub main으로 전송</td><td data-label="DCA에서의 결과">Vercel이 자동 배포를 시작한다.</td></tr>
+            <tr><td data-label="행동">Pull</td><td data-label="뜻">GitHub의 최신 변경을 로컬로 받아옴</td><td data-label="DCA에서의 결과">다른 기기 또는 Editor에서 발행한 글을 작업 폴더에 반영한다.</td></tr>
+            <tr><td data-label="행동">Deploy</td><td data-label="뜻">코드를 방문자가 볼 수 있는 서버 버전으로 만듦</td><td data-label="DCA에서의 결과">새 배포가 준비되면 .kr 도메인에 바로 적용된다.</td></tr>
+          </tbody></table>
+        </section>
+
+        <section class="section article-column reveal" id="development-editor" data-section-title="Editor" data-view="development" hidden>
+          <p class="overline">02 / EDITOR</p>
+          <h2>글은 브라우저에서 작성하고, 공개 저장은 GitHub를 거쳐 배포된다.</h2>
+          <p class="body-copy">운영자 도구는 공개 메뉴에 넣지 않은 <code>#editor</code> 경로다. 운영자 비밀번호를 통과하면 제목, 분류, 날짜, 요약, 본문, 링크, 이미지를 넣고 공개 저장할 수 있다. 공개 저장은 GitHub의 글 데이터와 이미지 파일을 업데이트하고, Vercel이 이를 다시 배포한다.</p>
+          <ol class="checklist">
+            <li><strong>1. #editor 열기</strong><span>운영자만 알고 있는 경로로 접속하고 액세스 코드를 입력한다.</span></li>
+            <li><strong>2. 글 작성</strong><span>제목, 분류, 날짜, 요약을 먼저 적고 본문에서 굵게·목록·링크·이미지를 필요한 만큼 넣는다.</span></li>
+            <li><strong>3. 공개 저장</strong><span>공개 상태로 저장하면 GitHub에 기록되고 Vercel이 자동 배포한다. 배포가 끝나면 Writing 목록에서 확인한다.</span></li>
+            <li><strong>4. 로컬 작업 전 Pull</strong><span>Editor로 새 글을 발행한 뒤 로컬에서 작업할 때는 먼저 Pull해서 서로 다른 변경이 겹치지 않게 한다.</span></li>
+          </ol>
+          <div class="update-note"><p><strong>이미지 운영 기준.</strong> 현재 한 글에는 최대 8장, 장당 2MB, 총 3MB까지 올릴 수 있다. 큰 원본은 웹용 JPG/WebP로 줄이고, 영상은 YouTube 또는 Vimeo에 올린 뒤 링크·임베드로 사용한다.</p></div>
+        </section>
+
+        <section class="section article-column reveal" id="development-domain" data-section-title="Domain and DNS" data-view="development" hidden>
+          <p class="overline">03 / DOMAIN AND DNS</p>
+          <h2>도메인은 주소이고, DNS는 그 주소가 향하는 길이다.</h2>
+          <p class="body-copy">Gabia에서 관리하는 DNS 레코드가 Vercel의 서버를 가리키도록 설정했다. 루트 주소는 A 레코드, <code>www</code>는 CNAME 레코드로 연결한다. 설정이 전 세계에 반영되는 데에는 시간이 걸릴 수 있으며, Vercel이 SSL 인증서를 만든 뒤 HTTPS가 활성화된다.</p>
+          <table class="token-table"><thead><tr><th>용어</th><th>간단한 뜻</th><th>DCA 설정</th></tr></thead><tbody>
+            <tr><td data-label="용어">DNS</td><td data-label="간단한 뜻">도메인 이름을 실제 서버 주소로 연결하는 전화번호부</td><td data-label="DCA 설정">Gabia에서 관리한다.</td></tr>
+            <tr><td data-label="용어">A Record</td><td data-label="간단한 뜻">루트 도메인을 IP 주소로 연결</td><td data-label="DCA 설정">deepcoucharchive.kr이 Vercel을 향한다.</td></tr>
+            <tr><td data-label="용어">CNAME</td><td data-label="간단한 뜻">www 같은 보조 주소를 다른 호스트 이름으로 연결</td><td data-label="DCA 설정">www 주소가 Vercel DNS를 향한다.</td></tr>
+            <tr><td data-label="용어">308 Redirect</td><td data-label="간단한 뜻">주소를 영구적으로 다른 주소로 이동시키는 응답</td><td data-label="DCA 설정">www와 .com은 deepcoucharchive.kr로 정리된다.</td></tr>
+            <tr><td data-label="용어">SSL / HTTPS</td><td data-label="간단한 뜻">브라우저와 사이트 사이의 통신을 암호화</td><td data-label="DCA 설정">Vercel이 인증서를 자동 발급·갱신한다.</td></tr>
+          </tbody></table>
+        </section>
+
+        <section class="section article-column reveal" id="development-log" data-section-title="Development Log" data-view="development" hidden>
+          <p class="overline">04 / 2026-07-19</p>
+          <h2>이번 배포에서 바뀐 것.</h2>
+          <ol class="checklist">
+            <li><strong>GitHub Pages에서 Vercel로 전환</strong><span>정적 페이지 공개뿐 아니라 운영자 글 발행과 서버 환경변수를 안전하게 다루기 위해 Vercel을 연결했다.</span></li>
+            <li><strong>운영자 Editor 연결</strong><span>브라우저에서 작성한 글과 이미지를 GitHub 저장소에 기록하고, Vercel이 이어서 배포하도록 구성했다.</span></li>
+            <li><strong>.kr을 대표 주소로 확정</strong><span>deepcoucharchive.kr은 실제 사이트, www·.com 주소는 308 이동으로 대표 주소에 정리했다.</span></li>
+            <li><strong>배포 이력 보존</strong><span>GitHub Commit과 Vercel Deploy 기록을 통해 어느 시점의 사이트라도 확인하고 필요하면 이전 버전으로 되돌릴 수 있다.</span></li>
+          </ol>
+        </section>
       </article>
     </main>
   </div>
@@ -3977,6 +4089,16 @@
             { id: "archive", label: { ko: "기타", en: "Misc" }, filter: "misc" }
           ]
         },
+        development: {
+          eyebrow: "DCA / DEVELOPMENT",
+          items: [
+            { id: "development", label: { ko: "개요", en: "Overview" } },
+            { id: "development-flow", label: { ko: "배포 흐름", en: "Publishing Flow" } },
+            { id: "development-editor", label: { ko: "Editor 사용", en: "Using Editor" } },
+            { id: "development-domain", label: { ko: "도메인과 DNS", en: "Domain and DNS" } },
+            { id: "development-log", label: { ko: "개발일지", en: "Development Log" } }
+          ]
+        },
         dca: {
           eyebrow: "DCA / ABOUT",
           items: [
@@ -3998,7 +4120,7 @@
           ]
         }
       };
-      const viewOrder = ["dca", "projects", "studio", "writing", "archive", "contact"];
+      const viewOrder = ["dca", "projects", "studio", "writing", "archive", "development", "contact"];
       let currentView = "projects";
       let currentArchiveFilter = "all";
       let currentWritingFilter = "all";
@@ -4018,7 +4140,7 @@
 
       const ui = {
         ko: {
-          navigation: { dca: "소개", projects: "프로젝트", studio: "스튜디오", writing: "글", archive: "아카이브", contact: "연락처" },
+          navigation: { dca: "소개", projects: "프로젝트", studio: "스튜디오", writing: "글", archive: "아카이브", development: "개발일지", contact: "연락처" },
           filters: { all: "전체", studio: "스튜디오", equipment: "장비", identity: "아이덴티티", projects: "프로젝트", misc: "기타" },
           about: "소개", contact: "연락처", index: "Index", close: "닫기", top: "Top",
           searchTitle: "아카이브 검색", searchDescription: "섹션, 장비, 작업복, 라벨, 인쇄물의 이름과 맥락을 찾습니다.", searchPlaceholder: "예: 장비, 라벨, catalogue", searchEmpty: "검색어를 입력하세요.", searchNone: "일치하는 기록이 없습니다.", searchResults: "개 기록", searchOpen: "검색 열기", searchClose: "검색 닫기",
@@ -4027,7 +4149,7 @@
           resultIn: "에서"
         },
         en: {
-          navigation: { dca: "About", projects: "Projects", studio: "Studio", writing: "Writing", archive: "Archive", contact: "Contact" },
+          navigation: { dca: "About", projects: "Projects", studio: "Studio", writing: "Writing", archive: "Archive", development: "Development", contact: "Contact" },
           filters: { all: "All", studio: "Studio", equipment: "Equipment", identity: "Identity", projects: "Projects", misc: "Misc" },
           about: "About", contact: "Contact", index: "Index", close: "Close", top: "Top",
           searchTitle: "Search archive", searchDescription: "Find sections, equipment, workwear, labels, and print records.", searchPlaceholder: "e.g. equipment, label, catalogue", searchEmpty: "Enter a search term.", searchNone: "No matching records.", searchResults: " records", searchOpen: "Open search", searchClose: "Close search",
@@ -4643,6 +4765,9 @@
         { view: "studio", section: "field-guide", label: { ko: "스튜디오 기준", en: "Studio Method" }, scope: { ko: "스튜디오", en: "Studio" }, keywords: "field guide studio method materiality context behavior 물성 맥락 행동" },
         { view: "studio", section: "material", label: { ko: "물성 노트", en: "Material Notes" }, scope: { ko: "스튜디오", en: "Studio" }, keywords: "material workwear label cap handwritten 작업복 라벨 캡 손글씨" },
         { view: "studio", section: "design-system", label: { ko: "웹 디자인 원칙", en: "Web Design Principles" }, scope: { ko: "스튜디오", en: "Studio" }, keywords: "design system hierarchy typography font colour color grid 디자인 시스템 위계 폰트 컬러 그리드" },
+        { view: "development", section: "development", label: { ko: "개발일지", en: "Development Log" }, scope: { ko: "개발", en: "Development" }, keywords: "github vercel editor deploy commit push pull dns redirect ssl 개발일지 배포 에디터 커밋 푸쉬 풀 도메인" },
+        { view: "development", section: "development-editor", label: { ko: "Editor 사용", en: "Using Editor" }, scope: { ko: "개발", en: "Development" }, keywords: "editor publish writing github vercel 이미지 글 발행 에디터 공개 저장" },
+        { view: "development", section: "development-domain", label: { ko: "도메인과 DNS", en: "Domain and DNS" }, scope: { ko: "개발", en: "Development" }, keywords: "domain dns gabia cname a record 308 redirect https 도메인 가비아 리디렉션" },
         { view: "dca", section: "about", label: { ko: "입장", en: "Position" }, scope: { ko: "DCA", en: "DCA" }, keywords: "position sound space archive 소개 스튜디오 공간 소리" },
         { view: "dca", section: "history", label: { ko: "작업 기록", en: "Working History" }, scope: { ko: "DCA", en: "DCA" }, keywords: "history equipment print field guide 기록 연혁 장비 인쇄" },
         { view: "dca", section: "checklist", label: { ko: "작업 기준", en: "Working Standards" }, scope: { ko: "DCA", en: "DCA" }, keywords: "checklist standards evidence materiality 기준 체크리스트 증거 물성" },
