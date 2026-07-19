@@ -32,14 +32,22 @@ Then open `http://127.0.0.1:4173/`.
 
 The `qa/` folder is intentionally local-only and excluded from Git. Source artwork and raw material are also excluded from this public repository.
 
-## Writing Prototype
+## Writing and publishing
 
 - Public writing index: `#writing`
 - Public post route: `#writing/<post-id>`
 - Local operator editor: `#editor`
 
-The current editor is a static prototype. Its access gate uses the demo code `dca-operator`, and drafted or published posts are stored only in the current browser's `localStorage`. It is useful for reviewing the writing flow, but it is not a secure administrator system and does not publish a post for other visitors.
+The editor supports heading levels, bold, italic, lists, quotes, small/normal/large body text, image attachment from the toolbar or direct drag and drop into the body, and selected-text links. Paste or type a standalone `http(s)` URL and it is converted into a link when the editor loses focus. Images are limited to 1 MB each. Drafts remain only in the current browser. Public saves are authenticated by Vercel, stored in GitHub, and included in Vercel's next deployment.
 
-The editor supports heading levels, bold, italic, lists, quotes, small/normal/large body text, image attachment from the toolbar or direct drag and drop into the body, and selected-text links. Paste or type a standalone `http(s)` URL and it is converted into a link when the editor loses focus. Attached images are limited to 2 MB and stored as local browser data, so they do not upload, host, or publish anywhere. The editor accepts safe `http(s)` links and local image data, then sanitizes the saved body to a limited set of semantic HTML elements.
+## 운영자 글 공개 설정
 
-Before public operation, connect server-side authentication and a shared content store such as Supabase, Firebase, or a CMS. Do not treat a client-side code or an unlinked route as access control.
+Vercel에서만 실제 공개 저장을 사용한다. 운영자 비밀번호와 GitHub 토큰은 절대 저장소나 브라우저 코드에 넣지 않고 Vercel 환경변수로 관리한다.
+
+1. Vercel 프로젝트 `dca-website`의 `Settings` → `Environment Variables`로 이동한다.
+2. `.env.example`의 항목을 `Production`에 추가한다.
+3. `GITHUB_TOKEN`은 GitHub fine-grained personal access token으로 만든다. 대상 저장소는 `kong-index/dca-website`만 선택하고 `Contents: Read and write` 권한만 부여한다.
+4. `DCA_EDITOR_PASSWORD`는 `1234` 같은 짧은 번호가 아닌 긴 비공개 비밀번호를 사용한다.
+5. 환경변수 저장 뒤 Vercel에서 `Redeploy`한다.
+
+공개 저장은 `content/writing-posts.json`을 갱신하고, 본문에 넣은 이미지는 `assets/uploads/writing`에 저장한다. GitHub 커밋이 생성되면 Vercel이 자동으로 새 배포를 만든다.

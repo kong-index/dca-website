@@ -1,5 +1,7 @@
 # macOS and local system files
 .DS_Store
+.env
+.env.local
 Thumbs.db
 
 # Local visual QA captures and working folders
