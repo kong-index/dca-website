@@ -126,7 +126,7 @@
       --guide-text: #1B1B19;
       --guide-text-muted: #77756E;
       --guide-link: #0066CC;
-      --home-canvas: #FFFFFF;
+      --home-canvas: #FAF9F7;
       --home-index-surface: #656565;
       --home-index-text: #F4F4F1;
       --home-index-muted: #D7D7D2;
@@ -251,8 +251,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: var(--space-4);
+      gap: var(--space-6);
       font-size: var(--font-size-sm);
+      font-weight: 500;
       color: var(--text-secondary);
     }
 
@@ -298,49 +299,15 @@
     }
 
     .header-search {
-      display: flex;
-      align-items: center;
-      width: clamp(144px, 13vw, 200px);
-      min-height: var(--control-height);
-      border-bottom: 1px solid var(--border-default);
       color: var(--text-secondary);
     }
 
-    .header-search:focus-within {
-      border-color: var(--text-primary);
+    .header-search:hover,
+    .header-search:focus-visible {
       color: var(--text-primary);
     }
 
-    .header-search__input {
-      width: 100%;
-      min-width: 0;
-      height: var(--control-height);
-      padding: 0 var(--space-1);
-      border: 0;
-      outline: 0;
-      color: var(--text-primary);
-      background: transparent;
-      font: inherit;
-      font-size: var(--font-size-sm);
-    }
-
-    .header-search__input::placeholder {
-      color: var(--text-tertiary);
-      opacity: 1;
-    }
-
-    .header-search__button {
-      width: var(--control-height);
-      min-width: var(--control-height);
-      height: var(--control-height);
-      padding: 0;
-      border: 0;
-      color: inherit;
-      background: transparent;
-      cursor: pointer;
-    }
-
-    .header-search__button svg {
+    .header-search svg {
       width: 16px;
       height: 16px;
       stroke-width: 1.6;
@@ -350,8 +317,9 @@
       display: inline-flex;
       align-items: center;
       min-height: var(--control-height);
-      gap: var(--space-1);
-      padding: 0 var(--space-2);
+      justify-content: center;
+      gap: 0;
+      padding: 0;
       border: 0;
       color: var(--text-secondary);
       background: transparent;
@@ -1617,7 +1585,6 @@
         gap: var(--space-3);
       }
 
-      body.is-home-view .header-search,
       body.is-home-view .theme-toggle,
       body.is-home-view .language-toggle {
         min-height: 32px;
@@ -1625,17 +1592,9 @@
       }
 
       body.is-home-view .header-search {
-        width: 180px;
-      }
-
-      body.is-home-view .header-search__input,
-      body.is-home-view .header-search__button {
-        height: 32px;
-      }
-
-      body.is-home-view .header-search__button {
         min-width: 32px;
         width: 32px;
+        height: 32px;
       }
 
       body.is-home-view .language-popover {
@@ -3233,23 +3192,16 @@
       }
 
       .header-search {
-        width: 112px;
-        min-height: 30px;
-      }
-
-      .header-search__input,
-      .header-search__button {
+        width: 30px;
+        min-width: 30px;
         height: 30px;
       }
 
-      .header-search__button {
+      .theme-toggle {
         width: 30px;
         min-width: 30px;
-      }
-
-      .theme-toggle {
         min-height: 30px;
-        padding: 0 var(--space-1);
+        height: 30px;
       }
 
       .site-header .language-toggle {
@@ -3500,23 +3452,16 @@
       }
 
       .header-search {
-        width: 96px;
-        min-height: 32px;
-      }
-
-      .header-search__input,
-      .header-search__button {
+        width: 32px;
+        min-width: 32px;
         height: 32px;
       }
 
-      .header-search__button {
-        width: 28px;
-        min-width: 28px;
-      }
-
       .theme-toggle {
+        width: 32px;
+        min-width: 32px;
         min-height: 32px;
-        padding: 0 2px;
+        height: 32px;
       }
 
       .language-toggle {
@@ -3645,13 +3590,9 @@
         <button class="site-nav__link site-nav__utility" type="button" data-view-trigger="contact" aria-current="false">연락처</button>
       </nav>
       <div class="header-actions">
-        <div class="header-search" role="search">
-          <label class="sr-only" for="headerSearchInput">사이트 검색</label>
-          <input class="header-search__input" id="headerSearchInput" type="search" autocomplete="off" placeholder="Search" aria-label="사이트 검색">
-          <button class="header-search__button" type="button" id="searchTrigger" aria-label="검색 실행" data-tooltip="검색 실행"><i data-lucide="search" aria-hidden="true"></i></button>
-        </div>
-        <button class="theme-toggle" type="button" id="themeToggle" aria-label="라이트 모드로 전환" data-tooltip="라이트 모드">
-          <i data-lucide="sun" aria-hidden="true"></i><span id="themeLabel">Dark</span>
+        <button class="icon-button header-search" type="button" id="searchTrigger" aria-label="검색 실행" data-tooltip="검색 실행"><i data-lucide="search" aria-hidden="true"></i></button>
+        <button class="icon-button theme-toggle" type="button" id="themeToggle" aria-label="라이트 모드로 전환" data-tooltip="라이트 모드">
+          <i data-lucide="sun" aria-hidden="true"></i>
         </button>
         <div class="language-menu" id="languageMenu">
           <button class="language-toggle" type="button" id="languageToggle" aria-haspopup="true" aria-expanded="false" aria-controls="languagePopover" aria-label="언어 선택: 한국어">
@@ -4725,10 +4666,8 @@
       const scrim = document.getElementById("scrim");
       let menuReturnFocus = null;
       const themeToggle = document.getElementById("themeToggle");
-      const themeLabel = document.getElementById("themeLabel");
       const languageToggle = document.getElementById("languageToggle");
       const languageLabel = document.getElementById("languageLabel");
-      const headerSearchInput = document.getElementById("headerSearchInput");
       const searchTrigger = document.getElementById("searchTrigger");
       const searchDialog = document.getElementById("searchDialog");
       const searchInput = document.getElementById("searchInput");
@@ -5655,9 +5594,6 @@
         themeToggle.setAttribute("aria-label", label);
         themeToggle.dataset.tooltip = label;
         themeToggle.querySelector("[data-lucide]").setAttribute("data-lucide", isDark ? "sun" : "moon");
-        themeLabel.textContent = isDark
-          ? (currentLanguage === "ko" ? "다크" : "Dark")
-          : (currentLanguage === "ko" ? "라이트" : "Light");
         renderIcons();
       };
 
@@ -5674,8 +5610,6 @@
         menuToggle.textContent = copy.index;
         menuClose.textContent = copy.close;
         backToTop.textContent = copy.top;
-        headerSearchInput.setAttribute("aria-label", copy.searchTitle);
-        headerSearchInput.placeholder = currentLanguage === "ko" ? "검색" : "Search";
         searchTrigger.setAttribute("aria-label", copy.searchOpen);
         searchTrigger.dataset.tooltip = copy.searchOpen;
         const languageName = currentLanguage === "ko" ? "한국어" : "English";
@@ -6017,12 +5951,7 @@
           : "Keyboard activation confirmed. The current menu or filter selection has not changed.";
       });
 
-      searchTrigger.addEventListener("click", () => openSearch(headerSearchInput.value));
-      headerSearchInput.addEventListener("keydown", (event) => {
-        if (event.key !== "Enter") return;
-        event.preventDefault();
-        openSearch(headerSearchInput.value);
-      });
+      searchTrigger.addEventListener("click", () => openSearch(""));
       searchInput.addEventListener("input", () => renderSearchResults(searchInput.value));
       searchResults.addEventListener("click", (event) => {
         const result = event.target.closest("[data-search-view]");

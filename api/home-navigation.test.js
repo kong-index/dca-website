@@ -20,8 +20,13 @@ test("home navigation keeps the lower menu in three clear groups", () => {
   }
 
   assert.equal((html.match(/class="home-admin__group"/g) || []).length, 3);
-  assert.match(html, /id="headerSearchInput"/);
-  assert.match(html, /id="themeLabel"/);
+  assert.match(html, /id="searchTrigger"/);
+  assert.match(html, /class="icon-button header-search"/);
+  assert.match(html, /\.site-nav__link \{[\s\S]*?font-weight: 500;/);
+  assert.match(html, /\.site-nav \{[\s\S]*?gap: var\(--space-6\);/);
+  assert.match(html, /\[data-theme="light"\] \{[\s\S]*?--home-canvas: #FAF9F7;/);
+  assert.doesNotMatch(html, /id="headerSearchInput"/);
+  assert.doesNotMatch(html, /id="themeLabel"/);
   assert.doesNotMatch(html, /<footer class="site-footer">/);
   assert.doesNotMatch(html, /DCA \/ FIELD OBJECT/);
   assert.doesNotMatch(html, /home-landing__caption/);
