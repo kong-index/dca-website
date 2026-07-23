@@ -5,7 +5,7 @@ const test = require("node:test");
 
 const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
 
-test("home navigation opens the established section views without a lower operator index", () => {
+test("home navigation keeps the lower menu in three clear groups", () => {
   assert.match(html, /<a class="brand" href="#home"/);
   assert.match(html, /data-view="home"/);
   assert.match(html, /data-view="artist"/);
@@ -15,8 +15,11 @@ test("home navigation opens the established section views without a lower operat
     assert.match(html, new RegExp(`data-view-trigger="${route}"`));
   }
 
-  assert.doesNotMatch(html, /class="home-admin/);
-  assert.doesNotMatch(html, /data-home-admin-index/);
+  for (const item of ["Archive", "Design", "Development", "Press", "Terms of use", "Rights &amp; Licensing", "Instagram", "YouTube"]) {
+    assert.match(html, new RegExp(item));
+  }
+
+  assert.equal((html.match(/class="home-admin__group"/g) || []).length, 3);
   assert.match(html, /id="searchTrigger"/);
   assert.match(html, /class="icon-button header-search"/);
   assert.match(html, /\.site-nav__link \{[\s\S]*?font-weight: 500;/);
