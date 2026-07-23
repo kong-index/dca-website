@@ -1507,24 +1507,6 @@
       background: var(--surface-media);
     }
 
-    .home-landing__caption {
-      margin: 0;
-      color: var(--text-secondary);
-      font-size: var(--font-size-sm);
-      line-height: 1.45;
-      text-align: center;
-    }
-
-    .home-landing__caption span {
-      display: block;
-    }
-
-    .home-landing__caption span:first-child {
-      color: var(--text-primary);
-      font-family: var(--font-mono);
-      font-size: var(--font-size-xs);
-    }
-
     .home-admin {
       min-height: clamp(340px, 28vw, 540px);
       color: var(--home-index-text);
@@ -1545,6 +1527,10 @@
       margin: 0;
       padding: 0;
       list-style: none;
+    }
+
+    .home-admin__group + .home-admin__group {
+      margin-top: var(--space-5);
     }
 
     .home-admin__link {
@@ -1626,16 +1612,16 @@
       body.is-home-view .header-actions {
         grid-column: 2;
         grid-row: 1 / span 2;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 0;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-3);
       }
 
       body.is-home-view .header-search,
       body.is-home-view .theme-toggle,
       body.is-home-view .language-toggle {
-        min-height: 28px;
-        height: 28px;
+        min-height: 32px;
+        height: 32px;
       }
 
       body.is-home-view .header-search {
@@ -1644,16 +1630,16 @@
 
       body.is-home-view .header-search__input,
       body.is-home-view .header-search__button {
-        height: 28px;
+        height: 32px;
       }
 
       body.is-home-view .header-search__button {
-        min-width: 28px;
-        width: 28px;
+        min-width: 32px;
+        width: 32px;
       }
 
       body.is-home-view .language-popover {
-        top: 30px;
+        top: 36px;
       }
 
       body.is-home-view .guide-shell {
@@ -3698,7 +3684,6 @@
               <h1 class="home-landing__title" id="homeTitle">Deep Couch Archive</h1>
               <figure class="home-landing__media">
                 <img src="assets/illustrations/vinyl-dca-handwritten-higgsfield.png" width="1250" height="1250" alt="Deep Couch Archive 레코드 커버와 LP 손그림" data-i18n-alt-ko="Deep Couch Archive 레코드 커버와 LP 손그림" data-i18n-alt-en="Deep Couch Archive record cover and LP drawing" fetchpriority="high">
-                <figcaption class="home-landing__caption"><span>DCA / FIELD OBJECT</span><span>사운드 스튜디오 아카이브</span></figcaption>
               </figure>
             </div>
           </div>
@@ -3706,13 +3691,26 @@
           <section class="home-admin" aria-labelledby="homeAdminTitle" data-home-admin-index>
             <div class="home-admin__inner">
               <h2 class="home-admin__title" id="homeAdminTitle">DCA 하단 정보</h2>
-              <ul class="home-admin__list" aria-label="DCA 하단 정보">
-                <li><span class="home-admin__link">Terms of use</span></li>
-                <li><span class="home-admin__link">Press</span></li>
-                <li><span class="home-admin__link">Rights &amp; Licensing</span></li>
-                <li><span class="home-admin__link">Instagram</span></li>
-                <li><span class="home-admin__link">YouTube</span></li>
-              </ul>
+              <div class="home-admin__group">
+                <ul class="home-admin__list" aria-label="운영 인덱스">
+                  <li><a class="home-admin__link" href="#archive" data-view-link="archive">Archive</a></li>
+                  <li><a class="home-admin__link" href="#design-system" data-view-link="studio" data-view-target="design-system">Design</a></li>
+                  <li><a class="home-admin__link" href="#development" data-view-link="development">Development</a></li>
+                </ul>
+              </div>
+              <div class="home-admin__group">
+                <ul class="home-admin__list" aria-label="이용 정보">
+                  <li><span class="home-admin__link">Press</span></li>
+                  <li><span class="home-admin__link">Terms of use</span></li>
+                  <li><span class="home-admin__link">Rights &amp; Licensing</span></li>
+                </ul>
+              </div>
+              <div class="home-admin__group">
+                <ul class="home-admin__list" aria-label="공식 채널">
+                  <li><span class="home-admin__link">Instagram</span></li>
+                  <li><span class="home-admin__link">YouTube</span></li>
+                </ul>
+              </div>
             </div>
           </section>
         </section>
@@ -5596,7 +5594,6 @@
         "작업복과 굿즈가 홍보물보다 실제로 쓰는 물건처럼 보이는가.": "Do workwear and goods look more like things people use than promotional items?",
         "한국어 문장이 자연스럽고, 과장된 마케팅 문구로 들리지 않는가.": "Do the Korean sentences feel natural rather than like exaggerated marketing copy?",
         "빌린 구조 안의 내용을 DCA의 자료로 교체했는가.": "Has the borrowed structure been filled with DCA material?",
-        "사운드 스튜디오 아카이브": "Sound studio archive",
         "작업의 흔적을 보관합니다": "Keeping traces of work",
         "소리와 작업의 기록은, 실제 물건에서 시작한다.": "Records of sound and work begin with real objects.",
         "Deep Couch Archive는 소리, 공간, 사람의 작업 흔적을 남기는 사운드 스튜디오다. 장비, 세션, 인쇄물, 작업복은 다음 판단을 위한 자료로 쌓인다.": "Deep Couch Archive is a sound studio that keeps traces of work in sound, space, and people. Equipment, sessions, print matter, and workwear accumulate as material for the next decision.",
