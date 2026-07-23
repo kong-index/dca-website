@@ -65,6 +65,7 @@
       --font-size-3xl: 2rem;
       --font-size-4xl: 2.5rem;
       --font-size-5xl: 2.75rem;
+      --font-size-hero: 4.25rem;
       --space-1: 4px;
       --space-2: 8px;
       --space-3: 12px;
@@ -1354,6 +1355,153 @@
 
     .guide-main {
       min-width: 0;
+    }
+
+    .home-view {
+      width: 100%;
+      min-width: 0;
+      padding-top: var(--header-height);
+    }
+
+    .home-landing {
+      display: grid;
+      grid-template-columns: minmax(160px, 1fr) minmax(280px, 520px) minmax(160px, 1fr);
+      align-items: center;
+      min-height: calc(100dvh - var(--header-height) - var(--space-16));
+      padding: var(--space-8) 0 var(--space-16);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .home-landing__intro,
+    .home-landing__index {
+      align-self: start;
+      padding-top: var(--space-2);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.55;
+    }
+
+    .home-landing__intro {
+      max-width: 20ch;
+    }
+
+    .home-landing__index {
+      justify-self: end;
+      max-width: 16ch;
+      text-align: right;
+    }
+
+    .home-landing__center {
+      display: grid;
+      justify-items: center;
+      min-width: 0;
+    }
+
+    .home-landing__kicker {
+      margin: 0 0 var(--space-4);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      line-height: 1.4;
+    }
+
+    .home-landing__title {
+      max-width: 12ch;
+      margin: 0 0 var(--space-6);
+      color: var(--text-primary);
+      font-size: var(--font-size-hero);
+      font-weight: 600;
+      line-height: 1.04;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .home-landing__media {
+      width: min(100%, 360px);
+      margin: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .home-landing__media img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      background: var(--surface-media);
+    }
+
+    .home-landing__caption {
+      max-width: 38ch;
+      margin: var(--space-5) 0 0;
+      color: var(--text-secondary);
+      font-size: var(--font-size-sm);
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    .home-admin {
+      margin: 0 calc(var(--space-6) * -1) calc(var(--space-20) * -1);
+      padding: var(--space-12) var(--space-6);
+      color: var(--text-primary);
+      background: var(--surface-elevated);
+    }
+
+    .home-admin__inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      gap: var(--space-12);
+      width: min(100%, var(--wide-content));
+      margin: 0 auto;
+    }
+
+    .home-admin__eyebrow {
+      margin: 0 0 var(--space-3);
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+    }
+
+    .home-admin__title {
+      margin: 0;
+      font-size: var(--font-size-xl);
+      line-height: 1.35;
+    }
+
+    .home-admin__list {
+      display: grid;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--border-default);
+      list-style: none;
+    }
+
+    .home-admin__link {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) auto;
+      gap: var(--space-4);
+      align-items: baseline;
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--border-default);
+      color: var(--text-secondary);
+      transition: color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .home-admin__link:hover {
+      color: var(--text-primary);
+    }
+
+    .home-admin__number,
+    .home-admin__meta {
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+    }
+
+    .home-admin__link strong {
+      color: var(--text-primary);
+      font-size: var(--font-size-base);
+      font-weight: 600;
     }
 
     .article-column {
@@ -2926,6 +3074,10 @@
     }
 
     @media (max-width: 768px) {
+      :root {
+        --font-size-hero: 2.25rem;
+      }
+
       .site-header__inner {
         grid-template-columns: 1fr auto;
         padding: 0 var(--space-4);
@@ -2958,6 +3110,47 @@
 
       .guide-shell {
         padding: var(--space-8) var(--space-4) var(--space-16);
+      }
+
+      .home-landing {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        min-height: auto;
+        padding-top: var(--space-4);
+      }
+
+      .home-landing__intro,
+      .home-landing__index {
+        justify-self: start;
+        max-width: 34ch;
+        padding: 0;
+        text-align: left;
+      }
+
+      .home-landing__index {
+        order: 3;
+      }
+
+      .home-landing__title {
+        max-width: 13ch;
+      }
+
+      .home-admin {
+        margin: 0 calc(var(--space-4) * -1) calc(var(--space-16) * -1);
+        padding: var(--space-10) var(--space-4);
+      }
+
+      .home-admin__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+
+      .home-admin__link {
+        grid-template-columns: 40px minmax(0, 1fr);
+      }
+
+      .home-admin__meta {
+        grid-column: 2;
       }
 
       .hero {
@@ -3257,24 +3450,23 @@
 
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="brand" href="#projects" aria-label="Deep Couch Archive 홈">
+      <a class="brand" href="#home" aria-label="Deep Couch Archive 홈">
         <span class="brand__mark">deep couch archive</span>
       </a>
       <nav class="site-nav" aria-label="주요 메뉴">
         <button class="site-nav__link site-nav__utility" type="button" data-view-trigger="dca" aria-current="false">소개</button>
-        <button class="site-nav__link" type="button" data-view-trigger="projects" aria-current="page">Projects</button>
+        <button class="site-nav__link" type="button" data-view-trigger="projects" aria-current="false">Sound</button>
+        <button class="site-nav__link" type="button" data-view-trigger="artist" aria-current="false">Artist</button>
         <button class="site-nav__link" type="button" data-view-trigger="studio" aria-current="false">Studio</button>
         <button class="site-nav__link" type="button" data-view-trigger="writing" aria-current="false">Writing</button>
-        <button class="site-nav__link" type="button" data-view-trigger="archive" aria-current="false">Archive</button>
-        <button class="site-nav__link" type="button" data-view-trigger="development" aria-current="false">Development</button>
         <button class="site-nav__link site-nav__utility" type="button" data-view-trigger="contact" aria-current="false">연락처</button>
-        <button class="icon-button site-nav__search" type="button" id="searchTrigger" aria-label="검색 열기" data-tooltip="검색">
-          <i data-lucide="search" aria-hidden="true"></i>
-        </button>
       </nav>
       <div class="header-actions">
         <button class="icon-button" type="button" id="themeToggle" aria-label="라이트 모드로 전환" data-tooltip="라이트 모드">
           <i data-lucide="sun" aria-hidden="true"></i>
+        </button>
+        <button class="icon-button" type="button" id="searchTrigger" aria-label="검색 열기" data-tooltip="검색">
+          <i data-lucide="search" aria-hidden="true"></i>
         </button>
         <div class="language-menu" id="languageMenu">
           <button class="language-toggle" type="button" id="languageToggle" aria-haspopup="true" aria-expanded="false" aria-controls="languagePopover" aria-label="언어 선택: 한국어">
@@ -3300,7 +3492,36 @@
     </aside>
 
     <main class="guide-main" id="pageContent">
-      <article aria-labelledby="pageTitle">
+      <article>
+        <section class="home-view" id="home" data-section-title="Home" data-view="home" aria-labelledby="homeTitle" hidden>
+          <div class="home-landing">
+            <p class="home-landing__intro">DCA / HOME<br>사운드 스튜디오 아카이브<br>작업의 흔적을 보관합니다</p>
+            <div class="home-landing__center">
+              <p class="home-landing__kicker">2026-07-23 / FIELD INDEX</p>
+              <h1 class="home-landing__title" id="homeTitle">소리와 작업의 기록은, 실제 물건에서 시작한다.</h1>
+              <figure class="home-landing__media">
+                <img src="assets/illustrations/vinyl-dca-handwritten-higgsfield.png" width="1250" height="1250" alt="Deep Couch Archive 레코드 커버와 LP 손그림" data-i18n-alt-ko="Deep Couch Archive 레코드 커버와 LP 손그림" data-i18n-alt-en="Deep Couch Archive record cover and LP drawing" fetchpriority="high">
+              </figure>
+              <p class="home-landing__caption">Deep Couch Archive는 소리, 공간, 사람의 작업 흔적을 남기는 사운드 스튜디오다. 장비, 세션, 인쇄물, 작업복은 다음 판단을 위한 자료로 쌓인다.</p>
+            </div>
+            <p class="home-landing__index">SOUND<br>ARTIST<br>STUDIO<br>WRITING</p>
+          </div>
+
+          <section class="home-admin" aria-labelledby="homeAdminTitle" data-home-admin-index>
+            <div class="home-admin__inner">
+              <div>
+                <p class="home-admin__eyebrow">OPERATOR INDEX</p>
+                <h2 class="home-admin__title" id="homeAdminTitle">공개 화면과 별개로, 운영자가 계속 확인할 작업 인덱스.</h2>
+              </div>
+              <ol class="home-admin__list">
+                <li><a class="home-admin__link" href="#archive" data-view-link="archive"><span class="home-admin__number">01</span><strong>Archive</strong><span class="home-admin__meta">자료와 필터</span></a></li>
+                <li><a class="home-admin__link" href="#design-system" data-view-link="studio" data-view-target="design-system"><span class="home-admin__number">02</span><strong>Design</strong><span class="home-admin__meta">웹 디자인 원칙</span></a></li>
+                <li><a class="home-admin__link" href="#development" data-view-link="development"><span class="home-admin__number">03</span><strong>Development</strong><span class="home-admin__meta">배포와 운영 기록</span></a></li>
+              </ol>
+            </div>
+          </section>
+        </section>
+
         <section class="hero article-column reveal" id="overview" data-section-title="Current Work" data-view="projects">
           <div class="meta-row">
             <span data-view-breadcrumb="projects">Home / Projects</span>
@@ -3884,6 +4105,17 @@
           </ol>
         </section>
 
+        <section class="section article-column reveal" id="artist" data-section-title="Artist Index" data-view="artist" hidden>
+          <p class="overline" data-view-breadcrumb="artist">Home / Artist</p>
+          <h2>아티스트는 이름을 나열하기 전에, 함께 남긴 기록으로 소개한다.</h2>
+          <p class="lead">DCA의 Artist 인덱스는 참여자를 홍보 목록으로 만들지 않는다. 공개 가능한 세션, 촬영, 릴리즈, 대화가 실제로 쌓인 뒤 그 기록을 따라 연결한다.</p>
+          <div class="update-note"><p><strong>현재 상태.</strong> 아직 공개할 협업 기록을 정리하는 중이다. 기록이 준비되면 이름, 날짜, 작업 맥락, 연결된 사운드와 이미지 자료를 함께 추가한다.</p></div>
+          <nav class="section-nav" aria-label="아티스트 관련 이동">
+            <a href="#overview"><span>Sound</span><strong>Current work</strong></a>
+            <a href="#writing"><span>Writing</span><strong>Working notes</strong></a>
+          </nav>
+        </section>
+
         <section class="section article-column reveal" id="about" data-section-title="Position" data-view="dca" hidden>
           <p class="overline" data-view-breadcrumb="dca">Home / About</p>
           <h2>멋있어 보이는 공간보다, 오래 작업할 수 있는 공간.</h2>
@@ -4305,6 +4537,7 @@
       const menuClose = document.getElementById("menuClose");
       const mobileToc = document.getElementById("mobileToc");
       const scrim = document.getElementById("scrim");
+      let menuReturnFocus = null;
       const themeToggle = document.getElementById("themeToggle");
       const languageToggle = document.getElementById("languageToggle");
       const languageLabel = document.getElementById("languageLabel");
@@ -4363,8 +4596,14 @@
       const editorSaveStatus = document.getElementById("editorSaveStatus");
       const editorPostList = document.getElementById("editorPostList");
       const viewDefinitions = {
+        home: {
+          eyebrow: "Home",
+          items: [
+            { id: "home", label: { ko: "홈", en: "Home" } }
+          ]
+        },
         projects: {
-          eyebrow: "Home / Projects",
+          eyebrow: "Home / Sound",
           items: [
             { id: "overview", label: { ko: "현재 작업", en: "Current Work" } },
             { id: "launch", label: { ko: "공개 순서", en: "Release Path" } }
@@ -4415,6 +4654,12 @@
             { id: "checklist", label: { ko: "작업 기준", en: "Working Standards" } }
           ]
         },
+        artist: {
+          eyebrow: "Home / Artist",
+          items: [
+            { id: "artist", label: { ko: "아티스트 인덱스", en: "Artist Index" } }
+          ]
+        },
         contact: {
           eyebrow: "Home / Contact",
           items: [
@@ -4428,8 +4673,8 @@
           ]
         }
       };
-      const viewOrder = ["dca", "projects", "studio", "writing", "archive", "development", "contact"];
-      let currentView = "projects";
+      const viewOrder = ["dca", "projects", "artist", "studio", "writing", "contact"];
+      let currentView = "home";
       let currentArchiveFilter = "all";
       let currentWritingFilter = "all";
       let currentLanguage = "ko";
@@ -4450,7 +4695,7 @@
 
       const ui = {
         ko: {
-          navigation: { dca: "소개", projects: "프로젝트", studio: "스튜디오", writing: "글", archive: "아카이브", development: "개발일지", contact: "연락처" },
+          navigation: { dca: "소개", projects: "사운드", artist: "아티스트", studio: "스튜디오", writing: "글", archive: "아카이브", development: "개발일지", contact: "연락처" },
           filters: { all: "전체", studio: "스튜디오", equipment: "장비", identity: "아이덴티티", projects: "프로젝트", misc: "기타" },
           about: "소개", contact: "연락처", index: "목차", close: "닫기", top: "Top",
           searchTitle: "아카이브 검색", searchDescription: "섹션, 장비, 작업복, 라벨, 인쇄물의 이름과 맥락을 찾습니다.", searchPlaceholder: "예: 장비, 라벨, catalogue", searchEmpty: "검색어를 입력하세요.", searchNone: "일치하는 기록이 없습니다.", searchResults: "개 기록", searchOpen: "검색 열기", searchClose: "검색 닫기",
@@ -4459,7 +4704,7 @@
           resultIn: "에서"
         },
         en: {
-          navigation: { dca: "About", projects: "Projects", studio: "Studio", writing: "Writing", archive: "Archive", development: "Development", contact: "Contact" },
+          navigation: { dca: "About", projects: "Sound", artist: "Artist", studio: "Studio", writing: "Writing", archive: "Archive", development: "Development", contact: "Contact" },
           filters: { all: "All", studio: "Studio", equipment: "Equipment", identity: "Identity", projects: "Projects", misc: "Misc" },
           about: "About", contact: "Contact", index: "Index", close: "Close", top: "Top",
           searchTitle: "Search archive", searchDescription: "Find sections, equipment, workwear, labels, and print records.", searchPlaceholder: "e.g. equipment, label, catalogue", searchEmpty: "Enter a search term.", searchNone: "No matching records.", searchResults: " records", searchOpen: "Open search", searchClose: "Close search",
@@ -5160,7 +5405,19 @@
         "모든 브랜드 주장에 사진, 파일, 날짜, 물건 중 하나의 증거가 붙어 있는가.": "Does every brand claim carry evidence in a photograph, file, date, or object?",
         "작업복과 굿즈가 홍보물보다 실제로 쓰는 물건처럼 보이는가.": "Do workwear and goods look more like things people use than promotional items?",
         "한국어 문장이 자연스럽고, 과장된 마케팅 문구로 들리지 않는가.": "Do the Korean sentences feel natural rather than like exaggerated marketing copy?",
-        "빌린 구조 안의 내용을 DCA의 자료로 교체했는가.": "Has the borrowed structure been filled with DCA material?"
+        "빌린 구조 안의 내용을 DCA의 자료로 교체했는가.": "Has the borrowed structure been filled with DCA material?",
+        "사운드 스튜디오 아카이브": "Sound studio archive",
+        "작업의 흔적을 보관합니다": "Keeping traces of work",
+        "소리와 작업의 기록은, 실제 물건에서 시작한다.": "Records of sound and work begin with real objects.",
+        "Deep Couch Archive는 소리, 공간, 사람의 작업 흔적을 남기는 사운드 스튜디오다. 장비, 세션, 인쇄물, 작업복은 다음 판단을 위한 자료로 쌓인다.": "Deep Couch Archive is a sound studio that keeps traces of work in sound, space, and people. Equipment, sessions, print matter, and workwear accumulate as material for the next decision.",
+        "공개 화면과 별개로, 운영자가 계속 확인할 작업 인덱스.": "A working index for operators, separate from the public surface.",
+        "자료와 필터": "Material and filters",
+        "웹 디자인 원칙": "Web design principles",
+        "배포와 운영 기록": "Deployment and operating record",
+        "아티스트는 이름을 나열하기 전에, 함께 남긴 기록으로 소개한다.": "Artists are introduced through the records made together, not by listing names first.",
+        "DCA의 Artist 인덱스는 참여자를 홍보 목록으로 만들지 않는다. 공개 가능한 세션, 촬영, 릴리즈, 대화가 실제로 쌓인 뒤 그 기록을 따라 연결한다.": "The DCA Artist index does not turn participants into a promotional list. It connects them through public-ready sessions, shoots, releases, and conversations once those records have actually accumulated.",
+        "현재 상태.": "Current status.",
+        "아직 공개할 협업 기록을 정리하는 중이다. 기록이 준비되면 이름, 날짜, 작업 맥락, 연결된 사운드와 이미지 자료를 함께 추가한다.": "Public collaboration records are still being prepared. When ready, names, dates, work context, and connected sound and image material will be added together."
       };
       const originalTextNodes = new WeakMap();
 
@@ -5257,7 +5514,8 @@
       const visibleSections = () => sections.filter((section) => !section.hidden);
 
       const searchIndex = [
-        { view: "projects", section: "overview", label: { ko: "현재 작업", en: "Current Work" }, scope: { ko: "프로젝트", en: "Projects" }, keywords: "deep couch archive sound studio archive current work 장비 스튜디오 아카이브" },
+        { view: "home", section: "home", label: { ko: "홈", en: "Home" }, scope: { ko: "DCA", en: "DCA" }, keywords: "deep couch archive home sound artist studio writing 사운드 아티스트 스튜디오 글" },
+        { view: "projects", section: "overview", label: { ko: "현재 작업", en: "Current Work" }, scope: { ko: "사운드", en: "Sound" }, keywords: "deep couch archive sound studio archive current work 장비 스튜디오 아카이브" },
         { view: "projects", section: "launch", label: { ko: "공개 순서", en: "Release Path" }, scope: { ko: "프로젝트", en: "Projects" }, keywords: "launch release website catalogue catalog youtube instagram 공개 카탈로그 콘텐츠" },
         { view: "studio", section: "field-guide", label: { ko: "스튜디오 기준", en: "Studio Method" }, scope: { ko: "스튜디오", en: "Studio" }, keywords: "field guide studio method materiality context behavior 물성 맥락 행동" },
         { view: "studio", section: "material", label: { ko: "물성 노트", en: "Material Notes" }, scope: { ko: "스튜디오", en: "Studio" }, keywords: "material workwear label cap handwritten 작업복 라벨 캡 손글씨" },
@@ -5268,6 +5526,7 @@
         { view: "development", section: "development-editor", label: { ko: "Editor 사용", en: "Using Editor" }, scope: { ko: "개발", en: "Development" }, keywords: "editor publish writing github vercel 이미지 글 발행 에디터 공개 저장" },
         { view: "development", section: "development-domain", label: { ko: "도메인과 DNS", en: "Domain and DNS" }, scope: { ko: "개발", en: "Development" }, keywords: "domain dns gabia cname a record 308 redirect https 도메인 가비아 리디렉션" },
         { view: "development", section: "development-security", label: { ko: "보안과 복구", en: "Security and Recovery" }, scope: { ko: "개발", en: "Development" }, keywords: "security recovery password token environment variable deployment rollback 보안 복구 비밀번호 토큰 환경변수" },
+        { view: "artist", section: "artist", label: { ko: "아티스트 인덱스", en: "Artist Index" }, scope: { ko: "아티스트", en: "Artist" }, keywords: "artist collaboration session release 아티스트 협업 세션 릴리즈" },
         { view: "dca", section: "about", label: { ko: "입장", en: "Position" }, scope: { ko: "DCA", en: "DCA" }, keywords: "position sound space archive 소개 스튜디오 공간 소리" },
         { view: "dca", section: "history", label: { ko: "작업 기록", en: "Working History" }, scope: { ko: "DCA", en: "DCA" }, keywords: "history equipment print field guide 기록 연혁 장비 인쇄" },
         { view: "dca", section: "checklist", label: { ko: "작업 기준", en: "Working Standards" }, scope: { ko: "DCA", en: "DCA" }, keywords: "checklist standards evidence materiality 기준 체크리스트 증거 물성" },
@@ -5472,7 +5731,11 @@
 
       document.querySelectorAll(".reveal").forEach((node) => revealObserver.observe(node));
 
+      const menuFocusables = () => Array.from(mobileToc.querySelectorAll("a[href], button:not([disabled]), [tabindex]:not([tabindex='-1'])"))
+        .filter((node) => !node.hidden && node.getClientRects().length > 0);
+
       const openMenu = () => {
+        menuReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : menuToggle;
         mobileToc.hidden = false;
         scrim.hidden = false;
         requestAnimationFrame(() => {
@@ -5480,6 +5743,7 @@
           mobileToc.classList.add("is-open");
           scrim.classList.add("is-visible");
           menuToggle.setAttribute("aria-expanded", "true");
+          menuFocusables()[0]?.focus();
         });
       };
 
@@ -5488,6 +5752,8 @@
         mobileToc.classList.remove("is-open");
         scrim.classList.remove("is-visible");
         menuToggle.setAttribute("aria-expanded", "false");
+        if (menuReturnFocus?.isConnected) menuReturnFocus.focus();
+        menuReturnFocus = null;
         window.setTimeout(() => {
           mobileToc.hidden = true;
           scrim.hidden = true;
@@ -5497,6 +5763,25 @@
       menuToggle.addEventListener("click", openMenu);
       menuClose.addEventListener("click", closeMenu);
       scrim.addEventListener("click", closeMenu);
+      mobileToc.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          event.preventDefault();
+          closeMenu();
+          return;
+        }
+        if (event.key !== "Tab") return;
+        const focusables = menuFocusables();
+        if (!focusables.length) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      });
       mobileToc.addEventListener("click", (event) => {
         const link = event.target.closest("a");
         if (link) closeMenu();
@@ -5982,6 +6267,8 @@
         if (viewLink) {
           event.preventDefault();
           setView(viewLink.dataset.viewLink);
+          const targetId = viewLink.dataset.viewTarget;
+          if (targetId) window.setTimeout(() => document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
         }
       });
 
@@ -5989,7 +6276,7 @@
         const hash = window.location.hash.replace("#", "");
         if (hash.startsWith("writing/")) return "writing";
         if (viewDefinitions[hash]) return hash;
-        return document.getElementById(hash)?.dataset.view || "projects";
+        return document.getElementById(hash)?.dataset.view || "home";
       };
 
       window.addEventListener("popstate", () => {
