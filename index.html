@@ -185,6 +185,18 @@
       outline-offset: 3px;
     }
 
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .progress {
       position: fixed;
       inset: 0 0 auto;
@@ -283,6 +295,80 @@
       align-items: center;
       justify-content: flex-end;
       gap: var(--space-2);
+    }
+
+    .header-search {
+      display: flex;
+      align-items: center;
+      width: clamp(144px, 13vw, 200px);
+      min-height: var(--control-height);
+      border-bottom: 1px solid var(--border-default);
+      color: var(--text-secondary);
+    }
+
+    .header-search:focus-within {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+    }
+
+    .header-search__input {
+      width: 100%;
+      min-width: 0;
+      height: var(--control-height);
+      padding: 0 var(--space-1);
+      border: 0;
+      outline: 0;
+      color: var(--text-primary);
+      background: transparent;
+      font: inherit;
+      font-size: var(--font-size-sm);
+    }
+
+    .header-search__input::placeholder {
+      color: var(--text-tertiary);
+      opacity: 1;
+    }
+
+    .header-search__button {
+      width: var(--control-height);
+      min-width: var(--control-height);
+      height: var(--control-height);
+      padding: 0;
+      border: 0;
+      color: inherit;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .header-search__button svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 1.6;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--control-height);
+      gap: var(--space-1);
+      padding: 0 var(--space-2);
+      border: 0;
+      color: var(--text-secondary);
+      background: transparent;
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      cursor: pointer;
+      transition: color var(--transition-fast);
+    }
+
+    .theme-toggle:hover {
+      color: var(--text-primary);
+    }
+
+    .theme-toggle svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 1.6;
     }
 
     .icon-button {
@@ -1545,15 +1631,25 @@
         gap: 0;
       }
 
-      body.is-home-view .icon-button,
+      body.is-home-view .header-search,
+      body.is-home-view .theme-toggle,
       body.is-home-view .language-toggle {
         min-height: 28px;
         height: 28px;
       }
 
-      body.is-home-view .icon-button:hover {
-        border-color: transparent;
-        background: transparent;
+      body.is-home-view .header-search {
+        width: 180px;
+      }
+
+      body.is-home-view .header-search__input,
+      body.is-home-view .header-search__button {
+        height: 28px;
+      }
+
+      body.is-home-view .header-search__button {
+        min-width: 28px;
+        width: 28px;
       }
 
       body.is-home-view .language-popover {
@@ -3034,21 +3130,6 @@
       transform: translateY(0);
     }
 
-    .site-footer {
-      border-top: 1px solid var(--border-default);
-      padding: var(--space-8) var(--space-6);
-      color: var(--text-tertiary);
-      font-size: var(--font-size-sm);
-    }
-
-    .site-footer__inner {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: var(--space-4);
-      width: min(100%, var(--max-content));
-      margin: 0 auto;
-    }
-
     .mobile-toc {
       position: fixed;
       inset: auto 0 0;
@@ -3165,11 +3246,24 @@
         gap: var(--space-1);
       }
 
-      .site-header .icon-button {
+      .header-search {
+        width: 112px;
+        min-height: 30px;
+      }
+
+      .header-search__input,
+      .header-search__button {
+        height: 30px;
+      }
+
+      .header-search__button {
         width: 30px;
         min-width: 30px;
-        height: 30px;
-        padding: 0;
+      }
+
+      .theme-toggle {
+        min-height: 30px;
+        padding: 0 var(--space-1);
       }
 
       .site-header .language-toggle {
@@ -3409,6 +3503,7 @@
       }
 
       .brand__mark {
+        font-size: var(--font-size-sm);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -3418,10 +3513,24 @@
         gap: 4px;
       }
 
-      .icon-button {
-        width: 32px;
-        min-width: 32px;
+      .header-search {
+        width: 96px;
+        min-height: 32px;
+      }
+
+      .header-search__input,
+      .header-search__button {
         height: 32px;
+      }
+
+      .header-search__button {
+        width: 28px;
+        min-width: 28px;
+      }
+
+      .theme-toggle {
+        min-height: 32px;
+        padding: 0 2px;
       }
 
       .language-toggle {
@@ -3550,11 +3659,13 @@
         <button class="site-nav__link site-nav__utility" type="button" data-view-trigger="contact" aria-current="false">연락처</button>
       </nav>
       <div class="header-actions">
-        <button class="icon-button" type="button" id="themeToggle" aria-label="라이트 모드로 전환" data-tooltip="라이트 모드">
-          <i data-lucide="sun" aria-hidden="true"></i>
-        </button>
-        <button class="icon-button" type="button" id="searchTrigger" aria-label="검색 열기" data-tooltip="검색">
-          <i data-lucide="search" aria-hidden="true"></i>
+        <div class="header-search" role="search">
+          <label class="sr-only" for="headerSearchInput">사이트 검색</label>
+          <input class="header-search__input" id="headerSearchInput" type="search" autocomplete="off" placeholder="Search" aria-label="사이트 검색">
+          <button class="header-search__button" type="button" id="searchTrigger" aria-label="검색 실행" data-tooltip="검색 실행"><i data-lucide="search" aria-hidden="true"></i></button>
+        </div>
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="라이트 모드로 전환" data-tooltip="라이트 모드">
+          <i data-lucide="sun" aria-hidden="true"></i><span id="themeLabel">Dark</span>
         </button>
         <div class="language-menu" id="languageMenu">
           <button class="language-toggle" type="button" id="languageToggle" aria-haspopup="true" aria-expanded="false" aria-controls="languagePopover" aria-label="언어 선택: 한국어">
@@ -3594,12 +3705,14 @@
 
           <section class="home-admin" aria-labelledby="homeAdminTitle" data-home-admin-index>
             <div class="home-admin__inner">
-              <h2 class="home-admin__title" id="homeAdminTitle">공개 화면과 별개로, 운영자가 계속 확인할 작업 인덱스.</h2>
-              <ol class="home-admin__list">
-                <li><a class="home-admin__link" href="#archive" data-view-link="archive">Archive</a></li>
-                <li><a class="home-admin__link" href="#design-system" data-view-link="studio" data-view-target="design-system">Design</a></li>
-                <li><a class="home-admin__link" href="#development" data-view-link="development">Development</a></li>
-              </ol>
+              <h2 class="home-admin__title" id="homeAdminTitle">DCA 하단 정보</h2>
+              <ul class="home-admin__list" aria-label="DCA 하단 정보">
+                <li><span class="home-admin__link">Terms of use</span></li>
+                <li><span class="home-admin__link">Press</span></li>
+                <li><span class="home-admin__link">Rights &amp; Licensing</span></li>
+                <li><span class="home-admin__link">Instagram</span></li>
+                <li><span class="home-admin__link">YouTube</span></li>
+              </ul>
             </div>
           </section>
         </section>
@@ -4568,13 +4681,6 @@
     </main>
   </div>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <span>Deep Couch Archive / Sound Studio Field Guide / 2026-07-14</span>
-      <span>Designed from archive evidence</span>
-    </div>
-  </footer>
-
   <div class="scrim" id="scrim" hidden></div>
   <nav class="mobile-toc" id="mobileToc" aria-label="모바일 목차" hidden>
     <div class="mobile-toc__head">
@@ -4621,8 +4727,10 @@
       const scrim = document.getElementById("scrim");
       let menuReturnFocus = null;
       const themeToggle = document.getElementById("themeToggle");
+      const themeLabel = document.getElementById("themeLabel");
       const languageToggle = document.getElementById("languageToggle");
       const languageLabel = document.getElementById("languageLabel");
+      const headerSearchInput = document.getElementById("headerSearchInput");
       const searchTrigger = document.getElementById("searchTrigger");
       const searchDialog = document.getElementById("searchDialog");
       const searchInput = document.getElementById("searchInput");
@@ -5549,7 +5657,10 @@
         const label = isDark ? ui[currentLanguage].lightMode : ui[currentLanguage].darkMode;
         themeToggle.setAttribute("aria-label", label);
         themeToggle.dataset.tooltip = label;
-        themeToggle.innerHTML = `<i data-lucide="${isDark ? "sun" : "moon"}" aria-hidden="true"></i>`;
+        themeToggle.querySelector("[data-lucide]").setAttribute("data-lucide", isDark ? "sun" : "moon");
+        themeLabel.textContent = isDark
+          ? (currentLanguage === "ko" ? "다크" : "Dark")
+          : (currentLanguage === "ko" ? "라이트" : "Light");
         renderIcons();
       };
 
@@ -5566,6 +5677,8 @@
         menuToggle.textContent = copy.index;
         menuClose.textContent = copy.close;
         backToTop.textContent = copy.top;
+        headerSearchInput.setAttribute("aria-label", copy.searchTitle);
+        headerSearchInput.placeholder = currentLanguage === "ko" ? "검색" : "Search";
         searchTrigger.setAttribute("aria-label", copy.searchOpen);
         searchTrigger.dataset.tooltip = copy.searchOpen;
         const languageName = currentLanguage === "ko" ? "한국어" : "English";
@@ -5658,10 +5771,10 @@
         renderIcons();
       };
 
-      const openSearch = () => {
+      const openSearch = (query = "") => {
         if (!searchDialog.open) searchDialog.showModal();
-        searchInput.value = "";
-        renderSearchResults();
+        searchInput.value = query;
+        renderSearchResults(query);
         window.setTimeout(() => searchInput.focus(), 0);
       };
 
@@ -5907,7 +6020,12 @@
           : "Keyboard activation confirmed. The current menu or filter selection has not changed.";
       });
 
-      searchTrigger.addEventListener("click", openSearch);
+      searchTrigger.addEventListener("click", () => openSearch(headerSearchInput.value));
+      headerSearchInput.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        openSearch(headerSearchInput.value);
+      });
       searchInput.addEventListener("input", () => renderSearchResults(searchInput.value));
       searchResults.addEventListener("click", (event) => {
         const result = event.target.closest("[data-search-view]");
