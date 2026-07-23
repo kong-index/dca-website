@@ -252,8 +252,9 @@
       align-items: center;
       justify-content: center;
       gap: var(--space-6);
-      font-size: var(--font-size-sm);
-      font-weight: 500;
+      font-size: var(--font-size-base);
+      font-weight: 400;
+      letter-spacing: 0;
       color: var(--text-secondary);
     }
 
@@ -1529,7 +1530,7 @@
       }
 
       body.is-home-view .site-header {
-        position: absolute;
+        position: fixed;
         inset: 0 0 auto;
         min-height: 0;
         border-bottom: 0;
@@ -1558,14 +1559,16 @@
         justify-content: flex-start;
         gap: 0;
         margin-top: var(--space-2);
-        font-size: var(--font-size-base);
-        line-height: 28px;
+        font-size: var(--font-size-lg);
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: 0;
       }
 
       body.is-home-view .site-nav__link,
       body.is-home-view .site-nav__link:hover,
       body.is-home-view .site-nav__link[aria-current="page"] {
-        min-height: 28px;
+        min-height: 30px;
         padding: 0;
         border: 0;
         color: var(--text-secondary);

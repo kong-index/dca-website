@@ -22,8 +22,11 @@ test("home navigation keeps the lower menu in three clear groups", () => {
   assert.equal((html.match(/class="home-admin__group"/g) || []).length, 3);
   assert.match(html, /id="searchTrigger"/);
   assert.match(html, /class="icon-button header-search"/);
-  assert.match(html, /\.site-nav__link \{[\s\S]*?font-weight: 500;/);
-  assert.match(html, /\.site-nav \{[\s\S]*?gap: var\(--space-6\);/);
+  assert.match(html, /body\.is-home-view \.site-header \{[\s\S]*?position: fixed;/);
+  assert.match(html, /body\.is-home-view \.site-nav \{[\s\S]*?font-size: var\(--font-size-lg\);/);
+  assert.match(html, /body\.is-home-view \.site-nav \{[\s\S]*?font-weight: 400;/);
+  assert.match(html, /body\.is-home-view \.site-nav \{[\s\S]*?line-height: 30px;/);
+  assert.match(html, /body\.is-home-view \.site-nav \{[\s\S]*?letter-spacing: 0;/);
   assert.match(html, /\[data-theme="light"\] \{[\s\S]*?--home-canvas: #FAF9F7;/);
   assert.doesNotMatch(html, /id="headerSearchInput"/);
   assert.doesNotMatch(html, /id="themeLabel"/);
