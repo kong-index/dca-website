@@ -1449,8 +1449,7 @@
       min-width: 0;
     }
 
-    .home-landing__title,
-    .home-admin__title {
+    .home-landing__title {
       position: absolute;
       width: 1px;
       height: 1px;
@@ -1473,54 +1472,6 @@
       aspect-ratio: 1;
       object-fit: contain;
       background: var(--surface-media);
-    }
-
-    .home-admin {
-      min-height: clamp(340px, 28vw, 540px);
-      color: var(--home-index-text);
-      background: var(--home-index-surface);
-    }
-
-    .home-admin__inner {
-      width: 100%;
-      min-height: inherit;
-      margin: 0 auto;
-      padding: var(--space-8) var(--space-6);
-    }
-
-    .home-admin__list {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .home-admin__group + .home-admin__group {
-      margin-top: var(--space-5);
-    }
-
-    .home-admin__link {
-      display: block;
-      min-height: 30px;
-      min-width: 0;
-      padding: 0;
-      color: var(--home-index-text);
-      font-size: var(--font-size-base);
-      font-weight: 400;
-      line-height: 30px;
-      transition: color var(--transition-fast), opacity var(--transition-fast);
-    }
-
-    .home-admin__link:hover {
-      color: var(--home-index-text);
-      opacity: 0.62;
-    }
-
-    .home-admin__link strong {
-      color: inherit;
-      font: inherit;
     }
 
     @media (min-width: 769px) {
@@ -3256,23 +3207,6 @@
         width: min(72vw, 360px);
       }
 
-      .home-admin {
-        min-height: 280px;
-      }
-
-      .home-admin__inner {
-        padding: var(--space-6) var(--space-4);
-      }
-
-      .home-admin__list {
-        min-height: 0;
-      }
-
-      .home-admin__link {
-        min-height: 30px;
-        padding: 0;
-      }
-
       .hero {
         padding-top: var(--space-6);
       }
@@ -3629,31 +3563,6 @@
             </div>
           </div>
 
-          <section class="home-admin" aria-labelledby="homeAdminTitle" data-home-admin-index>
-            <div class="home-admin__inner">
-              <h2 class="home-admin__title" id="homeAdminTitle">DCA 하단 정보</h2>
-              <div class="home-admin__group">
-                <ul class="home-admin__list" aria-label="운영 인덱스">
-                  <li><a class="home-admin__link" href="#archive" data-view-link="archive">Archive</a></li>
-                  <li><a class="home-admin__link" href="#design-system" data-view-link="studio" data-view-target="design-system">Design</a></li>
-                  <li><a class="home-admin__link" href="#development" data-view-link="development">Development</a></li>
-                </ul>
-              </div>
-              <div class="home-admin__group">
-                <ul class="home-admin__list" aria-label="이용 정보">
-                  <li><span class="home-admin__link">Press</span></li>
-                  <li><span class="home-admin__link">Terms of use</span></li>
-                  <li><span class="home-admin__link">Rights &amp; Licensing</span></li>
-                </ul>
-              </div>
-              <div class="home-admin__group">
-                <ul class="home-admin__list" aria-label="공식 채널">
-                  <li><span class="home-admin__link">Instagram</span></li>
-                  <li><span class="home-admin__link">YouTube</span></li>
-                </ul>
-              </div>
-            </div>
-          </section>
         </section>
 
         <section class="hero article-column reveal" id="overview" data-section-title="Current Work" data-view="projects">
