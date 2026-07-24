@@ -71,13 +71,34 @@ assert image.getpixel((920, 650)) == (250, 249, 247, 255), image.getpixel((920, 
   });
 });
 
+test("Home LP uses one clean cover-to-record seam in both themes", () => {
+  const script = `
+from PIL import Image
+
+light = Image.open("assets/illustrations/vinyl-dca-home-light.png").convert("RGBA")
+assert light.getpixel((875, 500)) == (250, 249, 247, 255), light.getpixel((875, 500))
+assert light.getpixel((880, 500)) == (16, 16, 16, 255), light.getpixel((880, 500))
+assert light.getpixel((882, 500)) == (16, 16, 16, 255), light.getpixel((882, 500))
+assert light.getpixel((890, 500)) == (16, 16, 16, 255), light.getpixel((890, 500))
+
+dark = Image.open("assets/illustrations/vinyl-dca-home-dark.png").convert("RGBA")
+assert dark.getpixel((875, 500)) == (101, 101, 101, 255), dark.getpixel((875, 500))
+assert dark.getpixel((880, 500)) == (182, 182, 174, 255), dark.getpixel((880, 500))
+assert dark.getpixel((890, 500)) == (244, 244, 241, 255), dark.getpixel((890, 500))
+`;
+
+  assert.doesNotThrow(() => {
+    childProcess.execFileSync("python3", ["-c", script], { cwd: path.join(__dirname, "..") });
+  });
+});
+
 test("dark Home LP keeps a gray sleeve, record label, and a dark spindle hole", () => {
   const script = `
 from PIL import Image
 image = Image.open("assets/illustrations/vinyl-dca-home-dark.png").convert("RGBA")
 assert image.getpixel((500, 500)) == (101, 101, 101, 255), image.getpixel((500, 500))
 assert image.getpixel((920, 650)) == (101, 101, 101, 255), image.getpixel((920, 650))
-assert image.getpixel((900, 650)) == (16, 16, 16, 0), image.getpixel((900, 650))
+assert image.getpixel((900, 650)) == (16, 16, 16, 255), image.getpixel((900, 650))
 assert image.getpixel((1040, 650)) == (244, 244, 241, 255), image.getpixel((1040, 650))
 `;
 
