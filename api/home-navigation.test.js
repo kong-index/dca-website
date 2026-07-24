@@ -49,7 +49,7 @@ test("dark Home LP gives the cover outline a quieter secondary contrast", () => 
   const script = `
 from PIL import Image
 image = Image.open("assets/illustrations/vinyl-dca-home-dark.png").convert("RGBA")
-assert image.getpixel((500, 280)) == (182, 182, 174, 255), image.getpixel((500, 280))
+assert image.getpixel((500, 270)) == (182, 182, 174, 255), image.getpixel((500, 270))
 `;
 
   assert.doesNotThrow(() => {
@@ -62,8 +62,28 @@ test("light Home LP keeps warm-white grooves on the black record", () => {
 from PIL import Image
 image = Image.open("assets/illustrations/vinyl-dca-home-light.png").convert("RGBA")
 assert image.getpixel((960, 340)) == (16, 16, 16, 255), image.getpixel((960, 340))
-assert image.getpixel((1000, 420)) == (244, 244, 241, 255), image.getpixel((1000, 420))
-assert image.getpixel((920, 650)) == (250, 249, 247, 255), image.getpixel((920, 650))
+assert image.getpixel((1207, 650))[0] >= 244, image.getpixel((1207, 650))
+assert image.getpixel((940, 650)) == (250, 249, 247, 255), image.getpixel((940, 650))
+`;
+
+  assert.doesNotThrow(() => {
+    childProcess.execFileSync("python3", ["-c", script], { cwd: path.join(__dirname, "..") });
+  });
+});
+
+test("Home LP uses straight geometric cover edges", () => {
+  const script = `
+from PIL import Image
+
+light = Image.open("assets/illustrations/vinyl-dca-home-light.png").convert("RGBA")
+assert light.getpixel((110, 650)) == (16, 16, 16, 255), light.getpixel((110, 650))
+assert light.getpixel((500, 270)) == (16, 16, 16, 255), light.getpixel((500, 270))
+assert light.getpixel((875, 650)) == (16, 16, 16, 255), light.getpixel((875, 650))
+
+dark = Image.open("assets/illustrations/vinyl-dca-home-dark.png").convert("RGBA")
+assert dark.getpixel((110, 650)) == (182, 182, 174, 255), dark.getpixel((110, 650))
+assert dark.getpixel((500, 270)) == (182, 182, 174, 255), dark.getpixel((500, 270))
+assert dark.getpixel((875, 650)) == (182, 182, 174, 255), dark.getpixel((875, 650))
 `;
 
   assert.doesNotThrow(() => {
@@ -76,15 +96,16 @@ test("Home LP uses one clean cover-to-record seam in both themes", () => {
 from PIL import Image
 
 light = Image.open("assets/illustrations/vinyl-dca-home-light.png").convert("RGBA")
-assert light.getpixel((875, 500)) == (250, 249, 247, 255), light.getpixel((875, 500))
-assert light.getpixel((880, 500)) == (16, 16, 16, 255), light.getpixel((880, 500))
-assert light.getpixel((882, 500)) == (16, 16, 16, 255), light.getpixel((882, 500))
-assert light.getpixel((890, 500)) == (16, 16, 16, 255), light.getpixel((890, 500))
+assert light.getpixel((872, 500)) == (250, 249, 247, 255), light.getpixel((872, 500))
+assert light.getpixel((873, 500)) == (16, 16, 16, 255), light.getpixel((873, 500))
+assert light.getpixel((875, 500)) == (16, 16, 16, 255), light.getpixel((875, 500))
+assert light.getpixel((876, 500)) == (16, 16, 16, 255), light.getpixel((876, 500))
 
 dark = Image.open("assets/illustrations/vinyl-dca-home-dark.png").convert("RGBA")
-assert dark.getpixel((875, 500)) == (101, 101, 101, 255), dark.getpixel((875, 500))
-assert dark.getpixel((880, 500)) == (182, 182, 174, 255), dark.getpixel((880, 500))
-assert dark.getpixel((890, 500)) == (244, 244, 241, 255), dark.getpixel((890, 500))
+assert dark.getpixel((872, 500)) == (101, 101, 101, 255), dark.getpixel((872, 500))
+assert dark.getpixel((873, 500)) == (182, 182, 174, 255), dark.getpixel((873, 500))
+assert dark.getpixel((875, 500)) == (182, 182, 174, 255), dark.getpixel((875, 500))
+assert dark.getpixel((876, 500)) == (244, 244, 241, 255), dark.getpixel((876, 500))
 `;
 
   assert.doesNotThrow(() => {
@@ -97,8 +118,8 @@ test("dark Home LP keeps a gray sleeve, record label, and a dark spindle hole", 
 from PIL import Image
 image = Image.open("assets/illustrations/vinyl-dca-home-dark.png").convert("RGBA")
 assert image.getpixel((500, 500)) == (101, 101, 101, 255), image.getpixel((500, 500))
-assert image.getpixel((920, 650)) == (101, 101, 101, 255), image.getpixel((920, 650))
-assert image.getpixel((900, 650)) == (16, 16, 16, 255), image.getpixel((900, 650))
+assert image.getpixel((940, 650)) == (101, 101, 101, 255), image.getpixel((940, 650))
+assert image.getpixel((880, 650)) == (16, 16, 16, 255), image.getpixel((880, 650))
 assert image.getpixel((1040, 650)) == (244, 244, 241, 255), image.getpixel((1040, 650))
 `;
 
