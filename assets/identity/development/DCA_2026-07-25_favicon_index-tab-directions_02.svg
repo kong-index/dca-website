@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Deep Couch Archive refined index tab favicon directions</title>
+  <desc id="description">Two refined favicon candidates that read as D first and use a restrained corner or top archive index silhouette.</desc>
+  <style>
+    .paper { fill: #FAFAFA; }
+    .ink { fill: #111111; }
+    .line { fill: none; stroke: #D4D1CB; stroke-width: 2; }
+    .eyebrow { fill: #6F6C68; font: 600 18px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 1.8px; }
+    .heading { fill: #111111; font: 700 42px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .body { fill: #6F6C68; font: 400 22px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .label { fill: #6F6C68; font: 600 16px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 1.4px; }
+    .name { fill: #111111; font: 700 27px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  </style>
+  <rect class="paper" width="1600" height="900"/>
+  <text class="eyebrow" x="96" y="86">DCA / IDENTITY STUDY / 2026-07-25 / INDEX TAB REFINEMENT</text>
+  <text class="heading" x="96" y="145">D first. Index second.</text>
+  <text class="body" x="96" y="185">Two clear archive-index readings remain for final selection.</text>
+  <line class="line" x1="96" y1="236" x2="1504" y2="236"/>
+  <g transform="translate(312 300)"><rect class="line" width="432" height="504"/><text class="label" x="40" y="51">01 / CORNER INDEX</text><rect class="line" x="40" y="80" width="352" height="280"/><image href="DCA_2026-07-25_favicon_d-corner-index_candidate.png" x="136" y="106" width="160" height="160"/><line class="line" x1="40" y1="391" x2="392" y2="391"/><text class="name" x="40" y="432">D / corner</text><text class="label" x="40" y="474">QUIET / PRIMARY</text></g>
+  <g transform="translate(856 300)"><rect class="line" width="432" height="504"/><text class="label" x="40" y="51">02 / TOP INDEX</text><rect class="line" x="40" y="80" width="352" height="280"/><image href="DCA_2026-07-25_favicon_d-top-index_candidate.png" x="136" y="106" width="160" height="160"/><line class="line" x1="40" y1="391" x2="392" y2="391"/><text class="name" x="40" y="432">D / top tab</text><text class="label" x="40" y="474">FOLDER / ARCHIVE</text></g>
+</svg>
