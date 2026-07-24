@@ -1477,7 +1477,19 @@
       width: 100%;
       aspect-ratio: 1;
       object-fit: contain;
-      background: var(--surface-media);
+      background: transparent;
+    }
+
+    .home-landing__media .home-landing__art--dark {
+      display: none;
+    }
+
+    [data-theme="dark"] .home-landing__art--light {
+      display: none;
+    }
+
+    [data-theme="dark"] .home-landing__art--dark {
+      display: block;
     }
 
     .home-admin {
@@ -3631,7 +3643,8 @@
             <div class="home-landing__center">
               <h1 class="home-landing__title" id="homeTitle">Deep Couch Archive</h1>
               <figure class="home-landing__media">
-                <img src="assets/illustrations/vinyl-dca-handwritten-higgsfield.png" width="1250" height="1250" alt="Deep Couch Archive 레코드 커버와 LP 손그림" data-i18n-alt-ko="Deep Couch Archive 레코드 커버와 LP 손그림" data-i18n-alt-en="Deep Couch Archive record cover and LP drawing" fetchpriority="high">
+                <img class="home-landing__art home-landing__art--light" src="assets/illustrations/vinyl-dca-home-light.png" width="1300" height="1300" alt="Deep Couch Archive 레코드 커버와 LP 손그림" data-i18n-alt-ko="Deep Couch Archive 레코드 커버와 LP 손그림" data-i18n-alt-en="Deep Couch Archive record cover and LP drawing" fetchpriority="high">
+                <img class="home-landing__art home-landing__art--dark" src="assets/illustrations/vinyl-dca-home-dark.png" width="1300" height="1300" alt="" aria-hidden="true">
               </figure>
             </div>
           </div>

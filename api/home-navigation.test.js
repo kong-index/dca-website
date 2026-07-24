@@ -28,6 +28,11 @@ test("home navigation keeps the lower menu in three clear groups", () => {
   assert.match(html, /body\.is-home-view \.site-nav \{[\s\S]*?line-height: 30px;/);
   assert.match(html, /body\.is-home-view \.site-nav \{[\s\S]*?letter-spacing: 0;/);
   assert.match(html, /\[data-view\]\[hidden\] \{\s*display: none !important;/);
+  assert.match(html, /assets\/illustrations\/vinyl-dca-home-light\.png/);
+  assert.match(html, /assets\/illustrations\/vinyl-dca-home-dark\.png/);
+  assert.match(html, /\[data-theme="dark"\] \.home-landing__art--light \{\s*display: none;/);
+  assert.match(html, /\[data-theme="dark"\] \.home-landing__art--dark \{\s*display: block;/);
+  assert.match(html, /\.home-landing__media img \{[\s\S]*?background: transparent;/);
   assert.match(html, /\[data-theme="light"\] \{[\s\S]*?--home-canvas: #FAF9F7;/);
   assert.doesNotMatch(html, /id="headerSearchInput"/);
   assert.doesNotMatch(html, /id="themeLabel"/);
