@@ -1,4 +1,5 @@
 const assert = require("node:assert/strict");
+const childProcess = require("node:child_process");
 const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
@@ -33,6 +34,7 @@ test("home navigation keeps the lower menu in three clear groups", () => {
   assert.match(html, /\[data-theme="dark"\] \.home-landing__art--light \{\s*display: none;/);
   assert.match(html, /\[data-theme="dark"\] \.home-landing__art--dark \{\s*display: block;/);
   assert.match(html, /\.home-landing__media img \{[\s\S]*?background: transparent;/);
+  assert.match(html, /@media \(max-width: 768px\) \{[\s\S]*?body\.is-home-view \.site-nav \{[\s\S]*?display: flex;/);
   assert.match(html, /\[data-theme="light"\] \{[\s\S]*?--home-canvas: #FAF9F7;/);
   assert.doesNotMatch(html, /id="headerSearchInput"/);
   assert.doesNotMatch(html, /id="themeLabel"/);
@@ -40,4 +42,17 @@ test("home navigation keeps the lower menu in three clear groups", () => {
   assert.doesNotMatch(html, /DCA \/ FIELD OBJECT/);
   assert.doesNotMatch(html, /home-landing__caption/);
   assert.doesNotMatch(html, /Designed from archive evidence/);
+});
+
+test("dark Home LP keeps the cover outline as light linework", () => {
+  const script = `
+from PIL import Image
+image = Image.open("assets/illustrations/vinyl-dca-home-dark.png").convert("RGBA")
+red, green, blue, alpha = image.getpixel((500, 280))
+assert alpha > 0 and min(red, green, blue) >= 230, (red, green, blue, alpha)
+`;
+
+  assert.doesNotThrow(() => {
+    childProcess.execFileSync("python3", ["-c", script], { cwd: path.join(__dirname, "..") });
+  });
 });

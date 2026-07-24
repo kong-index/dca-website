@@ -3206,6 +3206,68 @@
         display: none;
       }
 
+      body.is-home-view .site-header {
+        position: fixed;
+        inset: 0 0 auto;
+        min-height: 0;
+        border-bottom: 0;
+        background: transparent;
+      }
+
+      body.is-home-view .site-header__inner {
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-rows: auto auto;
+        align-items: start;
+        width: 100%;
+        min-height: 0;
+        padding: var(--space-4);
+      }
+
+      body.is-home-view .brand {
+        grid-column: 1;
+        grid-row: 1;
+        overflow: visible;
+      }
+
+      body.is-home-view .site-nav {
+        display: flex;
+        grid-column: 1;
+        grid-row: 2;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        margin-top: var(--space-2);
+        font-size: var(--font-size-base);
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: 0;
+      }
+
+      body.is-home-view .site-nav__link,
+      body.is-home-view .site-nav__link:hover,
+      body.is-home-view .site-nav__link[aria-current="page"] {
+        min-height: 26px;
+        padding: 0;
+        border: 0;
+        color: var(--text-secondary);
+        background: transparent;
+      }
+
+      body.is-home-view .site-nav__link:hover,
+      body.is-home-view .site-nav__link:focus-visible {
+        color: var(--text-primary);
+      }
+
+      body.is-home-view .header-actions {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-items: center;
+      }
+
+      body.is-home-view .menu-toggle {
+        display: none;
+      }
+
       .header-actions {
         gap: var(--space-1);
       }
@@ -3268,11 +3330,11 @@
 
       .home-landing {
         min-height: 100dvh;
-        padding: var(--space-10) var(--space-4) var(--space-6);
+        padding: 132px var(--space-4) var(--space-6);
       }
 
       .home-landing__media {
-        width: min(72vw, 360px);
+        width: min(68vw, 340px);
       }
 
       .home-admin {
