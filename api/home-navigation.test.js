@@ -45,12 +45,25 @@ test("home navigation keeps the lower menu in three clear groups", () => {
   assert.doesNotMatch(html, /Designed from archive evidence/);
 });
 
-test("dark Home LP keeps the cover outline as light linework", () => {
+test("dark Home LP gives the cover outline a quieter secondary contrast", () => {
   const script = `
 from PIL import Image
 image = Image.open("assets/illustrations/vinyl-dca-home-dark.png").convert("RGBA")
-red, green, blue, alpha = image.getpixel((500, 280))
-assert alpha > 0 and min(red, green, blue) >= 230, (red, green, blue, alpha)
+assert image.getpixel((500, 280)) == (182, 182, 174, 255), image.getpixel((500, 280))
+`;
+
+  assert.doesNotThrow(() => {
+    childProcess.execFileSync("python3", ["-c", script], { cwd: path.join(__dirname, "..") });
+  });
+});
+
+test("light Home LP keeps warm-white grooves on the black record", () => {
+  const script = `
+from PIL import Image
+image = Image.open("assets/illustrations/vinyl-dca-home-light.png").convert("RGBA")
+assert image.getpixel((960, 340)) == (16, 16, 16, 255), image.getpixel((960, 340))
+assert image.getpixel((1000, 420)) == (244, 244, 241, 255), image.getpixel((1000, 420))
+assert image.getpixel((920, 650)) == (250, 249, 247, 255), image.getpixel((920, 650))
 `;
 
   assert.doesNotThrow(() => {
