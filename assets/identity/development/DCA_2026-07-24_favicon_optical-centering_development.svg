@@ -3,6 +3,17 @@
   <title id="title">DCA D Favicon Optical Centering Development</title>
   <desc id="description">Illustrator-editable development board documenting the optical centering process for the DCA D favicon.</desc>
 
+  <defs>
+    <g id="favicon-master-geometric" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+      <circle cx="256" cy="256" r="184" fill="none" stroke="#111111" stroke-width="31"/>
+      <text x="252" y="250" fill="#111111" font-size="280" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+    </g>
+    <g id="favicon-master-final" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+      <circle cx="256" cy="256" r="184" fill="none" stroke="#111111" stroke-width="31"/>
+      <text x="262" y="250" fill="#111111" font-size="280" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+    </g>
+  </defs>
+
   <g inkscape:groupmode="layer" inkscape:label="01 Background" id="background">
     <rect width="1440" height="1080" fill="#FAF9F7"/>
     <rect x="72" y="186" width="1296" height="658" fill="#FFFFFF" stroke="#DDD9D1"/>
@@ -14,22 +25,23 @@
     <text x="72" y="72" font-size="16" font-weight="700" letter-spacing="1.8">DCA / IDENTITY DEVELOPMENT</text>
     <text x="72" y="122" font-size="42" font-weight="700">D favicon optical centering</text>
     <text x="72" y="154" font-size="18" fill="#62615C">보이는 중심은 도형의 정가운데와 다르다. D의 잉크 면적을 기준으로 다시 맞췄다.</text>
-    <text x="1368" y="72" text-anchor="end" font-size="14" fill="#62615C" letter-spacing="0.7">2026-07-24 / VERSION 01</text>
+    <text x="1368" y="72" text-anchor="end" font-size="14" fill="#62615C" letter-spacing="0.7">2026-07-24 / VERSION 02</text>
   </g>
 
   <g inkscape:groupmode="layer" inkscape:label="03 Geometric Candidate" id="geometric-candidate" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
     <text x="104" y="232" font-size="14" font-weight="700" fill="#B92318" letter-spacing="1.2">01 / GEOMETRIC CENTER</text>
-    <text x="104" y="258" font-size="16" fill="#62615C">외곽 박스 중심만 맞춘 최초안</text>
-    <circle cx="396" cy="510" r="170" fill="none" stroke="#111111" stroke-width="28"/>
+    <text x="104" y="258" font-size="16" fill="#62615C">512px 마스터에서 외곽 중심만 맞춘 최초안</text>
+    <g transform="translate(396 510) scale(0.9239130435) translate(-256 -256)">
+      <use href="#favicon-master-geometric"/>
+    </g>
     <line x1="196" y1="510" x2="596" y2="510" stroke="#B92318" stroke-width="1.5" stroke-dasharray="7 7"/>
     <line x1="396" y1="310" x2="396" y2="710" stroke="#B92318" stroke-width="1.5" stroke-dasharray="7 7"/>
     <circle cx="396" cy="510" r="5" fill="#B92318"/>
-    <text x="392" y="504" fill="#111111" font-size="256" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
-    <circle cx="386.8" cy="510.4" r="7" fill="#B92318"/>
-    <line x1="386.8" y1="510.4" x2="306" y2="631" stroke="#B92318" stroke-width="1.5"/>
+    <circle cx="387.05" cy="510.4" r="7" fill="#B92318"/>
+    <line x1="387.05" y1="510.4" x2="306" y2="631" stroke="#B92318" stroke-width="1.5"/>
     <rect x="154" y="630" width="290" height="82" fill="#FFF8F6" stroke="#B92318"/>
     <text x="174" y="660" font-size="14" font-weight="700" fill="#B92318">INK CENTROID</text>
-    <text x="174" y="688" font-size="15" fill="#1B1B19">x 246.31 / 원 중심보다 -9.19px</text>
+    <text x="174" y="688" font-size="15" fill="#1B1B19">x 246.31 / 벡터 중심보다 -9.69px</text>
     <text x="104" y="772" font-size="18" font-weight="700" fill="#1B1B19">문제</text>
     <text x="104" y="802" font-size="17" fill="#62615C">D의 왼쪽 세로 기둥이 무게를 만들어,</text>
     <text x="104" y="828" font-size="17" fill="#62615C">정확히 가운데여도 왼쪽으로 읽힌다.</text>
@@ -37,19 +49,20 @@
 
   <g inkscape:groupmode="layer" inkscape:label="04 Optical Correction" id="optical-correction" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
     <text x="752" y="232" font-size="14" font-weight="700" fill="#496D86" letter-spacing="1.2">02 / OPTICAL CORRECTION</text>
-    <text x="752" y="258" font-size="16" fill="#62615C">잉크 면적 중심을 기준으로 오른쪽 10px 보정</text>
-    <circle cx="1044" cy="510" r="170" fill="none" stroke="#111111" stroke-width="28"/>
+    <text x="752" y="258" font-size="16" fill="#62615C">같은 512px 마스터에서 오른쪽 10px 보정</text>
+    <g transform="translate(1044 510) scale(0.9239130435) translate(-256 -256)">
+      <use href="#favicon-master-final"/>
+    </g>
     <line x1="844" y1="510" x2="1244" y2="510" stroke="#496D86" stroke-width="1.5" stroke-dasharray="7 7"/>
     <line x1="1044" y1="310" x2="1044" y2="710" stroke="#496D86" stroke-width="1.5" stroke-dasharray="7 7"/>
     <circle cx="1044" cy="510" r="5" fill="#496D86"/>
-    <text x="1054" y="504" fill="#111111" font-size="256" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
-    <circle cx="1044.8" cy="510.4" r="7" fill="#496D86"/>
-    <line x1="1044.8" y1="510.4" x2="1138" y2="631" stroke="#496D86" stroke-width="1.5"/>
+    <circle cx="1044.29" cy="510.4" r="7" fill="#496D86"/>
+    <line x1="1044.29" y1="510.4" x2="1138" y2="631" stroke="#496D86" stroke-width="1.5"/>
     <rect x="978" y="630" width="312" height="82" fill="#F4F8FA" stroke="#496D86"/>
     <text x="998" y="660" font-size="14" font-weight="700" fill="#496D86">FINAL INK CENTROID</text>
-    <text x="998" y="688" font-size="15" fill="#1B1B19">x 256.31 / 원 중심보다 +0.81px</text>
+    <text x="998" y="688" font-size="15" fill="#1B1B19">x 256.31 / 벡터 중심보다 +0.31px</text>
     <text x="752" y="772" font-size="18" font-weight="700" fill="#1B1B19">결과</text>
-    <text x="752" y="802" font-size="17" fill="#62615C">글리프를 10px 오른쪽으로 이동해</text>
+    <text x="752" y="802" font-size="17" fill="#62615C">글리프를 마스터 기준 10px 오른쪽으로 이동해</text>
     <text x="752" y="828" font-size="17" fill="#62615C">원 안에서 시각적으로 중립이 된다.</text>
   </g>
 
@@ -57,7 +70,7 @@
     <line x1="72" y1="904" x2="1368" y2="904" stroke="#DDD9D1"/>
     <text x="72" y="944" font-size="14" font-weight="700" fill="#1B1B19" letter-spacing="1.1">MEASUREMENT</text>
     <text x="72" y="978" font-size="16" fill="#62615C">Canvas 512 × 512 px / Ring center 255.50, 255.50 / Ring stroke 31 px</text>
-    <text x="72" y="1008" font-size="16" fill="#62615C">Typeface Helvetica Neue Bold / 280 px / Final glyph anchor x 262, y 250</text>
+    <text x="72" y="1008" font-size="16" fill="#62615C">Typeface Helvetica Neue Bold / 280 px / Final glyph anchor x 262, y 250 / Board scale 92.3913%</text>
     <text x="1368" y="944" text-anchor="end" font-size="14" font-weight="700" fill="#1B1B19" letter-spacing="1.1">EDITABLE GROUPS</text>
     <text x="1368" y="978" text-anchor="end" font-size="16" fill="#62615C">Background / Header / Geometric Candidate / Optical Correction / Notes</text>
     <text x="1368" y="1008" text-anchor="end" font-size="16" fill="#62615C">Open in Adobe Illustrator, keep text editable, export final at 512 × 512 px.</text>
