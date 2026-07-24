@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1500" viewBox="0 0 1600 1500" role="img" aria-labelledby="title description">
+  <title id="title">Deep Couch Archive favicon material directions, third pass</title>
+  <desc id="description">Four non-letter favicon directions based on registration marks, folds, room apertures, and paired archive objects. Each has 32 and 16 pixel samples.</desc>
+  <style>
+    .paper { fill: #FAF9F7; }
+    .ink { fill: #111111; }
+    .line { fill: none; stroke: #D4D1CB; stroke-width: 2; }
+    .eyebrow { fill: #6F6C68; font: 600 18px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 1.8px; }
+    .heading { fill: #111111; font: 700 42px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .label { fill: #6F6C68; font: 600 16px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 1.4px; }
+    .name { fill: #111111; font: 700 28px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  </style>
+  <defs>
+    <!-- A small registration void: the position of the void is the mark, not a letter. -->
+    <g id="register-mark">
+      <rect class="ink" x="18" y="18" width="124" height="124"/>
+      <rect class="paper" x="100" y="18" width="42" height="42"/>
+      <rect class="ink" x="0" y="124" width="18" height="18"/>
+    </g>
+    <!-- A folded inventory slip. The diagonal carries the distinction at small size. -->
+    <g id="folded-slip">
+      <path class="ink" d="M16 0H126L150 24V150H16Z"/>
+      <path class="paper" d="M126 0V24H150Z"/>
+      <rect class="paper" x="34" y="104" width="54" height="18"/>
+    </g>
+    <!-- A room or drawer viewed as a solid plane with an off-centre aperture. -->
+    <g id="room-aperture">
+      <rect class="ink" x="0" y="32" width="156" height="88"/>
+      <rect class="paper" x="92" y="56" width="32" height="32"/>
+      <rect class="ink" x="126" y="0" width="30" height="30"/>
+    </g>
+    <!-- Two kept objects: a main record and its smaller, deliberately offset companion. -->
+    <g id="kept-pair">
+      <rect class="ink" x="0" y="18" width="104" height="124"/>
+      <rect class="ink" x="118" y="0" width="40" height="74"/>
+      <rect class="paper" x="30" y="48" width="44" height="20"/>
+    </g>
+  </defs>
+
+  <rect class="paper" width="1600" height="1500"/>
+  <text class="eyebrow" x="96" y="86">DCA / IDENTITY STUDY / 2026-07-24 / MATERIAL PASS</text>
+  <text class="heading" x="96" y="145">Favicon directions from objects, not initials.</text>
+  <text x="96" y="185" fill="#6F6C68" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="22">A registration mark, a folded slip, a room aperture, and a kept pair. No letters. No music notation. Each retains its relation at 16px.</text>
+  <line class="line" x1="96" y1="236" x2="1504" y2="236"/>
+
+  <g transform="translate(96 300)">
+    <rect class="line" width="664" height="520"/>
+    <text class="label" x="40" y="51">01 / REGISTER MARK</text>
+    <rect class="line" x="40" y="80" width="584" height="266"/>
+    <g transform="translate(249 142) scale(1.28)"><use href="#register-mark"/></g>
+    <line class="line" x1="40" y1="377" x2="624" y2="377"/>
+    <text class="name" x="40" y="433">Registration void</text>
+    <text class="label" x="488" y="430">32 PX</text>
+    <g transform="translate(572 408) scale(.2)"><use href="#register-mark"/></g>
+    <text class="label" x="488" y="480">16 PX</text>
+    <g transform="translate(588 464) scale(.1)"><use href="#register-mark"/></g>
+  </g>
+
+  <g transform="translate(840 300)">
+    <rect class="line" width="664" height="520"/>
+    <text class="label" x="40" y="51">02 / FOLDED SLIP</text>
+    <rect class="line" x="40" y="80" width="584" height="266"/>
+    <g transform="translate(255 136) scale(1.28)"><use href="#folded-slip"/></g>
+    <line class="line" x1="40" y1="377" x2="624" y2="377"/>
+    <text class="name" x="40" y="433">Folded record</text>
+    <text class="label" x="488" y="430">32 PX</text>
+    <g transform="translate(572 408) scale(.2)"><use href="#folded-slip"/></g>
+    <text class="label" x="488" y="480">16 PX</text>
+    <g transform="translate(588 464) scale(.1)"><use href="#folded-slip"/></g>
+  </g>
+
+  <g transform="translate(96 900)">
+    <rect class="line" width="664" height="520"/>
+    <text class="label" x="40" y="51">03 / ROOM APERTURE</text>
+    <rect class="line" x="40" y="80" width="584" height="266"/>
+    <g transform="translate(238 148) scale(1.28)"><use href="#room-aperture"/></g>
+    <line class="line" x1="40" y1="377" x2="624" y2="377"/>
+    <text class="name" x="40" y="433">Room aperture</text>
+    <text class="label" x="488" y="430">32 PX</text>
+    <g transform="translate(572 408) scale(.2)"><use href="#room-aperture"/></g>
+    <text class="label" x="488" y="480">16 PX</text>
+    <g transform="translate(588 464) scale(.1)"><use href="#room-aperture"/></g>
+  </g>
+
+  <g transform="translate(840 900)">
+    <rect class="line" width="664" height="520"/>
+    <text class="label" x="40" y="51">04 / KEPT PAIR</text>
+    <rect class="line" x="40" y="80" width="584" height="266"/>
+    <g transform="translate(238 142) scale(1.28)"><use href="#kept-pair"/></g>
+    <line class="line" x1="40" y1="377" x2="624" y2="377"/>
+    <text class="name" x="40" y="433">Kept pair</text>
+    <text class="label" x="488" y="430">32 PX</text>
+    <g transform="translate(572 408) scale(.2)"><use href="#kept-pair"/></g>
+    <text class="label" x="488" y="480">16 PX</text>
+    <g transform="translate(588 464) scale(.1)"><use href="#kept-pair"/></g>
+  </g>
+</svg>
