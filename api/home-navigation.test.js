@@ -58,12 +58,14 @@ assert alpha > 0 and min(red, green, blue) >= 230, (red, green, blue, alpha)
   });
 });
 
-test("dark Home LP uses the operational-index gray cover and a visible record center", () => {
+test("dark Home LP keeps a gray sleeve, record label, and a dark spindle hole", () => {
   const script = `
 from PIL import Image
 image = Image.open("assets/illustrations/vinyl-dca-home-dark.png").convert("RGBA")
 assert image.getpixel((500, 500)) == (101, 101, 101, 255), image.getpixel((500, 500))
-assert image.getpixel((900, 650))[:3] == (244, 244, 241), image.getpixel((900, 650))
+assert image.getpixel((920, 650)) == (101, 101, 101, 255), image.getpixel((920, 650))
+assert image.getpixel((900, 650)) == (16, 16, 16, 0), image.getpixel((900, 650))
+assert image.getpixel((1040, 650)) == (244, 244, 241, 255), image.getpixel((1040, 650))
 `;
 
   assert.doesNotThrow(() => {
