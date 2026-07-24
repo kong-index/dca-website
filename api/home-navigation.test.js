@@ -35,6 +35,7 @@ test("home navigation keeps the lower menu in three clear groups", () => {
   assert.match(html, /\[data-theme="dark"\] \.home-landing__art--dark \{\s*display: block;/);
   assert.match(html, /\.home-landing__media img \{[\s\S]*?background: transparent;/);
   assert.match(html, /@media \(max-width: 768px\) \{[\s\S]*?body\.is-home-view \.site-nav \{[\s\S]*?display: flex;/);
+  assert.match(html, /body\.is-home-view \.site-nav__link,\n\s+body\.is-home-view \.site-nav__link:hover,\n\s+body\.is-home-view \.site-nav__link\[aria-current="page"\] \{\n\s+min-height: 26px;\n\s+padding: 0;\n\s+white-space: nowrap;/);
   assert.match(html, /\[data-theme="light"\] \{[\s\S]*?--home-canvas: #FAF9F7;/);
   assert.doesNotMatch(html, /id="headerSearchInput"/);
   assert.doesNotMatch(html, /id="themeLabel"/);
@@ -50,6 +51,19 @@ from PIL import Image
 image = Image.open("assets/illustrations/vinyl-dca-home-dark.png").convert("RGBA")
 red, green, blue, alpha = image.getpixel((500, 280))
 assert alpha > 0 and min(red, green, blue) >= 230, (red, green, blue, alpha)
+`;
+
+  assert.doesNotThrow(() => {
+    childProcess.execFileSync("python3", ["-c", script], { cwd: path.join(__dirname, "..") });
+  });
+});
+
+test("dark Home LP uses the operational-index gray cover and a visible record center", () => {
+  const script = `
+from PIL import Image
+image = Image.open("assets/illustrations/vinyl-dca-home-dark.png").convert("RGBA")
+assert image.getpixel((500, 500)) == (101, 101, 101, 255), image.getpixel((500, 500))
+assert image.getpixel((900, 650))[:3] == (244, 244, 241), image.getpixel((900, 650))
 `;
 
   assert.doesNotThrow(() => {
