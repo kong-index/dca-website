@@ -23,7 +23,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/identity/dca-favicon-32.png?v=4">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/identity/dca-favicon-16.png?v=4">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/identity/dca-apple-touch-icon.png?v=4">
-  <link rel="preload" as="image" href="assets/illustrations/studio-console-line.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/identity/dca-og-cover.png?v=4" fetchpriority="high">
   <style>
     :root {
       color-scheme: dark;
@@ -1467,7 +1467,7 @@
     }
 
     .home-landing__media {
-      width: clamp(280px, 32vw, 460px);
+      width: clamp(400px, 52vw, 760px);
       margin: 0;
       background: transparent;
     }
@@ -1475,21 +1475,9 @@
     .home-landing__media img {
       display: block;
       width: 100%;
-      aspect-ratio: 1;
+      aspect-ratio: 1200 / 630;
       object-fit: contain;
       background: transparent;
-    }
-
-    .home-landing__media .home-landing__art--dark {
-      display: none;
-    }
-
-    [data-theme="dark"] .home-landing__art--light {
-      display: none;
-    }
-
-    [data-theme="dark"] .home-landing__art--dark {
-      display: block;
     }
 
     .home-admin {
@@ -3335,7 +3323,7 @@
       }
 
       .home-landing__media {
-        width: min(68vw, 340px);
+        width: min(92vw, 520px);
       }
 
       .home-admin {
@@ -3706,8 +3694,7 @@
             <div class="home-landing__center">
               <h1 class="home-landing__title" id="homeTitle">Deep Couch Archive</h1>
               <figure class="home-landing__media">
-                <img class="home-landing__art home-landing__art--light" src="assets/illustrations/vinyl-dca-home-light.png" width="1300" height="1300" alt="Deep Couch Archive 레코드 커버와 LP 손그림" data-i18n-alt-ko="Deep Couch Archive 레코드 커버와 LP 손그림" data-i18n-alt-en="Deep Couch Archive record cover and LP drawing" fetchpriority="high">
-                <img class="home-landing__art home-landing__art--dark" src="assets/illustrations/vinyl-dca-home-dark.png" width="1300" height="1300" alt="" aria-hidden="true">
+                <img class="home-landing__art" src="assets/identity/dca-og-cover.png?v=4" width="1200" height="630" alt="Deep Couch Archive 손그림 아이덴티티" data-i18n-alt-ko="Deep Couch Archive 손그림 아이덴티티" data-i18n-alt-en="Deep Couch Archive hand-drawn identity" fetchpriority="high">
               </figure>
             </div>
           </div>
