@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title description">
+  <title id="title">DCA favicon exploration</title>
+  <desc id="description">Four restrained DCA favicon studies. The D remains primary; C and A are implied through aperture and counter shapes.</desc>
+
+  <rect width="1200" height="760" fill="#FAF9F7"/>
+  <g fill="#1B1B19" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+    <text x="64" y="68" font-size="19" font-weight="600">DCA favicon studies</text>
+    <text x="64" y="96" font-size="14" fill="#62615C">D remains primary. C is an aperture; A is a counter.</text>
+  </g>
+
+  <g fill="#FFFFFF" stroke="#DDD9D1" stroke-width="2">
+    <rect x="64" y="144" width="250" height="500" rx="4"/>
+    <rect x="334" y="144" width="250" height="500" rx="4"/>
+    <rect x="604" y="144" width="250" height="500" rx="4"/>
+    <rect x="874" y="144" width="250" height="500" rx="4"/>
+  </g>
+
+  <!-- 01: Existing D mark, kept as the control. -->
+  <g transform="translate(93 173)">
+    <circle cx="96" cy="96" r="72" fill="none" stroke="#111111" stroke-width="12"/>
+    <text x="99" y="94" fill="#111111" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="110" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+    <g transform="translate(74 332) scale(.0625)">
+      <circle cx="256" cy="256" r="184" fill="none" stroke="#111111" stroke-width="31"/>
+      <text x="262" y="250" fill="#111111" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="280" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+    </g>
+    <g transform="translate(126 340) scale(.03125)">
+      <circle cx="256" cy="256" r="184" fill="none" stroke="#111111" stroke-width="31"/>
+      <text x="262" y="250" fill="#111111" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="280" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+    </g>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#62615C">
+      <text x="0" y="412" font-size="12">01 / D CORE</text>
+      <text x="0" y="438" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15">Current mark. No secondary reading.</text>
+    </g>
+  </g>
+
+  <!-- 02: A narrow opening turns the outer ring into an understated C. -->
+  <g transform="translate(363 173)">
+    <g>
+      <circle cx="96" cy="96" r="72" fill="none" stroke="#111111" stroke-width="12"/>
+      <rect x="158" y="77" width="22" height="38" fill="#FFFFFF"/>
+      <text x="99" y="94" fill="#111111" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="110" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+    </g>
+    <g transform="translate(74 332) scale(.0625)">
+      <circle cx="256" cy="256" r="184" fill="none" stroke="#111111" stroke-width="31"/>
+      <rect x="414" y="208" width="56" height="96" fill="#FFFFFF"/>
+      <text x="262" y="250" fill="#111111" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="280" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+    </g>
+    <g transform="translate(126 340) scale(.03125)">
+      <circle cx="256" cy="256" r="184" fill="none" stroke="#111111" stroke-width="31"/>
+      <rect x="414" y="208" width="56" height="96" fill="#FFFFFF"/>
+      <text x="262" y="250" fill="#111111" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="280" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+    </g>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#62615C">
+      <text x="0" y="412" font-size="12">02 / C APERTURE</text>
+      <text x="0" y="438" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15">The ring opens, but D stays legible.</text>
+    </g>
+  </g>
+
+  <!-- 03: A small triangular counter is the only A cue. -->
+  <g transform="translate(633 173)">
+    <g>
+      <circle cx="96" cy="96" r="72" fill="none" stroke="#111111" stroke-width="12"/>
+      <text x="99" y="94" fill="#111111" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="110" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+      <path d="M118 67 L128 89 L108 89 Z" fill="#FFFFFF"/>
+    </g>
+    <g transform="translate(74 332) scale(.0625)">
+      <circle cx="256" cy="256" r="184" fill="none" stroke="#111111" stroke-width="31"/>
+      <text x="262" y="250" fill="#111111" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="280" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+      <path d="M344 140 L385 228 L303 228 Z" fill="#FFFFFF"/>
+    </g>
+    <g transform="translate(126 340) scale(.03125)">
+      <circle cx="256" cy="256" r="184" fill="none" stroke="#111111" stroke-width="31"/>
+      <text x="262" y="250" fill="#111111" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="280" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+      <path d="M344 140 L385 228 L303 228 Z" fill="#FFFFFF"/>
+    </g>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#62615C">
+      <text x="0" y="412" font-size="12">03 / A COUNTER</text>
+      <text x="0" y="438" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15">A exists only in the D's negative space.</text>
+    </g>
+  </g>
+
+  <!-- 04: The combined version uses only two removals: C aperture + A counter. -->
+  <g transform="translate(903 173)">
+    <g>
+      <circle cx="96" cy="96" r="72" fill="none" stroke="#111111" stroke-width="12"/>
+      <rect x="158" y="77" width="22" height="38" fill="#FFFFFF"/>
+      <text x="99" y="94" fill="#111111" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="110" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+      <path d="M118 67 L128 89 L108 89 Z" fill="#FFFFFF"/>
+    </g>
+    <g transform="translate(74 332) scale(.0625)">
+      <circle cx="256" cy="256" r="184" fill="none" stroke="#111111" stroke-width="31"/>
+      <rect x="414" y="208" width="56" height="96" fill="#FFFFFF"/>
+      <text x="262" y="250" fill="#111111" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="280" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+      <path d="M344 140 L385 228 L303 228 Z" fill="#FFFFFF"/>
+    </g>
+    <g transform="translate(126 340) scale(.03125)">
+      <circle cx="256" cy="256" r="184" fill="none" stroke="#111111" stroke-width="31"/>
+      <rect x="414" y="208" width="56" height="96" fill="#FFFFFF"/>
+      <text x="262" y="250" fill="#111111" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="280" font-weight="700" text-anchor="middle" dominant-baseline="central">D</text>
+      <path d="M344 140 L385 228 L303 228 Z" fill="#FFFFFF"/>
+    </g>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#62615C">
+      <text x="0" y="412" font-size="12">04 / DCA APERTURE</text>
+      <text x="0" y="438" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15">The strongest combined read; most to test.</text>
+    </g>
+  </g>
+
+  <line x1="64" y1="684" x2="1124" y2="684" stroke="#DDD9D1" stroke-width="2"/>
+  <text x="64" y="718" fill="#62615C" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14">Each study is shown at application size, 32px, and 16px. The final mark should survive the 16px test without needing viewers to decode every letter.</text>
+</svg>
