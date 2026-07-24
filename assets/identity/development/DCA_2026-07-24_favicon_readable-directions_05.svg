@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050" role="img" aria-labelledby="title description">
+  <title id="title">Deep Couch Archive favicon readable directions, final reduction</title>
+  <desc id="description">Two directly legible favicon candidates: D in Circle and D Archive Tab. Both use an outlined vector D and show actual exported 16 and 32 pixel PNG samples.</desc>
+  <style>
+    .paper { fill: #FAFAFA; }
+    .ink { fill: #111111; }
+    .line { fill: none; stroke: #D4D1CB; stroke-width: 2; }
+    .eyebrow { fill: #6F6C68; font: 600 18px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 1.8px; }
+    .heading { fill: #111111; font: 700 42px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .label { fill: #6F6C68; font: 600 16px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 1.4px; }
+    .name { fill: #111111; font: 700 28px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  </style>
+  <defs>
+    <path id="d-shape" d="M28 24H74C108 24 132 46 132 80S108 136 74 136H28ZM56 48V112H72C88 112 99 101 99 80S88 48 72 48Z"/>
+    <g id="d-circle">
+      <rect class="paper" width="160" height="160"/>
+      <circle cx="80" cy="80" r="67" fill="none" stroke="#111111" stroke-width="14"/>
+      <use href="#d-shape" class="ink"/>
+    </g>
+    <g id="d-tab">
+      <rect class="paper" width="160" height="160"/>
+      <path class="ink" d="M16 0H160V160H0V16Z"/>
+      <path class="paper" d="M16 0V16H0Z"/>
+      <use href="#d-shape" class="paper"/>
+    </g>
+  </defs>
+  <rect class="paper" width="1600" height="1050"/>
+  <text class="eyebrow" x="96" y="86">DCA / IDENTITY STUDY / 2026-07-24 / FINAL REDUCTION</text>
+  <text class="heading" x="96" y="145">One letter. Two useful housings.</text>
+  <text x="96" y="185" fill="#6F6C68" font-family="system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="22">The mark reads as D before the browser can reduce it. The choice is between a neutral stamp and an archive index tab.</text>
+  <line class="line" x1="96" y1="236" x2="1504" y2="236"/>
+  <g transform="translate(96 300)">
+    <rect class="line" width="664" height="620"/>
+    <text class="label" x="40" y="51">01 / D IN CIRCLE</text>
+    <rect class="line" x="40" y="80" width="584" height="330"/>
+    <g transform="translate(224 105) scale(1.8)"><use href="#d-circle"/></g>
+    <line class="line" x1="40" y1="441" x2="624" y2="441"/>
+    <text class="name" x="40" y="497">D / primary mark</text>
+    <text class="label" x="488" y="494">32 PX</text>
+    <image href="DCA_2026-07-24_favicon_d-circle_candidate_32.png" x="572" y="472" width="32" height="32"/>
+    <text class="label" x="488" y="554">16 PX</text>
+    <image href="DCA_2026-07-24_favicon_d-circle_candidate_16.png" x="588" y="538" width="16" height="16"/>
+  </g>
+  <g transform="translate(840 300)">
+    <rect class="line" width="664" height="620"/>
+    <text class="label" x="40" y="51">02 / D ARCHIVE TAB</text>
+    <rect class="line" x="40" y="80" width="584" height="330"/>
+    <g transform="translate(224 105) scale(1.8)"><use href="#d-tab"/></g>
+    <line class="line" x1="40" y1="441" x2="624" y2="441"/>
+    <text class="name" x="40" y="497">D / archive tab</text>
+    <text class="label" x="488" y="494">32 PX</text>
+    <image href="DCA_2026-07-24_favicon_d-tab_candidate_32.png" x="572" y="472" width="32" height="32"/>
+    <text class="label" x="488" y="554">16 PX</text>
+    <image href="DCA_2026-07-24_favicon_d-tab_candidate_16.png" x="588" y="538" width="16" height="16"/>
+  </g>
+</svg>
